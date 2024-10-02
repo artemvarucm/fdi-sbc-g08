@@ -1,0 +1,14 @@
+class Engine:
+    def __init__(self, baseReglas):
+        self.baseReglas = baseReglas
+
+    def rules_match(rule1, rule2):
+        return True
+
+    def backward_chain(consulta):
+        # para cada regla en base de conocimiento
+        for regla in baseReglas:
+            if (rules_match(regla)):
+                return True
+
+        return False
