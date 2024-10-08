@@ -1,6 +1,14 @@
+from hornyclause import HornClause
+
 class Engine:
     def __init__(self, baseReglas):
-        self.baseReglas = baseReglas
+        # base reglas es una lista de lineas del archivo, lo convertimos a objetos
+        self.baseReglas = [HornClause(r) for r in baseReglas]
+
+    def print(self):
+        for r in self.baseReglas:
+            r.print()
+
 
     def rules_match(rule1, rule2):
         return True

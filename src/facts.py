@@ -3,7 +3,7 @@ class Facts:
     Estructura de datos para almacenar los 
     hechos con sus respectivas probabilidades
     '''
-    __init__(self):
+    def __init__(self):
         self.container = {}
     
     def addOrUpdateFact(self, fact, prob):

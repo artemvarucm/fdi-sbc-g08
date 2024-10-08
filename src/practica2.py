@@ -6,20 +6,25 @@ Recibe como parametro el archivo de base de conocimiento
 '''
 
 import argparse
-import hornyclause
+
+from engine import Engine
 
 parser = argparse.ArgumentParser(description="Sistema basado en reglas capaz de realizar razonamiento hacia atrás (backward chaining), incorporando lógica difusa")
-# Obligatorios
+
+# Argumento obligatorio - ruta del base de conocimiento
 parser.add_argument('wisdom', help="Ruta del archivo de la base de conocimiento")
 args = parser.parse_args()
 
 with open(args.wisdom, "r", newline="\n") as f:
-    lineas = [line.rstrip() for line in f]
+    # eliminamos las lineas vacias y las que empiecen por "#"
+    lineas = [line.strip() for line in f if line.strip() and not line.strip().startswith("#")] 
 
-reglas = lineas[lineas.index('## Trabajos') + 1:lineas.index('## Habilidades')]
-habilidades = lineas[lineas.index('## Habilidades') + 1:]
+engine = Engine(lineas)
 
-f = hornyclause.HornClause("matematicas :- fisica, programacion [0.8]")
-
-
-
+while True:
+    query = input("> ")
+    
+    if (query == "print"): # mostrar por pantalla la base de conocimiento
+        engine.print()
+    elif (query.endswith("?")): # mostrar el valor de un hecho 
+        print(engine.backward_chain(query[:-1]))
