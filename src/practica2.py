@@ -6,8 +6,7 @@ Recibe como parametro el archivo de base de conocimiento
 """
 
 import argparse
-from engine import Engine
-import utils
+from app import App
 
 parser = argparse.ArgumentParser(
     description="Sistema basado en reglas capaz de realizar razonamiento hacia atrás (backward chaining), incorporando lógica difusa"
@@ -19,26 +18,17 @@ parser.add_argument(
 )
 args = parser.parse_args()
 
-# Inicializa el engine
-engine = Engine(utils.readFile(args.base_conocimiento))
+app = App(args.base_conocimiento)
 
 # Muestra los comandos
-utils.help()
+app.help()
 
 # Bucle principal del programa
 while True:
     query = input("> ")
     try:
-        if query == "help":
-            utils.help()
-        elif query == "print":  # mostrar por pantalla la base de conocimiento
-            engine.print()
-        elif query.endswith("?"):  # mostrar el valor de un hecho
-            goals = [query[:-1]]
-            engine.evaluar(engine.backward_chain(goals))
-        elif query.startswith("add "):  # añadir hecho
-            engine.newFact(query[4:])
-        else:
-            print(f'COMANDO "{query}" DESCONOCIDO')
+        if query == "quit":
+            break
+        app.processCommand(query)
     except Exception as e:
         print("[ERROR DURANTE EJECUCION]:", e)

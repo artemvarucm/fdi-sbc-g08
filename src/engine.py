@@ -52,7 +52,6 @@ class Engine:
     # fixme
     # def evaluar
     # min/max
-    # libreria click
     def backward_chain(self, goals):
         prob = 1
         for g in goals:

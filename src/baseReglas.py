@@ -20,5 +20,6 @@ class BaseReglas:
         return self.container[consecuente]
 
     def print(self):
-        for r in self.container:
-            r.print()
+        for consecuente in self.container:
+            for r in self.container[consecuente]:
+                r.print()
