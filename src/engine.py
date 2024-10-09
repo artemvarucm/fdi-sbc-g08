@@ -1,19 +1,28 @@
-from hornyclause import HornClause
+from hornyClause import HornClause
 from facts import Facts
+from baseReglas import BaseReglas
 
 
 class Engine:
     def __init__(self, baseReglas):
-        # base reglas es una lista de lineas del archivo, lo convertimos a objetos
-        self.baseReglas = [HornClause(r) for r in baseReglas]
+        self.baseReglas = BaseReglas()
         self.facts = Facts()
+        for r in baseReglas:
+            if ":-" in r:
+                self.baseReglas.add(r)
+            else:
+                self.newFact(r)
 
     def print(self):
         """
-        Muestra las clausulas de la base de conocimiento
+        Muestra las clausulas y hechos de la base de conocimiento
         """
-        for r in self.baseReglas:
-            r.print()
+        print("HORNY CLAUSES")
+        self.baseReglas.print()
+        print("-" * 10)
+        print("FACTS")
+        self.facts.print()
+        print()
 
     def newFact(self, factStr):
         """
@@ -29,10 +38,8 @@ class Engine:
 
         if len(factArray) > 1:
             prob = float(factArray[1][1:-1])
-        if self.facts.contains(fact):
-            raise Exception(f"Hecho {fact} ya añadido.")
 
-        self.facts.addOrUpdateFact(fact, prob)
+        self.facts.addFact(fact, prob)
 
     def evaluar(self, prob):
         if prob == 1:
@@ -44,24 +51,24 @@ class Engine:
 
     # fixme
     # def evaluar
-    # eliminar la regla que acabamos de aplicar (baseReglas)
     # min/max
     # libreria click
     def backward_chain(self, goals):
         prob = 1
         for g in goals:
             if not self.facts.contains(g):
-                for r in self.baseReglas:
-                    if r.getConsecuente() == g:
-                        r.print()
-                        probPrecedentes = self.backward_chain(r.getAntecedentes())
-                        self.facts.addOrUpdateFact(
-                            g,
-                            max(
-                                r.getGradoVerdad() * probPrecedentes,
-                                self.facts.getValorVerdad(g),
-                            ),
-                        )
+                for r in self.baseReglas.findByConsecuente(g):
+                    r.print()
+
+                    probPrecedentes = self.backward_chain(r.getAntecedentes())
+
+                    self.facts.addOrUpdateFact(
+                        g,
+                        max(
+                            r.getGradoVerdad() * probPrecedentes,
+                            self.facts.getValorVerdad(g),
+                        ),
+                    )
 
             prob *= self.facts.getValorVerdad(g)
 

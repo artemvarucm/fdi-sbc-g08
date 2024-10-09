@@ -7,11 +7,31 @@ class Facts:
     def __init__(self):
         self.container = {}
 
-    def addOrUpdateFact(self, fact, prob):
+    def print(self):
+        for key, val in self.container.items():
+            print(f"{key} [{val}]")
+
+    def addFact(self, fact, prob):
         """
-        Actualiza o añade información sobre el hecho
+        Añade información sobre el hecho
         """
+        if self.contains(fact):
+            raise Exception(f"Hecho {fact} ya añadido.")
         self.container[fact] = prob
+
+    def updateFact(self, fact, prob):
+        """
+        Actualiza información sobre el hecho
+        """
+        if not self.contains(fact):
+            raise Exception(f"Hecho {fact} no existe.")
+        self.container[fact] = prob
+
+    def addOrUpdateFact(self, fact, prob):
+        if self.contains(fact):
+            self.updateFact(fact, prob)
+        else:
+            self.addFact(fact, prob)
 
     def contains(self, fact):
         """

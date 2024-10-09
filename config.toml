@@ -1,0 +1,6 @@
+[output]
+language = "es" # posibles valores es, en
+range = ["poco", "mucho"]
+
+[algorithm]
+evaluation = "min/max" # posibles valores min/max, sum/prod
