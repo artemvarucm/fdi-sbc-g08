@@ -8,6 +8,9 @@ class Facts:
         self.container = {}
 
     def print(self):
+        """
+        Muestra todos los hechos con el grado de verdad
+        """
         for key, val in self.container.items():
             print(f"{key} [{val}]")
 

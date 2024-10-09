@@ -1,6 +1,11 @@
 [output]
-language = "es" # posibles valores es, en
-range = ["poco", "mucho"]
+language = "en" # posibles valores es, en
+rangeEval = [ # funcion de evaluacion
+    "=1 -> Si, seguro",
+    ">0.8 -> Si, mucho",
+    "<0.3 -> No, mucho",
+    "default -> No estoy seguro"
+]
 
 [algorithm]
 evaluation = "min/max" # posibles valores min/max, sum/prod

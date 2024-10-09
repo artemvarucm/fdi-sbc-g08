@@ -1,4 +1,3 @@
-import utils
 from engine import Engine
 from config import Config
 
@@ -14,8 +13,8 @@ class App:
 
         # Inicializa el engine
         try:
-            baseReglas = utils.readFile(base_conocimiento)
-            self.engine = Engine(baseReglas)
+            base = self.readFile(base_conocimiento)
+            self.engine = Engine(base, self.config.getConfigOrDefault(["algorithm", "evaluation"], "min/max"))
         except Exception:
             raise Exception(
                 "Se produjo un error al intentar cargar base de conocimiento. Revise nombre del archivo."
@@ -39,10 +38,35 @@ class App:
             print(f'COMANDO "{query}" DESCONOCIDO')
 
     def evaluar(self, score):
-        if score > 0.5:
-            print(f"Si [{score}]")
-        else:
-            print(f"No [{score}]")
+        """
+        Muestra por pantalla una salida formateada del grado de verdad
+        """
+        evalFunc = self.config.getConfigOrDefault(
+            ["output", "rangeEval"],
+            {
+                "=1 -> Si, segurisimo",
+                ">0.9 -> Si, seguro",
+                ">0.5 -> Si",
+                "<0.1 -> No, seguro",
+                "default -> No",
+            })
+        
+        match = False
+        for item in evalFunc:
+            key, val = item.split(" -> ")
+            if key != "default":
+                op, threshold = key[:1], float(key[1:])
+                if (op == "=" and threshold == score) or (op == ">" and score > threshold) or (op == "<" and score < threshold):
+                    # Aplicando la funcion de evaluacion si cumple, IMPORTA EL ORDEN
+                    match = True
+                    print(val)
+                    
+                    break
+        
+        if not match and "default" in evalFunc.keys():
+            print(evalFunc["default"])
+
+        print(f"[{score}]")
 
     def help(self):
         """Muestra los comandos del programa"""
@@ -52,6 +76,21 @@ class App:
             self.helpEspañol()
         else:
             self.helpIngles()
+
+    def readFile(self, file_path):
+        """
+        Lee el fichero en file_path y devuelve las lineas del fichero
+        eliminando las lineas vacias y las que comienzan por "#"
+        """
+
+        with open(file_path, "r", newline="\n") as f:
+            lineas = [
+                line.strip()
+                for line in f
+                if line.strip() and not line.strip().startswith("#")
+            ]
+
+        return lineas
 
     def helpEspañol(self):
         print(f"{"print":22} - mostrar por pantalla la base de conocimiento")

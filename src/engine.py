@@ -4,10 +4,11 @@ from baseReglas import BaseReglas
 
 
 class Engine:
-    def __init__(self, baseReglas):
+    def __init__(self, base, modoDifusa):
         self.baseReglas = BaseReglas()
         self.facts = Facts()
-        for r in baseReglas:
+        self.modoDifusa = modoDifusa
+        for r in base:
             if ":-" in r:
                 self.baseReglas.addFromString(r)
             else:
@@ -19,7 +20,8 @@ class Engine:
         """
         print("HORNY CLAUSES")
         self.baseReglas.print()
-        print("-" * 10)
+        print("-" * 15)
+
         print("FACTS")
         self.facts.print()
         print()
@@ -40,11 +42,33 @@ class Engine:
             prob = float(factArray[1][1:-1])
 
         self.facts.addFact(fact, prob)
+    
+    def andDifuso(self, prob1, prob2):
+        """
+        Operador AND con logica difusa
+        """
+        if self.modoDifusa == "min/max":
+            return min(prob1, prob2)
+        else:
+            return prob1 * prob2
+
+    def orDifuso(self, prob1, prob2):
+        """
+        Operador OR con logica difusa
+        """
+        if self.modoDifusa == "min/max":
+            return max(prob1, prob2)
+        else:
+            return prob1 + prob2 # ver la resta
 
     # fixme
     # def evaluar
-    # min/max
     def backward_chain(self, goals):
+        """
+        Aplica el razonamiento hacia atrás, incorporando lógica difusa
+        
+        Devuelve el grado de verdad de que ocurran todos los goals
+        """
         prob = 1
         for g in goals:
             if not self.facts.contains(g):
@@ -55,12 +79,14 @@ class Engine:
 
                     self.facts.addOrUpdateFact(
                         g,
-                        max(
-                            r.getGradoVerdad() * probPrecedentes,
+                        self.orDifuso(
+                            self.andDifuso(r.getGradoVerdad(), probPrecedentes), # fixme AND vs MULTIPLICAR?
                             self.facts.getValorVerdad(g),
                         ),
                     )
+            else:
+                print(f"{g} [{self.facts.getValorVerdad(g)}]")
 
-            prob *= self.facts.getValorVerdad(g)
+            prob = self.andDifuso(prob, self.facts.getValorVerdad(g))
 
         return prob
