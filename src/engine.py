@@ -9,7 +9,7 @@ class Engine:
         self.facts = Facts()
         for r in baseReglas:
             if ":-" in r:
-                self.baseReglas.add(r)
+                self.baseReglas.addFromString(r)
             else:
                 self.newFact(r)
 
@@ -40,14 +40,6 @@ class Engine:
             prob = float(factArray[1][1:-1])
 
         self.facts.addFact(fact, prob)
-
-    def evaluar(self, prob):
-        if prob == 1:
-            print("Si")
-        elif prob >= 0.7:
-            print(f"Si, mucho ({prob})")
-        else:
-            print("No")
 
     # fixme
     # def evaluar
