@@ -14,27 +14,27 @@ class Facts:
         for key, val in self.container.items():
             print(f"{key} [{val}]")
 
-    def addFact(self, fact, prob):
+    def addFact(self, fact, score):
         """
         Añade información sobre el hecho
         """
         if self.contains(fact):
             raise Exception(f"Hecho {fact} ya añadido.")
-        self.container[fact] = prob
+        self.container[fact] = score
 
-    def updateFact(self, fact, prob):
+    def updateFact(self, fact, score):
         """
         Actualiza información sobre el hecho
         """
         if not self.contains(fact):
             raise Exception(f"Hecho {fact} no existe.")
-        self.container[fact] = prob
+        self.container[fact] = score
 
-    def addOrUpdateFact(self, fact, prob):
+    def addOrUpdateFact(self, fact, score):
         if self.contains(fact):
-            self.updateFact(fact, prob)
+            self.updateFact(fact, score)
         else:
-            self.addFact(fact, prob)
+            self.addFact(fact, score)
 
     def contains(self, fact):
         """

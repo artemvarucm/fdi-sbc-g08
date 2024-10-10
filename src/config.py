@@ -1,5 +1,6 @@
 import toml
 
+
 class Config:
     """
     Clase encargada de trabajar con la confuguración adicional en el archivo config.toml
@@ -30,7 +31,7 @@ class Config:
 
         Ej.
         getConfigOrDefault(["settings", "user"], "test")
-        
+
         Accede a self.config["settings"]["user"]
         Devuelve "test" si es vacío
         """
@@ -40,5 +41,5 @@ class Config:
                 result = result[level]
             else:
                 return default
-        
+
         return result

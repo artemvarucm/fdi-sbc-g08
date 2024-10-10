@@ -1,11 +1,11 @@
 [output]
-language = "en" # posibles valores es, en
-rangeEval = [ # funcion de evaluacion
-    "=1 -> Si, seguro",
-    ">0.8 -> Si, mucho",
-    "<0.3 -> No, mucho",
-    "default -> No estoy seguro"
+language = "en" # idioma, posibles valores es, en
+rangeEval = [ # funcion de evaluacion que imprime el texto en función del grado de verdad
+    "=1 -> Si, seguro", # si es igual a 1
+    ">0.8 -> Si, mucho", # si es mayor que 0.8
+    "<0.3 -> No, mucho", # si es menor que 0.3
+    "default -> No estoy seguro" # en cualquier otro caso
 ]
 
 [algorithm]
-evaluation = "min/max" # posibles valores min/max, sum/prod
+evaluation = "min/max" # operaciones con grados de verdad, posibles valores min/max, sum/prod

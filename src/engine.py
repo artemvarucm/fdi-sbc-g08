@@ -18,7 +18,7 @@ class Engine:
         """
         Muestra las clausulas y hechos de la base de conocimiento
         """
-        print("HORNY CLAUSES")
+        print("HORN CLAUSES")
         self.baseReglas.print()
         print("-" * 15)
 
@@ -34,59 +34,64 @@ class Engine:
         """
         factArray = factStr.split(" ")
         fact = factArray[0]
-        prob = 1
+        score = 1
 
         # si no se ha indicado el grado de verdad asumimos que es 1
 
         if len(factArray) > 1:
-            prob = float(factArray[1][1:-1])
+            score = float(factArray[1][1:-1])
 
-        self.facts.addFact(fact, prob)
-    
-    def andDifuso(self, prob1, prob2):
+        self.facts.addFact(fact, score)
+
+    def andDifuso(self, score1, score2):
         """
         Operador AND con logica difusa
+
+        Recibe 2 grados de verdad como parametros
         """
         if self.modoDifusa == "min/max":
-            return min(prob1, prob2)
+            return min(score1, score2)
         else:
-            return prob1 * prob2
+            return score1 * score2
 
-    def orDifuso(self, prob1, prob2):
+    def orDifuso(self, score1, score2):
         """
         Operador OR con logica difusa
+
+        Recibe 2 grados de verdad como parametros
         """
         if self.modoDifusa == "min/max":
-            return max(prob1, prob2)
+            return max(score1, score2)
         else:
-            return prob1 + prob2 # ver la resta
+            return score1 + score2 - score1 * score2
 
-    # fixme
-    # def evaluar
     def backward_chain(self, goals):
         """
         Aplica el razonamiento hacia atrás, incorporando lógica difusa
-        
-        Devuelve el grado de verdad de que ocurran todos los goals
+
+        Devuelve el grado de verdad de que ocurran todos los goals (AND)
         """
-        prob = 1
+        score = 1
         for g in goals:
             if not self.facts.contains(g):
                 for r in self.baseReglas.findByConsecuente(g):
+                    # Recorremos las reglas cuyo consecuente sea la meta
                     r.print()
+                    scorePrecedentes = self.backward_chain(r.getAntecedentes())
+                    scoreClausula = self.andDifuso(r.getGradoVerdad(), scorePrecedentes)
 
-                    probPrecedentes = self.backward_chain(r.getAntecedentes())
-
+                    # Asignamos el nuevo grado de verdad de la meta
                     self.facts.addOrUpdateFact(
                         g,
                         self.orDifuso(
-                            self.andDifuso(r.getGradoVerdad(), probPrecedentes), # fixme AND vs MULTIPLICAR?
+                            scoreClausula,
                             self.facts.getValorVerdad(g),
                         ),
                     )
             else:
                 print(f"{g} [{self.facts.getValorVerdad(g)}]")
 
-            prob = self.andDifuso(prob, self.facts.getValorVerdad(g))
+            # Aplicamos AND entre los grados de verdad de las metas
+            score = self.andDifuso(score, self.facts.getValorVerdad(g))
 
-        return prob
+        return score

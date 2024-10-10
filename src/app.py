@@ -14,7 +14,10 @@ class App:
         # Inicializa el engine
         try:
             base = self.readFile(base_conocimiento)
-            self.engine = Engine(base, self.config.getConfigOrDefault(["algorithm", "evaluation"], "min/max"))
+            self.engine = Engine(
+                base,
+                self.config.getConfigOrDefault(["algorithm", "evaluation"], "min/max"),
+            )
         except Exception:
             raise Exception(
                 "Se produjo un error al intentar cargar base de conocimiento. Revise nombre del archivo."
@@ -49,22 +52,30 @@ class App:
                 ">0.5 -> Si",
                 "<0.1 -> No, seguro",
                 "default -> No",
-            })
-        
+            },
+        )
+
         match = False
+        default = ""
         for item in evalFunc:
             key, val = item.split(" -> ")
             if key != "default":
                 op, threshold = key[:1], float(key[1:])
-                if (op == "=" and threshold == score) or (op == ">" and score > threshold) or (op == "<" and score < threshold):
+                if (
+                    (op == "=" and threshold == score)
+                    or (op == ">" and score > threshold)
+                    or (op == "<" and score < threshold)
+                ):
                     # Aplicando la funcion de evaluacion si cumple, IMPORTA EL ORDEN
                     match = True
-                    print(val)
-                    
+                    print(val, end=" ")
+
                     break
-        
-        if not match and "default" in evalFunc.keys():
-            print(evalFunc["default"])
+            else:
+                default = val
+
+        if not match and default != "":
+            print(default, end=" ")
 
         print(f"[{score}]")
 
