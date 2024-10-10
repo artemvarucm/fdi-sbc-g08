@@ -34,7 +34,12 @@ class App:
             self.engine.print()
         elif query.endswith("?"):  # mostrar el valor de un hecho
             goals = [query[:-1]]
-            self.evaluar(self.engine.backward_chain(goals))
+            showAppliedChain = self.config.getConfigOrDefault(
+                ["output", "showAppliedChain"], "yes"
+            )
+            grado = self.engine.backward_chain(goals, showAppliedChain == "yes")
+            print()
+            self.evaluar(grado)
         elif query.startswith("add "):  # añadir hecho
             self.engine.newFact(query[4:])
         else:

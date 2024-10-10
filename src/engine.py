@@ -65,9 +65,11 @@ class Engine:
         else:
             return score1 + score2 - score1 * score2
 
-    def backward_chain(self, goals):
+    def backward_chain(self, goals, showAppliedChain = True):
         """
         Aplica el razonamiento hacia atrás, incorporando lógica difusa
+
+        showAppliedChain indica si hay que mostrar derivación
 
         Devuelve el grado de verdad de que ocurran todos los goals (AND)
         """
@@ -76,8 +78,10 @@ class Engine:
             if not self.facts.contains(g):
                 for r in self.baseReglas.findByConsecuente(g):
                     # Recorremos las reglas cuyo consecuente sea la meta
-                    r.print()
-                    scorePrecedentes = self.backward_chain(r.getAntecedentes())
+                    if showAppliedChain:
+                        r.print()
+
+                    scorePrecedentes = self.backward_chain(r.getAntecedentes(), showAppliedChain)
                     scoreClausula = self.andDifuso(r.getGradoVerdad(), scorePrecedentes)
 
                     # Asignamos el nuevo grado de verdad de la meta
@@ -88,10 +92,17 @@ class Engine:
                             self.facts.getValorVerdad(g),
                         ),
                     )
-            else:
+                    if showAppliedChain and (scorePrecedentes > 0):
+                        print(f"{g} [{self.facts.getValorVerdad(g)}]")
+
+            elif showAppliedChain:
                 print(f"{g} [{self.facts.getValorVerdad(g)}]")
 
             # Aplicamos AND entre los grados de verdad de las metas
             score = self.andDifuso(score, self.facts.getValorVerdad(g))
+
+            # Podamos, no tiene sentido seguir, el grado será 0 como máximo
+            if score == 0:
+                break
 
         return score
