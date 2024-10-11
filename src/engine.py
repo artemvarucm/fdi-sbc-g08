@@ -1,4 +1,3 @@
-from hornyClause import HornClause
 from facts import Facts
 from baseReglas import BaseReglas
 
