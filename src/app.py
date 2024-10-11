@@ -18,10 +18,8 @@ class App:
                 base,
                 self.config.getConfigOrDefault(["algorithm", "evaluation"], "min/max"),
             )
-        except Exception:
-            raise Exception(
-                "Se produjo un error al intentar cargar base de conocimiento. Revise nombre del archivo."
-            )
+        except FileNotFoundError:
+            raise Exception("Archivo " + base_conocimiento + " no encontrado.")
 
     def processCommand(self, query):
         """

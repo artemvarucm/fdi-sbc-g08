@@ -8,11 +8,17 @@ class Engine:
         self.baseReglas = BaseReglas()
         self.facts = Facts()
         self.modoDifusa = modoDifusa
+
         for r in base:
-            if ":-" in r:
-                self.baseReglas.addFromString(r)
-            else:
-                self.newFact(r)
+            try:
+                if ":-" in r:
+                    self.baseReglas.addFromString(r)
+                else:
+                    self.newFact(r)
+            except Exception:
+                raise Exception(
+                    f'Error al procesar la línea de la base de conocimiento: "{r}"'
+                )
 
     def print(self):
         """
@@ -65,7 +71,7 @@ class Engine:
         else:
             return score1 + score2 - score1 * score2
 
-    def backward_chain(self, goals, showAppliedChain = True):
+    def backward_chain(self, goals, showAppliedChain=True):
         """
         Aplica el razonamiento hacia atrás, incorporando lógica difusa
 
@@ -81,7 +87,9 @@ class Engine:
                     if showAppliedChain:
                         r.print()
 
-                    scorePrecedentes = self.backward_chain(r.getAntecedentes(), showAppliedChain)
+                    scorePrecedentes = self.backward_chain(
+                        r.getAntecedentes(), showAppliedChain
+                    )
                     scoreClausula = self.andDifuso(r.getGradoVerdad(), scorePrecedentes)
 
                     # Asignamos el nuevo grado de verdad de la meta
