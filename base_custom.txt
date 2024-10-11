@@ -1,8 +1,25 @@
-# Base de conocimiento para clasificación de animales
+# base de conocimiento sobre los fenómenos meteorológicos y las alertas de riesgo
 
-carnivoro :- vertebrado, sangre_caliente [0.6]
-carnivoro :- oviparo, sangre_fría [0.4]
-herbivoro :- vertebrado, sangre_caliente [0.8]
-herbivoro :- invertebrado, sangre_fría [0.75]
-omnivoro :- vertebrado, sangre_caliente [1.0]
-omnivoro :- vertebrado, sangre_fría [0.1]
+alerta_roja :- huracan, inundacion
+alerta_roja :- terremoto_grave, tsunami
+alerta_roja :- erupcion_volcan, viento
+
+alerta_naranja :- inundacion, viento
+alerta_naranja :- incendio
+
+# si hay un terremoto leve, puede convertirse en grave
+terremoto_grave :- terremoto_leve [0.2]
+terremoto_leve :- erupcion_volcan
+terremoto_grave :- erupcion_volcan [0.3]
+
+tsunami :- olas, choque_placas [0.7]
+olas :- viento [0.6]
+huracan :- humedad, calor, baja_presion
+inundacion :- lluvia [0.2]
+inundacion :- calor, nieve
+lluvia :- nubes, baja_presion
+viento :- cambio_presion [0.8]
+
+incendio :- calor_extremo, viento [0.6]
+calor_extremo :- sequia [0.2]
+sequia :- calor, escasas_precipitaciones [0.8]
