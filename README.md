@@ -5,11 +5,10 @@ Artem Vartanov &
 Mario Baldocchi
 
 ### ÍNDICE
-
-- Instalación y requisitos
-- Descripción del razonamiento
-- Configuración avanzada
-- Dependencias
+* [Instalación y requisitos](#instalación-y-requisitos)
+* [Descripción del razonamiento](#descripción-del-razonamiento)
+* [Configuración avanzada](#configuración-avanzada)
+* [Dependencias](#dependencias)
 
 ### Instalación y requisitos
 Se requiere `python >= 3.12`
