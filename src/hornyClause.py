@@ -33,6 +33,9 @@ class HornClause:
         if scoreStr:
             self.score = float(scoreStr[0])
 
+        if self.score > 1 or self.score < 0:
+            raise Exception("El grado de certeza tiene que estar entre 0 y 1")
+
         # Para el regex de los precedentes nos fijamos en los caracteres del abecedario y el guion bajo
         self.antecedentes = set(re.findall(r"([A-Za-z_]+),?", descomposicion[1]))
 
