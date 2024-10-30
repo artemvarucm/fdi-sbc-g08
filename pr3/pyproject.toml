@@ -1,0 +1,10 @@
+[project]
+name = "sbc-g08-p3"
+version = "0.1.0"
+description = "Practica 3"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "black>=24.10.0",
+    "click>=8.1.7",
+]

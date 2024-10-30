@@ -1,0 +1,3 @@
+q8:Jesucristo wdt:P31 q8:persona ;
+    t8:religion q8:judaismo ;
+    t8:fecha_nacimiento q8:0 .
