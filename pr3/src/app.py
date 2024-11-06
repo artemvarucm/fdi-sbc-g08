@@ -1,4 +1,5 @@
 from knowledge import Knowledge
+from query_solver import QuerySolver
 
 class App:
     """
@@ -8,6 +9,8 @@ class App:
 
     def __init__(self, knowledge_path):
         self.conocimiento = Knowledge(knowledge_path)
+        self.querySolver = QuerySolver()
+        self.querySolver.query(self.conocimiento)
 
     def helpEspañol(self):
         print(f"{"print":22} - mostrar por pantalla la base de conocimiento")

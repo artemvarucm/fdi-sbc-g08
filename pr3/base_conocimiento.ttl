@@ -1,3 +1,11 @@
 q8:Jesucristo wdt:P31 q8:persona ;
     t8:religion q8:judaismo ;
     t8:fecha_nacimiento q8:0 .
+
+q8:Artem wdt:P31 q8:persona ;
+    t8:religion q8:cristianismo ;
+    t8:fecha_nacimiento q8:2004 .
+
+q8:ElonMusk wdt:P31 q8:persona ;
+    t8:religion q8:cristianismo ;
+    t8:fecha_nacimiento q8:1971 .

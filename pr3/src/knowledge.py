@@ -8,6 +8,12 @@ class Knowledge:
     def __init__(self, filename):
         self.base = dict()
         self.load(filename)
+    
+    def findBy(self, subj, pred, obj):
+        if subj is None:
+            return [[k, v] for k, v in self.base[pred].items() if v in obj]
+        elif obj is None:
+            return [[s, self.base[pred][s]] for s in subj]
 
     def load(self, filename):
         self.processSubjects(readFile(filename))
