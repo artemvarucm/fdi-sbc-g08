@@ -1,37 +1,13 @@
+from knowledge import Knowledge
+
 class App:
     """
     Aplicación principal que se encarga de
     ejecutar las acciones de los comandos
     """
 
-    """def __init__(self, base_conocimiento):
-        self.config = Config()
-
-        # Inicializa el engine
-        try:
-            base = self.readFile(base_conocimiento)
-            self.engine = Engine(
-                base,
-                self.config.getConfigOrDefault(["algorithm", "evaluation"], "min/max"),
-            )
-        except FileNotFoundError:
-            raise Exception("Archivo " + base_conocimiento + " no encontrado.")
-"""
-
-    def readFile(self, file_path):
-        """
-        Lee el fichero en file_path y devuelve las lineas del fichero
-        eliminando las lineas vacias y las que comienzan por "#"
-        """
-
-        with open(file_path, "r", newline="\n") as f:
-            lineas = [
-                line.strip()
-                for line in f
-                if line.strip() and not line.strip().startswith("#")
-            ]
-
-        return lineas
+    def __init__(self, knowledge_path):
+        self.conocimiento = Knowledge(knowledge_path)
 
     def helpEspañol(self):
         print(f"{"print":22} - mostrar por pantalla la base de conocimiento")
