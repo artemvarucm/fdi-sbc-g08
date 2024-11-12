@@ -27,14 +27,14 @@ def main(base_conocimiento, script):
     # app.helpEspañol()
 
     # Bucle principal del programa
-    """while True:
+    while True:
         query = input("> ")
         try:
             if query == "quit":
                 sys.exit(1)
             app.processCommand(query)
         except Exception as e:
-            print("[ERROR DURANTE EJECUCION]:", e)"""
+            print("[ERROR DURANTE EJECUCION]:", e)
 
 
 if __name__ == "__main__":

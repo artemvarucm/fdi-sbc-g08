@@ -19,12 +19,14 @@ class Knowledge:
 
     def load(self, filename):
         self.processSubjects(readFile(filename))
+        #print(self.base)
 
     def añadirInfo(self, subject, predicado, object):
-        if predicado not in self.base.keys() or not self.base[predicado]:
+        if predicado not in self.base.keys():
             self.base[predicado] = dict()
-
-        self.base[predicado][subject] = object
+        elif subject not in self.base[predicado]:
+             self.base[predicado][subject] = object
+             #print(subject, predicado, self.base[predicado][subject])
 
     def processSubjects(self, lines):
         subjectDescription = "".join(lines).split(" .")[:-1]
@@ -33,6 +35,7 @@ class Knowledge:
             for relation in s.split(" ;"):
                 subject, predicado, object = self.processRelation(relation, subject)
                 self.añadirInfo(subject, predicado, object)
+        print(self.base)
 
     def processRelation(self, relation, subject):
         if '"' in relation:
@@ -60,6 +63,4 @@ class Knowledge:
                 gr = relation.groups()
                 predicado = gr[0]
                 object = gr[2]
-
-        print(subject, predicado, object)
         return subject, predicado, object
