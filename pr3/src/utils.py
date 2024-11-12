@@ -1,4 +1,3 @@
-
 def readFile(file_path):
     """
     Lee el fichero en file_path y devuelve las lineas del fichero

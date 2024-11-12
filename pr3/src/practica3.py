@@ -24,7 +24,7 @@ def main(base_conocimiento, script):
         sys.exit(1)
 
     # Muestra los comandos
-    #app.helpEspañol()
+    # app.helpEspañol()
 
     # Bucle principal del programa
     """while True:
@@ -35,6 +35,7 @@ def main(base_conocimiento, script):
             app.processCommand(query)
         except Exception as e:
             print("[ERROR DURANTE EJECUCION]:", e)"""
+
 
 if __name__ == "__main__":
     main()

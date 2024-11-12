@@ -8,4 +8,5 @@ q8:Artem wdt:P31 q8:persona ;
 
 q8:ElonMusk wdt:P31 q8:persona ;
     t8:religion q8:cristianismo ;
-    t8:fecha_nacimiento q8:1971 .
+    t8:fecha_nacimiento q8:1971 ;
+    t8:correo "elon_da_best@ucm.es" .

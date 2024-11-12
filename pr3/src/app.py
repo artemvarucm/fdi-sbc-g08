@@ -1,6 +1,7 @@
 from knowledge import Knowledge
 from query_solver import QuerySolver
 
+
 class App:
     """
     Aplicación principal que se encarga de
@@ -10,7 +11,20 @@ class App:
     def __init__(self, knowledge_path):
         self.conocimiento = Knowledge(knowledge_path)
         self.querySolver = QuerySolver()
-        self.querySolver.query(self.conocimiento)
+
+    def query(self, queryStr):
+        print(
+            self.querySolver.query(
+                """
+                               select ?pers, ?relig
+                               where { 
+                                ?pers wdt:P31 q8:persona .
+                                ?pers t8:religion ?relig .
+                               }
+                               """,
+                self.conocimiento,
+            )
+        )
 
     def helpEspañol(self):
         print(f"{"print":22} - mostrar por pantalla la base de conocimiento")
