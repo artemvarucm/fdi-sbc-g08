@@ -27,7 +27,7 @@ class QuerySolver:
         3. subj predicado ?var
         """
         # selectColumns = ["?pers", "?relig"]
-        # se puede hacer un set para evitar aplicar 2 reglas repetidas
+        # FIXME se puede hacer un set para evitar aplicar 2 reglas repetidas
         # whereClauses = ["?pers wdt:P31 q8:persona", "?pers t8:religion ?relig"]
 
         selectColumns, whereClauses = self.preprocess(queryStr)
@@ -52,7 +52,6 @@ class QuerySolver:
                 knowledge.findBy(processedSubj, processedPred, processedObj),
                 columns=[subj, obj],
             )
-            # print(dfKnowledge.head())
 
             if dfResponse.shape[0] == 0:
                 dfResponse = dfKnowledge
@@ -60,7 +59,5 @@ class QuerySolver:
                 dfResponse = dfResponse.merge(
                     dfKnowledge, how="outer"
                 )  # FIXME pensar si es left, right o outer...
-
-            # print(dfResponse.head())
 
         return dfResponse[selectColumns]

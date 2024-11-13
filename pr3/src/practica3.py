@@ -23,9 +23,6 @@ def main(base_conocimiento, script):
         print("[ERROR]:", e)
         sys.exit(1)
 
-    # Muestra los comandos
-    app.help()
-
     # Bucle principal del programa
     while True:
         query = input("> ")

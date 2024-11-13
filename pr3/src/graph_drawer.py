@@ -4,10 +4,20 @@ import networkx as nx
 
 class GraphDrawer:
     def draw(self, resultDf, filename):
+        if resultDf is None or resultDf.empty:
+            raise Exception("No hay datos para dibujar el grafo")
+        if len(filename) < 4 or filename[-4:] != ".png":
+            raise Exception("El archivo debe tener extension PNG")
+
         G = nx.Graph()
-        for i in range(len(resultDf)):
-            for col in range(len(resultDf.columns) - 1):
-                G.add_edge(resultDf.iloc[i, col], resultDf.iloc[i, col + 1])
+        nRows, nCols = resultDf.shape
+        if nCols == 1:
+            # no hay aristas, solo nodos
+            G.add_nodes_from(resultDf.iloc[:, 0])
+        else:
+            for i in range(nRows):
+                for col in range(nCols - 1):
+                    G.add_edge(resultDf.iloc[i, col], resultDf.iloc[i, col + 1])
 
         # Dibujar el grafo
         pos = nx.spring_layout(G)  # Disposición de los nodos

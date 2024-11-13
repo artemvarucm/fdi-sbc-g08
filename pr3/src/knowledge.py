@@ -7,9 +7,8 @@ class Knowledge:
     Guardamos como diccionario de lista de diccionarios relacion:{a:b}
     """
 
-    def __init__(self, filename):
+    def __init__(self):
         self.base = dict()
-        self.load(filename)
 
     def findBy(self, subj, pred, obj):
         if subj is None:
