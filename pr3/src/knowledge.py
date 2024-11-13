@@ -17,7 +17,8 @@ class Knowledge:
             return [[s, self.base[pred][s]] for s in subj]
 
     def load(self, filename):
-        self.processSubjects(readFile(filename))
+        lines = readFile(filename)
+        self.processSubjects("".join(lines))
         # print(self.base)
 
     def añadirInfo(self, subject, predicado, object):
@@ -28,9 +29,10 @@ class Knowledge:
 
         self.base[predicado][subject] = object
 
-    def processSubjects(self, lines):
-        subjectDescription = "".join(lines).split(" .")[:-1]
+    def processSubjects(self, joinedLines):
+        subjectDescription = joinedLines.split(" .")[:-1]
         for s in subjectDescription:
+            s = s.strip()  # FIXME - control de errores
             subject = None
             for relation in s.split(" ;"):
                 subject, predicado, object = self.processRelation(relation, subject)

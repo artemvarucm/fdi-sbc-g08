@@ -1,8 +1,8 @@
 from knowledge import Knowledge
 from query_solver import QuerySolver
 from graph_drawer import GraphDrawer
-import pandas as pd
 from tabulate import tabulate
+import re
 
 
 class App:
@@ -38,9 +38,7 @@ class App:
         print("OK!")
 
     def add(self, afirmacion):
-        print(f'Añadiendo afirmación "{afirmacion}"... ', end="")
         self.conocimiento.processSubjects(afirmacion)
-        print("OK!")
 
     def save(self, knowledge_path):
         print(f'Guardando "{knowledge_path}"... ', end="")
@@ -56,38 +54,65 @@ class App:
         """
         Ejecuta las acciones correspondientes al query indicado
         """
-        if query == "help":
+        comandoReconocido = True
+        leerMasLineas = False
+
+        query = query.lstrip()  # para detectar "select "
+        if "help" == query:
             self.help()
-        elif "load" in query:  # cargar base de conocimiento
-            base_nueva = query.split(" ")[1]
+        elif re.search(r"^load\s([\w\.]+)$", query):  # cargar base de conocimiento
+            match = re.search(r"^load\s([\S]+)", query)
+            base_nueva = match.groups()[0]
             self.load(base_nueva)
-        elif "add" in query:  # añadir nueva afirmación base conocimiento
-            afirmacion = [query[4:]]
-            self.add(afirmacion)
-        elif "save" in query:  # guardar base de conocimiento
-            base_nueva = query.split(" ")[1].replace('"', "")
+        elif re.search(r"^add\b", query):  # añadir nueva afirmación base conocimiento
+            match = re.search(r"^add\b(.* \.)", query)
+            if not match:
+                leerMasLineas = True
+            else:
+                afirmacion = match.groups()[0]
+                try:
+                    self.add(afirmacion)
+                except Exception:
+                    leerMasLineas = True
+        elif re.search(r"^save\s\"([\w\.]+)\"$", query):  # guardar base de conocimiento
+            match = re.search(r"^save\s\"(.+)\"", query)
+            base_nueva = match.groups()[0]
             self.save(base_nueva)
-        elif "draw" in query:  # visualizacion de la ultima consulta realizada
-            image_path = query.split(" ")[1].replace('"', "")
+        elif re.search(
+            r"^draw\s\"([\w\.]+)\"$", query
+        ):  # visualizacion de la ultima consulta realizada
+            match = re.search(r"^draw\s\"(.+)\"", query)
+            image_path = match.groups()[0]
             self.draw(image_path)
-        elif query == "equivalente":
-            print("l")
-        elif "select" in query:
-            self.query(query)
+        elif re.search(r"^select\b", query):
+            try:
+                self.query(query)
+            except Exception:
+                leerMasLineas = True
         else:
-            print(f'COMANDO "{query}" DESCONOCIDO')
+            comandoReconocido = False
+
+        if not comandoReconocido:
+            print(f"COMANDO DESCONOCIDO. REVISE LA SINTAXIS.")
+
+        return leerMasLineas
 
     def help(self):
-        print(f"{"load <base_conocimiento>":24} - añadir base de conocimiento desde el archivo <base_conocimiento>")
+        print(
+            f"{"load <base_conocimiento>":24} - añadir base de conocimiento desde el archivo <base_conocimiento>"
+        )
         print(
             f"{"add <afirmacion>":24} - añadir una afirmacion a la base de conocimiento"
         )
         print(
-            f"{"save <base_conocimiento>":24} - guardar la base de conocimiento en el archivo <base_conocimiento>"
+            f"{"save \"<base_conocimiento>\"":24} - guardar la base de conocimiento en el archivo <base_conocimiento>"
         )
         print(
-            f"{"draw <imagen>":24} - muestra la última consulta con grafos. Guarda el png en el archivo <imagen>"
+            f"{"draw \"<imagen>\"":24} - muestra la última consulta con grafos. Guarda el png en el archivo <imagen>"
         )
         print(f"{"help":24} - muestra los comandos del programa")
         print(f"{"quit":24} - salir del programa")
+        print(
+            f"{"Ctrl+C":24} - salir del programa o salir del modo multilinea (select, add)"
+        )
         print()

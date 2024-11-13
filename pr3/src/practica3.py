@@ -24,12 +24,21 @@ def main(base_conocimiento, script):
         sys.exit(1)
 
     # Bucle principal del programa
+    multiLine = False
     while True:
-        query = input("> ")
+        if multiLine:
+            try:
+                query += " " + input("  ")
+            except KeyboardInterrupt:  # si pulsa Ctrl+C -> salimos del modo multilinea
+                query = input("\n> ")
+
+        else:
+            query = input("> ")
+
         try:
             if query == "quit":
                 sys.exit(1)
-            app.processCommand(query)
+            multiLine = app.processCommand(query)
         except Exception as e:
             print("[ERROR DURANTE EJECUCION]:", e)
 
