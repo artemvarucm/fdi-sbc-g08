@@ -1,0 +1,3 @@
+load base_prueba.ttl
+select ?t where { ?t wdt:P31 q8:persona .}
+draw "t.png"

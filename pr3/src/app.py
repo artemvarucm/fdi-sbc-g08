@@ -3,6 +3,7 @@ from query_solver import QuerySolver
 from graph_drawer import GraphDrawer
 from tabulate import tabulate
 import re
+import sys
 
 
 class App:
@@ -60,6 +61,8 @@ class App:
         query = query.lstrip()  # para detectar "select "
         if "help" == query:
             self.help()
+        elif "quit" == query:
+            sys.exit(1)
         elif re.search(r"^load\s([\w\.]+)$", query):  # cargar base de conocimiento
             match = re.search(r"^load\s([\S]+)", query)
             base_nueva = match.groups()[0]

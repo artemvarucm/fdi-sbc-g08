@@ -37,7 +37,7 @@ class Knowledge:
             for relation in s.split(" ;"):
                 subject, predicado, object = self.processRelation(relation, subject)
                 self.añadirInfo(subject, predicado, object)
-        print(self.base)
+        # print(self.base)
 
     def processRelation(self, relation, subject):
         if '"' in relation:
