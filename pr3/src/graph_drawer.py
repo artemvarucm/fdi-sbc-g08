@@ -3,7 +3,7 @@ import networkx as nx
 
 
 class GraphDrawer:
-    def draw(self, resultDf):
+    def draw(self, resultDf, filename):
         G = nx.Graph()
         for i in range(len(resultDf)):
             for col in range(len(resultDf.columns) - 1):
@@ -22,5 +22,8 @@ class GraphDrawer:
             font_size=10,
             font_weight="bold",
         )
-        # plt.title("")
+
+        plt.savefig(filename, format="PNG")
+
+        # plt.title("Grafo")
         plt.show()

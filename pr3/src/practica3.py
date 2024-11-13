@@ -24,7 +24,7 @@ def main(base_conocimiento, script):
         sys.exit(1)
 
     # Muestra los comandos
-    # app.helpEspañol()
+    app.help()
 
     # Bucle principal del programa
     while True:
