@@ -78,15 +78,15 @@ class App:
             print(f'COMANDO "{query}" DESCONOCIDO')
 
     def help(self):
-        print(f"{"load <base_conocimiento>":24} - añadir base de conocimiento")
+        print(f"{"load <base_conocimiento>":24} - añadir base de conocimiento desde el archivo <base_conocimiento>")
         print(
             f"{"add <afirmacion>":24} - añadir una afirmacion a la base de conocimiento"
         )
         print(
-            f"{"save <base_conocimiento>":24} - guardar la base de conocimiento en archivo .ttl"
+            f"{"save <base_conocimiento>":24} - guardar la base de conocimiento en el archivo <base_conocimiento>"
         )
         print(
-            f"{"draw <imagen>":24} - muestra la última consulta con grafos. Guarda la imagen"
+            f"{"draw <imagen>":24} - muestra la última consulta con grafos. Guarda el png en el archivo <imagen>"
         )
         print(f"{"help":24} - muestra los comandos del programa")
         print(f"{"quit":24} - salir del programa")
