@@ -25,8 +25,9 @@ class Knowledge:
         if predicado not in self.base.keys():
             self.base[predicado] = dict()
         elif subject not in self.base[predicado]:
-             self.base[predicado][subject] = object
-             #print(subject, predicado, self.base[predicado][subject])
+             self.base[subject] = dict()
+
+        self.base[predicado][subject] = object
 
     def processSubjects(self, lines):
         subjectDescription = "".join(lines).split(" .")[:-1]
