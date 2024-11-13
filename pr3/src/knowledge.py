@@ -19,13 +19,13 @@ class Knowledge:
 
     def load(self, filename):
         self.processSubjects(readFile(filename))
-        #print(self.base)
+        # print(self.base)
 
     def añadirInfo(self, subject, predicado, object):
         if predicado not in self.base.keys():
             self.base[predicado] = dict()
         elif subject not in self.base[predicado]:
-             self.base[subject] = dict()
+            self.base[subject] = dict()
 
         self.base[predicado][subject] = object
 
@@ -54,7 +54,9 @@ class Knowledge:
         else:
             if subject is None:
                 # FIXME, matchea predicados incorrectos, ej tenis2:P31, solo deberia de hacerlo para t\d o wdt
-                relation = re.search(r"^(q\d+:\w+) ((wd)?t\w*:\w+) (q\d+:\w+)", relation)
+                relation = re.search(
+                    r"^(q\d+:\w+) ((wd)?t\w*:\w+) (q\d+:\w+)", relation
+                )
                 gr = relation.groups()
                 subject = gr[0]
                 predicado = gr[1]

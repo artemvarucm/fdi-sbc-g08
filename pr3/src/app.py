@@ -35,11 +35,11 @@ class App:
         elif "load" in query:  # cargar base de conocimiento
             print(query.split(" ")[1])
             self.conocimiento.load(query.split(" ")[1])
-        elif "add" in query:   # añadir nueva afirmación base conocimiento
+        elif "add" in query:  # añadir nueva afirmación base conocimiento
             self.conocimiento.processSubjects([query[4:]])
         elif query == "save":  # guardar base de conocimiento
             print("l")
-        elif query == "draw":  # visualizacion de la ultima consulta realizada 
+        elif query == "draw":  # visualizacion de la ultima consulta realizada
             print("l")
         elif query == "equivalente":
             print("l")
