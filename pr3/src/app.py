@@ -1,5 +1,7 @@
 from knowledge import Knowledge
 from query_solver import QuerySolver
+from graph_drawer import GraphDrawer
+import pandas as pd
 
 
 class App:
@@ -11,6 +13,7 @@ class App:
     def __init__(self, knowledge_path):
         self.conocimiento = Knowledge(knowledge_path)
         self.querySolver = QuerySolver()
+        self.graphDrawer = GraphDrawer()
 
     def query(self, queryStr):
         print(
@@ -47,6 +50,9 @@ class App:
                 print(f'Guardando "{base_nueva}"')
             elif query == "draw":  # visualizacion de la ultima consulta realizada
                 imagen = query.split(" ")[1]
+                self.graphDrawer.draw(
+                    pd.DataFrame({"A": [1, 2, 3], "B": [2, 5, 5], "C": [0, 8, 7]})
+                )
                 print(f'Exportando grafo a "{imagen}"')
             elif query == "equivalente":
                 print("l")
@@ -59,9 +65,13 @@ class App:
 
     def help(self):
         print(f"{"load <base_conocimiento>":22} - añadir base de conocimiento")
-        print(f"{"add <afirmacion>":22} - añadir una afirmacion a la base de conocimiento")
+        print(
+            f"{"add <afirmacion>":22} - añadir una afirmacion a la base de conocimiento"
+        )
         print(f"{"save":22} - guardar la base de conocimiento en archivo .ttl")
-        print(f"{"draw <imagen>":22} - muestra la última consulta con grafos. Guarda la imagen")
+        print(
+            f"{"draw <imagen>":22} - muestra la última consulta con grafos. Guarda la imagen"
+        )
         print(f"{"help":22} - muestra los comandos del programa")
         print(f"{"quit":22} - salir del programa")
         print()
