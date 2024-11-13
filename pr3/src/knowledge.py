@@ -67,3 +67,10 @@ class Knowledge:
                 predicado = gr[0]
                 object = gr[2]
         return subject, predicado, object
+        
+    def save(self, base_nueva):
+        f =  f = open(f"{base_nueva}", "x") # Evita sobreescribir una base de conocimiento que ya existe
+        for pred in self.base:
+            for subj in self.base[pred]:
+                f.write(f"{subj} {pred} {self.base[pred][subj]} .\n")        
+        f.close()

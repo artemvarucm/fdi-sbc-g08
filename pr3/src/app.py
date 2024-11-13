@@ -30,36 +30,38 @@ class App:
         """
         Ejecuta las acciones correspondientes al query indicado
         """
-        if query == "help":
-            self.helpEspañol()
-        elif "load" in query:  # cargar base de conocimiento
-            print(query.split(" ")[1])
-            self.conocimiento.load(query.split(" ")[1])
-        elif "add" in query:  # añadir nueva afirmación base conocimiento
-            self.conocimiento.processSubjects([query[4:]])
-        elif query == "save":  # guardar base de conocimiento
-            print("l")
-        elif query == "draw":  # visualizacion de la ultima consulta realizada
-            print("l")
-        elif query == "equivalente":
-            print("l")
-        else:
-            print(f'COMANDO "{query}" DESCONOCIDO')
+        try:
+            if query == "help":
+                self.helpEspañol()
+            elif "load" in query:  # cargar base de conocimiento
+                base_nueva = query.split(" ")[1]
+                self.conocimiento.load(base_nueva)
+                print(f'Cargando "{base_nueva}"')
+            elif "add" in query:  # añadir nueva afirmación base conocimiento
+                afirmacion = [query[4:]]
+                self.conocimiento.processSubjects(afirmacion)
+                print(f'Añadiendo afirmación "{afirmacion}"')
+            elif "save" in query:  # guardar base de conocimiento
+                base_nueva = query.split(" ")[1]
+                self.conocimiento.save(base_nueva)
+                print(f'Guardando "{base_nueva}"')
+            elif query == "draw":  # visualizacion de la ultima consulta realizada
+                imagen = query.split(" ")[1]
+                print(f'Exportando grafo a "{imagen}"')
+            elif query == "equivalente":
+                print("l")
+            elif "select" in query:
+                print("l")
+            else:
+                print(f'COMANDO "{query}" DESCONOCIDO')
+        except Exception as e:
+            print(e)
 
-    def helpEspañol(self):
-        print(f"{"print":22} - mostrar por pantalla la base de conocimiento")
-        print(f"{"add <hecho>":22} - añadir un hecho con grado de verdad 1")
-        print(f"{"add <hecho> [<grado>]":22} - añadir un hecho con un grado de verdad")
-        print(f"{"<hecho>?":22} - devuelve el grado de verdad del hecho")
+    def help(self):
+        print(f"{"load <base_conocimiento>":22} - añadir base de conocimiento")
+        print(f"{"add <afirmacion>":22} - añadir una afirmacion a la base de conocimiento")
+        print(f"{"save":22} - guardar la base de conocimiento en archivo .ttl")
+        print(f"{"draw <imagen>":22} - muestra la última consulta con grafos. Guarda la imagen")
         print(f"{"help":22} - muestra los comandos del programa")
         print(f"{"quit":22} - salir del programa")
-        print()
-
-    def helpIngles(self):
-        print(f"{"print":22} - display knowledge base")
-        print(f"{"add <fact>":22} - add fact with truth score equal to 1")
-        print(f"{"add <fact> [<score>]":22} - add fact with truth score")
-        print(f"{"<fact>?":22} - return truth score")
-        print(f"{"help":22} - display available commands")
-        print(f"{"quit":22} - quit program")
         print()
