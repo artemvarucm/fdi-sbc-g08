@@ -16,7 +16,7 @@ class Knowledge:
         """
         if pred not in self.base:
             raise KeyError(
-                f"[ERROR]: El predicado {pred} no existe en la base de conocimiento"
+                f"[WARNING]: El predicado {pred} no existe en la base de conocimiento. Se omite"
             )
         if subj is None:
             return [[k, v] for k, v in self.base[pred].items() if v in obj]

@@ -47,11 +47,14 @@ class QuerySolver:
             elif obj.startswith("?"):
                 # caso 3
                 processedObj = dfResponse[obj] if obj in dfResponse.columns else None
-
-            dfKnowledge = pd.DataFrame(
-                knowledge.findBy(processedSubj, processedPred, processedObj),
-                columns=[subj, obj],
-            )
+            try:
+                dfKnowledge = pd.DataFrame(
+                    knowledge.findBy(processedSubj, processedPred, processedObj),
+                    columns=[subj, obj],
+                )
+            except Exception as e:
+                print(e)
+                continue
 
             if dfResponse.shape[0] == 0:
                 dfResponse = dfKnowledge
