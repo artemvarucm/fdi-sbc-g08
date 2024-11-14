@@ -4,7 +4,8 @@ import re
 
 class Knowledge:
     """
-    Guardamos como diccionario de lista de diccionarios relacion:{a:b}
+    Clase encargada de almacenar y gestionar la base de conocimiento
+    como diccionario de lista de diccionarios relacion:{sujeto:objeto}
     """
 
     def __init__(self):
@@ -30,7 +31,6 @@ class Knowledge:
         """
         lines = readFile(filename)
         self.processSubjects("".join(lines))
-        #print(self.base)
 
     def añadirInfo(self, subject, predicado, object):
         """

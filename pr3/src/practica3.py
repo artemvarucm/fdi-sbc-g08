@@ -1,4 +1,3 @@
-import argparse
 import sys
 from app import App
 import click
@@ -25,10 +24,9 @@ def main(base_conocimiento, script):
         sys.exit(1)
 
     try:
-        multiLine = False  # juntar lineas leidas consecutivamente
-
         # Ejecuta el script antes de empezar
         if script is not None:
+            multiLine = False  # juntar lineas leidas consecutivamente
             for line in readFile(script):
                 if multiLine:
                     query += " " + line

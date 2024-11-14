@@ -21,6 +21,9 @@ class App:
         self.lastQueryResult = None
 
     def query(self, queryStr):
+        """
+        Consulta a la base de conocimiento
+        """
         self.lastQueryResult = self.querySolver.query(
             queryStr,
             self.conocimiento,

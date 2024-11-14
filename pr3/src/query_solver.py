@@ -4,6 +4,10 @@ import re
 
 
 class QuerySolver:
+    """
+    Clase encargada de realizar las consultas a la base de conocimiento
+    """
+
     def preprocess(self, queryStr):
         """
         Separa las clausulas select y where para utilizarlas posteriormente en nuestro motor

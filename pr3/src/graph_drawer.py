@@ -3,9 +3,16 @@ import networkx as nx
 
 
 class GraphDrawer:
+    """
+    Clase encargada de pintar los grafos
+    """
+
     def draw(self, resultDf, filename):
         """
-        Dibuja el grafo del dataframe y guarda la imagen
+        Dibuja el grafo del dataframe @resultDf (resultado de una consulta) y guarda la imagen en @filename
+
+        Genera un nodo, si no existe para cada columna de cada fila y
+        une con aristas los nodos de las columnas de una fila
         """
         if resultDf is None or resultDf.empty:
             raise Exception("[ERROR]: No hay datos para dibujar el grafo")
@@ -15,15 +22,18 @@ class GraphDrawer:
         G = nx.Graph()
         nRows, nCols = resultDf.shape
         if nCols == 1:
-            # no hay aristas, solo nodos
+            # si hay una columna, no hay aristas, solo nodos
             G.add_nodes_from(resultDf.iloc[:, 0])
         else:
             for i in range(nRows):
-                for col in range(nCols - 1):
-                    G.add_edge(resultDf.iloc[i, col], resultDf.iloc[i, col + 1])
+                # unimos todas las columnas con aristas
+                for col1 in range(nCols):
+                    for col2 in range(nCols):
+                        if col1 != col2:
+                            # no añadimos autoflechas
+                            G.add_edge(resultDf.iloc[i, col1], resultDf.iloc[i, col2])
 
-        # Dibujar el grafo
-        pos = nx.spring_layout(G)  # Disposición de los nodos
+        pos = nx.spring_layout(G)
         plt.figure(figsize=(8, 6))
 
         nx.draw(
@@ -37,6 +47,4 @@ class GraphDrawer:
         )
 
         plt.savefig(filename, format="PNG")
-
-        # plt.title("Grafo")
         plt.show()
