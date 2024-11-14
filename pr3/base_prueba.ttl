@@ -4,9 +4,14 @@ q8:Jordi wdt:P31 q8:persona ;
 
 q8:Artem wdt:P31 q8:persona ;
     t8:religion q8:cristianismo ;
-    t8:fecha_nacimiento q8:2004 .
+    t8:fecha_nacimiento q8:2004 ;
+    t2:participante "SBC" .
 
 q8:Phineas wdt:P31 q8:persona ;
     t8:estuche q8:cristianismo ;
     t8:fecha_nacimiento q8:1971 ;
-    t8:correo "elon_da_best@ucm.es" .
+    t8:correo "elon_da_best@ucm.es" ;
+    t1:matriculado "SBC" .
+
+t1:matriculado wdt:P1628 t2:participante .
+t1:matriculado wdt:P1628 t2:participante55 .

@@ -30,9 +30,6 @@ class QuerySolver:
         2. ?var predicado obj
         3. subj predicado ?var
         """
-        # selectColumns = ["?pers", "?relig"]
-        # FIXME se puede hacer un set para evitar aplicar 2 reglas repetidas
-        # whereClauses = ["?pers wdt:P31 q8:persona", "?pers t8:religion ?relig"]
 
         selectColumns, whereClauses = self.preprocess(queryStr)
         dfResponse = pd.DataFrame()
@@ -63,8 +60,6 @@ class QuerySolver:
             if dfResponse.shape[0] == 0:
                 dfResponse = dfKnowledge
             else:
-                dfResponse = dfResponse.merge(
-                    dfKnowledge, how="outer"
-                )  # FIXME pensar si es left, right o outer...
+                dfResponse = dfResponse.merge(dfKnowledge, how="outer")
 
         return dfResponse[selectColumns]
