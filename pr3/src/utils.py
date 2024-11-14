@@ -11,6 +11,6 @@ def readFile(file_path):
                 if line.strip() and not line.strip().startswith("#")
             ]
     except FileNotFoundError:
-        raise Exception("Archivo " + file_path + " no encontrado.")
+        raise Exception("[ERROR]: Archivo " + file_path + " no encontrado.")
 
     return lineas

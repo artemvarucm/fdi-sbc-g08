@@ -34,22 +34,44 @@ class App:
         )
 
     def load(self, knowledge_path):
-        print(f'Cargando "{knowledge_path}"... ', end="")
-        self.conocimiento.load(knowledge_path)
-        print("OK!")
+        """
+        Carga la base de conocimiento
+        """
+        try:
+            print(f'Cargando "{knowledge_path}"... ', end="")
+            self.conocimiento.load(knowledge_path)
+            print("OK!")
+        except Exception as e:
+            print(e)
 
     def add(self, afirmacion):
+        """
+        Añade la afirmacion a la base de conocimiento
+        """
         self.conocimiento.processSubjects(afirmacion)
 
     def save(self, knowledge_path):
-        print(f'Guardando "{knowledge_path}"... ', end="")
-        self.conocimiento.save(knowledge_path)
-        print("OK!")
+        """
+        Guarda la base de conocimiento vigente en un archivo .ttl
+        """
+        try:
+            print(f'Guardando "{knowledge_path}"... ', end="")
+            self.conocimiento.save(knowledge_path)
+            print("OK!")
+        except Exception as e:
+            print(e)
 
     def draw(self, image_path):
-        print(f'Exportando grafo a "{image_path}"... ', end="")
-        self.graphDrawer.draw(self.lastQueryResult, image_path)
-        print("OK!")
+        """
+        Dibuja un grafo sobre la última consulta realizada.
+        Además, guarda la imagen en el path <image_path>
+        """
+        try:
+            print(f'Exportando grafo a "{image_path}"... ', end="")
+            self.graphDrawer.draw(self.lastQueryResult, image_path)
+            print("OK!")
+        except Exception as e:
+            print(e)
 
     def processCommand(self, query):
         """
@@ -102,20 +124,20 @@ class App:
 
     def help(self):
         print(
-            f"{"load <base_conocimiento>":24} - añadir base de conocimiento desde el archivo <base_conocimiento>"
+            f"{"load <base_conocimiento>":28} - añadir base de conocimiento desde el archivo <base_conocimiento>"
         )
         print(
-            f"{"add <afirmacion>":24} - añadir una afirmacion a la base de conocimiento"
+            f"{"add <afirmacion>":28} - añadir una afirmacion a la base de conocimiento"
         )
         print(
-            f"{"save \"<base_conocimiento>\"":24} - guardar la base de conocimiento en el archivo <base_conocimiento>"
+            f"{"save \"<base_conocimiento>\"":28} - guardar la base de conocimiento en el archivo <base_conocimiento>"
         )
         print(
-            f"{"draw \"<imagen>\"":24} - muestra la última consulta con grafos. Guarda el png en el archivo <imagen>"
+            f"{"draw \"<imagen>\"":28} - muestra la última consulta con grafos. Guarda el png en el archivo <imagen>"
         )
-        print(f"{"help":24} - muestra los comandos del programa")
-        print(f"{"quit":24} - salir del programa")
+        print(f"{"help":28} - muestra los comandos del programa")
+        print(f"{"quit":28} - salir del programa")
         print(
-            f"{"Ctrl+C":24} - salir del programa o salir del modo multilinea (select, add)"
+            f"{"Ctrl+C":28} - salir del programa o salir del modo multilinea (select, add)"
         )
         print()

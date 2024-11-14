@@ -4,10 +4,13 @@ import networkx as nx
 
 class GraphDrawer:
     def draw(self, resultDf, filename):
+        """
+        Dibuja el grafo del dataframe y guarda la imagen
+        """
         if resultDf is None or resultDf.empty:
-            raise Exception("No hay datos para dibujar el grafo")
+            raise Exception("[ERROR]: No hay datos para dibujar el grafo")
         if len(filename) < 4 or filename[-4:] != ".png":
-            raise Exception("El archivo debe tener extension PNG")
+            raise Exception("[ERROR]: El archivo debe tener extension PNG")
 
         G = nx.Graph()
         nRows, nCols = resultDf.shape
