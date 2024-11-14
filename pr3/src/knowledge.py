@@ -9,6 +9,7 @@ class Knowledge:
 
     def __init__(self):
         self.base = dict()
+        self.equivalencias = dict()
 
     def findBy(self, subj, pred, obj):
         """
@@ -29,7 +30,7 @@ class Knowledge:
         """
         lines = readFile(filename)
         self.processSubjects("".join(lines))
-        # print(self.base)
+        #print(self.base)
 
     def añadirInfo(self, subject, predicado, object):
         """
@@ -42,6 +43,15 @@ class Knowledge:
 
         self.base[predicado][subject] = object
 
+    def añadirEquivalencia(self, t1, t2):
+        if t1 not in self.equivalencias.keys():
+            self.equivalencias[t1] = set()
+        if t2 not in self.equivalencias.keys():
+            self.equivalencias[t2] = set()
+        
+        self.equivalencias[t1].add(t2)
+        self.equivalencias[t2].add(t1)
+
     def processSubjects(self, joinedLines):
         """
         Separa los sujetos y los va añadiendo a la base de conocimiento
@@ -50,11 +60,16 @@ class Knowledge:
         for s in subjectDescription:
             s = s.strip()  # FIXME - control de errores
             subject = None
-            for relation in s.split(
-                " ;"
-            ):  # Añadimos a la base de conocimiento cada afirmacion del sujeto
-                subject, predicado, object = self.processRelation(relation, subject)
-                self.añadirInfo(subject, predicado, object)
+            for afirmacion in s.split(" ;"):  # Añadimos a la base de conocimiento cada afirmacion del sujeto
+                equivalencia = re.search(r'^((wd)?t\d+:\w+) (wd)?t:P1628 ((wd)?t\d+:\w+)$', afirmacion)
+                if equivalencia:
+                    eq = equivalencia.groups()
+                    t1 = eq[0]
+                    t2 = eq[3]
+                    self.añadirEquivalencia(t1,t2)
+                else:
+                    subject, predicado, object = self.processRelation(afirmacion, subject)
+                    self.añadirInfo(subject, predicado, object)
         # print(self.base)
 
     def processRelation(self, relation, subject):

@@ -7,6 +7,6 @@ q8:Artem wdt:P31 q8:persona ;
     t8:fecha_nacimiento q8:2004 .
 
 q8:Phineas wdt:P31 q8:persona ;
-    t8:religion q8:Ferb ;
+    t8:estuche q8:cristianismo ;
     t8:fecha_nacimiento q8:1971 ;
     t8:correo "elon_da_best@ucm.es" .
