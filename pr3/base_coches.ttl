@@ -1,0 +1,141 @@
+# Lamborghini
+q8:huracan wdt:P31 q8:coche_deportivo ;
+    t8:nombre "Lamborghini Huracan" ;
+    t8:marca q8:Lamborghini ;
+    t8:año "2014" ;
+    t8:motor q8:v10 ;
+    t8:potencia "610" ;
+    t8:velocidad_maxima "325" ;
+    t8:cambio_velocidades q8:cambio_automatico ;
+    t8:salon q8:piel ;
+    t8:pais q8:Italia .
+
+q8:aventador wdt:P31 q8:coche_deportivo ;
+    t8:nombre "Lamborghini Aventador" ;
+    t8:marca q8:Lamborghini ;
+    t8:año "2011" ;
+    t8:motor q8:v12 ;
+    t8:potencia "700" ;
+    t8:velocidad_maxima "350" ;
+    t8:cambio_velocidades q8:cambio_automatico ;
+    t8:salon q8:piel ;
+    t8:pais q8:Italia .
+
+# Ferrari
+q8:ferrari_488 wdt:P31 q8:coche_deportivo ;
+    t8:nombre "Ferrari 488 GTB" ;
+    t8:marca q8:Ferrari ;
+    t8:año "2015" ;
+    t8:motor q8:v8 ;
+    t8:caballos "670" ;
+    t8:velocidad_maxima "330" ;
+    t8:cambio_velocidades q8:doble_embrague ;
+    t8:salon q8:cuero ;
+    t8:pais q8:Italia .
+
+q8:ferrari_f8 wdt:P31 q8:coche_deportivo ;
+    t8:nombre "Ferrari F8 Tributo" ;
+    t8:marca q8:Ferrari ;
+    t8:año "2019" ;
+    t8:motor q8:v8 ;
+    t8:potencia "710" ;
+    t8:velocidad_maxima "340" ;
+    t8:cambio_velocidades q8:doble_embrague ;
+    t8:salon q8:cuero ;
+    t8:pais q8:Italia .
+
+# Maseratti
+q8:maserati_alfieri wdt:P31 q8:coche_deportivo ;
+    t8:nombre "Maserati Alfieri" ;
+    t8:marca q8:Maseratti ;
+    t8:año "2021" ;
+    t8:motor q8:v6 ;
+    t8:potencia "550" ;
+    t8:velocidad_maxima "300" ;
+    t8:cambio_velocidades q8:cambio_automatico ;
+    t8:salon q8:cuero ;
+    t8:pais q8:Italia .
+
+q8:maserati_granturismo wdt:P31 q8:coche_deportivo ;
+    t8:nombre "Maserati GranTurismo" ;
+    t8:marca q8:Maseratti ;
+    t8:año "2007" ;
+    t8:motor q8:v8 ;
+    t8:caballos "460" ;
+    t8:velocidad_maxima "300" ;
+    t8:cambio_velocidades q8:cambio_automatico ;
+    t8:salon q8:cuero ;
+    t8:pais q8:Italia .
+
+# McLaren
+q8:mclaren_720s wdt:P31 q8:coche_deportivo ;
+    t8:nombre "McLaren 720S" ;
+    t8:marca q8:McLaren ;
+    t8:año "2017" ;
+    t8:motor q8:v8 ;
+    t8:potencia "720" ;
+    t8:velocidad_maxima "341" ;
+    t8:cambio_velocidades q8:cambio_automatico ;
+    t8:salon q8:cuero ;
+    t8:pais q8:Reino_Unido .
+
+q8:mclaren_p1 wdt:P31 q8:coche_deportivo ;
+    t8:nombre "McLaren P1" ;
+    t8:marca q8:McLaren ;
+    t8:año "2013" ;
+    t8:motor q8:v8_hybrid ;
+    t8:potencia "903" ;
+    t8:velocidad_maxima "350" ;
+    t8:cambio_velocidades q8:cambio_automatico ;
+    t8:salon q8:cuero ;
+    t8:pais q8:Reino_Unido .
+
+# Bugatti
+q8:bugatti_chiron wdt:P31 q8:coche_deportivo ;
+    t8:nombre "Bugatti Chiron" ;
+    t8:marca q8:Bugatti ;
+    t8:año "2016" ;
+    t8:motor q8:w16 ;
+    t8:caballos "1500" ;
+    t8:velocidad_maxima "420" ;
+    t8:cambio_velocidades q8:cambio_automatico ;
+    t8:salon q8:cuero ;
+    t8:pais q8:Francia .
+
+q8:bugatti_veyron wdt:P31 q8:coche_deportivo ;
+    t8:nombre "Bugatti Veyron" ;
+    t8:marca q8:Bugatti ;
+    t8:año "2005" ;
+    t8:motor q8:w16 ;
+    t8:potencia "1001" ;
+    t8:velocidad_maxima "408" ;
+    t8:cambio_velocidades q8:cambio_automatico ;
+    t8:salon q8:cuero ;
+    t8:pais q8:Francia .
+
+# Chevrolet
+q8:chevrolet_corvette wdt:P31 q8:coche_deportivo ;
+    t8:nombre "Chevrolet Corvette" ;
+    t8:marca q8:Chevrolet ;
+    t8:año "2020" ;
+    t8:motor q8:v8 ;
+    t8:potencia "495" ;
+    t8:velocidad_maxima "312" ;
+    t8:cambio_velocidades q8:cambio_manual ;
+    t8:salon q8:cuero ;
+    t8:pais q8:Estados_Unidos .
+
+q8:chevrolet_camaro wdt:P31 q8:coche_deportivo ;
+    t8:nombre "Chevrolet Camaro ZL1" ;
+    t8:marca q8:Chevrolet ;
+    t8:año "2017" ;
+    t8:motor q8:v8 ;
+    t8:potencia "650" ;
+    t8:velocidad_maxima "320" ;
+    t8:cambio_velocidades q8:cambio_manual ;
+    t8:salon q8:cuero ;
+    t8:pais q8:Estados_Unidos .
+
+
+# EQUIVALENCIAS
+t1:potencia wdt:P1628 t2:caballos .
