@@ -1,14 +1,73 @@
-q8:Jesucristo wdt:P31 q8:persona ;
-    t8:religion q8:judaismo ;
-    t8:fecha_nacimiento q8:0 .
+q8:Rush wdt:P31 q8:persona ;
+    t8:nombre "Georges" ;
+    t8:apellido "St_Pierre" ;
+    t8:pais q8:Canada ;
+    t8:año_nacimiento "1981" ;
+    t8:victorias "26" ;
+    t8:derrotas "2" ;
+    t8:peso q8:Middleweight ;
+    t8:especialidad q8:BJJ .
 
-q8:Artem wdt:P31 q8:persona ;
-    t8:religion q8:cristianismo ;
-    t8:fecha_nacimiento q8:2004 .
+q8:Bones wdt:P31 q8:persona ;
+    t8:nombre "Jon" ;
+    t8:apellido "Jones" ;
+    t8:pais q8:EEUU ;
+    t8:año_nacimiento "1987" ;
+    t8:victorias "27" ;
+    t8:derrotas "1" ;
+    t8:peso q8:Heavyweight ;
+    t8:especialidad q8:Grappling .
 
-q8:ElonMusk wdt:P31 q8:persona ;
-    t8:religion q8:cristianismo ;
-    t8:fecha_nacimiento q8:1971 ;
-    t8:correo "elon_da_best@ucm.es" .
+q8:The_notorious wdt:P31 q8:persona ;
+    t8:nombre "Connor" ;
+    t8:apellido "McGregor" ;
+    t8:pais q8:Irlanda ;
+    t8:año_nacimiento "1988" ;
+    t8:victorias "22" ;
+    t8:derrotas "6" ;
+    t8:peso q8:Lightweight ;
+    t8:especialidad q8:Striking .
 
-t1:religion wdt:P1628 t2:estuche .
+q8:El_matador wdt:P31 q8:persona ;
+    t8:nombre "Ilia" ;
+    t8:apellido "Topuria" ;
+    t8:pais q8:Alemania ;
+    t8:año_nacimiento "1997" ;
+    t8:victorias "16" ;
+    t8:derrotas "0" ;
+    t8:peso q8:Featherweight ;
+    t8:experto q8:Grappling .
+
+q8:Canada wdt:P31 q8:pais ;
+    t8:capital "Ottawa" ;
+    t8:poblacion "38000000" ;
+    t8:estudio_predominante q8:Ingenieria ;
+    t8:cientifico "Frederick Banting" .
+
+q8:EEUU wdt:P31 q8:pais ;
+    t8:capital "Washington D.C." ;
+    t8:poblacion "331000000" ;
+    t8:estudio_predominante q8:Ingeniera ;
+    t8:cientifico_conocido "Thomas Edison" .
+
+q8:Irlanda wdt:P31 q8:pais ;
+    t8:capital "Dublín" ;
+    t8:poblacion "5000000" ;
+    t8:estudio_predominante q8:Informatica ;
+    t8:cientifico_conocido "Ernest Walton" .
+
+q8:Alemania wdt:P31 q8:pais ;
+    t8:capital "Berlín" ;
+    t8:poblacion "83000000" ;
+    t8:cientifico_conocido "Albert Einstein" .
+
+q8:Ingenieria wdt:P31 q8:estudio ;
+    t8:salario_medio "90000" ;
+    t8:universidad_famosa "Massachusetts Institute of Technology (MIT)" .
+
+q8:Informatica wdt:P31 q8:estudio ;
+    t8:salario_medio "60000" ;
+    t8:universidad_famosa "Oxford" .
+
+t1:especialidad wdt:P1628 t2:experto .
+t1:cientifico wdt:P1628 t2:cientifico_conocido .
