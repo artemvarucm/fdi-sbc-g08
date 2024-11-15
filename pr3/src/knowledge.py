@@ -42,7 +42,10 @@ class Knowledge:
         Carga la base de conocimiento
         """
         lines = readFile(filename)
-        self.processSubjects("".join(lines))
+        try:
+            self.processSubjects("".join(lines))
+        except Exception as e:
+            raise Exception("[ERROR]: Base de conocimiento mal configurada. Cargue otra")
 
     def añadirInfo(self, subject, predicado, object):
         """
