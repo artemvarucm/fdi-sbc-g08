@@ -23,7 +23,7 @@ $ uv run src/practica3.py <ruta al archivo de la base de conocimiento>
 **-Con script de comandos**
 
 ```shell
-$ uv run src/practica3.py <ruta al archivo de la base de conocimiento> --script <comandos>
+$ uv run src/practica3.py <ruta al archivo de la base de conocimiento> --script <ruta al archivo de comandos>
 ```
 ## Descripción programa
 * [General](#general)  
