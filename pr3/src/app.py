@@ -138,6 +138,7 @@ class App:
         print(
             f"{"draw \"<imagen>\"":28} - muestra la última consulta con grafos. Guarda el png en el archivo <imagen>"
         )
+        print(f"{"select <consulta>":28} - devuelve en formato tabla el resultado de la consulta")
         print(f"{"help":28} - muestra los comandos del programa")
         print(f"{"quit":28} - salir del programa")
         print(
