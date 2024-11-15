@@ -136,6 +136,47 @@ q8:chevrolet_camaro wdt:P31 q8:coche_deportivo ;
     t8:salon q8:cuero ;
     t8:pais q8:Estados_Unidos .
 
+q8:Lamborghini wdt:P31 q8:marca_de_coche ;
+    t8:nombre "Lamborghini" ;
+    t8:fundación "1963" ;
+    t8:fundador q8:Ferruccio_Lamborghini ;
+    t8:pais q8:Italia ;
+    t8:propietario q8:Volkswagen_Group .
+
+q8:Ferrari wdt:P31 q8:marca_de_coche ;
+    t8:nombre "Ferrari" ;
+    t8:fundación "1939" ;
+    t8:fundador q8:Enzo_Ferrari ;
+    t8:pais q8:Italia ;
+    t8:propietario q8:Exor_NV .
+
+q8:Maseratti wdt:P31 q8:marca_de_coche ;
+    t8:nombre "Maserati" ;
+    t8:fundación "1914" ;
+    t8:fundador q8:Alfieri_Maserati ;
+    t8:pais q8:Italia ;
+    t8:propietario q8:Stellantis .
+
+q8:McLaren wdt:P31 q8:marca_de_coche ;
+    t8:nombre "McLaren" ;
+    t8:fundación "1963" ;
+    t8:fundador q8:Bruce_McLaren ;
+    t8:pais q8:Reino_Unido ;
+    t8:propietario q8:McLaren_Group .
+
+q8:Bugatti wdt:P31 q8:marca_de_coche ;
+    t8:nombre "Bugatti" ;
+    t8:fundación "1909" ;
+    t8:fundador q8:Ettore_Bugatti ;
+    t8:pais q8:Francia ;
+    t8:propietario q8:Volkswagen_Group .
+
+q8:Chevrolet wdt:P31 q8:marca_de_coche ;
+    t8:nombre "Chevrolet" ;
+    t8:fundación "1911" ;
+    t8:fundador q8:Louis_Chevrolet ;
+    t8:pais q8:Estados_Unidos ;
+    t8:propietario q8:General_Motors .
 
 # EQUIVALENCIAS
 t1:potencia wdt:P1628 t2:caballos .
