@@ -8,7 +8,7 @@ q8:huracan wdt:P31 q8:coche_deportivo ;
     t8:velocidad_maxima "325" ;
     t8:cambio_velocidades q8:cambio_automatico ;
     t8:salon q8:piel ;
-    t8:pais q8:Italia .
+    t8:pais wd:Q38 .
 
 q8:aventador wdt:P31 q8:coche_deportivo ;
     t8:nombre "Lamborghini Aventador" ;
@@ -19,7 +19,7 @@ q8:aventador wdt:P31 q8:coche_deportivo ;
     t8:velocidad_maxima "350" ;
     t8:cambio_velocidades q8:cambio_automatico ;
     t8:salon q8:piel ;
-    t8:pais q8:Italia .
+    t8:pais wd:Q38 .
 
 # Ferrari
 q8:ferrari_488 wdt:P31 q8:coche_deportivo ;
@@ -31,7 +31,7 @@ q8:ferrari_488 wdt:P31 q8:coche_deportivo ;
     t8:velocidad_maxima "330" ;
     t8:cambio_velocidades q8:doble_embrague ;
     t8:salon q8:cuero ;
-    t8:pais q8:Italia .
+    t8:pais wd:Q38 .
 
 q8:ferrari_f8 wdt:P31 q8:coche_deportivo ;
     t8:nombre "Ferrari F8 Tributo" ;
@@ -42,7 +42,7 @@ q8:ferrari_f8 wdt:P31 q8:coche_deportivo ;
     t8:velocidad_maxima "340" ;
     t8:cambio_velocidades q8:doble_embrague ;
     t8:salon q8:cuero ;
-    t8:pais q8:Italia .
+    t8:pais wd:Q38 .
 
 # Maseratti
 q8:maserati_alfieri wdt:P31 q8:coche_deportivo ;
@@ -54,7 +54,7 @@ q8:maserati_alfieri wdt:P31 q8:coche_deportivo ;
     t8:velocidad_maxima "300" ;
     t8:cambio_velocidades q8:cambio_automatico ;
     t8:salon q8:cuero ;
-    t8:pais q8:Italia .
+    t8:pais wd:Q38 .
 
 q8:maserati_granturismo wdt:P31 q8:coche_deportivo ;
     t8:nombre "Maserati GranTurismo" ;
@@ -65,7 +65,7 @@ q8:maserati_granturismo wdt:P31 q8:coche_deportivo ;
     t8:velocidad_maxima "300" ;
     t8:cambio_velocidades q8:cambio_automatico ;
     t8:salon q8:cuero ;
-    t8:pais q8:Italia .
+    t8:pais wd:Q38 .
 
 # McLaren
 q8:mclaren_720s wdt:P31 q8:coche_deportivo ;
@@ -77,7 +77,7 @@ q8:mclaren_720s wdt:P31 q8:coche_deportivo ;
     t8:velocidad_maxima "341" ;
     t8:cambio_velocidades q8:cambio_automatico ;
     t8:salon q8:cuero ;
-    t8:pais q8:Reino_Unido .
+    t8:pais wd:Q145 .
 
 q8:mclaren_p1 wdt:P31 q8:coche_deportivo ;
     t8:nombre "McLaren P1" ;
@@ -88,7 +88,7 @@ q8:mclaren_p1 wdt:P31 q8:coche_deportivo ;
     t8:velocidad_maxima "350" ;
     t8:cambio_velocidades q8:cambio_automatico ;
     t8:salon q8:cuero ;
-    t8:pais q8:Reino_Unido .
+    t8:pais wd:Q145 .
 
 # Bugatti
 q8:bugatti_chiron wdt:P31 q8:coche_deportivo ;
@@ -100,7 +100,7 @@ q8:bugatti_chiron wdt:P31 q8:coche_deportivo ;
     t8:velocidad_maxima "420" ;
     t8:cambio_velocidades q8:cambio_automatico ;
     t8:salon q8:cuero ;
-    t8:pais q8:Francia .
+    t8:pais wd:Q142 .
 
 q8:bugatti_veyron wdt:P31 q8:coche_deportivo ;
     t8:nombre "Bugatti Veyron" ;
@@ -111,7 +111,7 @@ q8:bugatti_veyron wdt:P31 q8:coche_deportivo ;
     t8:velocidad_maxima "408" ;
     t8:cambio_velocidades q8:cambio_automatico ;
     t8:salon q8:cuero ;
-    t8:pais q8:Francia .
+    t8:pais wd:Q142 .
 
 # Chevrolet
 q8:chevrolet_corvette wdt:P31 q8:coche_deportivo ;
@@ -123,7 +123,7 @@ q8:chevrolet_corvette wdt:P31 q8:coche_deportivo ;
     t8:velocidad_maxima "312" ;
     t8:cambio_velocidades q8:cambio_manual ;
     t8:salon q8:cuero ;
-    t8:pais q8:Estados_Unidos .
+    t8:pais wd:Q30 .
 
 q8:chevrolet_camaro wdt:P31 q8:coche_deportivo ;
     t8:nombre "Chevrolet Camaro ZL1" ;
@@ -134,48 +134,48 @@ q8:chevrolet_camaro wdt:P31 q8:coche_deportivo ;
     t8:velocidad_maxima "320" ;
     t8:cambio_velocidades q8:cambio_manual ;
     t8:salon q8:cuero ;
-    t8:pais q8:Estados_Unidos .
+    t8:pais wd:Q30 .
 
 q8:Lamborghini wdt:P31 q8:marca_de_coche ;
     t8:nombre "Lamborghini" ;
     t8:fundación "1963" ;
     t8:fundador q8:Ferruccio_Lamborghini ;
-    t8:pais q8:Italia ;
+    t8:pais wd:Q38 ;
     t8:propietario q8:Volkswagen_Group .
 
 q8:Ferrari wdt:P31 q8:marca_de_coche ;
     t8:nombre "Ferrari" ;
     t8:fundación "1939" ;
     t8:fundador q8:Enzo_Ferrari ;
-    t8:pais q8:Italia ;
+    t8:pais wd:Q38 ;
     t8:propietario q8:Exor_NV .
 
 q8:Maseratti wdt:P31 q8:marca_de_coche ;
     t8:nombre "Maserati" ;
     t8:fundación "1914" ;
     t8:fundador q8:Alfieri_Maserati ;
-    t8:pais q8:Italia ;
+    t8:pais wd:Q38 ;
     t8:propietario q8:Stellantis .
 
 q8:McLaren wdt:P31 q8:marca_de_coche ;
     t8:nombre "McLaren" ;
     t8:fundación "1963" ;
     t8:fundador q8:Bruce_McLaren ;
-    t8:pais q8:Reino_Unido ;
+    t8:pais wd:Q145 ;
     t8:propietario q8:McLaren_Group .
 
 q8:Bugatti wdt:P31 q8:marca_de_coche ;
     t8:nombre "Bugatti" ;
     t8:fundación "1909" ;
     t8:fundador q8:Ettore_Bugatti ;
-    t8:pais q8:Francia ;
+    t8:pais wd:Q142 ;
     t8:propietario q8:Volkswagen_Group .
 
 q8:Chevrolet wdt:P31 q8:marca_de_coche ;
     t8:nombre "Chevrolet" ;
     t8:fundación "1911" ;
     t8:fundador q8:Louis_Chevrolet ;
-    t8:pais q8:Estados_Unidos ;
+    t8:pais wd:Q30 ;
     t8:propietario q8:General_Motors .
 
 # EQUIVALENCIAS
