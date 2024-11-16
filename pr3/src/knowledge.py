@@ -45,7 +45,9 @@ class Knowledge:
         try:
             self.processSubjects("".join(lines))
         except Exception as e:
-            raise Exception("[ERROR]: Base de conocimiento mal configurada. Cargue otra")
+            raise Exception(
+                "[ERROR]: Base de conocimiento mal configurada. Cargue otra"
+            )
 
     def añadirInfo(self, subject, predicado, object):
         """
@@ -74,7 +76,7 @@ class Knowledge:
         """
         subjectDescription = joinedLines.split(" .")[:-1]
         for s in subjectDescription:
-            s = s.strip()  # FIXME - control de errores
+            s = s.strip()
             subject = None
             for afirmacion in s.split(" ;"):
                 # Añadimos a la base de conocimiento cada afirmacion del sujeto
@@ -99,7 +101,9 @@ class Knowledge:
         if '"' in relation:
             # literales
             if subject is None:
-                relation = re.search(r'^(wd:Q\d+|q\d+:\w+) (wdt:P\d+|t\d+:\w+) (".+")', relation)
+                relation = re.search(
+                    r'^(wd:Q\d+|q\d+:\w+) (wdt:P\d+|t\d+:\w+) (".+")', relation
+                )
                 subject, predicado, object = relation.groups()
             else:
                 relation = re.search(r'(wdt:P\d+|t\d+:\w+) (".+")', relation)
@@ -108,12 +112,15 @@ class Knowledge:
             # sin literales
             if subject is None:
                 relation = re.search(
-                    r"^(wd:Q\d+|q\d+:\w+) (wdt:P\d+|t\d+:\w+) (wd:Q\d+|q\d+:\w+)", relation
+                    r"^(wd:Q\d+|q\d+:\w+) (wdt:P\d+|t\d+:\w+) (wd:Q\d+|q\d+:\w+)",
+                    relation,
                 )
                 subject, predicado, object = relation.groups()
 
             else:
-                relation = re.search(r"(wdt:P\d+|t\d+:\w+) (wd:Q\d+|q\d+:\w+)", relation)
+                relation = re.search(
+                    r"(wdt:P\d+|t\d+:\w+) (wd:Q\d+|q\d+:\w+)", relation
+                )
                 predicado, object = relation.groups()
 
         return subject, predicado, object
