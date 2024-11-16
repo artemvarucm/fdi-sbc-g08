@@ -63,7 +63,7 @@ q\d:sujeto t\d:predicado q\d:objeto ;
 #### Notación
 #### Wikidata
 Se pueden usar elementos de wikidata con los
-prefijos wd: y wdt:. Por ejemplo 
+prefijos wd:Q y wdt:P. Por ejemplo 
 ```sparql
 q8:El_matador wdt:P31 q8:persona .
 ```

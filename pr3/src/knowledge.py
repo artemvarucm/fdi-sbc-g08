@@ -33,7 +33,7 @@ class Knowledge:
                 result.extend([[k, v] for k, v in self.base[p].items() if v in obj])
         elif obj is None:
             for p in pred:
-                result.extend([[s, self.base[[p]][s]] for s in subj])
+                result.extend([[s, self.base[p][s]] for s in subj])
 
         return result
 
@@ -99,32 +99,23 @@ class Knowledge:
         if '"' in relation:
             # literales
             if subject is None:
-                relation = re.search(r'^(q\d+:\w+) ((wd)?t\w*:\w+) (".+")', relation)
-                gr = relation.groups()
-                subject = gr[0]
-                predicado = gr[1]
-                object = gr[3]
+                relation = re.search(r'^(wd:Q\d+|q\d+:\w+) (wdt:P\d+|t\d+:\w+) (".+")', relation)
+                subject, predicado, object = relation.groups()
             else:
-                relation = re.search(r'((wd)?t\w*:\w+) (".+")', relation)
-                gr = relation.groups()
-                predicado = gr[0]
-                object = gr[2]
+                relation = re.search(r'(wdt:P\d+|t\d+:\w+) (".+")', relation)
+                predicado, object = relation.groups()
         else:
             # sin literales
             if subject is None:
-                # FIXME, matchea predicados incorrectos, ej tenis2:P31, solo deberia de hacerlo para t\d o wdt
                 relation = re.search(
-                    r"^(q\d+:\w+) ((wd)?t\w*:\w+) (q\d+:\w+)", relation
+                    r"^(wd:Q\d+|q\d+:\w+) (wdt:P\d+|t\d+:\w+) (wd:Q\d+|q\d+:\w+)", relation
                 )
-                gr = relation.groups()
-                subject = gr[0]
-                predicado = gr[1]
-                object = gr[3]
+                subject, predicado, object = relation.groups()
+
             else:
-                relation = re.search(r"((wd)?t\w*:\w+) (q\d+:\w+)", relation)
-                gr = relation.groups()
-                predicado = gr[0]
-                object = gr[2]
+                relation = re.search(r"(wdt:P\d+|t\d+:\w+) (wd:Q\d+|q\d+:\w+)", relation)
+                predicado, object = relation.groups()
+
         return subject, predicado, object
 
     def save(self, base_nueva):
