@@ -1,7 +1,17 @@
-select ?t where { ?t t8:pais wd:Q38 .}
+select ?t, ?e where { 
+    ?t t8:pais wd:Q38 .
+    ?t wdt:P31 ?e .
+}
 select ?t where { 
     ?t wdt:P31 q8:marca_de_coche .
     ?t t8:pais wd:Q38 .
+}
+select ?t, ?f where { 
+    ?t wdt:P31 q8:marca_de_coche .
+    ?t t8:fundador ?f .
+}
+select ?t, ?f where { 
+    ?t wdt:P31 ?f .
 }
 #draw "t.png"
 #load base_conocimiento.ttl

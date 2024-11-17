@@ -25,6 +25,7 @@ class QuerySolver:
 
     def query(self, queryStr, knowledge: Knowledge):
         """
+        Realiza la consulta a la base de conocimiento
         Distinguir tres tipos (depende de que variable existia antes de la clausula)
         1. ?var1 predicado ?var2
         2. ?var predicado obj
@@ -39,6 +40,7 @@ class QuerySolver:
             # dependiendo de la clausula, operamos o bien directamente con la entidad o con un conjunto de ellas
             processedSubj, processedPred, processedObj = [subj], pred, [obj]
             if subj.startswith("?"):
+                # casos 1 y 2
                 processedSubj = dfResponse[subj] if subj in dfResponse.columns else None
                 if obj.startswith("?"):
                     # caso 1
@@ -54,15 +56,15 @@ class QuerySolver:
                     columns=[subj, obj],
                 )
             except Exception as e:
-                print(e)
+                print("[ERROR]", e)
                 continue
 
             if dfResponse.shape[0] == 0:
                 dfResponse = dfKnowledge
             else:
-                how = "right" # para filtrar
+                how = "right"  # para filtrar
                 if processedSubj is None or processedObj is None:
-                    how = "outer" # sobre todo para añadir nuevas columnas
+                    how = "outer"  # sobre todo para añadir nuevas columnas
                 dfResponse = dfResponse.merge(dfKnowledge, how=how)
 
         return dfResponse[selectColumns]

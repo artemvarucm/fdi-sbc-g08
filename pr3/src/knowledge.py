@@ -6,7 +6,7 @@ class Knowledge:
     """
     Clase encargada de almacenar y gestionar
     la base de conocimiento y las equivalencias
-    como diccionario que tiene como clave <relacion> y como valor otro diccionario {<sujeto>:<objeto>}
+    La estructura es asi: {<relacion> : { <sujeto> : set(<objeto>) }}
     """
 
     def __init__(self):
@@ -15,7 +15,7 @@ class Knowledge:
 
     def findBy(self, subj, pred, obj):
         """
-        Devuelve una lista de parejas [subj, obj]
+        Devuelve una lista de parejas [subj, obj] dada una de las clausulas del where (Si es None, se trata de un alias)
         """
         if pred not in self.base and pred not in self.equivalencias:
             raise KeyError(
@@ -28,15 +28,27 @@ class Knowledge:
         else:
             pred = [pred]
         result = []
-        if subj is None:
+        if subj is None and obj is None:
+            # subj y obj son aliases
             for p in pred:
-                result.extend([[k, v] for k, v in self.base[p].items() if v in obj])
+                result.extend([[s, o] for s in self.base[p] for o in self.base[p][s]])
+        elif subj is None:
+            # subj es alias
+            for p in pred:
+                result.extend(
+                    [[s, o] for s in self.base[p] for o in self.base[p][s] if o in obj]
+                )
         elif obj is None:
+            # obj es alias
             for p in pred:
-                result.extend([[s, self.base[p][s]] for s in subj])
+                result.extend([[s, o] for s in subj for o in self.base[p][s]])
         else:
+            # filtramos filas
             for p in pred:
-                result.extend([[s, self.base[p][s]] for s in subj if self.base[p][s] in obj])
+                result.extend(
+                    [[s, o] for s in subj for o in self.base[p][s] if o in obj]
+                )
+
         return result
 
     def load(self, filename):
@@ -45,7 +57,7 @@ class Knowledge:
         """
         lines = readFile(filename)
         try:
-            self.processSubjects("".join(lines))
+            self.importFromRaw("".join(lines))
         except Exception as e:
             raise Exception(
                 "[ERROR]: Base de conocimiento mal configurada. Cargue otra"
@@ -57,13 +69,17 @@ class Knowledge:
         """
         if predicado not in self.base.keys():
             self.base[predicado] = dict()
-        elif subject not in self.base[predicado]:
-            self.base[subject] = dict()
 
-        self.base[predicado][subject] = object
+        if subject not in self.base[predicado]:
+            # crea el conjunto que guardara los objetos
+            self.base[predicado][subject] = set()
+
+        self.base[predicado][subject].add(object)
 
     def añadirEquivalencia(self, t1, t2):
-        """Para un predicado añade su equivalente"""
+        """
+        Para un predicado @t1 añade su equivalente @t2
+        """
         if t1 not in self.equivalencias.keys():
             self.equivalencias[t1] = set([t1])
         if t2 not in self.equivalencias.keys():
@@ -72,9 +88,9 @@ class Knowledge:
         self.equivalencias[t1].add(t2)
         self.equivalencias[t2].add(t1)
 
-    def processSubjects(self, joinedLines):
+    def importFromRaw(self, joinedLines):
         """
-        Separa los sujetos y los va añadiendo a la base de conocimiento
+        Separa las afirmaciones por ".", extrae tripletas y las añade a la base de conocimiento
         """
         subjectDescription = joinedLines.split(" .")[:-1]
         for s in subjectDescription:
@@ -98,7 +114,7 @@ class Knowledge:
 
     def processRelation(self, relation, subject):
         """
-        Procesa la afirmacion del sujeto
+        Procesa la afirmacion del sujeto y devuelve la tripleta RDF subject, predicado, object
         """
         if '"' in relation:
             # literales
@@ -129,7 +145,7 @@ class Knowledge:
 
     def save(self, base_nueva):
         """
-        Guarda la base de conocimiento vigente en un archivo .ttl
+        Guarda la base de conocimiento vigente en un archivo sin sobreescribir
         """
         try:
             f = open(
@@ -137,7 +153,8 @@ class Knowledge:
             )  # Evita sobreescribir una base de conocimiento que ya existe
             for pred in self.base:
                 for subj in self.base[pred]:
-                    f.write(f"{subj} {pred} {self.base[pred][subj]} .\n")
+                    for obj in self.base[pred][subj]:
+                        f.write(f"{subj} {pred} {obj} .\n")
 
             # Guardamos las equivalencias también
             f.write(f"\n# EQUIVALENCIAS\n")

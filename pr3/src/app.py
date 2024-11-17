@@ -51,7 +51,7 @@ class App:
         """
         Añade la afirmacion a la base de conocimiento
         """
-        self.conocimiento.processSubjects(afirmacion)
+        self.conocimiento.importFromRaw(afirmacion)
 
     def save(self, knowledge_path):
         """
