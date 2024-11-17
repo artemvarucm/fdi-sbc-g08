@@ -18,9 +18,7 @@ class Knowledge:
         Devuelve una lista de parejas [subj, obj] dada una de las clausulas del where (Si es None, se trata de un alias)
         """
         if pred not in self.base and pred not in self.equivalencias:
-            raise KeyError(
-                f"[WARNING]: El predicado {pred} no existe en la base de conocimiento. Se omite"
-            )
+            return []
 
         if pred in self.equivalencias:
             # escogemos predicados que tienen alguna afirmacion

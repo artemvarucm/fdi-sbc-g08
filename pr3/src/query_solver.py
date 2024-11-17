@@ -56,7 +56,7 @@ class QuerySolver:
                     columns=[subj, obj],
                 )
             except Exception as e:
-                print("[ERROR]", e)
+                print(e)
                 continue
 
             if dfResponse.shape[0] == 0:
