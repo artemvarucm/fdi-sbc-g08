@@ -60,6 +60,9 @@ class QuerySolver:
             if dfResponse.shape[0] == 0:
                 dfResponse = dfKnowledge
             else:
-                dfResponse = dfResponse.merge(dfKnowledge, how="outer")
+                how = "right" # para filtrar
+                if processedSubj is None or processedObj is None:
+                    how = "outer" # sobre todo para añadir nuevas columnas
+                dfResponse = dfResponse.merge(dfKnowledge, how=how)
 
         return dfResponse[selectColumns]

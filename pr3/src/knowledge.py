@@ -34,7 +34,9 @@ class Knowledge:
         elif obj is None:
             for p in pred:
                 result.extend([[s, self.base[p][s]] for s in subj])
-
+        else:
+            for p in pred:
+                result.extend([[s, self.base[p][s]] for s in subj if self.base[p][s] in obj])
         return result
 
     def load(self, filename):
