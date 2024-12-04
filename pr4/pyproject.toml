@@ -1,0 +1,12 @@
+[project]
+name = "sbc-g08-p4"
+version = "0.1.0"
+description = "Practica 4"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "black>=24.10.0",
+    "click>=8.1.7",
+    "matplotlib>=3.9.2",
+    "pandas>=2.2.3",
+]
