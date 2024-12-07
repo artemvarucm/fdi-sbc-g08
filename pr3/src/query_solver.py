@@ -41,15 +41,15 @@ class QuerySolver:
             processedSubj, processedPred, processedObj = [subj], pred, [obj]
             if subj.startswith("?"):
                 # casos 1 y 2
-                processedSubj = dfResponse[subj] if subj in dfResponse.columns else None
+                processedSubj = dfResponse[subj].unique() if subj in dfResponse.columns else None
                 if obj.startswith("?"):
                     # caso 1
                     processedObj = (
-                        dfResponse[obj] if obj in dfResponse.columns else None
+                        dfResponse[obj].unique() if obj in dfResponse.columns else None
                     )
             elif obj.startswith("?"):
                 # caso 3
-                processedObj = dfResponse[obj] if obj in dfResponse.columns else None
+                processedObj = dfResponse[obj].unique() if obj in dfResponse.columns else None
             try:
                 dfKnowledge = pd.DataFrame(
                     knowledge.findBy(processedSubj, processedPred, processedObj),

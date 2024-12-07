@@ -22,29 +22,29 @@ class Knowledge:
 
         if pred in self.equivalencias:
             # escogemos predicados que tienen alguna afirmacion
-            pred = [p for p in self.equivalencias[pred] if p in self.base]
+            pred = [p for p in self.equivalencias.get(pred, []) if p in self.base]
         else:
             pred = [pred]
         result = []
         if subj is None and obj is None:
             # subj y obj son aliases
             for p in pred:
-                result.extend([[s, o] for s in self.base[p] for o in self.base[p][s]])
+                result.extend([[s, o] for s in self.base.get(p, []) for o in self.base[p].get(s, [])])
         elif subj is None:
             # subj es alias
             for p in pred:
                 result.extend(
-                    [[s, o] for s in self.base[p] for o in self.base[p][s] if o in obj]
+                    [[s, o] for s in self.base.get(p, []) for o in self.base[p].get(s, []) if o in obj]
                 )
         elif obj is None:
             # obj es alias
             for p in pred:
-                result.extend([[s, o] for s in subj for o in self.base[p][s]])
+                result.extend([[s, o] for s in subj for o in self.base[p].get(s, [])])
         else:
             # filtramos filas
             for p in pred:
                 result.extend(
-                    [[s, o] for s in subj for o in self.base[p][s] if o in obj]
+                    [[s, o] for s in subj for o in self.base[p].get(s, []) if o in obj]
                 )
 
         return result

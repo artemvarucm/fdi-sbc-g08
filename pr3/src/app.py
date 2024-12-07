@@ -4,6 +4,7 @@ from graph_drawer import GraphDrawer
 from tabulate import tabulate
 import re
 import sys
+import pandas as pd
 
 
 class App:
@@ -32,7 +33,7 @@ class App:
         print(f"Filas encontradas: {self.lastQueryResult.shape[0]}")
         print(
             tabulate(
-                self.lastQueryResult, headers="keys", tablefmt="psql", showindex=False
+                self.lastQueryResult.replace(pd.NA, None), headers="keys", tablefmt="psql", showindex=False, missingval = '?'
             )
         )
 
