@@ -1,0 +1,5 @@
+1. La base de conocimiento se la tenemos que pasar como una linea o como varias lineas
+2. Hace falta pasarle lo de "You are a prompt engineer" en la parte 1?
+3. Podemos utilizar el modelo para clasificar con que informacion se tiene que quedar para volver a pasarsela
+3. Son dos archivos, uno para parte 1 otro para parte 2?
+4. Hay que guardar los mapeos o no hace falta?
