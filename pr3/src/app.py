@@ -33,7 +33,11 @@ class App:
         print(f"Filas encontradas: {self.lastQueryResult.shape[0]}")
         print(
             tabulate(
-                self.lastQueryResult.replace(pd.NA, None), headers="keys", tablefmt="psql", showindex=False, missingval = '?'
+                self.lastQueryResult.replace(pd.NA, None),
+                headers="keys",
+                tablefmt="psql",
+                showindex=False,
+                missingval="?",
             )
         )
 

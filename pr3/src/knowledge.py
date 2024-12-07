@@ -29,12 +29,23 @@ class Knowledge:
         if subj is None and obj is None:
             # subj y obj son aliases
             for p in pred:
-                result.extend([[s, o] for s in self.base.get(p, []) for o in self.base[p].get(s, [])])
+                result.extend(
+                    [
+                        [s, o]
+                        for s in self.base.get(p, [])
+                        for o in self.base[p].get(s, [])
+                    ]
+                )
         elif subj is None:
             # subj es alias
             for p in pred:
                 result.extend(
-                    [[s, o] for s in self.base.get(p, []) for o in self.base[p].get(s, []) if o in obj]
+                    [
+                        [s, o]
+                        for s in self.base.get(p, [])
+                        for o in self.base[p].get(s, [])
+                        if o in obj
+                    ]
                 )
         elif obj is None:
             # obj es alias
