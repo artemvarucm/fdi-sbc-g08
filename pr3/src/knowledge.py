@@ -9,9 +9,10 @@ class Knowledge:
     La estructura es asi: {<relacion> : { <sujeto> : set(<objeto>) }}
     """
 
-    def __init__(self):
+    def __init__(self, knowledge_path):
         self.base = dict()
         self.equivalencias = dict()
+        self.load(knowledge_path)
 
     def findBy(self, subj, pred, obj):
         """
@@ -64,13 +65,13 @@ class Knowledge:
         """
         Carga la base de conocimiento
         """
+        print(f'[INFO] Cargando "{filename}".')
         lines = readFile(filename)
-        try:
-            self.importFromRaw("".join(lines))
-        except Exception as e:
-            raise Exception(
-                "[ERROR]: Base de conocimiento mal configurada. Cargue otra"
-            )
+        n_errors = self.importFromRaw("".join(lines))
+        error_msg = ""
+        if n_errors > 0:
+            error_msg = f"con {n_errors} error{"es" if n_errors > 1 else ""}"
+        print(f"[INFO] Base de conocimiento cargada{error_msg}.")            
 
     def añadirInfo(self, subject, predicado, object):
         """
@@ -100,26 +101,33 @@ class Knowledge:
     def importFromRaw(self, joinedLines):
         """
         Separa las afirmaciones por ".", extrae tripletas y las añade a la base de conocimiento
+        Devuelve el numero de errores al ejecutar la funcion
         """
+        n_errors = 0
         subjectDescription = joinedLines.split(" .")[:-1]
         for s in subjectDescription:
-            s = s.strip()
-            subject = None
-            for afirmacion in s.split(" ;"):
-                # Añadimos a la base de conocimiento cada afirmacion del sujeto
-                equivalencia = re.search(
-                    r"^((wd)?t\d+:\w+) (wd)?t:P1628 ((wd)?t\d+:\w+)$", afirmacion
-                )
-                if equivalencia:
-                    eq = equivalencia.groups()
-                    t1 = eq[0]
-                    t2 = eq[3]
-                    self.añadirEquivalencia(t1, t2)
-                else:
-                    subject, predicado, object = self.processRelation(
-                        afirmacion, subject
+            try:
+                s = s.strip()
+                subject = None
+                for afirmacion in s.split(" ;"):
+                    # Añadimos a la base de conocimiento cada afirmacion del sujeto
+                    equivalencia = re.search(
+                        r"^((wd)?t\d+:\w+) (wd)?t:P1628 ((wd)?t\d+:\w+)$", afirmacion
                     )
-                    self.añadirInfo(subject, predicado, object)
+                    if equivalencia:
+                        eq = equivalencia.groups()
+                        t1 = eq[0]
+                        t2 = eq[3]
+                        self.añadirEquivalencia(t1, t2)
+                    else:
+                        subject, predicado, object = self.processRelation(
+                            afirmacion, subject
+                        )
+                        self.añadirInfo(subject, predicado, object)
+            except Exception:
+                n_errors = n_errors + 1
+                print(f"[ERROR BASE CONOCIMIENTO]: Fallo al procesar {s}")
+        return n_errors
 
     def processRelation(self, relation, subject):
         """

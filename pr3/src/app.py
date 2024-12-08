@@ -14,9 +14,7 @@ class App:
     """
 
     def __init__(self, knowledge_path):
-        self.conocimiento = Knowledge()
-        self.load(knowledge_path)
-
+        self.conocimiento = Knowledge(knowledge_path)
         self.querySolver = QuerySolver()
         self.graphDrawer = GraphDrawer()
         self.lastQueryResult = None
@@ -41,27 +39,30 @@ class App:
             )
         )
 
-    def load(self, knowledge_path):
+    def load(self, query):
         """
         Carga la base de conocimiento
         """
-        try:
-            print(f'Cargando "{knowledge_path}"... ', end="")
-            self.conocimiento.load(knowledge_path)
-            print("OK!")
-        except Exception as e:
-            print(e)
+        match = re.search(r"^load\s([\S]+)", query)
+        knowledge_path = match.groups()[0]
+        self.conocimiento.load(knowledge_path)
 
-    def add(self, afirmacion):
+    def add(self, query):
         """
         Añade la afirmacion a la base de conocimiento
         """
+        match = re.search(r"^add\b(.* \.)", query)
+        afirmacion = match.groups()[0]
         self.conocimiento.importFromRaw(afirmacion)
 
-    def save(self, knowledge_path):
+        return
+
+    def save(self, query):
         """
         Guarda la base de conocimiento vigente en un archivo .ttl
         """
+        match = re.search(r"^save\s\"(.+)\"", query)
+        knowledge_path = match.groups()[0]
         try:
             print(f'Guardando "{knowledge_path}"... ', end="")
             self.conocimiento.save(knowledge_path)
@@ -69,17 +70,44 @@ class App:
         except Exception as e:
             print(e)
 
-    def draw(self, image_path):
+    def draw(self, query):
         """
         Dibuja un grafo sobre la última consulta realizada.
         Además, guarda la imagen en el path <image_path>
         """
+        match = re.search(r"^draw\s\"(.+)\"", query)
+        image_path = match.groups()[0]
         try:
             print(f'Exportando grafo a "{image_path}"... ', end="")
             self.graphDrawer.draw(self.lastQueryResult, image_path)
             print("OK!")
         except Exception as e:
             print(e)
+
+
+    def extractCommand(self, query):
+        """
+        Clasifica el comando query
+        """
+        query = query.lstrip()
+        command = None
+        if "help" == query:
+            command = "help"
+        elif "quit" == query:
+            command = "quit"
+        elif re.search(r"^load\s([\w\.]+)$", query):
+            command = "load"
+        elif re.search(r"^add\b", query):
+            command = "add"
+        elif re.search(r"^save\s\"([\w\.]+)\"$", query):
+            command = "save"
+        elif re.search(r"^draw\s\"([\w\.]+)\"$", query):
+            command = "draw"
+        elif re.search(r"^select\b", query):
+            command = "select"
+
+        return command
+
 
     def processCommand(self, query):
         """
@@ -89,41 +117,30 @@ class App:
         leerMasLineas = False
 
         query = query.lstrip()  # para detectar "select "
-        if "help" == query:
+        command = self.extractCommand(query)
+
+        if command is None:
+            comandoReconocido = False
+        if "help" == command:
             self.help()
-        elif "quit" == query:
+        elif "quit" == command:
             sys.exit(1)
-        elif re.search(r"^load\s([\w\.]+)$", query):  # cargar base de conocimiento
-            match = re.search(r"^load\s([\S]+)", query)
-            base_nueva = match.groups()[0]
-            self.load(base_nueva)
-        elif re.search(r"^add\b", query):  # añadir nueva afirmación base conocimiento
-            match = re.search(r"^add\b(.* \.)", query)
-            if not match:
+        elif "load" == command:  # cargar base de conocimiento
+            self.load(query)
+        elif "add" == command:  # añadir nueva afirmación base conocimiento
+            try:
+                self.add(query)
+            except Exception:
                 leerMasLineas = True
-            else:
-                afirmacion = match.groups()[0]
-                try:
-                    self.add(afirmacion)
-                except Exception:
-                    leerMasLineas = True
-        elif re.search(r"^save\s\"([\w\.]+)\"$", query):  # guardar base de conocimiento
-            match = re.search(r"^save\s\"(.+)\"", query)
-            base_nueva = match.groups()[0]
-            self.save(base_nueva)
-        elif re.search(
-            r"^draw\s\"([\w\.]+)\"$", query
-        ):  # visualizacion de la ultima consulta realizada
-            match = re.search(r"^draw\s\"(.+)\"", query)
-            image_path = match.groups()[0]
-            self.draw(image_path)
-        elif re.search(r"^select\b", query):
+        elif "save" == command:  # guardar base de conocimiento
+            self.save(query)
+        elif "draw" == command:  # visualizacion de la ultima consulta realizad
+            self.draw(query)
+        elif "select" == command:
             try:
                 self.query(query)
             except Exception:
                 leerMasLineas = True
-        else:
-            comandoReconocido = False
 
         if not comandoReconocido:
             print(f"COMANDO DESCONOCIDO. REVISE LA SINTAXIS.")

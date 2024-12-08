@@ -19,7 +19,11 @@ class QuerySolver:
         whereRegex = re.search(r"(?s){(.*)}", queryStr)
         grWhe = whereRegex.groups()
 
-        whereClauses = [l.strip() for l in grWhe[0].split(" .")][:-1]
+        whereClauses = [l.strip() for l in grWhe[0].split(" .")]
+        if whereClauses[-1] == '':
+            whereClauses = whereClauses[:-1]
+        else:
+            raise Exception("Falta el punto al final")
 
         return selectColumns, whereClauses
 

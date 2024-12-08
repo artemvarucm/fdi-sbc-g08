@@ -27,9 +27,13 @@ def main(base_conocimiento, script):
         # Ejecuta el script antes de empezar
         if script is not None:
             multiLine = False  # juntar lineas leidas consecutivamente
-            for line in readFile(script):
+            for line in readFile(script): 
                 if multiLine:
-                    query += " " + line
+                    if app.extractCommand(line) is None:
+                        query += " " + line
+                    else:
+                        print(f'[ERROR SCRIPT]: Comando "{query}" no se ha podido ejecutar')
+                        query = line
                 else:
                     query = line
                 multiLine = app.processCommand(query)
@@ -37,19 +41,19 @@ def main(base_conocimiento, script):
         # Bucle principal del programa
         multiLine = False
         while True:
-            if multiLine:
-                query += " " + input("  ")
-            else:
-                query = input("> ")
-            if query.strip():  # poder hacer enter sin ejecutar nada
-                multiLine = app.processCommand(query)
-
-    except KeyboardInterrupt:
-        if multiLine:  # si pulsa Ctrl+C -> salimos del modo multilinea
-            print()
-            multiLine = False
-        else:
-            sys.exit(1)
+            try:
+                if multiLine:
+                    query += " " + input("  ")
+                else:
+                    query = input("> ")
+                if query.strip():  # poder hacer enter sin ejecutar nada
+                    multiLine = app.processCommand(query)
+            except KeyboardInterrupt:
+                if multiLine:  # si pulsa Ctrl+C -> salimos del modo multilinea
+                    print()
+                    multiLine = False
+                else:
+                    sys.exit(1)
     except Exception as e:
         print("[ERROR DURANTE EJECUCION]:", e)
 

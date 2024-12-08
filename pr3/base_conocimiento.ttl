@@ -352,4 +352,4 @@ wd:Q40 wdt:P31 wd:Q6256 ;
     t8:vecino wd:Q215 .
 
 # EQUIVALENCIAS
-t1:potencia wdt:P1628 t2:caballos .
+t8:potencia wdt:P1628 t8:caballos .

@@ -13,6 +13,10 @@ select ?t, ?f where {
 select ?t, ?f where { 
     ?t wdt:P31 ?f .
 }
+select ?t where { 
+    q8:huracan t8:caballos ?t . 
+}
+select ?p, ?q where { ?p0 t8:vecino ?q0 . ?p0 t8:nombre ?p . ?q0 t8:nombre ?q . }
 #draw "t.png"
 #load base_conocimiento.ttl
 #save "t.ttl"
