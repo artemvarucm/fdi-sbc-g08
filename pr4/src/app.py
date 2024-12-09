@@ -1,6 +1,7 @@
 import sys
 from rag import RAG
 
+
 class App:
     """
     Aplicación principal que se encarga de

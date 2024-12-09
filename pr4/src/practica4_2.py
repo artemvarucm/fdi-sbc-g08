@@ -2,7 +2,6 @@ import click
 from app import App
 
 
-
 @click.command()
 @click.argument("base_conocimiento", type=click.Path(exists=True))
 def main(base_conocimiento):
