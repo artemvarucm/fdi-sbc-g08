@@ -67,11 +67,11 @@ class Knowledge:
         """
         print(f'[INFO] Cargando "{filename}".')
         lines = readFile(filename)
-        n_errors = self.importFromRaw("".join(lines))
+        OK = self.importFromRaw(" ".join(lines))
         error_msg = ""
-        if n_errors > 0:
-            error_msg = f"con {n_errors} error{"es" if n_errors > 1 else ""}"
-        print(f"[INFO] Base de conocimiento cargada{error_msg}.")            
+        if not OK:
+            error_msg = f" excluyendo los errores"
+        print(f"[INFO] Base de conocimiento cargada{error_msg}.")
 
     def añadirInfo(self, subject, predicado, object):
         """
@@ -101,9 +101,9 @@ class Knowledge:
     def importFromRaw(self, joinedLines):
         """
         Separa las afirmaciones por ".", extrae tripletas y las añade a la base de conocimiento
-        Devuelve el numero de errores al ejecutar la funcion
+        Devuelve true si no han habido errores
         """
-        n_errors = 0
+        hasErrors = False
         subjectDescription = joinedLines.split(" .")[:-1]
         for s in subjectDescription:
             try:
@@ -125,36 +125,44 @@ class Knowledge:
                         )
                         self.añadirInfo(subject, predicado, object)
             except Exception:
-                n_errors = n_errors + 1
+                hasErrors = True
                 print(f"[ERROR BASE CONOCIMIENTO]: Fallo al procesar {s}")
-        return n_errors
+
+        last = joinedLines.split(" .")[-1]
+        if last != "":
+            # Fallo si no se añade el último punto
+            print(f"[ERROR BASE CONOCIMIENTO]: Fallo al procesar {last}")
+            hasErrors = True
+
+        return not hasErrors
 
     def processRelation(self, relation, subject):
         """
         Procesa la afirmacion del sujeto y devuelve la tripleta RDF subject, predicado, object
         """
+        relation = relation.strip()
         if '"' in relation:
             # literales
             if subject is None:
                 relation = re.search(
-                    r'^(wd:Q\d+|q\d+:\w+) (wdt:P\d+|t\d+:\w+) (".+")', relation
+                    r'^(wd:Q\d+|q\d+:\w+) (wdt:P\d+|t\d+:\w+) (".+")$', relation
                 )
                 subject, predicado, object = relation.groups()
             else:
-                relation = re.search(r'(wdt:P\d+|t\d+:\w+) (".+")', relation)
+                relation = re.search(r'^(wdt:P\d+|t\d+:\w+) (".+")$', relation)
                 predicado, object = relation.groups()
         else:
             # sin literales
             if subject is None:
                 relation = re.search(
-                    r"^(wd:Q\d+|q\d+:\w+) (wdt:P\d+|t\d+:\w+) (wd:Q\d+|q\d+:\w+)",
+                    r"^(wd:Q\d+|q\d+:\w+) (wdt:P\d+|t\d+:\w+) (wd:Q\d+|q\d+:\w+)$",
                     relation,
                 )
                 subject, predicado, object = relation.groups()
 
             else:
                 relation = re.search(
-                    r"(wdt:P\d+|t\d+:\w+) (wd:Q\d+|q\d+:\w+)", relation
+                    r"^(wdt:P\d+|t\d+:\w+) (wd:Q\d+|q\d+:\w+)$", relation
                 )
                 predicado, object = relation.groups()
 

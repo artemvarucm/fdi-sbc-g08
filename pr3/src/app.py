@@ -84,7 +84,6 @@ class App:
         except Exception as e:
             print(e)
 
-
     def extractCommand(self, query):
         """
         Clasifica el comando query
@@ -107,7 +106,6 @@ class App:
             command = "select"
 
         return command
-
 
     def processCommand(self, query):
         """

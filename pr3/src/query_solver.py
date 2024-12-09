@@ -20,7 +20,7 @@ class QuerySolver:
         grWhe = whereRegex.groups()
 
         whereClauses = [l.strip() for l in grWhe[0].split(" .")]
-        if whereClauses[-1] == '':
+        if whereClauses[-1] == "":
             whereClauses = whereClauses[:-1]
         else:
             raise Exception("Falta el punto al final")

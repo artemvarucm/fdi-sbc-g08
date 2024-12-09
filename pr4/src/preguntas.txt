@@ -3,3 +3,5 @@
 3. Podemos utilizar el modelo para clasificar con que informacion se tiene que quedar para volver a pasarsela
 3. Son dos archivos, uno para parte 1 otro para parte 2?
 4. Hay que guardar los mapeos o no hace falta?
+4. Chain of though es lo de alibaba?
+5. Tool use -> https://docs.crewai.com/concepts/tools#available-crewai-tools

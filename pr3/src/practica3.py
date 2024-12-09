@@ -27,12 +27,14 @@ def main(base_conocimiento, script):
         # Ejecuta el script antes de empezar
         if script is not None:
             multiLine = False  # juntar lineas leidas consecutivamente
-            for line in readFile(script): 
+            for line in readFile(script):
                 if multiLine:
                     if app.extractCommand(line) is None:
                         query += " " + line
                     else:
-                        print(f'[ERROR SCRIPT]: Comando "{query}" no se ha podido ejecutar')
+                        print(
+                            f'[ERROR SCRIPT]: Comando "{query}" no se ha podido ejecutar'
+                        )
                         query = line
                 else:
                     query = line
