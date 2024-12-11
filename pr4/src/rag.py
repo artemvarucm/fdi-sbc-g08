@@ -1,21 +1,51 @@
 from utils import readFile
 from ollama_controller import OllamaController
-
+import os
+from pathlib import Path
 
 class RAG:
     """
     Clase encargada de hacer el prompt engineering con ollama (intermediario)
     """
 
-    def __init__(self, knowledge_path):
-        print(f"[INFO]: CARGANDO BASE DE CONOCIMIENTO.")
-        self.knowledge = " ".join(readFile(knowledge_path))
-        print(f"[INFO]: CARGA REALIZADA CORRECTAMENTE.")
+    def __init__(self, bases_conocimiento):
+        self.knowledge = self.loadKnowledge(bases_conocimiento)
+        self.messagesHistory = self.getPrompts()
         self.ollama = OllamaController()
-        self.ollama.setMessageHistory(self.getPrompts())
+    
+    def loadKnowledge(self, bases_conocimiento):
+        return {
+            "ferrari": Path(bases_conocimiento,"ferrari.txt"),
+            "bugatti": Path(bases_conocimiento,"bugatti.txt")
+        }
 
+    def processKnowledge(self, query):
+        contextLines = []
+        for k in self.knowledge.keys():
+            if k in query.lower():
+                contextLines.extend(readFile(self.knowledge[k]))
+
+        print(" ".join(contextLines))
+        return " ".join(contextLines)
+    
     def chat(self, query):
-        return self.ollama.chat(query)
+        processed = self.processKnowledge(query)
+        self.messagesHistory.extend([
+            {
+                "role": "system",
+                "content": f"For the next user query use the following context {processed}." if processed else "Try to find information from your own knowledge."
+            },
+            {
+                "role": "user",
+                "content": query,
+            }
+        ])
+        response = self.ollama.chat(self.messagesHistory)
+
+        # Añadimos la respuesta de ollama al historial
+        self.messagesHistory.append(response["message"])
+
+        return response["message"]["content"]
 
     def switchModel(self, model):
         return self.ollama.setModel(model)
@@ -24,14 +54,17 @@ class RAG:
         return [
             {
                 "role": "system",
-                "content": "Remember this: " + self.knowledge,
+                "content": """
+                You are a salesman that helps people to find out which car is available and
+                why is it better from the knowledge base we will provide you. 
+                You must be efficient, using only the right information to answer the response from the user.
+            """,
             },
             {
                 "role": "system",
                 "content": """
-                You are an expert assistant in semantic networks and knowledge bases. 
-                Your task is to answer questions related to RDF, SPARQL, and related concepts, 
-                using the provided base as a reference.
+                 If you do not find the information in the knowledge we provide you, 
+                 answer whatever you consider relevant. 
             """,
-            },
+            }
         ]
