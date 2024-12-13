@@ -8,29 +8,38 @@ class OllamaController:
     Clase que se encarga de realizar las consultas a las API de ollama
     """
 
-    def __init__(self, model="llama3.2:3b"):
+    def __init__(self, model):
+        self.model = None
         self.setModel(model)
-        print(f'[INFO]: MODELO CARGADO "{model}". Para cambiar ejecute \\model')
 
     def setModel(self, model):
         """
         Cambia de modelo de ollama
         """
-        self.model = model
-        # fixme error, model doesnt exist
-        """except ollama.ResponseError as e:
+        try:
+            # probamos enviar consulta para ver si el modelo está instalado
+            ollama.chat(model=model, messages=[{"role": "user", "content": "Hello!"}])
             
+            self.model = model
+            print(f'[INFO]: MODEL "{model}" LOADED. TO SWAP EXECUTE \\model')
+        except ollama.ResponseError as e:
             if e.status_code == 404:
                 # Descarga el modelo si no lo encuentra
-                print(f'[INFO]: DESCARGANDO MODELO "{model}".')
+                print(f'[INFO]: DOWNLOADING "{model}" MODEL.')
                 try:
                     ollama.pull(model)
-                    print(f'[INFO]: MODELO CARGADO "{model}". Para cambiar ejecute \\model')
+                    self.model = model
+                    print(f'[INFO]: MODEL "{model}" LOADED. TO SWAP EXECUTE \\model')
                 except Exception as e:
-                    print(f'[OLLAMA ERROR]: ERROR AL INTENTAR DESCARGAR EL MODELO "{model}".')
+                    print(f'[OLLAMA ERROR]: ERROR WHEN DOWNLOADING "{model}" MODEL.')
             else:
-                print('[OLLAMA ERROR]:', e.error)"""
+                print('[OLLAMA ERROR]:', e.error)
+
+        
 
     def chat(self, messagesHistory):
-        response: ChatResponse = chat(model=self.model, messages=messagesHistory)
-        return response
+        if self.model is None:
+            raise Exception('YOU NEED TO SPECIFY A VALID OLLAMA MODEL, EXECUTE \\model')
+        else:
+            response: ChatResponse = chat(model=self.model, messages=messagesHistory)
+            return response

@@ -8,10 +8,10 @@ class RAG:
     Clase encargada de hacer el prompt engineering con ollama (intermediario)
     """
 
-    def __init__(self, bases_conocimiento):
+    def __init__(self, bases_conocimiento, model):
         self.knowledge = self.loadKnowledge(bases_conocimiento)
         self.messagesHistory = self.getPrompts()
-        self.ollama = OllamaController()
+        self.ollama = OllamaController(model)
     
     def loadKnowledge(self, bases_conocimiento):
         return {

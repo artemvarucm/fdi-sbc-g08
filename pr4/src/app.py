@@ -8,8 +8,8 @@ class App:
     ejecutar las acciones de los comandos
     """
 
-    def __init__(self, knowledge_path):
-        self.rag = RAG(knowledge_path)
+    def __init__(self, knowledge_path, model):
+        self.rag = RAG(knowledge_path, model)
 
     def model(self):
         """
@@ -31,15 +31,20 @@ class App:
         Ejecuta las acciones correspondientes al query indicado
         """
         query = query.strip()
-        if "\\help" == query:
-            self.help()
-        elif "\\quit" == query:
-            sys.exit(1)
+        if query[0] == "\\": # los comandos empiezan con \
+            if "\\help" == query:
+                self.help()
+            elif "\\quit" == query:
+                sys.exit(1)
+            elif "\\model" == query:
+                self.model()
+            else:
+                print("[ERROR]: COMMAND NOT FOUND, CHECK SYNTAX.")
         else:
             self.chat(query)
 
     def help(self):
-        print(f"{"\\model":28} - cambiar de modelo ollama")
-        print(f"{"\\help":28} - muestra los comandos del programa")
-        print(f"{"\\quit":28} - salir del programa")
+        print(f"{"\\model":6} - Change Ollama model")
+        print(f"{"\\help":6} - Shows help")
+        print(f"{"\\quit":6} - Quit the program")
         print()
