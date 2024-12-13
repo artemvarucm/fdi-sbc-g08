@@ -8,8 +8,8 @@ class App:
     ejecutar las acciones de los comandos
     """
 
-    def __init__(self, knowledge_path, model):
-        self.rag = RAG(knowledge_path, model)
+    def __init__(self, knowledge_path, model, chain_of_thought):
+        self.rag = RAG(knowledge_path, model, chain_of_thought)
 
     def model(self):
         """
@@ -31,7 +31,7 @@ class App:
         Ejecuta las acciones correspondientes al query indicado
         """
         query = query.strip()
-        if query[0] == "\\": # los comandos empiezan con \
+        if query[0] == "\\":  # los comandos empiezan con \
             if "\\help" == query:
                 self.help()
             elif "\\quit" == query:

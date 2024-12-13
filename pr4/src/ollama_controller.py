@@ -19,7 +19,7 @@ class OllamaController:
         try:
             # probamos enviar consulta para ver si el modelo está instalado
             ollama.chat(model=model, messages=[{"role": "user", "content": "Hello!"}])
-            
+
             self.model = model
             print(f'[INFO]: MODEL "{model}" LOADED. TO SWAP EXECUTE \\model')
         except ollama.ResponseError as e:
@@ -33,13 +33,11 @@ class OllamaController:
                 except Exception as e:
                     print(f'[OLLAMA ERROR]: ERROR WHEN DOWNLOADING "{model}" MODEL.')
             else:
-                print('[OLLAMA ERROR]:', e.error)
-
-        
+                print("[OLLAMA ERROR]:", e.error)
 
     def chat(self, messagesHistory):
         if self.model is None:
-            raise Exception('YOU NEED TO SPECIFY A VALID OLLAMA MODEL, EXECUTE \\model')
+            raise Exception("YOU NEED TO SPECIFY A VALID OLLAMA MODEL, EXECUTE \\model")
         else:
             response: ChatResponse = chat(model=self.model, messages=messagesHistory)
             return response
