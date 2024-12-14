@@ -2,6 +2,7 @@ from utils import readFile
 from ollama_controller import OllamaController
 import os
 from pathlib import Path
+from autocorrect import Speller
 
 
 class RAG:
@@ -17,14 +18,9 @@ class RAG:
     def loadKnowledge(self, bases_conocimiento):
         return {
             # Historia de las marcas
-
-
             # Pilotos Formula 1
-
-
             # Modelos de coches de las marcas
             "ferrari": Path(bases_conocimiento, "ferrari.txt"),
-
         }
 
     def processKnowledge(self, query):
@@ -36,8 +32,16 @@ class RAG:
         print(" ".join(contextLines))
         return " ".join(contextLines)
 
+    def correct_query(self, query):
+        """Recibe una consulta y la corrige en caso de que el usuario la haya escrito mal"""
+        spell = Speller(lang="en")
+        query = spell(query)
+
+        return query
+
     def chat(self, query):
-        processed = self.processKnowledge(query)
+        query_correct = self.correct_query(query)
+        processed = self.processKnowledge(query_correct)
         self.messagesHistory.extend(
             [
                 {
@@ -50,7 +54,7 @@ class RAG:
                 },
                 {
                     "role": "user",
-                    "content": query,
+                    "content": query_correct,
                 },
             ]
         )
