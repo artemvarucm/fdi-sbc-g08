@@ -1,6 +1,6 @@
 import sys
 from rag import RAG
-
+from utils import addFile
 
 class App:
     """
@@ -38,6 +38,9 @@ class App:
                 sys.exit(1)
             elif "\\model" == query:
                 self.model()
+            elif "\\add" in query:
+                _, file_name, file_path = query.split(" ")
+                addFile(file_name, file_path)
             else:
                 print("[ERROR]: COMMAND NOT FOUND, CHECK SYNTAX.")
         else:

@@ -7,7 +7,7 @@ from app import App
 @click.option(
     "--model",
     default="llama3.2:1b",
-    help='Specify the ollama model. Por defecto es "llama3.2:1b".',
+    help='Specify the ollama model. By default is "llama3.2:1b".',
 )
 @click.option(
     "--explain",
