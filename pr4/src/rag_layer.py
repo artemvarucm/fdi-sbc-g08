@@ -9,19 +9,10 @@ class RAGLayer(PromptLayer):
     """
 
     def __init__(self, bases_conocimiento, mappings):
-        self.knowledge = self.loadKnowledge(bases_conocimiento)
+        self.mappings = mappings
         self.bases_conocimiento = bases_conocimiento
-        #self.knowledge = mappings
 
-    def loadKnowledge(self, bases_conocimiento):
-            return {
-                # Historia de las marcas
-                # Pilotos Formula 1
-                # Modelos de coches de las marcas
-                "ferrari": Path(bases_conocimiento, "historia", "ferrari.txt"),
-            }
-
-    def processKnowledge(self, query):
+    """def processKnowledge(self, query):
         contextLines = []
         for k in self.knowledge.keys():
             if k in query.lower():
@@ -29,6 +20,7 @@ class RAGLayer(PromptLayer):
 
         print(" ".join(contextLines))
         return " ".join(contextLines)
+    """
 
     def correct_query(self, query):
         """Recibe una consulta y la corrige en caso de que el usuario la haya escrito mal"""
@@ -39,26 +31,26 @@ class RAGLayer(PromptLayer):
 
     def chat(self, ollama, messagesHistory, query):
         query_correct = self.correct_query(query)
-        processed = self.processKnowledge(query_correct)
-        
+        print(readFile(self.mappings))
         messagesHistory.extend(
             [
                 {
                     "role": "system",
-                    "content": (
-                        f"For the next user query use the following context {processed}."
-                        if processed
-                        else "Try to find information from your own knowledge."
-                    ),
-                },
-                {
-                    "role": "user",
-                    "content": query_correct,
-                },
+                    "content": f"""
+                        Find the most relevant paths given this description
+                        {" ".join(readFile(self.mappings))}
+                        
+                        To answer this question
+                        {query_correct}
+
+                        Return it as a list of paths, excluding any extra information, so I can save it as a python list.
+                    """,
+                }
             ]
         )
 
-        response = ollama.chat(messagesHistory)
+        selectedPaths = ollama.chat(messagesHistory)
+        print(selectedPaths)
 
         # Añadimos la respuesta de ollama al historial
-        messagesHistory.append(response["message"])
+        messagesHistory.append(selectedPaths["message"])

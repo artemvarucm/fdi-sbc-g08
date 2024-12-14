@@ -19,7 +19,7 @@ class OllamaChat:
             l.chat(self.ollama, self.messagesHistory, query)
 
         return self.messagesHistory[-1]["content"] # devuelve el último mensaje
-    
+
     def getInitPrompts(self):
         prompts = [
             {
