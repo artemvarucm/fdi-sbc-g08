@@ -1,37 +1,153 @@
-#In 1956, there was a flood in Valencia. Hours before, it was rainning cats and dogs. 
+#Introduction
+This database contains detailed information about the history of four major Formula 1 teams: Ferrari, Mercedes, McLaren, and Aston Martin. 
+It includes data about the sporting achievements of these teams, the most famous drivers who have been part of their squads, as well as the car models they have produced over the years. 
+Additionally, it highlights the impact of these brands not only on the racetrack but also on the automotive industry, emphasizing their influence on the design and innovation of luxury sports vehicles.
 
-The Artemnito was a Ferrari built to celebrate the 60th anniversary of Ferrari’s U.S. operations. It was released on 10/10/14, and with only ten examples produced, it did so quite auspiciously. With an open-top, a V12 good for 730 horsepower, and a gorgeous blue color scheme reminiscent of the historical NART livery, what more could an American Ferrari lover want?
 
-Like Mercedes-AMG did with the One, Aston Martin poured all their Formula One knowledge, experience, and engineering talent into the Valkyrie, and what resulted is a truly formidable car that looks the part as well. A Cosworth-developed V12 is matched by exterior design and stance that makes the Valkyrie look like it could pounce at any moment, and it can.
 
-We thought that Ferrari pushed its limits with the LaFerrari, being a hybrid hypercar in the Holy Trinity, but when they turned the LaFerrari into the track-only FXX-K, we were proved wrong. Only 40 units were produced, and all are kept by Ferrari to let their owners drive for track day events, which is a good thing because only Ferrari could keep a 1,036 horsepower car capable of 217 mph truly safe.
+#Ferrari
 
-Anyone with the privilege of opening the “dihedral synchro-helix” doors of a Koenigsegg knows that something incredibly powerful (and costly) lies inside. This couldn’t be truer than in the case of the Jesko, as it seems that with each passing year, Koenigsegg’s capabilities get even more outlandish and unprecedented. With up to 1,603 horsepower, a top speed that we don’t even know yet, and creature comforts like power-adjustable seats and Apple CarPlay, the Jesko might be the best Koenigsegg yet.
+Ferrari, one of the most iconic names in the world of motorsport and automotive engineering, was founded in 1939 by Enzo Ferrari. The company originally started as Auto Avio Costruzioni Ferrari, and its first car, the 125 S, made its debut in 1947. Over the years, Ferrari has become synonymous with luxury, speed, and exceptional engineering, particularly in the realm of Formula 1 racing.
 
-A tribute to design house Pininfarina’s late former chairman, Sergio Pininfarina, this 458-based Barchetta is a beautiful tribute to the spirits of both Ferrari and Pininfarina alike. Pininfarina’s signature sweeping lines make the car into an ultra-futuristic, sculpted, and serene vehicle, with design elements that echo the iconic Ferrari Pininfarina Mythos concept of the 90s. Such an artful statement is surely worth its price.
+Ferrari’s Formula 1 team, Scuderia Ferrari, holds the record as the oldest and most successful team in the history of the sport. It has won numerous Constructors’ Championships and Drivers’ Championships, with some of the most legendary drivers in the sport's history wearing its colors. Famous Ferrari drivers include Juan Manuel Fangio, Alberto Ascari, Niki Lauda, Michael Schumacher, and Sebastian Vettel. Michael Schumacher, in particular, became a symbol of Ferrari’s dominance in F1, winning five consecutive Drivers’ Championships with the team between 2000 and 2004.
 
-Bugatti calls it “the purest Bugatti Chiron ever.” Substantial improvements in the chassis, gearbox, and engine back that claim up. For the onlooker, styling cues like the number on the grille echo Bugatti’s rich and proud racing heritage. If you want a Bugatti that strives to achieve the pinnacle of driving experience, the Bugatti Chiron Pur Sport is likely your best be
+Let´s talk about some of these drivers.
 
-The Audi R8 V10 is a 5.2-liter V10 mid-engine supercar that produces up to 620 horsepower. This model is capable of accelerating from 0 to 100 km/h in just 3.1 seconds. Its quattro all-wheel drive and dual-clutch transmission allow for precise and exciting driving. Fuel consumption is approximately 13.8 L/100 km on the highway and 18.5 L/100 km in the city, although its track performance is where it really shines.
+Michael Schumacher, born on January 3, 1969, in Hürth, Germany, is regarded as one of the greatest Formula 1 drivers of all time. Known for his technical skill, meticulous approach, and tireless work ethic, Schumacher made an indelible mark on motorsport. His Formula 1 career began in 1991 with the Jordan team, but it was with Benetton that he achieved his first success, winning two World Championships in 1994 and 1995.
+Schumacher gained worldwide fame when he joined Ferrari in 1996, a team that had not won the Constructors’ Championship since the 1980s. Under his leadership, Ferrari dominated Formula 1 in the early 2000s. From 2000 to 2004, Schumacher won five consecutive Drivers' Championships, becoming a symbol of modern F1 dominance.
 
-The Audi A3 Sportback is a compact and elegant option for those looking for an efficient car but with a premium touch. It comes with engine options that vary from 110 to 190 horsepower, depending on the model and engine type. Its combined fuel consumption is around 6.0 L/100 km, which makes it an economical option for everyday use, without sacrificing comfort and technology.
+Titles and Achievements:
+7 World Championships (1994, 1995, 2000, 2001, 2002, 2003, 2004)
+91 Wins (a record in F1 until it was surpassed by Lewis Hamilton in 2020)
+68 Pole Positions (record at the time)
+155 Podiums
+4 Wins at Le Mans 24 Hours (though outside of Formula 1, he also excelled in other motorsport competitions)
 
-The Volkswagen Golf GTI is the classic sports hatchback that offers a 2.0-liter turbocharged engine that produces 245 horsepower. Its acceleration from 0 to 100 km/h is completed in just 6.2 seconds. Average consumption is about 7.4 L/100 km, making it an efficient option for those looking for power and practicality. Additionally, it offers precise handling and excellent build quality.
+Juan Manuel Fangio, born on June 24, 1911, in Balcarce, Argentina, is considered one of the greatest drivers in the history of Formula 1. Nicknamed "El Chueco," Fangio stood out not only for his natural talent but also for his intelligence behind the wheel and ability to adapt to different cars and teams. His F1 career spanned from 1950 to 1958, during which he raced for four different teams: Alfa Romeo, Ferrari, Maserati, and Mercedes-Benz.
+Fangio was known for his ability to win championships in an era of significant technical uncertainty and for his incredible car control in extreme racing conditions. He won 5 World Championships, a record that stood for 46 years until Michael Schumacher surpassed it in 2003.
 
-The Volkswagen Passat is a mid-size sedan ideal for those looking for comfort, space and efficiency. Its 1.4-liter TSI engine offers 150 horsepower, while the 2.0 TDI engine offers up to 190 horsepower. With a combined consumption of 5.0 L/100 km for the diesel model, it is a very efficient option for long trips and urban use, with a focus on comfort and safety technologies.
+Titles and Achievements:
+5 World Championships (1951, 1954, 1955, 1956, 1957)
+24 Grand Prix Wins (from 52 races entered)
+29 Podiums
+6 Wins in 7 Grand Prix in 1956 (a remarkable consistency record)
+First driver to win a World Championship with different teams: Alfa Romeo, Ferrari, Maserati, and Mercedes-Benz.
 
-The BMW M4 is the sporty version of the BMW 4 Series sedan, with a 3.0-liter turbocharged engine that produces up to 510 horsepower. It accelerates from 0 to 100 km/h in just 3.8 seconds, offering an incomparable driving experience thanks to its sports suspension and rear (or all-wheel drive, depending on the model). Fuel consumption is around 10.7 L/100 km on the highway and 15 L/100 km in the city.
+In addition to their successes in Formula 1, Ferrari is also well-known for producing high-performance sports cars that combine luxury, style, and incredible driving dynamics. Some of the most famous Ferrari road cars include:
 
-The Mercedes-Benz AMG GT is a supercar that has a 4.0-liter biturbo V8 engine capable of generating up to 577 horsepower. Accelerating from 0 to 100 km/h in 3.6 seconds, this model offers spectacular performance on both open roads and circuits. Consumption is around 12.0 L/100 km, which is moderate for its power. Its performance-inspired design is equally impressive.
+The Ferrari 488 GTB is a sports car that is distinguished by its 3.9-liter biturbo V8 engine that produces 670 horsepower. It accelerates from 0 to 100 km/h in just 3.0 seconds. Its consumption is approximately 11.4 L/100 km, which makes it a bit more efficient than other Ferraris with larger displacement engines. The 488 GTB is renowned for its exceptional aerodynamics and handling, providing a top-notch driving experience on any type of road.
 
-The Porsche 911 Turbo is one of the brand's most iconic sports cars, with a 3.8-liter turbocharged engine that produces 640 horsepower. This version accelerates from 0 to 100 km/h in just 2.7 seconds, thanks to its all-wheel drive and its advanced suspension system. Fuel consumption is approximately 9.0 L/100 km, which, although not extremely efficient, is acceptable given its outstanding performance.
+The Ferrari LaFerrari, Ferrari’s flagship hybrid hypercar, combines a 6.3-liter V12 engine with an electric motor to produce a total output of 950 horsepower. It can go from 0 to 100 km/h in under 3 seconds and has a top speed of over 350 km/h. LaFerrari’s stunning design and groundbreaking hybrid technology make it one of the most advanced and revered Ferraris ever built.
 
-The Porsche Taycan is the brand's first high-performance electric vehicle, with up to 761 horsepower in its Turbo S version. This model is capable of accelerating from 0 to 100 km/h in just 2.8 seconds, offering impressive performance without emissions. Energy consumption is about 23.0 kWh/100 km, which places it among the most efficient of sports electric vehicles. Furthermore, its advanced design and technology make it a futuristic model in all aspects.
+The Ferrari 812 Superfast is powered by a 6.5-liter V12 engine that delivers 800 horsepower, making it one of the most powerful production Ferraris ever created. The 812 Superfast boasts a top speed of 340 km/h and can accelerate from 0 to 100 km/h in just 2.9 seconds. This car offers an unparalleled blend of performance, luxury, and driving excitement, establishing itself as a true grand tourer.
 
-The Ferrari 488 GTB is a sports car that is distinguished by its 3.9-liter biturbo V8 engine that produces 670 horsepower. Accelerates from 0 to 100 km/h in just 3.0 seconds. Its consumption is approximately 11.4 L/100 km, which makes it a little more efficient than other Ferraris with larger displacement. Its aerodynamics and handling are exceptional, providing a top-notch driving experience on any type of road.
 
-The Koenigsegg Jesko is a high-performance supercar with up to 1,603 horsepower thanks to its 5.0-liter V8 engine. This model is capable of reaching speeds of over 450 km/h, and its acceleration from 0 to 100 km/h is done in less than 2.8 seconds. Although its consumption is not specifically detailed, it is known to be very high due to its massive power and focus on the track. The advanced technology found in the Jesko, such as the double wishbone suspension system, is what allows it to deliver an impressive and stable ride at high speeds.
 
-The Aston Martin Valkyrie is a hypercar developed with the help of Red Bull Racing, and features a 6.5-liter naturally aspirated V12 engine capable of generating 1,160 horsepower. Its maximum speed is more than 400 km/h, and its acceleration from 0 to 100 km/h is almost instantaneous. Thanks to its extremely lightweight body design, fuel efficiency is not a priority, but it is expected to be around 16.0 L/100 km on the highway.
+#McLaren
 
-The McLaren P1 is another high-performance hybrid, with a 3.8-liter twin-turbo V8 engine and an electric motor that combined generate 903 horsepower. It accelerates from 0 to 100 km/h in 2.8 seconds and reaches a top speed of 350 km/h. Consumption is about 14.0 L/100 km, which is not surprising given its focus on power and aerodynamics.
+McLaren, founded in 1963 by Bruce McLaren in Woking, Surrey, is one of the most prestigious names in motorsport and automotive engineering. Initially starting as a racing team, McLaren quickly made its mark in Formula 1 with its innovative designs and engineering prowess. The team’s first major success came in 1968 when Bruce McLaren won the Belgian Grand Prix, and McLaren's legacy has since been defined by its technical excellence and commitment to pushing the boundaries of performance.
+
+McLaren’s Formula 1 team, known as McLaren Racing, has earned a reputation for producing some of the most successful and technologically advanced cars in the sport. Over the years, McLaren has secured multiple Constructors’ Championships and Drivers’ Championships. Notable McLaren drivers include Ayrton Senna, Alain Prost, Lewis Hamilton, and Kimi Räikkönen. Ayrton Senna, in particular, is considered one of the greatest drivers in F1 history, having won three Drivers’ Championships with McLaren between 1988 and 1991.
+
+Let’s take a look at some of these legendary drivers.
+
+Ayrton Senna, born on March 21, 1960, in São Paulo, Brazil, is widely regarded as one of the most talented and charismatic drivers in Formula 1 history. Senna’s career in F1 began in 1984, and he quickly gained recognition for his incredible speed, especially in qualifying sessions, and his determination to win. Senna joined McLaren in 1988 and found immediate success, dominating the F1 world with his aggressive yet precise driving style. He won three World Championships with McLaren (1988, 1990, and 1991) and became a symbol of excellence and passion in the sport.
+
+Titles and Achievements:
+3 World Championships (1988, 1990, 1991)
+41 Wins (at the time, the second most in F1 history)
+65 Podiums
+6 Wins at Monaco Grand Prix (a record)
+65 Pole Positions (a record at the time)
+Known for his remarkable driving on wet tracks and his rivalry with Alain Prost
+
+Lewis Hamilton, born on January 7, 1985, in Stevenage, England, is one of the most successful drivers in F1 history. Hamilton made his debut in 2007 with McLaren, where he finished as runner-up in his rookie season and won his first World Championship with the team in 2008. Known for his remarkable consistency, speed, and adaptability, Hamilton’s move to Mercedes in 2013 brought him further success, but his time with McLaren was pivotal in shaping his career.
+
+Titles and Achievements:
+1 World Championship with McLaren (2008)
+103 Wins (as of 2021)
+101 Pole Positions (as of 2021)
+176 Podiums (as of 2021)
+Multiple time British Grand Prix Winner
+
+In addition to its successes in Formula 1, McLaren has also gained recognition for producing high-performance road cars that combine extreme power, elegance, and cutting-edge technology. Some of the most famous McLaren road cars include:
+
+The McLaren 720S is a high-performance supercar powered by a 4.0-liter twin-turbo V8 engine that produces 720 horsepower. It accelerates from 0 to 100 km/h in just 2.9 seconds and has a top speed of over 340 km/h. The 720S stands out for its incredible aerodynamics, lightweight construction, and razor-sharp handling, offering an exhilarating driving experience on both the track and the road.
+
+The McLaren P1 is a hybrid hypercar that combines a 3.8-liter twin-turbo V8 engine with an electric motor, producing a total of 903 horsepower. It can go from 0 to 100 km/h in just 2.8 seconds and has a top speed of around 350 km/h. The P1 is known for its advanced hybrid technology, aerodynamics, and driving dynamics, making it one of the most prestigious hypercars in the world.
+
+The McLaren 570S, part of the McLaren Sports Series, features a 3.8-liter twin-turbo V8 engine that generates 570 horsepower. It can accelerate from 0 to 100 km/h in 3.2 seconds and reach a top speed of 328 km/h. The 570S combines exceptional performance with a more accessible price point for enthusiasts looking to experience McLaren's engineering excellence without the extreme price tag of the brand's hypercars.
+
+
+#Mercedes
+
+Mercedes-Benz, founded in 1926 by the merging of Benz & Cie. and Daimler-Motoren-Gesellschaft (DMG), is one of the most prestigious and renowned automotive brands in the world. Known for its luxury, performance, and innovative technology, Mercedes-Benz has a rich history in both the automotive industry and motorsport. The brand’s presence in Formula 1 dates back to the early days of the sport, but it was in 1954 that Mercedes-Benz made its major mark in F1 with the legendary Mercedes W196, driven by Juan Manuel Fangio.
+
+Mercedes-Benz has been a major force in Formula 1, both as a constructor and an engine supplier. The Mercedes F1 team, also known as Mercedes-AMG Petronas Formula One Team, has dominated much of the modern era, particularly since 2014. The team’s success is highlighted by the incredible achievements of Nico Rosberg, who became Formula 1 World Champion in 2016.
+
+Let’s take a closer look at some of these legendary drivers.
+
+Nico Rosberg, born on June 27, 1985, in Wiesbaden, Germany, raced alongside Lewis Hamilton at Mercedes from 2010 to 2016. Rosberg was a key player in Mercedes’ dominance in the turbo-hybrid era, and in 2016, he achieved the ultimate success by winning his first and only Formula 1 World Championship. Rosberg retired immediately after his title win, making him one of the few drivers in history to retire as World Champion.
+
+Titles and Achievements:
+1 World Championship (2016)
+23 Wins
+30 Podiums
+1 Win at the Monaco Grand Prix (2015)
+Known for his consistent driving and strategic battles with Hamilton
+
+Mercedes-Benz’s success in Formula 1 is further defined by its engineering excellence and its history of producing high-performance road cars. The brand is also renowned for combining advanced engineering with elegance. Some of the most iconic Mercedes road cars include:
+
+The Mercedes-AMG GT is a high-performance sports car powered by a 4.0-liter twin-turbo V8 engine, delivering up to 577 horsepower in the GT R variant. It accelerates from 0 to 100 km/h in just 3.6 seconds, with a top speed of 318 km/h. The AMG GT combines stunning design, exceptional performance, and state-of-the-art technology, making it one of the most exciting vehicles in the luxury sports car market.
+
+The Mercedes-Benz SLS AMG is a luxury supercar known for its iconic gullwing doors and a 6.2-liter V8 engine producing 571 horsepower. It can go from 0 to 100 km/h in just 3.8 seconds and has a top speed of 317 km/h. The SLS AMG is regarded for its beautiful design and outstanding performance, representing the pinnacle of Mercedes-Benz’s engineering in the supercar segment.
+
+The Mercedes-AMG One is a hypercar that brings Formula 1 technology to the road. Powered by a 1.6-liter V6 hybrid engine, derived from Mercedes' F1 power unit, the car produces over 1,000 horsepower. The AMG One can accelerate from 0 to 100 km/h in just 2.9 seconds, with a top speed of over 350 km/h. This limited-edition hypercar blends cutting-edge F1 technology with the luxury and performance that Mercedes-Benz is known for, making it one of the most innovative cars ever created by the brand.
+
+
+#Aston Martin
+
+Aston Martin, founded in 1913 by Lionel Martin and Robert Bamford, is a British luxury automobile manufacturer renowned for its stunning craftsmanship, performance, and elegance. The brand has long been associated with sophistication, often linked to James Bond movies, where its cars are portrayed as symbols of both power and luxury. Over the years, Aston Martin has created some of the most iconic cars in automotive history, and its presence in motorsport has contributed significantly to its legendary status.
+
+Aston Martin's Formula 1 involvement dates back to the 1950s when the company made a brief foray into the sport as a constructor. After a long hiatus, Aston Martin returned to F1 in 2021 under the name Aston Martin Cognizant Formula One Team, marking a new chapter in its motorsport history. While Aston Martin has not yet achieved the same level of dominance in F1 as some of its competitors, its presence continues to grow, and the team is seen as a rising force in the sport.
+
+Let’s take a closer look at some notable drivers who have represented Aston Martin, both on and off the track.
+
+Sebastian Vettel, born on July 3, 1987, in Heppenheim, Germany, is one of the most successful drivers in Formula 1 history. Vettel, a four-time World Champion (2010-2013), joined Aston Martin (then Racing Point) in 2021. Throughout his career, Vettel has been known for his consistency, intelligent racecraft, and ability to extract the maximum from his car. His move to Aston Martin marked a new challenge after years with Red Bull Racing, and despite not winning titles with Aston Martin, he brought valuable experience to the team.
+
+Titles and Achievements:
+4 World Championships (2010, 2011, 2012, 2013)
+53 Wins
+57 Pole Positions
+122 Podiums
+
+Fernando Alonso, born on July 29, 1981, in the Asturias region of Spain, is a two-time Formula 1 World Champion and one of the sport’s most talented and charismatic drivers. After a break from F1, Alonso made his return in 2021 with the Alpine team, and in 2023, he joined Aston Martin. Known for his fierce competitiveness, technical skills, and adaptability, Alonso’s arrival at Aston Martin brought additional experience and expertise to the team as they looked to challenge the sport’s top teams.
+
+Titles and Achievements:
+2 World Championships (2005, 2006)
+32 Wins
+22 Pole Positions
+99 Podiums
+Renowned for his ability to win races in less competitive cars, showcasing his talent and determination
+
+Aston Martin’s success in motorsport, particularly in Formula 1, is balanced by its iconic production cars. The brand has earned a reputation for producing high-performance vehicles with striking designs and superior engineering. Some of the most famous Aston Martin cars include:
+
+The Aston Martin DB11 is a grand tourer powered by a 4.0-liter twin-turbo V8 engine or a 5.2-liter twin-turbo V12 engine, producing up to 630 horsepower in the V12 variant. It accelerates from 0 to 100 km/h in just 3.9 seconds and has a top speed of 322 km/h. The DB11 combines luxury with performance, offering exceptional driving dynamics and a truly refined experience, making it one of the brand's most desirable models.
+
+The Aston Martin Vantage is a sleek and stylish sports car powered by a 4.0-liter twin-turbo V8 engine, delivering 503 horsepower. It accelerates from 0 to 100 km/h in just 3.6 seconds and has a top speed of 314 km/h. The Vantage is known for its incredible handling, striking design, and thrilling driving experience, offering the perfect blend of power and sophistication.
+
+The Aston Martin Valhalla is a hybrid hypercar, powered by a 4.0-liter twin-turbo V8 engine combined with an electric motor, producing a combined 937 horsepower. The Valhalla can accelerate from 0 to 100 km/h in just 3.0 seconds and has a top speed of over 330 km/h. With cutting-edge hybrid technology, aerodynamics, and design, the Valhalla represents the future of Aston Martin, blending performance with sustainability.
+
+
+
+
+
+
+
+
+
+
+
+
+
+

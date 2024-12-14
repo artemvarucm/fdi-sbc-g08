@@ -16,8 +16,15 @@ class RAG:
 
     def loadKnowledge(self, bases_conocimiento):
         return {
+            # Historia de las marcas
+
+
+            # Pilotos Formula 1
+
+
+            # Modelos de coches de las marcas
             "ferrari": Path(bases_conocimiento, "ferrari.txt"),
-            "bugatti": Path(bases_conocimiento, "bugatti.txt"),
+
         }
 
     def processKnowledge(self, query):
