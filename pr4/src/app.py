@@ -10,7 +10,7 @@ class App:
     ejecutar las acciones de los comandos
     """
 
-    def __init__(self, knowledge_path, model, chain_of_thought):
+    def __init__(self, knowledge_path, mappings, model, chain_of_thought):
         self.rag = RAG(knowledge_path, model, chain_of_thought)
         self.knowledge_path = knowledge_path
 

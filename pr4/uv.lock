@@ -25,6 +25,12 @@ wheels = [
 ]
 
 [[package]]
+name = "autocorrect"
+version = "2.6.1"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/96/cb/55fd549def80011b09dbd7bef6ad06ec4453745294bcfe6c63a270070046/autocorrect-2.6.1.tar.gz", hash = "sha256:2bc68192dc645b44bece2613caac338e93548c3dac9c563095b27224c7fd4391", size = 622775 }
+
+[[package]]
 name = "black"
 version = "24.10.0"
 source = { registry = "https://pypi.org/simple" }
@@ -524,6 +530,7 @@ name = "sbc-g08-p4"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
+    { name = "autocorrect" },
     { name = "black" },
     { name = "click" },
     { name = "matplotlib" },
@@ -533,6 +540,7 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [
+    { name = "autocorrect", specifier = ">=2.6.1" },
     { name = "black", specifier = ">=24.10.0" },
     { name = "click", specifier = ">=8.1.7" },
     { name = "matplotlib", specifier = ">=3.9.2" },
