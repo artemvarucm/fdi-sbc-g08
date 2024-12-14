@@ -1,6 +1,8 @@
 import sys
 from rag import RAG
 from utils import addFile
+from pathlib import Path
+
 
 class App:
     """
@@ -10,6 +12,7 @@ class App:
 
     def __init__(self, knowledge_path, model, chain_of_thought):
         self.rag = RAG(knowledge_path, model, chain_of_thought)
+        self.knowledge_path = knowledge_path
 
     def model(self):
         """
@@ -39,8 +42,9 @@ class App:
             elif "\\model" == query:
                 self.model()
             elif "\\add" in query:
-                _, file_name, file_path = query.split(" ")
-                addFile(file_name, file_path)
+                _, file_name, file_path_arg = query.split(" ")
+                file_path = Path(self.knowledge_path, file_name)
+                addFile(file_path, file_path_arg)
             else:
                 print("[ERROR]: COMMAND NOT FOUND, CHECK SYNTAX.")
         else:

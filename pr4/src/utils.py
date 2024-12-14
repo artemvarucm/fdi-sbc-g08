@@ -1,6 +1,3 @@
-from pathlib import Path
-
-
 def readFile(file_path):
     """
     Lee el fichero en file_path y devuelve las lineas del fichero
@@ -19,9 +16,9 @@ def readFile(file_path):
     return lineas
 
 
-def addFile(file_name, file_path):
+def addFile(file_path, file_path_arg):
     """Añade una base de conocimiento"""
-    contenido = readFile(file_path)
+    contenido = readFile(file_path_arg)
 
-    with open(Path("../bases/usuario", file_name), "w", encoding="utf-8") as archivo:
+    with open(file_path, "w", encoding="utf-8") as archivo:
         archivo.write(" ".join(contenido))
