@@ -1,5 +1,5 @@
 import sys
-from rag import RAG
+from ollama_chat import OllamaChat
 from utils import addFile
 from pathlib import Path
 
@@ -11,7 +11,7 @@ class App:
     """
 
     def __init__(self, knowledge_path, mappings, model, chain_of_thought):
-        self.rag = RAG(knowledge_path, model, chain_of_thought)
+        self.ollama_chat = OllamaChat(knowledge_path, mappings, model, chain_of_thought)
         self.knowledge_path = knowledge_path
 
     def model(self):
@@ -20,13 +20,13 @@ class App:
         """
         model = input("Introduce el nombre del nuevo modelo: ")
         model = model.strip()
-        self.rag.switchModel(model)
+        self.ollama_chat.switchModel(model)
 
     def chat(self, query):
         """
         Transmite el mensaje a ollama e imprime la respuesta
         """
-        response = self.rag.chat(query)
+        response = self.ollama_chat.chat(query)
         print(response)
 
     def processCommand(self, query):
