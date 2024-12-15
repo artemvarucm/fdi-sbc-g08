@@ -22,6 +22,7 @@ class ChainThoughtLayer:
                 Always show your full reasoning process, even for simple problems. If the solution requires assumptions, make them explicit.
 
                 Use linkers to make your response more natural, and not explicitly showing the steps you follow.
+
                 """,
             }
         )
@@ -38,6 +39,7 @@ class ChainThoughtLayer:
                   If you cannot solve it, just admit it "I hadn't thought about it, maybe I should give it another turn"
                   Tell the user, with clear explanations, how you reached the previous conclusion.
                   Avoid unnecessary information so the user has a better experience.
+
             """,
             }
         )

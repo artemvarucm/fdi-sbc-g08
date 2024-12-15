@@ -9,17 +9,22 @@ class OllamaChat:
     def __init__(self, bases_conocimiento, mappings, model, chain_of_thought, debug):
         self.chain_of_thought = chain_of_thought
         self.messagesHistory = self.getInitPrompts()
-        self.layers = [RAGLayer(bases_conocimiento, mappings, debug)]
+        self.ragLayer = RAGLayer(bases_conocimiento, mappings, debug)
+        self.layers = [self.ragLayer]
         if self.chain_of_thought:
             self.layers.append(ChainThoughtLayer())
 
         self.ollama = OllamaController(model)
 
+    def toggleOllamaMap(self):
+        self.ragLayer.toggleOllamaMap()
+
     def printStatus(self):
         """Muestra la configuracion actual"""
         print()
-        self.ollama.printStatus()
         print(f"CHAIN OF THOUGHT: {self.chain_of_thought}")
+        print(f"OLLAMA IS USED DURING MAPPING: {self.ragLayer.getOllamaMap()}")
+        self.ollama.printStatus()
         print()
 
     def switchModel(self, model):
@@ -59,16 +64,10 @@ class OllamaChat:
             {
                 "role": "system",
                 "content": """
-                You are a salesman that helps people to find out which car is available and
-                why is it better from the knowledge base we will provide you. 
-                You must be efficient, using only the right information to answer the response from the user.
-            """,
-            },
-            {
-                "role": "system",
-                "content": """
-                 If you do not find the information in the knowledge we provide you, 
-                 answer whatever you consider relevant. 
+                You are a virtual assistant that responds a person
+                based on context we provide you for each query.
+
+                Remember, the current date is December, 2024.
             """,
             },
         ]
