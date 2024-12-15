@@ -8,13 +8,23 @@ class OllamaController:
     Clase que se encarga de realizar las consultas a las API de ollama
     """
 
-    def __init__(self, model, temperature):
+    def __init__(self, model):
         self.model = None
-        self.setTemperature(temperature)
+        self.options = {'temperature': 0.5, 'max_tokens': 400, 'frequency_penalty': 0.0, 'stream': True, 'n': 1}
         self.setModel(model)
 
-    def setTemperature(self, temperature):
-        self.temperature = temperature
+
+    def changeParameters(self, temperature):
+        """Configura los parámetros de ollama"""
+        try:
+            self.options['temperature'] = float(input("Enter temperature: "))
+            self.options['max_tokens'] = float(input("Enter the max tokens: "))
+            self.options['frequency_penalty'] = float(input("Enter the frequency penalty: "))
+            self.options['n'] = float(input("Enter the number of answers: "))
+        except KeyboardInterrupt:
+            print("\n[INFO] OPERATION INTERRUPTED BY USER.")
+        except ValueError:
+            print("\n[ERROR] NUMBER MUST BE FLOAT.")
 
     def printStatus(self):
         """Muestra la configuracion actual"""
@@ -56,6 +66,6 @@ class OllamaController:
             response: ChatResponse = chat(
                 model=self.model,
                 messages=messagesHistory,
-                options={"temperature": self.temperature},
+                options=self.options,
             )
             return response

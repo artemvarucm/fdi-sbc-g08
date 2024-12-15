@@ -7,7 +7,7 @@ class OllamaChat:
     """Clase encargada de realizar el prompt engineering al interactuar con Ollama"""
 
     def __init__(
-        self, bases_conocimiento, mappings, model, temperature, chain_of_thought, debug
+        self, bases_conocimiento, mappings, model, chain_of_thought, debug
     ):
         self.chain_of_thought = chain_of_thought
         self.messagesHistory = self.getInitPrompts()
@@ -15,7 +15,7 @@ class OllamaChat:
         if self.chain_of_thought:
             self.layers.append(ChainThoughtLayer())
 
-        self.ollama = OllamaController(model, temperature)
+        self.ollama = OllamaController(model)
 
     def printStatus(self):
         """Muestra la configuracion actual"""
@@ -28,9 +28,9 @@ class OllamaChat:
         """Cambia de modelo ollama"""
         return self.ollama.setModel(model)
 
-    def setTemperature(self, temperature):
-        """Cambia el parámetro de temperatura de ollama"""
-        return self.ollama.setTemperature(temperature)
+    def changeParameters(self):
+        """Cambia los parámetros de ollama"""
+        return self.ollama.changeParameters()
 
     def chat(self, query):
         """Manda el nuevo mensaje a ollama, pasando por el pipeline de capas"""

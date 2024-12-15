@@ -9,10 +9,10 @@ class App:
     """
 
     def __init__(
-        self, knowledge_path, mappings, model, temperature, chain_of_thought, debug
+        self, knowledge_path, mappings, model, chain_of_thought, debug
     ):
         self.ollama_chat = OllamaChat(
-            knowledge_path, mappings, model, temperature, chain_of_thought, debug
+            knowledge_path, mappings, model, chain_of_thought, debug
         )
         self.knowledge_path = knowledge_path
 
@@ -30,15 +30,13 @@ class App:
         except KeyboardInterrupt:
             print("\n[INFO] OPERATION INTERRUPTED BY USER.")
 
-    def setTemperature(self):
-        """Cambia la temperatura"""
+    def changeParameters(self):
+        """Cambia l"""
         try:
-            temp = float(input("Enter temperature: "))
-            self.ollama_chat.setTemperature(temp)
+            self.ollama_chat.changeParameters()
         except KeyboardInterrupt:
             print("\n[INFO] OPERATION INTERRUPTED BY USER.")
-        except ValueError:
-            print("\n[ERROR] TEMPERATURE MUST BE FLOAT.")
+
 
     def chat(self, query):
         """
@@ -64,8 +62,8 @@ class App:
                     sys.exit(1)
                 elif "\\model" == query:
                     self.model()
-                elif "\\temp" == query:
-                    self.setTemperature()
+                elif "\\parameters" == query:
+                    self.changeParameters()
                 elif "\\status" == query:
                     self.printStatus()
                 else:
