@@ -29,16 +29,9 @@ class App:
             print("\n[INFO] OPERATION INTERRUPTED BY USER.")
 
     def changeAllParameters(self):
-        """Cambia l"""
+        """Cambia todos los parametros de ollama"""
         try:
             self.ollama_chat.changeAllParameters()
-        except KeyboardInterrupt:
-            print("\n[INFO] OPERATION INTERRUPTED BY USER.")
-
-    def changeAllParameters(self):
-        """Cambia l"""
-        try:
-            self.ollama_chat.changeParameters()
         except KeyboardInterrupt:
             print("\n[INFO] OPERATION INTERRUPTED BY USER.")
 
