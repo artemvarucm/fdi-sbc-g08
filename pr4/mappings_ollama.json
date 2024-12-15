@@ -1,10 +1,52 @@
 {
-    "pilotos/biografia": "In this path there is information about the lives of different Formula 1 drivers who belonged to the Aston Martin, Ferrari, McLaren or Mercedes brands",
-    "pilotos/titulos": "In this path there is information about titles, achievements and records of different Formula 1 drivers who belonged to the Aston Martin, Ferrari, McLaren or Mercedes brands",
-    "historia/empresa": "In this path there is information about the history of the Aston Martin, Ferrari, McLaren or Mercedes brands",
-    "historia/equipo_formula1": "In this path there is information about the history of Aston Martin, Ferrari, McLaren or Mercedes in Formula 1",
-    "modelos/ferrari": "In this path there is information about car models of the brands Ferrari",
-    "modelos/mclaren": "In this path there is information about car models of the brands Mclaren",
-    "modelos/mercedes": "In this path there is information about car models of the brands Mercedes",
-    "modelos/aston_martin": "In this path there is information about car models of the brands Aston Martin"
+    "ollama":
+    {
+        "drivers/biography": "In this path there is information about the lives of different Formula 1 drivers who belonged to the Aston Martin, Ferrari, McLaren or Mercedes brands",
+        "drivers/titles": "In this path there is information about titles, achievements and records of different Formula 1 drivers who belonged to the Aston Martin, Ferrari, McLaren or Mercedes brands",
+        "history/companies": "In this path there is information about the history of the Aston Martin, Ferrari, McLaren or Mercedes brands",
+        "history/formula1_team": "In this path there is information about the history of Aston Martin, Ferrari, McLaren or Mercedes in Formula 1",
+        "models/ferrari": "In this path there is information about car models of the brands Ferrari, like Ferrari 488 GTB, Ferrari 812 Superfast, Ferrari LaFerrari...",
+        "models/mclaren": "In this path there is information about car models of the brands Mclaren, like McLaren 570S, McLaren 720S, McLaren P1...",
+        "models/mercedes": "In this path there is information about car models of the brands Mercedes, like Mercedes-AMG GT, Mercedes-AMG One, Mercedes-Benz SLS AMG...",
+        "models/aston_martin": "In this path there is information about car models of the brands Aston Martin, like Aston Martin DB11, Aston Martin Valhalla, Aston Martin Vantage..."
+    },
+
+    "concepts": 
+    {
+        "race": ["history/formula1_team", "drivers/titles"],
+        "history": ["history/companies", "history/formula1_team"],
+        "british car": ["models/mclaren", "models/aston_martin"],
+
+        "biography": ["drivers/biography"],
+        "life": ["drivers/biography"],
+    
+        "title": ["drivers/titles"],
+        "achievement": ["drivers/titles"],
+        "record": ["drivers/titles"],
+        "championship": ["drivers/titles"],
+        "world cup": ["drivers/titles"],
+
+        "companies": ["history/companies"],
+        "company": ["history/companies"],
+        "brands": ["history/companies"],
+        "manufacturer": ["history/companies"],
+        
+        "formula1": ["history/formula1_team"],
+        "f1": ["history/formula1_team"],
+
+        "ferrari": ["models/ferrari"],
+        "scuderia": ["models/ferrari"],
+        "italian car": ["models/ferrari"],
+    
+        "mclaren": ["models/mclaren"],
+    
+        "mercedes": ["models/mercedes"],
+        "benz": ["models/mercedes"],
+        "amg": ["models/mercedes"],
+    
+        "aston martin": ["models/aston_martin"],
+        "vantage": ["models/aston_martin"],
+        "valhalla": ["models/aston_martin"]
+    }
+    
 }
