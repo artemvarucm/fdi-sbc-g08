@@ -59,9 +59,9 @@ class OllamaController:
     def changeAllParameters(self):
         """Cambia todos los parámetros de ollama"""
         self.changeTemperature()
-        self.change_maxTokens()
-        self.change_frequencyPenalty()
-        self.change_n()
+        self.changeMaxTokens()
+        self.changeFrequencyPenalty()
+        self.changeN()
 
     def printStatus(self):
         """Muestra la configuracion actual"""
