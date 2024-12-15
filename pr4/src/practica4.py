@@ -12,12 +12,6 @@ from app import App
     help='Specify the ollama model. By default is "llama3.2:1b".',
 )
 @click.option(
-    "--temperature",
-    default=0.7,
-    type=float,
-    help="Set the randomness of the model's responses. Smaller values make responses more deterministic, bigger values result in more creative responses. Default is 0.7.",
-)
-@click.option(
     "--explain",
     is_flag=True,
     help="Enable chain of thought, explaining the steps to reach the solution.",

@@ -30,14 +30,44 @@ class App:
         except KeyboardInterrupt:
             print("\n[INFO] OPERATION INTERRUPTED BY USER.")
 
-    def changeParameters(self):
+    def changeAllParameters(self):
+        """Cambia l"""
+        try:
+            self.ollama_chat.changeAllParameters()
+        except KeyboardInterrupt:
+            print("\n[INFO] OPERATION INTERRUPTED BY USER.")
+
+    def changeAllParameters(self):
         """Cambia l"""
         try:
             self.ollama_chat.changeParameters()
         except KeyboardInterrupt:
             print("\n[INFO] OPERATION INTERRUPTED BY USER.")
-
-
+    
+    def changeTemperature(self):
+        try:
+            self.ollama_chat.changeTemperature()
+        except KeyboardInterrupt:
+            print("\n[INFO] OPERATION INTERRUPTED BY USER.")
+    
+    def change_maxTokens(self):
+        try:
+            self.ollama_chat.change_maxTokens()
+        except KeyboardInterrupt:
+            print("\n[INFO] OPERATION INTERRUPTED BY USER.")
+    
+    def change_frequencyPenalty(self):
+        try:
+            self.ollama_chat.change_frequencyPenalty()
+        except KeyboardInterrupt:
+            print("\n[INFO] OPERATION INTERRUPTED BY USER.")
+    
+    def change_n(self):
+        try:
+            self.ollama_chat.change_n()
+        except KeyboardInterrupt:
+            print("\n[INFO] OPERATION INTERRUPTED BY USER.")
+    
     def chat(self, query):
         """
         Transmite el mensaje a ollama e imprime la respuesta
@@ -63,7 +93,15 @@ class App:
                 elif "\\model" == query:
                     self.model()
                 elif "\\parameters" == query:
-                    self.changeParameters()
+                    self.changeAllParameters()
+                elif "\\temperature" == query:
+                    self.changeTemperature()
+                elif "\\tokens" == query:
+                    self.change_maxTokens()
+                elif "\\repetition" == query:
+                    self.change_frequencyPenalty()
+                elif "\\answers" == query:
+                    self.change_n()
                 elif "\\status" == query:
                     self.printStatus()
                 else:
@@ -75,7 +113,16 @@ class App:
         print(f"{'\\status':6} - Shows current program settings")
         print(f"{'\\model':6} - Change Ollama model")
         print(
-            f"{'\\temp':6} - Change Ollama temperature. Smaller values (< 0.5) make responses more deterministic, bigger values (> 1.0) result in more creative responses"
+            f"{'\\temperature':6} - Change Ollama temperature [0, 1]. Smaller values make responses more deterministic, bigger values result in more creative responses"
+        )
+        print(
+            f"{'\\tokens':6} - Change Ollama maximum number of tokens for the response"
+        )
+        print(
+            f"{'\\repetition':6} - Change Ollama frequency_penalisation [-2, 2]. Smaller values penalise less, bigger values penalise more"
+        )
+        print(
+            f"{'\\answers':6} - Change Ollama number of answers"
         )
         print(f"{'\\help':6} - Shows help")
         print(f"{'\\quit':6} - Quit the program")
