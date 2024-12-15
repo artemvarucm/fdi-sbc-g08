@@ -1,5 +1,6 @@
 class ChainThoughtLayer:
     """Chain of Thoughts, capa que permite explicar mejor la respuesta"""
+
     def chat(self, ollama, messagesHistory, query):
         # prompt con instrucciones para el chain of thoughts
         messagesHistory.append(

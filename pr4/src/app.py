@@ -1,13 +1,16 @@
 import sys
 from ollama_chat import OllamaChat
 
+
 class App:
     """
     Aplicación principal que se encarga de
     ejecutar las acciones de los comandos
     """
 
-    def __init__(self, knowledge_path, mappings, model, temperature, chain_of_thought, debug):
+    def __init__(
+        self, knowledge_path, mappings, model, temperature, chain_of_thought, debug
+    ):
         self.ollama_chat = OllamaChat(
             knowledge_path, mappings, model, temperature, chain_of_thought, debug
         )
@@ -44,6 +47,10 @@ class App:
         response = self.ollama_chat.chat(query)
         print(response)
 
+    def printStatus(self):
+        """Muestra la configuracion actual"""
+        self.ollama_chat.printStatus()
+
     def processCommand(self, query):
         """
         Ejecuta las acciones correspondientes al query indicado
@@ -59,14 +66,19 @@ class App:
                     self.model()
                 elif "\\temp" == query:
                     self.setTemperature()
+                elif "\\status" == query:
+                    self.printStatus()
                 else:
                     print("[ERROR]: COMMAND NOT FOUND, CHECK SYNTAX.")
             else:
                 self.chat(query)
 
     def help(self):
+        print(f"{'\\status':6} - Shows current program settings")
         print(f"{'\\model':6} - Change Ollama model")
-        print(f"{'\\temp':6} - Change Ollama temperature. Smaller values (< 0.5) make responses more deterministic, bigger values (> 1.0) result in more creative responses")
+        print(
+            f"{'\\temp':6} - Change Ollama temperature. Smaller values (< 0.5) make responses more deterministic, bigger values (> 1.0) result in more creative responses"
+        )
         print(f"{'\\help':6} - Shows help")
         print(f"{'\\quit':6} - Quit the program")
         print()

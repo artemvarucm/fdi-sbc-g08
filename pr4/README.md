@@ -62,6 +62,8 @@ base_principal
 ```
 
 ### Comandos
+`\status` - Shows current program settings
+
 `\model` -  Change Ollama model  
 
 `\temp` -  Change Ollama temperature. Smaller values (< 0.5) make responses more deterministic, bigger values (> 1.0) result in more creative responses

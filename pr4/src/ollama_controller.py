@@ -16,6 +16,11 @@ class OllamaController:
     def setTemperature(self, temperature):
         self.temperature = temperature
 
+    def printStatus(self):
+        """Muestra la configuracion actual"""
+        print(f"OLLAMA MODEL: {self.model}")
+        print(f"OLLAMA TEMPERATURE: {self.temperature}")
+
     def setModel(self, model):
         """
         Cambia de modelo de ollama
@@ -39,7 +44,9 @@ class OllamaController:
             else:
                 print("[OLLAMA ERROR]:", e.error)
         except Exception as e:
-            raise Exception("[FATAL ERROR] CAN'T CONNECT TO OLLAMA SERVER. CHECK IF SERVER IS RUNNING.")
+            raise Exception(
+                "[FATAL ERROR] CAN'T CONNECT TO OLLAMA SERVER. CHECK IF SERVER IS RUNNING."
+            )
 
     def chat(self, messagesHistory):
         """Manda el historial del chat (con el nuevo mensaje), al modelo y devuelve su respuesta"""
