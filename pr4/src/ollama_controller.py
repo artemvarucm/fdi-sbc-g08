@@ -35,14 +35,14 @@ class OllamaController:
             else:
                 print("[OLLAMA ERROR]:", e.error)
 
-    def chat(self, messagesHistory, format=None, options=None):
+    def chat(self, messagesHistory, options=None):
+        """Manda el historial del chat (con el nuevo mensaje), al modelo y devuelve su respuesta"""
         if self.model is None:
             raise Exception("YOU NEED TO SPECIFY A VALID OLLAMA MODEL, EXECUTE \\model")
         else:
             response: ChatResponse = chat(
                 model=self.model,
                 messages=messagesHistory,
-                format=format,
                 options=options,
             )
             return response

@@ -26,11 +26,11 @@ $ uv run src/practica4.py bases mappings_ollama.json
 ```
 ### Avanzada:
 ```shell
-$ uv run src/practica4.py bases mappings_ollama.json --model llama3.2:3b --explain
+$ uv run src/practica4.py bases mappings_ollama.json --model llama3.2:3b --explain --debug
 ```
 --model: Specify the ollama model. By default is "llama3.2:1b"  
 --explain: Enable chain of thought, explaining the steps to reach the solution
-
+--debug: Show the context directories selected for the response (RAG)
 
 ## Descripción programa
 * [General](#general)  
@@ -58,6 +58,4 @@ base_principal
 `\model` -  Change Ollama model  
 `\help` - Shows the available commands    
 `\quit` - Quit the program  
-`\add <file_name> <file_path>` - Adds a new knowledge base (`.txt`)
-
 

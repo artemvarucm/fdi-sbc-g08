@@ -2,6 +2,7 @@ import click
 import sys
 from app import App
 
+
 @click.command()
 @click.argument("bases_dir", type=click.Path(exists=True))
 @click.argument("mappings_json", type=click.Path(exists=True))
@@ -15,12 +16,17 @@ from app import App
     is_flag=True,
     help="Enable chain of thought, explaining the steps to reach the solution.",
 )
-def main(bases_dir, mappings_json, model, explain):
+@click.option(
+    "--debug",
+    is_flag=True,
+    help="Show the context directories selected for the response (RAG)",
+)
+def main(bases_dir, mappings_json, model, explain, debug):
     """
     Asistente virtual con ollama por debajo
     """
     try:
-        app = App(bases_dir, mappings_json, model, explain)
+        app = App(bases_dir, mappings_json, model, explain, debug)
     except Exception as e:
         print(e)
         sys.exit(1)

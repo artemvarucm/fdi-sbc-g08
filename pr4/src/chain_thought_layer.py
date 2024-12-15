@@ -1,5 +1,7 @@
 class ChainThoughtLayer:
+    """Chain of Thoughts, capa que permite explicar mejor la respuesta"""
     def chat(self, ollama, messagesHistory, query):
+        # prompt con instrucciones para el chain of thoughts
         messagesHistory.append(
             {
                 "role": "system",
@@ -16,12 +18,12 @@ class ChainThoughtLayer:
         response = ollama.chat(messagesHistory)
 
         messagesHistory.append(response["message"])
-
+        # prompt para quedarnos con lo mejor de la versión sin chain of thoughts y la versión con chain of thoughts
         messagesHistory.append(
             {
                 "role": "system",
                 "content": """
-            Now, taking into consideration your previious two answers, explain it better.
+                Now, taking into consideration your previous two answers, explain it better.
             """,
             }
         )

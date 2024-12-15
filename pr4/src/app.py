@@ -1,8 +1,5 @@
 import sys
 from ollama_chat import OllamaChat
-from utils import addFile
-from pathlib import Path
-
 
 class App:
     """
@@ -10,8 +7,10 @@ class App:
     ejecutar las acciones de los comandos
     """
 
-    def __init__(self, knowledge_path, mappings, model, chain_of_thought):
-        self.ollama_chat = OllamaChat(knowledge_path, mappings, model, chain_of_thought)
+    def __init__(self, knowledge_path, mappings, model, chain_of_thought, debug):
+        self.ollama_chat = OllamaChat(
+            knowledge_path, mappings, model, chain_of_thought, debug
+        )
         self.knowledge_path = knowledge_path
 
     def model(self):
@@ -34,21 +33,18 @@ class App:
         Ejecuta las acciones correspondientes al query indicado
         """
         query = query.strip()
-        if query[0] == "\\":  # los comandos empiezan con \
-            if "\\help" == query:
-                self.help()
-            elif "\\quit" == query:
-                sys.exit(1)
-            elif "\\model" == query:
-                self.model()
-            elif "\\add" in query:
-                _, file_name, file_path_arg = query.split(" ")
-                file_path = Path(self.knowledge_path, file_name)
-                addFile(file_path, file_path_arg)
+        if query:
+            if query[0] == "\\":  # los comandos empiezan con \
+                if "\\help" == query:
+                    self.help()
+                elif "\\quit" == query:
+                    sys.exit(1)
+                elif "\\model" == query:
+                    self.model()
+                else:
+                    print("[ERROR]: COMMAND NOT FOUND, CHECK SYNTAX.")
             else:
-                print("[ERROR]: COMMAND NOT FOUND, CHECK SYNTAX.")
-        else:
-            self.chat(query)
+                self.chat(query)
 
     def help(self):
         print(f"{'\\model':6} - Change Ollama model")
