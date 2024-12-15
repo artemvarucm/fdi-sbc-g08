@@ -12,6 +12,9 @@ class RAGLayer(PromptLayer):
     """
 
     def __init__(self, bases_conocimiento, mappings_path, debug):
+        # utilizar el mapeo de ollama también, o solo de palabras claves
+        self.ollamaMap = False
+        
         self.bases_conocimiento = bases_conocimiento
         self.debug = debug
         with open(mappings_path, "r") as file:
@@ -21,6 +24,15 @@ class RAGLayer(PromptLayer):
                 raise Exception(
                     f"[FATAL ERROR] When reading the mappings from {mappings_path}. {e}"
                 )
+
+    def toggleOllamaMap(self):
+        """Invierte el estado de ollamaMap"""
+        self.ollamaMap = not self.ollamaMap
+        article = "" if self.ollamaMap else "NOT "
+        print(f"[INFO] OLLAMA IS {article}USED DURING MAPPING")
+
+    def getOllamaMap(self):
+        return self.ollamaMap
 
     def correct_query(self, query):
         """Recibe una consulta y la corrige en caso de que el usuario la haya escrito mal"""
@@ -81,7 +93,9 @@ class RAGLayer(PromptLayer):
         """Consulta con contexto, que se encuentra a partir de los mappings"""
         # query_correct = self.correct_query(query) convierte "fernando alonso" en "fernando also"
         matchedDirs = self.match_mappings_keywords(query)
-        matchedDirs = matchedDirs.union(self.match_mappings_ollama(ollama, query))
+
+        if self.ollamaMap:
+            matchedDirs = matchedDirs.union(self.match_mappings_ollama(ollama, query))
 
         # sacamos el contexto leyendo los archivos
         contextLines = []

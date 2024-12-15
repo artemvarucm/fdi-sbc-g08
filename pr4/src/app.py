@@ -12,7 +12,6 @@ class App:
         self.ollama_chat = OllamaChat(
             knowledge_path, mappings, model, chain_of_thought, debug
         )
-        self.knowledge_path = knowledge_path
 
     def model(self):
         """
@@ -70,6 +69,9 @@ class App:
         """Muestra la configuracion actual"""
         self.ollama_chat.printStatus()
 
+    def toggleOllamaMap(self):
+        self.ollama_chat.toggleOllamaMap()
+
     def processCommand(self, query):
         """
         Ejecuta las acciones correspondientes al query indicado
@@ -95,25 +97,30 @@ class App:
                     self.changeN()
                 elif "\\status" == query:
                     self.printStatus()
+                elif "\\tgl_ollama_map" == query:
+                    self.toggleOllamaMap()
                 else:
                     print("[ERROR]: COMMAND NOT FOUND, CHECK SYNTAX.")
             else:
                 self.chat(query)
 
     def help(self):
-        print(f"{'\\status':6} - Shows current program settings")
-        print(f"{'\\model':6} - Change Ollama model")
-        print(f"{'\\parameters':6} - Change all Ollama parameters")
+        print(f"{'\\status':15} - Shows current program settings")
+        print(f"{'\\model':15} - Change Ollama model")
+        print(f"{'\\parameters':15} - Change all Ollama parameters")
         print(
-            f"{'\\temperature':6} - Change Ollama temperature [0, 1]. Smaller values make responses more deterministic, bigger values result in more creative responses"
+            f"{'\\temperature':15} - Change Ollama temperature [0, 1]. Smaller values make responses more deterministic, bigger values result in more creative responses"
         )
         print(
-            f"{'\\tokens':6} - Change Ollama maximum number of tokens for the response"
+            f"{'\\tokens':15} - Change Ollama maximum number of tokens for the response"
         )
         print(
-            f"{'\\repetition':6} - Change Ollama frequency_penalisation [-2, 2]. Smaller values penalise less, bigger values penalise more"
+            f"{'\\repetition':15} - Change Ollama frequency_penalisation [-2, 2]. Smaller values penalise less, bigger values penalise more"
         )
-        print(f"{'\\answers':6} - Change Ollama number of answers")
-        print(f"{'\\help':6} - Shows help")
-        print(f"{'\\quit':6} - Quit the program")
+        print(f"{'\\answers':15} - Change Ollama number of answers")
+        print(
+            f"{'\\tgl_ollama_map':15} - Enables/Disables the Ollama mapping for the RAG. (only use keywords mapping or additional Ollama mapping too)."
+        )
+        print(f"{'\\help':15} - Shows help")
+        print(f"{'\\quit':15} - Quit the program")
         print()

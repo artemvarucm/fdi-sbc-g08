@@ -9,17 +9,22 @@ class OllamaChat:
     def __init__(self, bases_conocimiento, mappings, model, chain_of_thought, debug):
         self.chain_of_thought = chain_of_thought
         self.messagesHistory = self.getInitPrompts()
-        self.layers = [RAGLayer(bases_conocimiento, mappings, debug)]
+        self.ragLayer = RAGLayer(bases_conocimiento, mappings, debug)
+        self.layers = [self.ragLayer]
         if self.chain_of_thought:
             self.layers.append(ChainThoughtLayer())
 
         self.ollama = OllamaController(model)
 
+    def toggleOllamaMap(self):
+        self.ragLayer.toggleOllamaMap()
+
     def printStatus(self):
         """Muestra la configuracion actual"""
         print()
-        self.ollama.printStatus()
         print(f"CHAIN OF THOUGHT: {self.chain_of_thought}")
+        print(f"OLLAMA IS USED DURING MAPPING: {self.ragLayer.getOllamaMap()}")
+        self.ollama.printStatus()
         print()
 
     def switchModel(self, model):

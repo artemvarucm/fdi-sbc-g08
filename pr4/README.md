@@ -72,7 +72,7 @@ base_principal
 
 `\repetition` - Change Ollama frequency_penalisation [-2, 2]. Smaller values penalise less, bigger values penalise more
 
-`\ragollama` - Ollama helps to find the knowledge bases used to answer the question. It can be useful for complex questions, but worse for simple questions  
+`\tgl_ollama_map` - Enables/Disables the Ollama mapping for the RAG. (only use keywords mapping or additional Ollama mapping too). It can be useful for complex questions, but worse for simple questions  
 
 `\answers` - Change Ollama number of answers
 
