@@ -1,4 +1,4 @@
-# Sistema que permite representar y consultar redes semánticas usando un subconjunto simplificado de RDF y SPARQL partiendo de la base de conocimiento
+# LOLLLAMA: Asistente virtual para un ingeniero de conocimiento basado en Ollama
 
 Authors:
 Artem Vartanov &
@@ -6,9 +6,8 @@ Mario Baldocchi
 
 ### ÍNDICE
 * [Instalación y requisitos](#instalación-y-requisitos)
-* [Ejecución del programa](#instalación-y-requisitos)
+* [Ejecución del programa](#ejecución-del-programa)
 * [Descripción programa](#descripción-programa)
-* [Dependencias](#dependencias)
 
 ## Instalación y requisitos
 Se requiere 
@@ -16,19 +15,18 @@ Se requiere
 - [`python >= 3.12`](https://www.python.org/downloads/#:~:text=%EE%80%80Python.org%EE%80%81%20offers%20downloads%20for%20Python)
 - [black](https://pypi.org/project/black/)
 - [click](https://pypi.org/project/click/) 
-- [`ollama`](https://pypi.org/project/uv/)
-- [`uv`](https://pypi.org/project/uv/)
-
+- [`ollama`](https://pypi.org/project/ollama/)
+- [`autocorrect`](https://pypi.org/project/autocorrect/)
 
 
 ## Ejecución del programa
 ### Base:
 ```shell
-$ uv run src/practica4.py
+$ uv run src/practica4.py bases mappings_ollama.json
 ```
 ### Avanzada:
 ```shell
-$ uv run src/practica4.py --model --explain
+$ uv run src/practica4.py bases mappings_ollama.json --model llama3.2:3b --explain
 ```
 --model: Specify the ollama model. By default is "llama3.2:1b"  
 --explain: Enable chain of thought, explaining the steps to reach the solution
