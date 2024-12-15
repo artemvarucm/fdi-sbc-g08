@@ -22,7 +22,10 @@ class OllamaController:
         """Cambia la temperatura de ollama"""
         while True:
             try:
-                self.options["temperature"] = float(input("Enter temperature: "))
+                temp = float(input("Enter temperature: "))
+                if temp < 0 or temp > 1:
+                    raise ValueError()
+                self.options["temperature"] = temp
                 break
             except ValueError:
                 print("\n[ERROR] NUMBER MUST BE FLOAT BETWEEN 0 AND 1")
@@ -40,9 +43,10 @@ class OllamaController:
         """Cambia la penalización de frecuencia de ollama"""
         while True:
             try:
-                self.options["frequency_penalty"] = float(
-                    input("Enter the frequency penalty: ")
-                )
+                f = float(input("Enter the frequency penalty: "))
+                if f < -2 or f > 2:
+                    raise ValueError()
+                self.options["frequency_penalty"] = f
                 break
             except ValueError:
                 print("\n[ERROR] NUMBER MUST BE FLOAT BETWEEN -2 AND 2")
