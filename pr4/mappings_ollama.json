@@ -11,11 +11,19 @@
         "models/aston_martin": "In this path there is information about car models of the brands Aston Martin, like Aston Martin DB11, Aston Martin Valhalla, Aston Martin Vantage..."
     },
 
-    "concepts": 
+    "keywords":
     {
         "race": ["history/formula1_team", "drivers/titles"],
         "history": ["history/companies", "history/formula1_team"],
         "british car": ["models/mclaren", "models/aston_martin"],
+
+        "alonso": ["drivers/biography", "drivers/titles"],
+        "fangio": ["drivers/biography", "drivers/titles"],
+        "hamilton": ["drivers/biography", "drivers/titles"],
+        "rosberg": ["drivers/biography", "drivers/titles"],
+        "schumacher": ["drivers/biography", "drivers/titles"],
+        "senna": ["drivers/biography", "drivers/titles"],
+        "vettel": ["drivers/biography", "drivers/titles"],
 
         "biography": ["drivers/biography"],
         "life": ["drivers/biography"],
@@ -31,6 +39,7 @@
         "brands": ["history/companies"],
         "manufacturer": ["history/companies"],
         
+        "formula 1": ["history/formula1_team"],
         "formula1": ["history/formula1_team"],
         "f1": ["history/formula1_team"],
 

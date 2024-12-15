@@ -11,19 +11,10 @@ class RAGLayer(PromptLayer):
     Clase encargada de hacer el prompt engineering con ollama (intermediario)
     """
 
-    def __init__(self, bases_conocimiento, mappings):
-        self.mappings = mappings
+    def __init__(self, bases_conocimiento, mappings_path):
         self.bases_conocimiento = bases_conocimiento
-
-    """def processKnowledge(self, query):
-        contextLines = []
-        for k in self.knowledge.keys():
-            if k in query.lower():
-                contextLines.extend(readFile(self.knowledge[k]))
-
-        print(" ".join(contextLines))
-        return " ".join(contextLines)
-    """
+        with open(mappings_path, "r") as file:
+            self.mappings = json.load(file)
 
     def correct_query(self, query):
         """Recibe una consulta y la corrige en caso de que el usuario la haya escrito mal"""
@@ -31,35 +22,50 @@ class RAGLayer(PromptLayer):
         query = spell(query)
 
         return query
-
-    def chat(self, ollama, messagesHistory, query):
-        query_correct = self.correct_query(query)
+    
+    def match_mappings_ollama(self, ollama, query):
+        ollamaMappings = self.mappings["ollama"]
         messagesRAG = [
             {
                 "role": "system",
                 "content": f"""
                     Given the following information about paths:
-                    {" ".join(readFile(self.mappings))}
+                    {str(ollamaMappings)}
 
-                    Identify the path which is the most relevant for this query "{query_correct}".
+                    Identify the path which is the most relevant for this query "{query}".
                     Return only the path, without any explanation.
                 """,
             }
         ]
 
-        selectedPathsRaw = ollama.chat(messagesRAG)
+        response = ollama.chat(messagesRAG)
+        responseContent = response["message"]["content"]
+        dirs = set()
+        for k in ollamaMappings.keys():
+            if k in responseContent:
+                dirs.add(Path(self.bases_conocimiento, k))
 
-        # messagesRAG.append(selectedPathsRaw["message"])
+        return dirs
+
+    def match_mappings_keywords(self, query):
+        keywordsMappings = self.mappings["keywords"]
+        dirs = set()
+        for k in keywordsMappings.keys():
+            if k in query.lower():
+                dirs.update([Path(self.bases_conocimiento, p) for p in keywordsMappings[k]])
+        return dirs
+
+    def chat(self, ollama, messagesHistory, query):
+        query_correct = self.correct_query(query)
+        matchedDirs = self.match_mappings_ollama(ollama, query_correct)
+        matchedDirs = matchedDirs.union(self.match_mappings_keywords(query_correct))
+
         contextLines = []
-        with open(self.mappings, "r") as file:
-            data = json.load(file)
-            for k in data.keys():
-                if k in selectedPathsRaw["message"]["content"]:
-                    dirPath = Path(self.bases_conocimiento, k)
-                    for filename in os.listdir(dirPath):
-                        file_path = Path(dirPath, filename)
-                        if os.path.isfile(file_path):
-                            contextLines.extend(readFile(file_path))
+        for dirPath in matchedDirs:
+            for filename in os.listdir(dirPath):
+                file_path = Path(dirPath, filename)
+                if os.path.isfile(file_path):
+                    contextLines.extend(readFile(file_path))
 
         messagesHistory.extend(
             [
