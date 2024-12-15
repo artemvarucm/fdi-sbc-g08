@@ -13,11 +13,9 @@ class ChainThoughtLayer:
                 
                 To explain your reasoning step by step, follow this structure.
 
-                1. Identify the problem the user has.
-                2. Break it into subproblems.
-                3. Analyze each subproblem in detail.
-                4. Solve each subproblem and remember why you took each decision.Your solving process should feel like unpolished notes—messy, exploratory, and authentic. Remember your full thought process, including missteps, dead ends, and course corrections
-                5. Combine and connect the results of all subproblems to create a final conclusion. Seek deep patterns: "I’m seeing a connection -", "This ties back to -". Link broader implications: "This means -", "If this holds, then -
+                Firstly, Identify the problem the user has. Then, break it into subproblems, proceding to analyze each subproblem in detail.
+                Solve each subproblem and remember why you took each decision. Your solving process should feel like unpolished notes—messy, exploratory, and authentic.
+                Remember your full thought process, including missteps, dead ends, and course corrections Finally, combine and connect the results of all subproblems to create a final conclusion. Seek deep patterns: "I’m seeing a connection -", "This ties back to -". Link broader implications: "This means -", "If this holds, then -
 
                 Always show your full reasoning process, even for simple problems. If the solution requires assumptions, make them explicit.
 
@@ -34,12 +32,14 @@ class ChainThoughtLayer:
         messagesHistory.append(
             {
                 "role": "system",
-                "content": """
-                  Analyze previous the conclusion you reached before. If there is any contradiction try to solve it: "before I thought - now I think -".
+                "content": f"""
+                  Now, analyze the last response.
+                  If it's correct, try to avoid unnecessary information so the user has a better experience.
+                  If there is any contradiction try to solve it: "before I thought - now I think -".
                   If you cannot solve it, just admit it "I hadn't thought about it, maybe I should give it another turn"
-                  Tell the user, with clear explanations, how you reached the previous conclusion.
-                  Avoid unnecessary information so the user has a better experience.
 
+                  Respond as if it was the first time you are answering the original query:
+                  {query}
             """,
             }
         )
