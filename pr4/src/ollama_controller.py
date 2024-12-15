@@ -10,45 +10,52 @@ class OllamaController:
 
     def __init__(self, model):
         self.model = None
-        self.options = {'temperature': 0.7, 'max_tokens': 4000, 'frequency_penalty': 0.0, 'n': 1}
+        self.options = {
+            "temperature": 0.7,
+            "max_tokens": 4000,
+            "frequency_penalty": 0.0,
+            "n": 1,
+        }
         self.setModel(model)
-    
+
     def changeTemperature(self):
         """Cambia la temperatura de ollama"""
         while True:
             try:
-                self.options['temperature'] = float(input("Enter temperature: "))
+                self.options["temperature"] = float(input("Enter temperature: "))
                 break
             except ValueError:
-                print("\n[ERROR] NUMBER MUST BE FLOAT BETWEEN 0 AND 1.")
-    
-    def change_maxTokens(self):
+                print("\n[ERROR] NUMBER MUST BE FLOAT BETWEEN 0 AND 1")
+
+    def changeMaxTokens(self):
         """Cambia el maximo de tokens de ollama"""
         while True:
             try:
-                self.options['max_tokens'] = float(input("Enter the max tokens: "))
+                self.options["max_tokens"] = int(input("Enter the max tokens: "))
                 break
             except ValueError:
-                print("\n[ERROR] NUMBER MUST BE FLOAT BETWEEN 0 AND 1.")
-    
-    def change_frequencyPenalty(self):
+                print("\n[ERROR] NUMBER MUST BE INTEGER")
+
+    def changeFrequencyPenalty(self):
         """Cambia la penalización de frecuencia de ollama"""
         while True:
             try:
-                self.options['frequency_penalty'] = float(input("Enter the frequency penalty: "))
+                self.options["frequency_penalty"] = float(
+                    input("Enter the frequency penalty: ")
+                )
                 break
             except ValueError:
-                print("\n[ERROR] NUMBER MUST BE FLOAT BETWEEN 0 AND 1.")
-    
-    def change_n(self):
+                print("\n[ERROR] NUMBER MUST BE FLOAT BETWEEN -2 AND 2")
+
+    def changeN(self):
         """Cambia el numerod e respuestas de ollama"""
         while True:
             try:
-                self.options['n'] = float(input("Enter the number of answers: "))
+                self.options["n"] = int(input("Enter the number of answers: "))
                 break
             except ValueError:
-                print("\n[ERROR] NUMBER MUST BE FLOAT BETWEEN 0 AND 1.")
-        
+                print("\n[ERROR] NUMBER MUST BE INTEGER")
+
     def changeAllParameters(self, temperature):
         """Cambia todos los parámetros de ollama"""
         self.changeTemperature()
@@ -59,7 +66,11 @@ class OllamaController:
     def printStatus(self):
         """Muestra la configuracion actual"""
         print(f"OLLAMA MODEL: {self.model}")
-        print(f"OLLAMA TEMPERATURE: {self.temperature}")
+        print(f"----OLLAMA PARAMETERS----")
+        print(f"    OLLAMA TEMPERATURE: {self.options['temperature']}")
+        print(f"    OLLAMA MAX_TOKENS: {self.options['max_tokens']}")
+        print(f"    OLLAMA FREQUENCY_PENALTY: {self.options['frequency_penalty']}")
+        print(f"    OLLAMA N: {self.options['n']}")
 
     def setModel(self, model):
         """

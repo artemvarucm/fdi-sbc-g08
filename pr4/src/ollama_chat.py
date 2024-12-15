@@ -29,23 +29,23 @@ class OllamaChat:
     def changeAllParameters(self):
         """Cambia todos los parámetros de ollama"""
         return self.ollama.changeAllParameters()
-    
+
     def changeTemperature(self):
         """Cambia la temperatura de ollama"""
         self.ollama.changeTemperature()
-    
-    def change_maxTokens(self):
+
+    def changeMaxTokens(self):
         """Cambia el maximo de tokens de ollama"""
-        self.ollama.change_maxTokens()
-    
-    def change_frequencyPenalty(self):
+        self.ollama.changeMaxTokens()
+
+    def changeFrequencyPenalty(self):
         """Cambia la penalización de frecuencia de ollama"""
-        self.ollama.change_frequencyPenalty()
-    
-    def change_n(self):
+        self.ollama.changeFrequencyPenalty()
+
+    def changeN(self):
         """Cambia el numerod e respuestas de ollama"""
-        self.ollama.change_n()
-    
+        self.ollama.changeN()
+
     def chat(self, query):
         """Manda el nuevo mensaje a ollama, pasando por el pipeline de capas"""
         for l in self.layers:

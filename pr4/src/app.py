@@ -41,31 +41,31 @@ class App:
             self.ollama_chat.changeParameters()
         except KeyboardInterrupt:
             print("\n[INFO] OPERATION INTERRUPTED BY USER.")
-    
+
     def changeTemperature(self):
         try:
             self.ollama_chat.changeTemperature()
         except KeyboardInterrupt:
             print("\n[INFO] OPERATION INTERRUPTED BY USER.")
-    
-    def change_maxTokens(self):
+
+    def changeMaxTokens(self):
         try:
-            self.ollama_chat.change_maxTokens()
+            self.ollama_chat.changeMaxTokens()
         except KeyboardInterrupt:
             print("\n[INFO] OPERATION INTERRUPTED BY USER.")
-    
-    def change_frequencyPenalty(self):
+
+    def changeFrequencyPenalty(self):
         try:
-            self.ollama_chat.change_frequencyPenalty()
+            self.ollama_chat.changeFrequencyPenalty()
         except KeyboardInterrupt:
             print("\n[INFO] OPERATION INTERRUPTED BY USER.")
-    
-    def change_n(self):
+
+    def changeN(self):
         try:
-            self.ollama_chat.change_n()
+            self.ollama_chat.changeN()
         except KeyboardInterrupt:
             print("\n[INFO] OPERATION INTERRUPTED BY USER.")
-    
+
     def chat(self, query):
         """
         Transmite el mensaje a ollama e imprime la respuesta
@@ -95,11 +95,11 @@ class App:
                 elif "\\temperature" == query:
                     self.changeTemperature()
                 elif "\\tokens" == query:
-                    self.change_maxTokens()
+                    self.changeMaxTokens()
                 elif "\\repetition" == query:
-                    self.change_frequencyPenalty()
+                    self.changeFrequencyPenalty()
                 elif "\\answers" == query:
-                    self.change_n()
+                    self.changeN()
                 elif "\\status" == query:
                     self.printStatus()
                 else:
@@ -110,6 +110,7 @@ class App:
     def help(self):
         print(f"{'\\status':6} - Shows current program settings")
         print(f"{'\\model':6} - Change Ollama model")
+        print(f"{'\\parameters':6} - Change all Ollama parameters")
         print(
             f"{'\\temperature':6} - Change Ollama temperature [0, 1]. Smaller values make responses more deterministic, bigger values result in more creative responses"
         )
@@ -119,9 +120,7 @@ class App:
         print(
             f"{'\\repetition':6} - Change Ollama frequency_penalisation [-2, 2]. Smaller values penalise less, bigger values penalise more"
         )
-        print(
-            f"{'\\answers':6} - Change Ollama number of answers"
-        )
+        print(f"{'\\answers':6} - Change Ollama number of answers")
         print(f"{'\\help':6} - Shows help")
         print(f"{'\\quit':6} - Quit the program")
         print()
