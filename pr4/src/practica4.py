@@ -21,12 +21,12 @@ from app import App
     is_flag=True,
     help="Print the context directories selected (filtered) for the response (RAG)",
 )
-def main(bases_dir, mappings_json, model, temperature, explain, debug):
+def main(bases_dir, mappings_json, model, explain, debug):
     """
     Virtual Assistant based on Ollama. BASES_DIR is the knowledge directory path, MAPPINGS_JSON is the path to JSON with RAG mappings.
     """
     try:
-        app = App(bases_dir, mappings_json, model, temperature, explain, debug)
+        app = App(bases_dir, mappings_json, model, explain, debug)
     except Exception as e:
         print(e)
         sys.exit(1)

@@ -8,9 +8,7 @@ class App:
     ejecutar las acciones de los comandos
     """
 
-    def __init__(
-        self, knowledge_path, mappings, model, chain_of_thought, debug
-    ):
+    def __init__(self, knowledge_path, mappings, model, chain_of_thought, debug):
         self.ollama_chat = OllamaChat(
             knowledge_path, mappings, model, chain_of_thought, debug
         )
