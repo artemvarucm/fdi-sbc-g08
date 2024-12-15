@@ -26,11 +26,18 @@ $ uv run src/practica4.py bases mappings_ollama.json
 ```
 ### Avanzada:
 ```shell
-$ uv run src/practica4.py bases mappings_ollama.json --model llama3.2:3b --explain --debug
+$ uv run src/practica4.py bases mappings_ollama.json --model llama3.2:3b --temperature 0.8 --explain --debug
 ```
---model: Specify the ollama model. By default is "llama3.2:1b"  
---explain: Enable chain of thought, explaining the steps to reach the solution
---debug: Show the context directories selected for the response (RAG)
+
+bases is the knowledge directory path, mappings_ollama.json is the path to JSON with RAG mappings.
+
+`--model`: Specify the ollama model. By default is "llama3.2:1b"
+
+`--temperature`: Set the randomness of the model's responses. Smaller values make responses more deterministic, bigger values result in more creative responses. Default is 0.7
+
+`--explain`: Enable chain of thought, explaining the steps to reach the solution
+
+`--debug`: Print the context directories selected (filtered) for the response (RAG)
 
 ## Descripción programa
 * [General](#general)  
@@ -56,6 +63,10 @@ base_principal
 
 ### Comandos
 `\model` -  Change Ollama model  
-`\help` - Shows the available commands    
+
+`\temp` -  Change Ollama temperature. Smaller values (< 0.5) make responses more deterministic, bigger values (> 1.0) result in more creative responses
+
+`\help` - Shows the available commands
+   
 `\quit` - Quit the program  
 

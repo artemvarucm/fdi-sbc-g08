@@ -5,17 +5,21 @@ from ollama_controller import OllamaController
 
 class OllamaChat:
     """Clase encargada de realizar el prompt engineering al interactuar con Ollama"""
-    def __init__(self, bases_conocimiento, mappings, model, chain_of_thought, debug):
+    def __init__(self, bases_conocimiento, mappings, model, temperature, chain_of_thought, debug):
         self.messagesHistory = self.getInitPrompts()
         self.layers = [RAGLayer(bases_conocimiento, mappings, debug)]
         if chain_of_thought:
             self.layers.append(ChainThoughtLayer())
 
-        self.ollama = OllamaController(model)
+        self.ollama = OllamaController(model, temperature)
 
     def switchModel(self, model):
         """Cambia de modelo ollama"""
         return self.ollama.setModel(model)
+
+    def setTemperature(self, temperature):
+        """Cambia el parámetro de temperatura de ollama"""
+        return self.ollama.setTemperature(temperature)
 
     def chat(self, query):
         """Manda el nuevo mensaje a ollama, pasando por el pipeline de capas"""

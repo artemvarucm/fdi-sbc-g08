@@ -8,9 +8,13 @@ class OllamaController:
     Clase que se encarga de realizar las consultas a las API de ollama
     """
 
-    def __init__(self, model):
+    def __init__(self, model, temperature):
         self.model = None
+        self.setTemperature(temperature)
         self.setModel(model)
+
+    def setTemperature(self, temperature):
+        self.temperature = temperature
 
     def setModel(self, model):
         """
@@ -34,8 +38,10 @@ class OllamaController:
                     print(f'[OLLAMA ERROR]: ERROR WHEN DOWNLOADING "{model}" MODEL.')
             else:
                 print("[OLLAMA ERROR]:", e.error)
+        except Exception as e:
+            raise Exception("[FATAL ERROR] CAN'T CONNECT TO OLLAMA SERVER. CHECK IF SERVER IS RUNNING.")
 
-    def chat(self, messagesHistory, options=None):
+    def chat(self, messagesHistory):
         """Manda el historial del chat (con el nuevo mensaje), al modelo y devuelve su respuesta"""
         if self.model is None:
             raise Exception("YOU NEED TO SPECIFY A VALID OLLAMA MODEL, EXECUTE \\model")
@@ -43,6 +49,6 @@ class OllamaController:
             response: ChatResponse = chat(
                 model=self.model,
                 messages=messagesHistory,
-                options=options,
+                options={"temperature": self.temperature},
             )
             return response
