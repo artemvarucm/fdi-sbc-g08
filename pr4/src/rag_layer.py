@@ -14,7 +14,7 @@ class RAGLayer(PromptLayer):
     def __init__(self, bases_conocimiento, mappings_path, debug):
         # utilizar el mapeo de ollama también, o solo de palabras claves
         self.ollamaMap = False
-        
+
         self.bases_conocimiento = bases_conocimiento
         self.debug = debug
         with open(mappings_path, "r") as file:
