@@ -67,10 +67,10 @@ class OllamaController:
         """Muestra la configuracion actual"""
         print(f"OLLAMA MODEL: {self.model}")
         print(f"----OLLAMA PARAMETERS----")
-        print(f"    OLLAMA TEMPERATURE: {self.options['temperature']}")
-        print(f"    OLLAMA MAX_TOKENS: {self.options['max_tokens']}")
-        print(f"    OLLAMA FREQUENCY_PENALTY: {self.options['frequency_penalty']}")
-        print(f"    OLLAMA N: {self.options['n']}")
+        print(f"    TEMPERATURE: {self.options['temperature']}")
+        print(f"    MAX_TOKENS: {self.options['max_tokens']}")
+        print(f"    FREQUENCY_PENALTY: {self.options['frequency_penalty']}")
+        print(f"    N: {self.options['n']}")
 
     def setModel(self, model):
         """
