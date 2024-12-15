@@ -10,17 +10,24 @@ class OllamaController:
 
     def __init__(self, model):
         self.model = None
-        self.options = {'temperature': 0.5, 'max_tokens': 400, 'frequency_penalty': 0.0, 'stream': True, 'n': 1}
+        self.options = {
+            "temperature": 0.5,
+            "max_tokens": 400,
+            "frequency_penalty": 0.0,
+            "stream": True,
+            "n": 1,
+        }
         self.setModel(model)
-
 
     def changeParameters(self, temperature):
         """Configura los parámetros de ollama"""
         try:
-            self.options['temperature'] = float(input("Enter temperature: "))
-            self.options['max_tokens'] = float(input("Enter the max tokens: "))
-            self.options['frequency_penalty'] = float(input("Enter the frequency penalty: "))
-            self.options['n'] = float(input("Enter the number of answers: "))
+            self.options["temperature"] = float(input("Enter temperature: "))
+            self.options["max_tokens"] = float(input("Enter the max tokens: "))
+            self.options["frequency_penalty"] = float(
+                input("Enter the frequency penalty: ")
+            )
+            self.options["n"] = float(input("Enter the number of answers: "))
         except KeyboardInterrupt:
             print("\n[INFO] OPERATION INTERRUPTED BY USER.")
         except ValueError:

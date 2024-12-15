@@ -6,9 +6,7 @@ from ollama_controller import OllamaController
 class OllamaChat:
     """Clase encargada de realizar el prompt engineering al interactuar con Ollama"""
 
-    def __init__(
-        self, bases_conocimiento, mappings, model, chain_of_thought, debug
-    ):
+    def __init__(self, bases_conocimiento, mappings, model, chain_of_thought, debug):
         self.chain_of_thought = chain_of_thought
         self.messagesHistory = self.getInitPrompts()
         self.layers = [RAGLayer(bases_conocimiento, mappings, debug)]
