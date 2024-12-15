@@ -34,10 +34,13 @@ class OllamaController:
         """Cambia el maximo de tokens de ollama"""
         while True:
             try:
-                self.options["max_tokens"] = int(input("Enter the max tokens: "))
+                tokens = float(input("Enter the max tokens: "))
+                if tokens < 0:
+                    raise ValueError()
+                self.options["max_tokens"] = tokens
                 break
             except ValueError:
-                print("\n[ERROR] NUMBER MUST BE INTEGER")
+                print("\n[ERROR] NUMBER MUST BE INTEGER AND >0")
 
     def changeFrequencyPenalty(self):
         """Cambia la penalización de frecuencia de ollama"""
@@ -55,10 +58,13 @@ class OllamaController:
         """Cambia el numerod e respuestas de ollama"""
         while True:
             try:
-                self.options["n"] = int(input("Enter the number of answers: "))
+                n = float(input("Enter the number of answers: "))
+                if n < 0:
+                    raise ValueError()
+                self.options["n"] = n
                 break
             except ValueError:
-                print("\n[ERROR] NUMBER MUST BE INTEGER")
+                print("\n[ERROR] NUMBER MUST BE INTEGER AND >0")
 
     def changeAllParameters(self):
         """Cambia todos los parámetros de ollama"""
