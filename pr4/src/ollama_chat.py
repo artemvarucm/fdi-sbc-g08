@@ -59,16 +59,10 @@ class OllamaChat:
             {
                 "role": "system",
                 "content": """
-                You are a salesman that helps people to find out which car is available and
-                why is it better from the knowledge base we will provide you. 
-                You must be efficient, using only the right information to answer the response from the user.
-            """,
-            },
-            {
-                "role": "system",
-                "content": """
-                 If you do not find the information in the knowledge we provide you, 
-                 answer whatever you consider relevant. 
+                You are a virtual assistant that responds a person
+                based on context we provide you for each query.
+
+                Remember, the current date is December, 2024.
             """,
             },
         ]

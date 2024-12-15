@@ -53,27 +53,35 @@ class RAGLayer(PromptLayer):
             if k in responseContent:
                 dirs.add(Path(self.bases_conocimiento, k))
 
+        if self.debug:
+            print(f"OLLAMA SELECTED CONTEXT DIRS: {str([str(p) for p in dirs])}\n")
+
         return dirs
 
     def match_mappings_keywords(self, query):
         """Devuelve los directorios que se han relacionado con la query, en función de los keywords en los mappings"""
         keywordsMappings = self.mappings["keywords"]
         dirs = set()
+
+        keywordsFound = []
         for k in keywordsMappings.keys():
             if k in query.lower():
+                keywordsFound.append(k)
                 dirs.update(
                     [Path(self.bases_conocimiento, p) for p in keywordsMappings[k]]
                 )
+
+        if self.debug:
+            print(f"KEYWORDS FOUND: {str(keywordsFound)}")
+            print(f"KEYWORDS SELECTED CONTEXT DIRS: {str([str(p) for p in dirs])}\n")
+
         return dirs
 
     def chat(self, ollama, messagesHistory, query):
         """Consulta con contexto, que se encuentra a partir de los mappings"""
-        query_correct = self.correct_query(query)
-        matchedDirs = self.match_mappings_ollama(ollama, query_correct)
-        matchedDirs = matchedDirs.union(self.match_mappings_keywords(query_correct))
-
-        if self.debug:
-            print(f"SELECTED CONTEXT DIRS: {str([str(p) for p in matchedDirs])}\n")
+        # query_correct = self.correct_query(query) convierte "fernando alonso" en "fernando also"
+        matchedDirs = self.match_mappings_keywords(query)
+        matchedDirs = matchedDirs.union(self.match_mappings_ollama(ollama, query))
 
         # sacamos el contexto leyendo los archivos
         contextLines = []
@@ -88,14 +96,14 @@ class RAGLayer(PromptLayer):
                 {
                     "role": "system",
                     "content": (
-                        f"For the next user query use the following context {' '.join(contextLines)}."
+                        f"Remember the following information, which is relevant for your query, {' '.join(contextLines)}."
                         if contextLines
                         else "Try to find information from your own knowledge."
                     ),
                 },
                 {
                     "role": "user",
-                    "content": query_correct,
+                    "content": f'From the knowledge you have been provided, try to find a response to this query "{query}"',
                 },
             ]
         )

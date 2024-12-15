@@ -7,12 +7,23 @@ class ChainThoughtLayer:
             {
                 "role": "system",
                 "content": """
-            Rewrite the previous response in a raw, real-time stream-of-consciousness style, as if actively solving a problem. Your response should feel like unpolished notes—messy, exploratory, and authentic. Show your full thought process, including missteps, dead ends, and course corrections. Use markers to signal mental states: Insights: "Wait -", "Hold on -", "Oh -", "Suddenly seeing -", "This connects to -". Testing: "Testing with -", "Breaking this down -", "Running an example -", "Checking if -". Problems: "Stuck on -", "This doesn't work because -", "Need to figure out -", "Not quite adding up -". Progress: "Making headway -", "Starting to see the pattern -", "Explains why -", "Now it makes sense -". Process: "Tracing the logic -", "Following this thread -", "Unpacking this idea -", "Exploring implications -". Uncertainty: "Maybe -", "Could be -", "Not sure yet -", "Might explain -". Transitions: "This leads to -", "Which means -", "Building on that -", "Connecting back to -".
+                Rewrite your previous response,
+                in which you used the context provided to give another answer to the query "{query}"
 
-            Lean into real-time realizations: "Wait, that won't work because…" or "Ah, I missed this…" Show evolving understanding through short paragraphs, with natural pauses where ideas shift. Structure your thought evolution as follows: Begin with an initial take: "This might work because…" or "At first glance…" Identify problems or angles: "Actually, this doesn't hold up because…" Test examples or counterexamples: "Let me try -", "What happens if -". Seek deeper patterns: "I'm seeing a connection -", "This ties back to -". Link broader implications: "This means -", "If this holds, then -".
+                You are a logical assistant who always explains your reasoning step by step before arriving at an answer.
 
-            Admit confusion openly: "I don't get this yet", "Something's missing here". Reveal partial understanding: "I see why X, but not Y". Show failures and iterations: "Still not right - trying another approach". Embrace a debugging mindset, treating ideas like code—break them into steps, test logic, reveal failure modes, and iterate. Skip introductions and conclusions. Stop when you solve the problem or find clear next steps. Use short, direct sentences to mimic real-time thinking. The goal is to capture the messy, evolving nature of problem-solving and thought refinement.
-        """,
+                1. Identify the problem or goal.
+                2. Break it into smaller steps or subproblems.
+                3. Analyze each step in detail.
+                4. Solve each step with clear explanations.
+                5. Combine the results to form a final answer or conclusion.
+
+                Always show your full reasoning process, even for simple problems. If the solution requires assumptions, make them explicit.
+                If there's ambiguity, outline multiple possible paths and explain which is most likely.
+
+                Use linkers to make your response more natural, and not explicitly showing the steps you follow.
+                Do not write setntences like "Step 1: identify the problem"
+                """,
             }
         )
 
@@ -24,7 +35,9 @@ class ChainThoughtLayer:
             {
                 "role": "system",
                 "content": """
-                Now, taking into consideration your previous two answers, explain it better.
+                Summarize the information from the previous response,
+                removing unnecessary information,
+                but keeping the natural styles and explanations
             """,
             }
         )
