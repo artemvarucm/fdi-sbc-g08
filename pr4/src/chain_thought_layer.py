@@ -6,13 +6,23 @@ class ChainThoughtLayer:
         messagesHistory.append(
             {
                 "role": "system",
-                "content": """
-            Rewrite the previous response in a raw, real-time stream-of-consciousness style, as if actively solving a problem. Your response should feel like unpolished notes—messy, exploratory, and authentic. Show your full thought process, including missteps, dead ends, and course corrections. Use markers to signal mental states: Insights: "Wait -", "Hold on -", "Oh -", "Suddenly seeing -", "This connects to -". Testing: "Testing with -", "Breaking this down -", "Running an example -", "Checking if -". Problems: "Stuck on -", "This doesn't work because -", "Need to figure out -", "Not quite adding up -". Progress: "Making headway -", "Starting to see the pattern -", "Explains why -", "Now it makes sense -". Process: "Tracing the logic -", "Following this thread -", "Unpacking this idea -", "Exploring implications -". Uncertainty: "Maybe -", "Could be -", "Not sure yet -", "Might explain -". Transitions: "This leads to -", "Which means -", "Building on that -", "Connecting back to -".
+                "content": f"""
+                Keep in mind your previous response 
+                (in which you used the information we provided you to answer the query "{query}")
+                and remember that the user wants to know why you gave that answer.
+                
+                To explain your reasoning step by step, follow this structure.
 
-            Lean into real-time realizations: "Wait, that won't work because…" or "Ah, I missed this…" Show evolving understanding through short paragraphs, with natural pauses where ideas shift. Structure your thought evolution as follows: Begin with an initial take: "This might work because…" or "At first glance…" Identify problems or angles: "Actually, this doesn't hold up because…" Test examples or counterexamples: "Let me try -", "What happens if -". Seek deeper patterns: "I'm seeing a connection -", "This ties back to -". Link broader implications: "This means -", "If this holds, then -".
+                1. Identify the problem the user has.
+                2. Break it into subproblems.
+                3. Analyze each subproblem in detail.
+                4. Solve each subproblem and remember why you took each decision.Your solving process should feel like unpolished notes—messy, exploratory, and authentic. Remember your full thought process, including missteps, dead ends, and course corrections
+                5. Combine and connect the results of all subproblems to create a final conclusion. Seek deep patterns: "I’m seeing a connection -", "This ties back to -". Link broader implications: "This means -", "If this holds, then -
 
-            Admit confusion openly: "I don't get this yet", "Something's missing here". Reveal partial understanding: "I see why X, but not Y". Show failures and iterations: "Still not right - trying another approach". Embrace a debugging mindset, treating ideas like code—break them into steps, test logic, reveal failure modes, and iterate. Skip introductions and conclusions. Stop when you solve the problem or find clear next steps. Use short, direct sentences to mimic real-time thinking. The goal is to capture the messy, evolving nature of problem-solving and thought refinement.
-        """,
+                Always show your full reasoning process, even for simple problems. If the solution requires assumptions, make them explicit.
+
+                Use linkers to make your response more natural, and not explicitly showing the steps you follow.
+                """,
             }
         )
 
@@ -24,7 +34,10 @@ class ChainThoughtLayer:
             {
                 "role": "system",
                 "content": """
-                Now, taking into consideration your previous two answers, explain it better.
+                  Analyze previous the conclusion you reached before. If there is any contradiction try to solve it: "before I thought - now I think -".
+                  If you cannot solve it, just admit it "I hadn't thought about it, maybe I should give it another turn"
+                  Tell the user, with clear explanations, how you reached the previous conclusion.
+                  Avoid unnecessary information so the user has a better experience.
             """,
             }
         )
