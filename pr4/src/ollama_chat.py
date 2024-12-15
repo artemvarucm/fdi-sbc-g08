@@ -2,6 +2,7 @@ from rag_layer import RAGLayer
 from chain_thought_layer import ChainThoughtLayer
 from ollama_controller import OllamaController
 
+
 class OllamaChat:
     def __init__(self, bases_conocimiento, mappings, model, chain_of_thought):
         self.messagesHistory = self.getInitPrompts()
@@ -18,7 +19,7 @@ class OllamaChat:
         for l in self.layers:
             l.chat(self.ollama, self.messagesHistory, query)
 
-        return self.messagesHistory[-1]["content"] # devuelve el último mensaje
+        return self.messagesHistory[-1]["content"]  # devuelve el último mensaje
 
     def getInitPrompts(self):
         prompts = [

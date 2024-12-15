@@ -57,9 +57,9 @@ base_principal
 ```
 
 ### Comandos
-`\\model` -  Change Ollama model  
-`\\help` - Shows the available commands    
-`\\quit` - Quit the program  
-`\\add <file_name> <file_path>` - Adds a new knowledge base (`.txt`)
+`\model` -  Change Ollama model  
+`\help` - Shows the available commands    
+`\quit` - Quit the program  
+`\add <file_name> <file_path>` - Adds a new knowledge base (`.txt`)
 
 

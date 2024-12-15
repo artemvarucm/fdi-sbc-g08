@@ -51,7 +51,7 @@ class App:
             self.chat(query)
 
     def help(self):
-        print(f"{"\\model":6} - Change Ollama model")
-        print(f"{"\\help":6} - Shows help")
-        print(f"{"\\quit":6} - Quit the program")
+        print(f"{'\\model':6} - Change Ollama model")
+        print(f"{'\\help':6} - Shows help")
+        print(f"{'\\quit':6} - Quit the program")
         print()

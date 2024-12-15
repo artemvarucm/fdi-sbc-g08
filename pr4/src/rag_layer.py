@@ -2,6 +2,9 @@ from utils import readFile
 from pathlib import Path
 from autocorrect import Speller
 from prompt_layer import PromptLayer
+import json
+import os
+
 
 class RAGLayer(PromptLayer):
     """
@@ -31,26 +34,51 @@ class RAGLayer(PromptLayer):
 
     def chat(self, ollama, messagesHistory, query):
         query_correct = self.correct_query(query)
-        print(readFile(self.mappings))
+        messagesRAG = [
+            {
+                "role": "system",
+                "content": f"""
+                    Given the following information about paths:
+                    {" ".join(readFile(self.mappings))}
+
+                    Identify the path which is the most relevant for this query "{query_correct}".
+                    Return only the path, without any explanation.
+                """,
+            }
+        ]
+
+        selectedPathsRaw = ollama.chat(messagesRAG)
+
+        # messagesRAG.append(selectedPathsRaw["message"])
+        contextLines = []
+        with open(self.mappings, "r") as file:
+            data = json.load(file)
+            for k in data.keys():
+                if k in selectedPathsRaw["message"]["content"]:
+                    dirPath = Path(self.bases_conocimiento, k)
+                    for filename in os.listdir(dirPath):
+                        file_path = Path(dirPath, filename)
+                        if os.path.isfile(file_path):
+                            contextLines.extend(readFile(file_path))
+
         messagesHistory.extend(
             [
                 {
                     "role": "system",
-                    "content": f"""
-                        Find the most relevant paths given this description
-                        {" ".join(readFile(self.mappings))}
-                        
-                        To answer this question
-                        {query_correct}
-
-                        Return it as a list of paths, excluding any extra information, so I can save it as a python list.
-                    """,
-                }
+                    "content": (
+                        f"For the next user query use the following context {' '.join(contextLines)}."
+                        if contextLines
+                        else "Try to find information from your own knowledge."
+                    ),
+                },
+                {
+                    "role": "user",
+                    "content": query_correct,
+                },
             ]
         )
 
-        selectedPaths = ollama.chat(messagesHistory)
-        print(selectedPaths)
+        response = ollama.chat(messagesHistory)
 
         # Añadimos la respuesta de ollama al historial
-        messagesHistory.append(selectedPaths["message"])
+        messagesHistory.append(response["message"])

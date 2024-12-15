@@ -35,9 +35,14 @@ class OllamaController:
             else:
                 print("[OLLAMA ERROR]:", e.error)
 
-    def chat(self, messagesHistory):
+    def chat(self, messagesHistory, format=None, options=None):
         if self.model is None:
             raise Exception("YOU NEED TO SPECIFY A VALID OLLAMA MODEL, EXECUTE \\model")
         else:
-            response: ChatResponse = chat(model=self.model, messages=messagesHistory)
+            response: ChatResponse = chat(
+                model=self.model,
+                messages=messagesHistory,
+                format=format,
+                options=options,
+            )
             return response
