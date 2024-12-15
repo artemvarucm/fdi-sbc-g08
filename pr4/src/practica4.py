@@ -1,10 +1,10 @@
 import click
+import sys
 from app import App
-
 
 @click.command()
 @click.argument("bases_dir", type=click.Path(exists=True))
-@click.argument("mappings", type=click.Path(exists=True))
+@click.argument("mappings_json", type=click.Path(exists=True))
 @click.option(
     "--model",
     default="llama3.2:1b",
@@ -15,10 +15,16 @@ from app import App
     is_flag=True,
     help="Enable chain of thought, explaining the steps to reach the solution.",
 )
-def main(bases_dir, mappings, model, explain):
+def main(bases_dir, mappings_json, model, explain):
     """
     Asistente virtual con ollama por debajo
     """
+    try:
+        app = App(bases_dir, mappings_json, model, explain)
+    except Exception as e:
+        print(e)
+        sys.exit(1)
+
     print(
         """
           __
@@ -43,7 +49,6 @@ def main(bases_dir, mappings, model, explain):
           """
     )
     print("WELCOME TO LOLLLAMA!\n")
-    app = App(bases_dir, mappings, model, explain)
     while True:
         try:
             query = input("> ")

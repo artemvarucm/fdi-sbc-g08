@@ -14,7 +14,10 @@ class RAGLayer(PromptLayer):
     def __init__(self, bases_conocimiento, mappings_path):
         self.bases_conocimiento = bases_conocimiento
         with open(mappings_path, "r") as file:
-            self.mappings = json.load(file)
+            try:
+                self.mappings = json.load(file)
+            except Exception as e:
+                raise Exception(f"[FATAL ERROR] When reading the mappings from {mappings_path}. {e}")
 
     def correct_query(self, query):
         """Recibe una consulta y la corrige en caso de que el usuario la haya escrito mal"""
