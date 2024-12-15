@@ -27,16 +27,18 @@
 
         "biography": ["drivers/biography"],
         "life": ["drivers/biography"],
-    
+        "birth": ["drivers/biography"],
+
         "title": ["drivers/titles"],
         "achievement": ["drivers/titles"],
         "record": ["drivers/titles"],
         "championship": ["drivers/titles"],
         "world cup": ["drivers/titles"],
+        "podium": ["drivers/titles"],
 
         "companies": ["history/companies"],
         "company": ["history/companies"],
-        "brands": ["history/companies"],
+        "brand": ["history/companies"],
         "manufacturer": ["history/companies"],
         
         "formula 1": ["history/formula1_team"],
@@ -48,14 +50,16 @@
         "italian car": ["models/ferrari"],
     
         "mclaren": ["models/mclaren"],
-    
+        "artura": ["models/mclaren"],
+
         "mercedes": ["models/mercedes"],
         "benz": ["models/mercedes"],
         "amg": ["models/mercedes"],
     
         "aston martin": ["models/aston_martin"],
         "vantage": ["models/aston_martin"],
-        "valhalla": ["models/aston_martin"]
+        "valhalla": ["models/aston_martin"],
+        "valkyrie": ["models/aston_martin"]
     }
     
 }
