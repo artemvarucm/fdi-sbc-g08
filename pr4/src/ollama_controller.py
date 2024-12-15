@@ -56,7 +56,7 @@ class OllamaController:
             except ValueError:
                 print("\n[ERROR] NUMBER MUST BE INTEGER")
 
-    def changeAllParameters(self, temperature):
+    def changeAllParameters(self):
         """Cambia todos los parámetros de ollama"""
         self.changeTemperature()
         self.change_maxTokens()
