@@ -5,6 +5,7 @@ from tabulate import tabulate
 import re
 import sys
 import pandas as pd
+from excepciones import invalidFileExtensionException, noDataException
 
 
 class App:
@@ -67,7 +68,7 @@ class App:
             print(f'Guardando "{knowledge_path}"... ', end="")
             self.conocimiento.save(knowledge_path)
             print("OK!")
-        except Exception as e:
+        except FileExistsError as e:
             print(e)
 
     def draw(self, query):
@@ -81,7 +82,7 @@ class App:
             print(f'Exportando grafo a "{image_path}"... ', end="")
             self.graphDrawer.draw(self.lastQueryResult, image_path)
             print("OK!")
-        except Exception as e:
+        except (noDataException, invalidFileExtensionException) as e:
             print(e)
 
     def extractCommand(self, query):

@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 import networkx as nx
-
+from excepciones import invalidFileExtensionException, noDataException
 
 class GraphDrawer:
     """
@@ -15,9 +15,9 @@ class GraphDrawer:
         une con aristas los nodos de las columnas de una fila
         """
         if resultDf is None or resultDf.empty:
-            raise Exception("[ERROR]: No hay datos para dibujar el grafo")
+            raise noDataException("[ERROR]: No hay datos para dibujar el grafo")
         if len(filename) < 4 or filename[-4:] != ".png":
-            raise Exception("[ERROR]: El archivo debe tener extension PNG")
+            raise invalidFileExtensionException("[ERROR]: El archivo debe tener extension PNG")
 
         G = nx.Graph()
         nRows, nCols = resultDf.shape
