@@ -1,0 +1,19 @@
+q8:maserati_granturismo wdt:P31 q8:coche_deportivo ;
+    t8:nombre "Maserati GranTurismo" ;
+    t8:marca q8:Maseratti ;
+    t8:año "2007" ;
+    t8:motor q8:v8 ;
+    t8:caballos "460" ;
+    t8:velocidad_maxima "300" ;
+    t8:cambio_velocidades q8:cambio_automatico ;
+    t8:salon q8:cuero ;
+    t8:pais wd:Q38 .q8:ferrari_488 wdt:P31 q8:coche_deportivo ; # no hay espacios entre dos entradas consecutivas
+    t8:nombre "Ferrari 488 GTB" ;
+    t8:marca q8:Ferrari ;
+    t8:año "2015" ;
+    t8:motor q8:v8 ;
+    t8:caballos "670" ;
+    t8:velocidad_maxima "330" ;
+    t8:cambio_velocidades q8:doble_embrague ;
+    t8:salon q8:cuero ;
+    t8:pais wd:Q38 .

@@ -1,0 +1,4 @@
+# base de conocimiento vacia
+#q8:maserati_granturismo wdt:P31 q8:coche_deportivo ;
+#    t8:nombre "Maserati GranTurismo" ;
+#    t8:pais wd:Q38 .

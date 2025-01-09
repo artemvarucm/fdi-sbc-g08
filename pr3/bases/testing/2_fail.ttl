@@ -1,0 +1,9 @@
+
+#q8:Chevrolet wdt:P31 q8:marca_de_coche ; error, primera linea comentada
+    t8:nombre "Chevrolet" # error falta punto y coma
+    t8:fundacion "1911" ;
+    t8:fundador q8:Louis_Chevrolet ;
+    t8:fundador q8:William_Crapo_Durant ;
+    t8:fundador q8:Arthur_Chevrolet ;
+    t8:pais wd:Q30 ;
+    t8:propietario q8:General_Motors .

@@ -1,0 +1,14 @@
+###############
+### DESCRIPCION
+###############
+# Contiene información sobre los equipos de formula 1
+# que son principalmente marcas de coches
+
+###############
+### EJEMPLOS DE CONSULTAS
+###############
+#
+
+###############
+### CONTENIDO
+###############
