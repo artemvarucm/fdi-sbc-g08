@@ -12,3 +12,48 @@
 ###############
 ### CONTENIDO
 ###############
+
+q8:fernando_alonso t8:name "Fernando Alonso" ;
+    wdt:P31 q8:f1_driver ;
+    t8:has_nationality "Spanish" ;
+    t8:drives_for q8:aston_martin ;
+    t8:participated_in q8:f1_grand_prix_2023 ;
+    t8:has_world_championships "2" ;
+    t8:driver_category q8:main_driver ;
+    t8:second_driver q8:lance_stroll .
+
+q8:sebastian_vettel t8:name "Sebastian Vettel" ;
+    wdt:P31 q8:f1_driver ;
+    t8:has_nationality "German" ;
+    t8:drives_for q8:ferrari ;
+    t8:participated_in q8:f1_grand_prix_2019 ;
+    t8:has_world_championships "4" ;
+    t8:driver_category q8:main_driver ;
+    t8:second_driver q8:charles_leclerc .
+
+q8:lewis_hamilton t8:name "Lewis Hamilton" ;
+    wdt:P31 q8:f1_driver ;
+    t8:has_nationality "British" ;
+    t8:drives_for q8:mercedes ;
+    t8:participated_in q8:f1_grand_prix_2021 ;
+    t8:has_world_championships "7" ;
+    t8:driver_category q8:main_driver ;
+    t8:second_driver q8:george_russell .
+
+q8:lance_stroll t8:name "Lance Stroll" ;
+    wdt:P31 q8:f1_driver ;
+    t8:drives_for q8:aston_martin ;
+    t8:driver_category q8:secondary_driver ;
+    t8:has_nationality "Canadian" .
+
+q8:charles_leclerc t8:name "Charles Leclerc" ;
+    wdt:P31 q8:f1_driver ;
+    t8:drives_for q8:ferrari ;
+    t8:driver_category q8:secondary_driver ;
+    t8:has_nationality "Monégasque" .
+
+q8:george_russell t8:name "George Russell" ;
+    wdt:P31 q8:f1_driver ;
+    t8:drives_for q8:mercedes ;
+    t8:driver_category q8:secondary_driver ;
+    t8:has_nationality "British" .

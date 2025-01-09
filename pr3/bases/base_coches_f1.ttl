@@ -11,3 +11,21 @@
 ###############
 ### CONTENIDO
 ###############
+
+q8:aston_martin_amr23 wdt:P31 q8:car ;
+    t8:has_model "Aston Martin AMR23" ;
+    t8:used_in "Formula 1" ;
+    t8:driven_by q8:fernando_alonso ;
+    t8:constructed_by q8:aston_martin .
+
+q8:ferrari_sf90 wdt:P31 q8:car ;
+    t8:has_model "Ferrari SF90" ;
+    t8:used_in "Formula 1" ;
+    t8:driven_by q8:sebastian_vettel ;
+    t8:constructed_by q8:ferrari .
+
+q8:mercedes_w14 wdt:P31 q8:car ;
+    t8:has_model "Mercedes W14" ;
+    t8:used_in "Formula 1" ;
+    t8:driven_by q8:lewis_hamilton ;
+    t8:constructed_by q8:mercedes .

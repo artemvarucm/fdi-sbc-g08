@@ -12,3 +12,15 @@
 ###############
 ### CONTENIDO
 ###############
+
+q8:aston_martin wdt:P31 q8:f1_team ;
+    t8:is_constructor "Aston Martin Formula 1 Team" ;
+    t8:based_in "United Kingdom" .
+
+q8:ferrari wdt:P31 q8:f1_team ;
+    t8:is_constructor "Scuderia Ferrari" ;
+    t8:based_in "Italy" .
+
+q8:mercedes wdt:P31 q8:f1_team ;
+    t8:is_constructor "Mercedes-AMG Petronas Formula One Team" ;
+    t8:based_in "Germany" .
