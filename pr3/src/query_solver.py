@@ -58,10 +58,16 @@ class QuerySolver:
         for clause in whereClauses:
             if '"' in clause:
                 obj = self.extractLiteral(clause)
-                subj, pred = clause.split(" ")[:2]
-
+                subjAndPred = clause.replace(obj, '').strip()
+                if len(subjAndPred.split(" ")) == 2:
+                    subj, pred = subjAndPred.split(" ")[:2]
+                else:
+                    raise QueryException(f"[ERROR]: El formato de '{clause}' tiene que ser: <suj> <pred> \"<obj>\"")
             else:
-                subj, pred, obj = clause.split(" ")
+                if len(clause.split(" ")) == 3:
+                    subj, pred, obj = clause.split(" ")
+                else:
+                    raise QueryException(f"[ERROR]: El formato de '{clause}' tiene que ser: <suj> <pred> <obj>")
 
             # dependiendo de la clausula, operamos o bien directamente con la entidad o con un conjunto de ellas
             processedSubj, processedPred, processedObj = [subj], pred, [obj]
