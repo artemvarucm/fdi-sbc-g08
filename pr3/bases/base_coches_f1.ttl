@@ -6,8 +6,10 @@
 ###############
 ### EJEMPLOS DE CONSULTAS
 ###############
-# ¿Cuál era la velocidad máxima de un coche en 1950?
-# ¿Cuántos decibilios emiten los coches?
+# ¿Cuál es la velocidad de un coche en 1950?
+# ¿Cuántos decibelios emiten los coches?
+# ¿Cuál es la altura de los coches ferrari?
+
 
 ###############
 ### CONTENIDO

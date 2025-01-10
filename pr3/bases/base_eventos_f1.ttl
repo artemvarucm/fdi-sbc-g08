@@ -16,7 +16,7 @@
 ### EJEMPLOS DE CONSULTAS
 ###############
 # ¿Cuántos accidentes hubo en cada evento?
-# ¿Qué pista es la más larga?
+# ¿Qué eventos se han celebrado en España?
 # ¿Qué equipos han ganado algún evento?
 
 ###############

@@ -6,9 +6,9 @@
 ###############
 ### EJEMPLOS DE CONSULTAS
 ###############
-# ¿Qué escudería ha ganado más campeonatos mundiales?
-# ¿Cuántos equipos de f1 provienen de cada país?
-# ¿Cuál fue el último piloto que le dio un campeonato mundial al equipo de f1?
+# ¿Cuántos campeonatos mundiales tiene cada escudería?
+# ¿Qué equipo debutó en 2021?
+# ¿Cuál fue el último piloto que le dio un campeonato mundial cada equipo de f1?
 
 ###############
 ### CONTENIDO
