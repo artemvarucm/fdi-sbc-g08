@@ -45,9 +45,9 @@ q\d:sujeto t\d:predicado q\d:objeto ;
 ### Comandos
 `load <base_conocimiento>` - añadir base de conocimiento desde el archivo <base_conocimiento>  
 `add <afirmación>` - añadir una afirmación a la base de conocimiento  
-`save "<base_conocimiento>"` - guardar la base de conocimiento en el archivo <base_conocimiento>  
-`draw "<imagen>"` - muestra la última consulta con grafos. Guarda el png en el archivo <imagen>  
-`select "<consulta>"` - devuelve en formato tabla el resultado de la consulta
+`save <base_conocimiento>` - guardar la base de conocimiento en el archivo <base_conocimiento>  
+`draw <imagen>` - muestra la última consulta con grafos. Guarda el png en el archivo <imagen>  
+`select <consulta>` - devuelve en formato tabla el resultado de la consulta
 `help` - muestra los comandos del programa  
 `quit` - salir del programa  
 `Ctrl+C` - salir del programa o salir del modo multilinea (select, add)  
