@@ -3,6 +3,7 @@ from .customException import CustomException
 from .invalidFileExtensionException import InvalidFileExtensionException
 from .missingArgumentException import MissingArgumentException
 from .noDataException import NoDataException
+from .queryException import QueryException
 from .commandNotFoundException import CommandNotFoundException
 from .fileAlreadyExistsException import FileAlreadyExistsException
 from .fileNotFoundException import FileNotFoundException

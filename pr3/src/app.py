@@ -24,21 +24,28 @@ class App:
         """
         Consulta a la base de conocimiento
         """
-        self.lastQueryResult = self.querySolver.query(
-            queryStr,
-            self.conocimiento,
-        )
+        leerMasLineas = True  # si no está la llave }, leer mas lineas
+        match = re.search(r"^select\b(.*\})", queryStr)
 
-        print(f"Filas encontradas: {self.lastQueryResult.shape[0]}")
-        print(
-            tabulate(
-                self.lastQueryResult.replace(pd.NA, None),
-                headers="keys",
-                tablefmt="psql",
-                showindex=False,
-                missingval="?",
+        if match:
+            leerMasLineas = False
+            self.lastQueryResult = self.querySolver.query(
+                queryStr,
+                self.conocimiento,
             )
-        )
+
+            print(f"Filas encontradas: {self.lastQueryResult.shape[0]}")
+            print(
+                tabulate(
+                    self.lastQueryResult.replace(pd.NA, None),
+                    headers="keys",
+                    tablefmt="psql",
+                    showindex=False,
+                    missingval="?",
+                )
+            )
+
+        return leerMasLineas
 
     def load(self, query):
         """
@@ -141,10 +148,7 @@ class App:
             elif "draw" == command:  # visualizacion de la ultima consulta realizad
                 self.draw(query)
             elif "select" == command:
-                try:
-                    self.query(query)
-                except Exception:
-                    leerMasLineas = True
+                leerMasLineas = self.query(query)
         except CustomException as e:
             print(e)
 

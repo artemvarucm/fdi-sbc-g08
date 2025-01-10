@@ -1,6 +1,7 @@
 import pandas as pd
 from knowledge import Knowledge
 import re
+from excepciones import QueryException
 
 
 class QuerySolver:
@@ -23,7 +24,7 @@ class QuerySolver:
         if whereClauses[-1] == "":
             whereClauses = whereClauses[:-1]
         else:
-            raise Exception("Falta el punto al final")
+            raise QueryException("[ERROR] Falta el punto al final del where.")
 
         return selectColumns, whereClauses
 
@@ -39,6 +40,7 @@ class QuerySolver:
         selectColumns, whereClauses = self.preprocess(queryStr)
         dfResponse = pd.DataFrame()
         for clause in whereClauses:
+            # FIXME cambiar, obj puede ser literal
             subj, pred, obj = clause.split(" ")
 
             # dependiendo de la clausula, operamos o bien directamente con la entidad o con un conjunto de ellas
@@ -58,14 +60,14 @@ class QuerySolver:
                 processedObj = (
                     dfResponse[obj].unique() if obj in dfResponse.columns else None
                 )
-            try:
-                dfKnowledge = pd.DataFrame(
-                    knowledge.findBy(processedSubj, processedPred, processedObj),
-                    columns=[subj, obj],
-                )
-            except Exception as e:
-                print(e)
-                continue
+            # try:
+            dfKnowledge = pd.DataFrame(
+                knowledge.findBy(processedSubj, processedPred, processedObj),
+                columns=[subj, obj],
+            )
+            # except Exception as e:
+            #    print(e)
+            #    continue
 
             if dfResponse.shape[0] == 0:
                 dfResponse = dfKnowledge
