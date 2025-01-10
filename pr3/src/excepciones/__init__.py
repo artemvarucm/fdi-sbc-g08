@@ -8,4 +8,3 @@ from .commandNotFoundException import CommandNotFoundException
 from .fileAlreadyExistsException import FileAlreadyExistsException
 from .fileNotFoundException import FileNotFoundException
 from .sparqlFormatException import SPARQLFormatException
-from .errorLiteralQueryException import ErrorLiteralQueryException

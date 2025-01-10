@@ -1,7 +1,7 @@
 import pandas as pd
 from knowledge import Knowledge
 import re
-from excepciones import QueryException, CustomException, ErrorLiteralQueryException
+from excepciones import QueryException
 
 
 class QuerySolver:
@@ -13,14 +13,30 @@ class QuerySolver:
         """
         Separa las clausulas select y where para utilizarlas posteriormente en nuestro motor
         """
+        validQueryRegex = re.search(r"(?s)select(.*)where\s+{(.*)}", queryStr)
+        if not validQueryRegex:
+            raise QueryException(
+                "[ERROR] Error en la estructura de la consulta, la estructura tiene que ser: select <columnas> where { <clausulas where> }"
+            )
+
+        # (?s) es para matchear \n también con el simbolo "." de regex
         selectRegex = re.search(r"(?s)select(.*)where", queryStr)
         grSel = selectRegex.groups()
+        # eliminamos espacios y saltos de lineas
         selectColumns = re.sub(r"[\s\n]", "", grSel[0]).split(",")
+
+        if selectColumns[0] == "":
+            raise QueryException(
+                "[ERROR] No se ha seleccionado ninguna columna en la consulta."
+            )
 
         whereRegex = re.search(r"(?s){(.*)}", queryStr)
         grWhe = whereRegex.groups()
-
         whereClauses = [l.strip() for l in grWhe[0].split(" .")]
+
+        if whereClauses[0] == "":
+            raise QueryException("[ERROR] No hay ninguna clausula en el where.")
+
         if whereClauses[-1] == "":
             whereClauses = whereClauses[:-1]
         else:
@@ -64,14 +80,11 @@ class QuerySolver:
                 processedObj = (
                     dfResponse[obj].unique() if obj in dfResponse.columns else None
                 )
-            # try:
+
             dfKnowledge = pd.DataFrame(
                 knowledge.findBy(processedSubj, processedPred, processedObj),
                 columns=[subj, obj],
             )
-            # except Exception as e:
-            #    print(e)
-            #    continue
 
             if dfResponse.shape[0] == 0:
                 dfResponse = dfKnowledge
@@ -80,7 +93,17 @@ class QuerySolver:
                 if processedSubj is None or processedObj is None:
                     how = "outer"  # sobre todo para añadir nuevas columnas
                 dfResponse = dfResponse.merge(dfKnowledge, how=how)
-        
+
+        columnsOutsideWhere = set(selectColumns).difference(set(dfResponse.columns))
+        if columnsOutsideWhere:
+            end = ""
+            if len(columnsOutsideWhere) > 1:
+                end = "s"
+
+            raise QueryException(
+                f"[ERROR] La{end} columna{end} {columnsOutsideWhere} no están en el where."
+            )
+
         return dfResponse[selectColumns]
 
     def extractLiteral(self, whereClause):
@@ -93,6 +116,6 @@ class QuerySolver:
         if principio_cadena != -1 and final_cadena != -1:
             return whereClause[principio_cadena - 1 : final_cadena + 1]
         else:
-            raise ErrorLiteralQueryException(
+            raise QueryException(
                 f"[ERROR]: Ha faltado cerrar las comillas del literal en: '{whereClause}'"
             )
