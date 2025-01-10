@@ -80,8 +80,8 @@ class QuerySolver:
                 if processedSubj is None or processedObj is None:
                     how = "outer"  # sobre todo para añadir nuevas columnas
                 dfResponse = dfResponse.merge(dfKnowledge, how=how)
-
-            return dfResponse[selectColumns]
+        
+        return dfResponse[selectColumns]
 
     def extractLiteral(self, whereClause):
         """
