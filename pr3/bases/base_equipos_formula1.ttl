@@ -16,104 +16,104 @@
 
 q8:aston_martin wdt:P31 q8:f1_team ;
     t8:is_constructor "Aston Martin Formula 1 Team" ;
-    t8:based_in q8:United_Kingdom ;
+    t8:based_in q8:united_kingdom ;
     t8:debut_year "2021" ;
     t8:last_year_budget "245 million USD" .
 
 q8:ferrari wdt:P31 q8:f1_team ;
     t8:is_constructor "Scuderia Ferrari" ;
-    t8:based_in q8:Italy ;
+    t8:based_in q8:italy ;
     t8:last_won_year "2007" ;
-    t8:last_won_pilot q8:Kimi_Räikkönen ;
+    t8:last_won_pilot q8:kimi_räikkönen ;
     t8:total_championships "16" ;
     t8:debut_year "1950" ;
     t8:last_year_budget "450 million USD" .
 
 q8:mercedes wdt:P31 q8:f1_team ;
     t8:is_constructor "Mercedes-AMG Petronas Formula One Team" ;
-    t8:based_in q8:Germany ;
+    t8:based_in q8:germany ;
     t8:last_won_year "2021" ;
-    t8:last_won_pilot q8:Lewis Hamilton ;
+    t8:last_won_pilot q8:lewis_hamilton ;
     t8:total_championships "8" ;
     t8:debut_year "1954" ;
     t8:last_year_budget "410 million USD" .
 
 q8:red_bull wdt:P31 q8:f1_team ;
     t8:is_constructor "Oracle Red Bull Racing" ;
-    t8:based_in q8:Austria ;
+    t8:based_in q8:austria ;
     t8:last_won_year "2023" ;
-    t8:last_won_pilot q8:Max_Verstappen ;
+    t8:last_won_pilot q8:max_verstappen ;
     t8:total_championships "6" ;
     t8:debut_year "2005" ;
     t8:last_year_budget "400 million USD" .
 
 q8:mclaren wdt:P31 q8:f1_team ;
     t8:is_constructor "McLaren F1 Team" ;
-    t8:based_in q8:United_Kingdom ;
+    t8:based_in q8:united_kingdom ;
     t8:last_won_year "2008" ;
-    t8:last_won_pilot q8:Lewis Hamilton ;
+    t8:last_won_pilot q8:lewis_hamilton ;
     t8:total_championships "8" ;
     t8:debut_year "1966" ;
     t8:last_year_budget "250 million USD" .
 
 q8:williams wdt:P31 q8:f1_team ;
     t8:is_constructor "Williams Racing" ;
-    t8:based_in q8:United_Kingdom ;
+    t8:based_in q8:united_kingdom ;
     t8:last_won_year "1997" ;
-    t8:last_won_pilot q8:Jacques_Villeneuve ;
+    t8:last_won_pilot q8:jacques_villeneuve ;
     t8:total_championships "9" ;
     t8:debut_year "1977" ;
     t8:last_year_budget "150 million USD" .
 
 q8:alpine wdt:P31 q8:f1_team ;
     t8:is_constructor "BWT Alpine F1 Team" ;
-    t8:based_in q8:France ;
+    t8:based_in q8:france ;
     t8:debut_year "2021" ;
     t8:last_year_budget "200 million USD" .
 
 q8:renault wdt:P31 q8:f1_team ;
     t8:is_constructor "Renault F1 Team" ;
-    t8:based_in q8:France ;
+    t8:based_in q8:france ;
     t8:last_won_year "2006" ;
-    t8:last_won_pilot q8:Fernando_Alonso ;
+    t8:last_won_pilot q8:fernando_alonso ;
     t8:total_championships "2" ;
     t8:debut_year "1977" ;
     t8:last_year_budget "180 million USD" .
 
 q8:brabham wdt:P31 q8:f1_team ;
     t8:is_constructor "Brabham Racing Organisation" ;
-    t8:based_in q8:United_Kingdom ;
+    t8:based_in q8:united_kingdom ;
     t8:last_won_year "1983" ;
-    t8:last_won_pilot q8:Nelson_Piquet ;
+    t8:last_won_pilot q8:nelson_piquet ;
     t8:total_championships "2" ;
     t8:debut_year "1962" .
 
 q8:benetton wdt:P31 q8:f1_team ;
     t8:is_constructor "Benetton Formula" ;
-    t8:based_in q8:United_Kingdom ;
+    t8:based_in q8:united_kingdom ;
     t8:last_won_year "1995" ;
-    t8:last_won_pilot q8:Michael_Schumacher ;
+    t8:last_won_pilot q8:michael_schumacher ;
     t8:total_championships 1 ;
     t8:debut_year "1986" .
 
 q8:lotus wdt:P31 q8:f1_team ;
     t8:is_constructor "Team Lotus" ;
-    t8:based_in q8:United_Kingdom ;
+    t8:based_in q8:united_kingdom ;
     t8:last_won_year "1978" ;
-    t8:last_won_pilot q8:Mario_Andretti ;
+    t8:last_won_pilot q8:mario_andretti ;
     t8:total_championships "7" ;
     t8:debut_year "1958" .
 
 q8:honda wdt:P31 q8:f1_team ;
     t8:is_constructor "Honda Racing F1 Team" ;
-    t8:based_in q8:Japan ;
+    t8:based_in q8:japan ;
     t8:debut_year "1964" .
 
 q8:alfa_romeo wdt:P31 q8:f1_team ;
     t8:is_constructor "Alfa Romeo F1 Team Stake" ;
-    t8:based_in q8:Italy ;
+    t8:based_in q8:italy ;
     t8:last_won_year "1951" ;
-    t8:last_won_pilot q8:Fangio ;
+    t8:last_won_pilot q8:fangio ;
     t8:total_championships "2" ;
     t8:debut_year "1950" ;
     t8:last_year_budget "120 million USD" .
