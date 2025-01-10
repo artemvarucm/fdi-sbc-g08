@@ -1,128 +1,183 @@
 ###############
 ### DESCRIPCION
 ###############
-# Contiene información de eventos de f1, como quien ha ganado, donde fue
-# wdt:P31 = grand_prix -> representa cada grand prix de f1 que existe
-# (no va por años, eso se explica en la siguiente linea)
-# wdt:P31 = f1_results -> resultados de un evento, para un año especíifco, por ejemplo ganador de Spanish Grand Prix 2023
-# guarda en la relacion t8:f1_event_type a que evento hace referencia (en el ejemplo anterior, seria t8:f1_event_type = q8:spanish_grand_prix)
+# Contiene información de eventos de la f1
+# Para cada uno de ellos se describe:
+#   -Año en el que se celebró
+#   -Piloto ganador y segundo
+#   -Equipo ganador (suma de los puntos de los pilotos del equipo)
+#   -El clima durante la carrera
+#   -El número de accidentes
+#   -El tamaño de la pista en km
+#   -Número de personas que fueron a ver la carrera
+
+
 ###############
 ### EJEMPLOS DE CONSULTAS
 ###############
-#
+# ¿Cuántos accidentes hubo en cada evento?
+# ¿Qué pista es la más larga?
+# ¿Qué equipos han ganado algún evento?
 
 ###############
 ### CONTENIDO
 ###############
-
-# Spanish Grand Prix
-q8:spanish_grand_prix t8:name "Spanish Grand Prix" ;
-                      t8:held_at q8:circuit_de_catalunya ;
-                      t8:is_part_of q8:formula_1_series ;
-                      wdt:P31 q8:grand_prix .
-
-q8:spanish_gp_2023_results t8:year "2023" ;
-    t8:f1_event_type q8:spanish_grand_prix ;
+# Europa
+q8:spanish_gp_2023 t8:P31 q8:evento_f1 ;
+    t8:name "Spanish Grand Prix" ;
+    t8:year "2023" ;
+    t8:country q8:spain ;
     t8:winner q8:max_verstappen ;
-    t8:runner_up q8:lewis_hamilton ;
-    t8:third_place q8:fernando_alonso ;
-    wdt:P31 q8:f1_results .
+    t8:second q8:lewis_hamilton ;
+    t8:winner_team "Red Bull Racing" ;
+    t8:weather "Sunny" ;
+    t8:crashes "2" ;
+    t8:km_pista "4.675" ;
+    t8:publico "140000" .
 
-q8:spanish_gp_2022_results t8:year "2022" ;
-    t8:f1_event_type q8:spanish_grand_prix ;
-    t8:winner q8:max_verstappen ;
-    t8:runner_up q8:charles_leclerc ;
-    t8:third_place q8:george_russell ;
-    wdt:P31 q8:f1_results .
-
-q8:spanish_gp_2021_results t8:year "2021" ;
-    t8:f1_event_type q8:spanish_grand_prix ;
-    t8:winner q8:lewis_hamilton ;
-    t8:runner_up q8:max_verstappen ;
-    t8:third_place q8:valtteri_bottas ;
-    wdt:P31 q8:f1_results .
-
-q8:circuit_de_catalunya t8:is_circuit "Circuit de Barcelona-Catalunya" ;
-t8:hosts q8:spanish_grand_prix ;
-t8:length "4.675 km" .
-
-# Monaco Grand Prix
-q8:monaco_grand_prix t8:name "Monaco Grand Prix" ;
-t8:held_at q8:monaco_circuit ;
-t8:is_part_of q8:formula_1_series ;
-wdt:P31 q8:grand_prix .
-
-q8:monaco_gp_2023_results t8:year "2023" ;
-    t8:f1_event_type q8:monaco_grand_prix ;
+q8:monaco_gp_2023 t8:P31 q8:evento_f1 ;
+    t8:name "Monaco Grand Prix" ;
+    t8:year "2023" ;
+    t8:country q8:monaco ;
     t8:winner q8:fernando_alonso ;
-    t8:runner_up q8:lewis_hamilton ;
-    t8:third_place q8:charles_leclerc ;
-    wdt:P31 q8:f1_results .
+    t8:second q8:lewis_hamilton ;
+    t8:winner_team "Aston Martin" ;
+    t8:weather "Cloudy" ;
+    t8:crashes "1" ;
+    t8:km_pista "3.337" ;
+    t8:publico "37000" .
 
-q8:monaco_gp_2022_results t8:year "2022" ;
-    t8:f1_event_type q8:monaco_grand_prix ;
-    t8:winner q8:sergio_perez ;
-    t8:runner_up q8:carlos_sainz ;
-    t8:third_place q8:max_verstappen ;
-    wdt:P31 q8:f1_results .
-
-q8:monaco_gp_2021_results t8:year "2021" ;
-    t8:f1_event_type q8:monaco_grand_prix ;
-    t8:winner q8:max_verstappen ;
-    t8:runner_up q8:carlos_sainz ;
-    t8:third_place q8:lewis_hamilton ;
-    wdt:P31 q8:f1_results .
-
-# Silverstone Grand Prix
-q8:silverstone_grand_prix t8:name "Silverstone Grand Prix" ;
-    t8:held_at q8:silverstone_circuit ;
-    t8:is_part_of q8:formula_1_series ;
-    wdt:P31 q8:grand_prix .
-
-q8:silverstone_gp_2023_results t8:year "2023" ;
-    t8:f1_event_type q8:silverstone_grand_prix ;
+q8:silverstone_gp_2023 t8:P31 q8:evento_f1 ;
+    t8:name "Silverstone Grand Prix" ;
+    t8:year "2023" ;
+    t8:country q8:united_kingdom ;
     t8:winner q8:lewis_hamilton ;
-    t8:runner_up q8:george_russell ;
-    t8:third_place q8:lando_norris ;
-    wdt:P31 q8:f1_results .
+    t8:second q8:george_russell ;
+    t8:winner_team "Mercedes" ;
+    t8:weather "Rainy" ;
+    t8:crashes "3" ;
+    t8:km_pista "5.891" ;
+    t8:publico "142000" .
 
-q8:silverstone_gp_2022_results t8:year "2022" ;
-    t8:f1_event_type q8:silverstone_grand_prix ;
+q8:monza_gp_2023 t8:P31 q8:evento_f1 ;
+    t8:name "Monza Grand Prix" ;
+    t8:year "2023" ;
+    t8:country q8:italy ;
+    t8:winner q8:max_verstappen ;
+    t8:second q8:charles_leclerc ;
+    t8:winner_team "Red Bull Racing" ;
+    t8:weather "Sunny" ;
+    t8:crashes "0" ;
+    t8:km_pista "5.793" ;
+    t8:publico "112000" .
+
+q8:belgium_gp_2023 t8:P31 q8:evento_f1 ;
+    t8:name "Belgian Grand Prix" ;
+    t8:year "2023" ;
+    t8:country q8:belgium ;
+    t8:winner q8:max_verstappen ;
+    t8:second q8:lewis_hamilton ;
+    t8:winner_team "Red Bull Racing" ;
+    t8:weather "Cloudy" ;
+    t8:crashes "1" ;
+    t8:km_pista "7.004" ;
+    t8:publico "98000" .
+
+# América
+q8:brazil_gp_2023 t8:P31 q8:evento_f1 ;
+    t8:name "Brazilian Grand Prix" ;
+    t8:year "2023" ;
+    t8:country q8:brazil ;
+    t8:winner q8:max_verstappen ;
+    t8:second q8:sergio_perez ;
+    t8:winner_team "Red Bull Racing" ;
+    t8:weather "Rainy" ;
+    t8:crashes "4" ;
+    t8:km_pista "4.309" ;
+    t8:publico "130000" .
+
+q8:miami_gp_2023 t8:P31 q8:evento_f1 ;
+    t8:name "Miami Grand Prix" ;
+    t8:year "2023" ;
+    t8:country q8:united_states ;
+    t8:winner q8:max_verstappen ;
+    t8:second q8:sergio_perez ;
+    t8:winner_team "Red Bull Racing" ;
+    t8:weather "Sunny" ;
+    t8:crashes "1" ;
+    t8:km_pista "5.412" ;
+    t8:publico "85000" .
+
+q8:mexico_gp_2023 t8:P31 q8:evento_f1 ;
+    t8:name "Mexican Grand Prix" ;
+    t8:year "2023" ;
+    t8:country q8:mexico ;
+    t8:winner q8:max_verstappen ;
+    t8:second q8:lewis_hamilton ;
+    t8:winner_team "Red Bull Racing" ;
+    t8:weather "Sunny" ;
+    t8:crashes "1" ;
+    t8:km_pista "4.304" ;
+    t8:publico "155000" .
+
+q8:argentina_gp_2023 t8:P31 q8:evento_f1 ;
+    t8:name "Argentine Grand Prix" ;
+    t8:year "2023" ;
+    t8:country q8:argentina ;
     t8:winner q8:carlos_sainz ;
-    t8:runner_up q8:sergio_perez ;
-    t8:third_place q8:lewis_hamilton ;
-    wdt:P31 q8:f1_results .
+    t8:second q8:fernando_alonso ;
+    t8:winner_team "Ferrari" ;
+    t8:weather "Cloudy" ;
+    t8:crashes "2" ;
+    t8:km_pista "4.259" ;
+    t8:publico "132000" .
 
-q8:silverstone_gp_2021_results t8:year "2021" ;
-    t8:f1_event_type q8:silverstone_grand_prix ;
+# Asia
+q8:japan_gp_2023 t8:P31 q8:evento_f1 ;
+    t8:name "Japanese Grand Prix" ;
+    t8:year "2023" ;
+    t8:country q8:japan ;
+    t8:winner q8:max_verstappen ;
+    t8:second q8:fernando_alonso ;
+    t8:winner_team "Red Bull Racing" ;
+    t8:weather "Sunny" ;
+    t8:crashes "2" ;
+    t8:km_pista "5.807" ;
+    t8:publico "155000" .
+
+q8:abu_dhabi_gp_2023 t8:P31 q8:evento_f1 ;
+    t8:name "Abu Dhabi Grand Prix" ;
+    t8:year "2023" ;
+    t8:country q8:united_arab_emirates ;
     t8:winner q8:lewis_hamilton ;
-    t8:runner_up q8:max_verstappen ;
-    t8:third_place q8:valtteri_bottas ;
-    wdt:P31 q8:f1_results .
+    t8:second q8:george_russell ;
+    t8:winner_team "Mercedes" ;
+    t8:weather "Clear" ;
+    t8:crashes "1" ;
+    t8:km_pista "5.281" ;
+    t8:publico "60000" .
 
-# Monza Grand Prix
-q8:monza_grand_prix t8:name "Monza Grand Prix" ;
-    t8:held_at q8:monza_circuit ;
-    t8:is_part_of q8:formula_1_series ;
-    wdt:P31 q8:grand_prix .
+q8:singapore_gp_2023 t8:P31 q8:evento_f1 ;
+    t8:name "Singapore Grand Prix" ;
+    t8:year "2023" ;
+    t8:country q8:singapore ;
+    t8:winner q8:sergio_perez ;
+    t8:second q8:max_verstappen ;
+    t8:winner_team "Red Bull Racing" ;
+    t8:weather "Humid" ;
+    t8:crashes "2" ;
+    t8:km_pista "5.063" ;
+    t8:publico "84000" .
 
-q8:monza_gp_2023_results t8:year "2023" ;
-    t8:f1_event_type q8:monza_grand_prix ;
+# Oceanía
+q8:australia_gp_2023 t8:P31 q8:evento_f1 ;
+    t8:name "Australian Grand Prix" ;
+    t8:year "2023" ;
+    t8:country q8:australia ;
     t8:winner q8:max_verstappen ;
-    t8:runner_up q8:charles_leclerc ;
-    t8:third_place q8:carlos_sainz ;
-    wdt:P31 q8:f1_results .
-
-q8:monza_gp_2022_results t8:year "2022" ;
-    t8:f1_event_type q8:monza_grand_prix ;
-    t8:winner q8:max_verstappen ;
-    t8:runner_up q8:charles_leclerc ;
-    t8:third_place q8:george_russell ;
-    wdt:P31 q8:f1_results .
-
-q8:monza_gp_2021_results t8:year "2021" ;
-    t8:f1_event_type q8:monza_grand_prix ;
-    t8:winner q8:daniel_ricciardo ;
-    t8:runner_up q8:lando_norris ;
-    t8:third_place q8:valtteri_bottas ;
-    wdt:P31 q8:f1_results .
+    t8:second q8:fernando_alonso ;
+    t8:winner_team "Red Bull Racing" ;
+    t8:weather "Sunny" ;
+    t8:crashes "3" ;
+    t8:km_pista "5.278" ;
+    t8:publico "128000" .
