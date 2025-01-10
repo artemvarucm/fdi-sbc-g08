@@ -1,6 +1,6 @@
 from utils import readFile
 import re
-
+from excepciones import FileAlreadyExistsException
 
 class Knowledge:
     """
@@ -194,6 +194,6 @@ class Knowledge:
                 f.write(f"{eq1} wdt:P1628 {eq2} .\n")
             f.close()
         except FileExistsError as e:
-            raise FileExistsError(
-                f"[ERROR]: La base de conocimiento {base_nueva} ya existe"
+            raise FileAlreadyExistsException(
+                f"[ERROR]: La base de conocimiento {base_nueva} ya existe."
             )

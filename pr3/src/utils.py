@@ -1,3 +1,5 @@
+from excepciones import FileNotFoundException
+
 def readFile(file_path):
     """
     Lee el fichero en file_path y devuelve las lineas del fichero
@@ -11,6 +13,6 @@ def readFile(file_path):
                 if line.strip() and not line.strip().startswith("#")
             ]
     except FileNotFoundError:
-        raise Exception("[ERROR]: Archivo " + file_path + " no encontrado.")
+        raise FileNotFoundException(file_path)
 
     return lineas
