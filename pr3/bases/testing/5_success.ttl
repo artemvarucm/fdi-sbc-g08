@@ -7,7 +7,10 @@ q8:maserati_granturismo wdt:P31 q8:coche_deportivo ;
     t8:velocidad_maxima "300" ;
     t8:cambio_velocidades q8:cambio_automatico ;
     t8:salon q8:cuero ;
-    t8:pais wd:Q38 .q8:ferrari_488 wdt:P31 q8:coche_deportivo ; # no hay espacios entre dos entradas consecutivas
+    t8:pais wd:Q38 .q8:ferrari_488 wdt:P31 q8:coche_deportivo ;
+
+    # no hay espacios entre dos entradas consecutivas, pero se carga bien
+    
     t8:nombre "Ferrari 488 GTB" ;
     t8:marca q8:Ferrari ;
     t8:año "2015" ;

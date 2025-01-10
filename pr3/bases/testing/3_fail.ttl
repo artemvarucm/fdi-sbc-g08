@@ -1,4 +1,5 @@
 q8:Maria_Gomez wdt:P31 q8:persona ;
     t8:nombre "Maria Gomez" ;
     t8:posee q8:ferrari_f8 ;
-    t8:area_trabajo q8:diseño # error falta punto final
+    t8:area_trabajo q8:diseño
+    # error falta punto final
