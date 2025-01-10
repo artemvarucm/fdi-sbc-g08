@@ -40,8 +40,12 @@ class QuerySolver:
         selectColumns, whereClauses = self.preprocess(queryStr)
         dfResponse = pd.DataFrame()
         for clause in whereClauses:
-            # FIXME cambiar, obj puede ser literal
-            subj, pred, obj = clause.split(" ")
+            if '"' in clause:
+                obj = self.extractLiteral(clause)
+                subj, pred = clause.split(" ")[:2]
+
+            else:
+                subj, pred, obj = clause.split(" ")
 
             # dependiendo de la clausula, operamos o bien directamente con la entidad o con un conjunto de ellas
             processedSubj, processedPred, processedObj = [subj], pred, [obj]
@@ -78,3 +82,16 @@ class QuerySolver:
                 dfResponse = dfResponse.merge(dfKnowledge, how=how)
 
         return dfResponse[selectColumns]
+    
+    def extractLiteral(whereClause):
+        """
+        Extrae el objeto literal en el where de la query
+        """
+        principio_cadena = whereClause.find('"') + 1
+        final_cadena = whereClause.find('"', principio_cadena)
+        
+        if principio_cadena != -1 and final_cadena != -1:
+            return whereClause[principio_cadena:final_cadena].strip()
+        else:
+            return None  
+
