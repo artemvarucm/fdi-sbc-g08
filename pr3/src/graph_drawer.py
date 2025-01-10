@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 import networkx as nx
 from excepciones import *
 
+
 class GraphDrawer:
     """
     Clase encargada de pintar los grafos
@@ -17,7 +18,9 @@ class GraphDrawer:
         if resultDf is None or resultDf.empty:
             raise NoDataException("[ERROR]: No hay datos para dibujar el grafo")
         if len(filename) < 4 or filename[-4:] != ".png":
-            raise InvalidFileExtensionException("[ERROR]: El archivo debe tener extension PNG")
+            raise InvalidFileExtensionException(
+                "[ERROR]: El archivo debe tener extension PNG"
+            )
 
         G = nx.Graph()
         nRows, nCols = resultDf.shape

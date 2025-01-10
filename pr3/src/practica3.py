@@ -16,12 +16,7 @@ def main(base_conocimiento, script):
     Programa que permite representar y consultar redes semánticas
     usando un subconjunto simplificado de RDF y SPARQL partiendo de la base de conocimiento
     """
-    try:
-        app = App(base_conocimiento)
-    except Exception as e:
-        # Salimos en caso de fallo de carga del archivo
-        print("[ERROR]:", e)
-        sys.exit(1)
+    app = App(base_conocimiento)
 
     try:
         # Ejecuta el script antes de empezar

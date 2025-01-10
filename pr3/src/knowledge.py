@@ -1,6 +1,7 @@
 from utils import readFile
 import re
-from excepciones import FileAlreadyExistsException
+from excepciones import FileAlreadyExistsException, SPARQLFormatException
+
 
 class Knowledge:
     """
@@ -108,30 +109,38 @@ class Knowledge:
         for s in subjectDescription:
             try:
                 s = s.strip()
-                subject = None
-                for afirmacion in s.split(" ;"):
-                    # Añadimos a la base de conocimiento cada afirmacion del sujeto
-                    equivalencia = re.search(
-                        r"^((wd)?t\d+:\w+) (wd)?t:P1628 ((wd)?t\d+:\w+)$", afirmacion
-                    )
-                    if equivalencia:
-                        eq = equivalencia.groups()
-                        t1 = eq[0]
-                        t2 = eq[3]
-                        self.añadirEquivalencia(t1, t2)
-                    else:
+                if "wdt:p1628" in s.lower():
+                    # Es una equivalencia, vemos si está correctamente formulada
+                    correct = False
+                    if len(s.split(" ")) == 3:
+                        t1, eq, t2 = s.split(" ")
+                        if eq.lower() == "wdt:p1628":
+                            correct = True
+                            self.añadirEquivalencia(t1, t2)
+                    if not correct:
+                        raise SPARQLFormatException(
+                            f"[ERROR]: SPARQL incorrecto, la equivalencia '{s} .' debe ser: <predicado1> wdt:p1628 <predicado2> ."
+                        )
+
+                else:
+                    subject = None
+                    for afirmacion in s.split(" ;"):
+                        # Añadimos a la base de conocimiento cada afirmacion del sujeto
                         subject, predicado, object = self.processRelation(
                             afirmacion, subject
                         )
                         self.añadirInfo(subject, predicado, object)
-            except Exception:
+
+            except SPARQLFormatException as e:
                 hasErrors = True
-                print(f"[ERROR BASE CONOCIMIENTO]: Fallo al procesar {s}")
+                print(e)
 
         last = joinedLines.split(" .")[-1]
         if last != "":
             # Fallo si no se añade el último punto
-            print(f"[ERROR BASE CONOCIMIENTO]: Fallo al procesar {last}")
+            print(
+                f"[ERROR]: SPARQL incorrecto, falta el punto de finalizacion al final de '{last}'."
+            )
             hasErrors = True
 
         return not hasErrors
@@ -142,29 +151,41 @@ class Knowledge:
         """
         relation = relation.strip()
         if '"' in relation:
-            # literales
+            # hay literales
             if subject is None:
-                relation = re.search(
-                    r'^(wd:Q\d+|q\d+:\w+) (wdt:P\d+|t\d+:\w+) (".+")$', relation
-                )
-                subject, predicado, object = relation.groups()
+                parts = re.search(r'^(\S+) (\S+) ("[^"]+")$', relation)
+                if parts:
+                    subject, predicado, object = parts.groups()
+                else:
+                    raise SPARQLFormatException(
+                        f"[ERROR]: SPARQL incorrecto, secuencia '{relation}' debe ser: <sujeto> <predicado> \"<objeto literal>\""
+                    )
             else:
-                relation = re.search(r'^(wdt:P\d+|t\d+:\w+) (".+")$', relation)
-                predicado, object = relation.groups()
-        else:
-            # sin literales
-            if subject is None:
-                relation = re.search(
-                    r"^(wd:Q\d+|q\d+:\w+) (wdt:P\d+|t\d+:\w+) (wd:Q\d+|q\d+:\w+)$",
-                    relation,
-                )
-                subject, predicado, object = relation.groups()
+                parts = re.search(r'^(\S+) ("[^"]+")$', relation)
+                if parts:
+                    predicado, object = parts.groups()
+                else:
+                    raise SPARQLFormatException(
+                        f"[ERROR]: SPARQL incorrecto, secuencia '{relation}' debe ser: <predicado> \"<objeto literal>\""
+                    )
 
+        else:
+            # no hay literales
+            parts = relation.split(" ")  # separamos por espacios
+            if subject is None:
+                if len(parts) == 3:
+                    subject, predicado, object = parts
+                else:
+                    raise SPARQLFormatException(
+                        f"[ERROR]: SPARQL incorrecto, secuencia '{relation}' debe ser: <sujeto> <predicado> <objeto>"
+                    )
             else:
-                relation = re.search(
-                    r"^(wdt:P\d+|t\d+:\w+) (wd:Q\d+|q\d+:\w+)$", relation
-                )
-                predicado, object = relation.groups()
+                if len(parts) == 2:
+                    predicado, object = parts
+                else:
+                    raise SPARQLFormatException(
+                        f"[ERROR]: SPARQL incorrecto, secuencia '{relation}' debe ser: <predicado> <objeto>"
+                    )
 
         return subject, predicado, object
 
@@ -191,7 +212,7 @@ class Knowledge:
                         equivalencias1v1.append([clave, eq])
 
             for eq1, eq2 in equivalencias1v1:
-                f.write(f"{eq1} wdt:P1628 {eq2} .\n")
+                f.write(f"{eq1} wdt:p1628 {eq2} .\n")
             f.close()
         except FileExistsError as e:
             raise FileAlreadyExistsException(

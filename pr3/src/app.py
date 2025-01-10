@@ -45,7 +45,7 @@ class App:
         Carga la base de conocimiento
         """
         match = re.search(r"^load\s(.+)", query)
-        if (not match or not match.groups()[0].strip()):
+        if not match or not match.groups()[0].strip():
             raise MissingArgumentException("base_conocimiento")
 
         knowledge_path = match.groups()[0].strip()
@@ -54,19 +54,27 @@ class App:
     def add(self, query):
         """
         Añade la afirmacion a la base de conocimiento
+
+        Devuelve True si falta por poner el punto final (leer mas lineas)
         """
+        leerMasLineas = True
         match = re.search(r"^add\b(.* \.)", query)
-        afirmacion = match.groups()[0]
-        self.conocimiento.importFromRaw(afirmacion)
+
+        if match:
+            leerMasLineas = False
+            afirmacion = match.groups()[0]
+            self.conocimiento.importFromRaw(afirmacion)
+
+        return leerMasLineas
 
     def save(self, query):
         """
         Guarda la base de conocimiento vigente en un archivo .ttl
         """
         match = re.search(r"^save\s(.+)", query)
-        if (not match or not match.groups()[0].strip()):
+        if not match or not match.groups()[0].strip():
             raise MissingArgumentException("base_conocimiento")
-        
+
         knowledge_path = match.groups()[0].strip()
         print(f'Guardando "{knowledge_path}"... ', end="")
         self.conocimiento.save(knowledge_path)
@@ -78,7 +86,7 @@ class App:
         Además, guarda la imagen en el path <image_path>
         """
         match = re.search(r"^draw\s(.+)", query)
-        if (not match or not match.groups()[0].strip()):
+        if not match or not match.groups()[0].strip():
             raise MissingArgumentException("imagen")
 
         image_path = match.groups()[0].strip()
@@ -127,10 +135,7 @@ class App:
             elif "load" == command:  # cargar base de conocimiento
                 self.load(query)
             elif "add" == command:  # añadir nueva afirmación base conocimiento
-                try:
-                    self.add(query)
-                except Exception:
-                    leerMasLineas = True
+                leerMasLineas = self.add(query)
             elif "save" == command:  # guardar base de conocimiento
                 self.save(query)
             elif "draw" == command:  # visualizacion de la ultima consulta realizad
@@ -142,7 +147,6 @@ class App:
                     leerMasLineas = True
         except CustomException as e:
             print(e)
-
 
         return leerMasLineas
 
