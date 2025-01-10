@@ -1,7 +1,8 @@
 import pandas as pd
 from knowledge import Knowledge
 import re
-from excepciones import QueryException
+from excepciones import QueryException, CustomException, ErrorLiteralQueryException
+
 
 
 class QuerySolver:
@@ -40,50 +41,53 @@ class QuerySolver:
         selectColumns, whereClauses = self.preprocess(queryStr)
         dfResponse = pd.DataFrame()
         for clause in whereClauses:
-            if '"' in clause:
-                obj = self.extractLiteral(clause)
-                subj, pred = clause.split(" ")[:2]
+            try:
+                if '"' in clause:
+                    obj = self.extractLiteral(clause)
+                    subj, pred = clause.split(" ")[:2]
 
-            else:
-                subj, pred, obj = clause.split(" ")
+                else:
+                    subj, pred, obj = clause.split(" ")
 
-            # dependiendo de la clausula, operamos o bien directamente con la entidad o con un conjunto de ellas
-            processedSubj, processedPred, processedObj = [subj], pred, [obj]
-            if subj.startswith("?"):
-                # casos 1 y 2
-                processedSubj = (
-                    dfResponse[subj].unique() if subj in dfResponse.columns else None
-                )
-                if obj.startswith("?"):
-                    # caso 1
+                # dependiendo de la clausula, operamos o bien directamente con la entidad o con un conjunto de ellas
+                processedSubj, processedPred, processedObj = [subj], pred, [obj]
+                if subj.startswith("?"):
+                    # casos 1 y 2
+                    processedSubj = (
+                        dfResponse[subj].unique() if subj in dfResponse.columns else None
+                    )
+                    if obj.startswith("?"):
+                        # caso 1
+                        processedObj = (
+                            dfResponse[obj].unique() if obj in dfResponse.columns else None
+                        )
+                elif obj.startswith("?"):
+                    # caso 3
                     processedObj = (
                         dfResponse[obj].unique() if obj in dfResponse.columns else None
                     )
-            elif obj.startswith("?"):
-                # caso 3
-                processedObj = (
-                    dfResponse[obj].unique() if obj in dfResponse.columns else None
+                # try:
+                dfKnowledge = pd.DataFrame(
+                    knowledge.findBy(processedSubj, processedPred, processedObj),
+                    columns=[subj, obj],
                 )
-            # try:
-            dfKnowledge = pd.DataFrame(
-                knowledge.findBy(processedSubj, processedPred, processedObj),
-                columns=[subj, obj],
-            )
-            # except Exception as e:
-            #    print(e)
-            #    continue
+                # except Exception as e:
+                #    print(e)
+                #    continue
 
-            if dfResponse.shape[0] == 0:
-                dfResponse = dfKnowledge
-            else:
-                how = "right"  # para filtrar
-                if processedSubj is None or processedObj is None:
-                    how = "outer"  # sobre todo para añadir nuevas columnas
-                dfResponse = dfResponse.merge(dfKnowledge, how=how)
+                if dfResponse.shape[0] == 0:
+                    dfResponse = dfKnowledge
+                else:
+                    how = "right"  # para filtrar
+                    if processedSubj is None or processedObj is None:
+                        how = "outer"  # sobre todo para añadir nuevas columnas
+                    dfResponse = dfResponse.merge(dfKnowledge, how=how)
 
-        return dfResponse[selectColumns]
+                return dfResponse[selectColumns]
+            except CustomException as e:
+                print(f" {e}. No se tendrá en cuenta la clausula {clause}")
     
-    def extractLiteral(whereClause):
+    def extractLiteral(self, whereClause):
         """
         Extrae el objeto literal en el where de la query
         """
@@ -93,5 +97,5 @@ class QuerySolver:
         if principio_cadena != -1 and final_cadena != -1:
             return whereClause[principio_cadena:final_cadena].strip()
         else:
-            return None  
+            raise ErrorLiteralQueryException() 
 
