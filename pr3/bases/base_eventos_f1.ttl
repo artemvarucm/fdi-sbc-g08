@@ -29,7 +29,7 @@ q8:spanish_gp_2023 t8:P31 q8:evento_f1 ;
     t8:country q8:spain ;
     t8:winner q8:max_verstappen ;
     t8:second q8:lewis_hamilton ;
-    t8:winner_team "Red Bull Racing" ;
+    t8:winner_team q8:red_bull ;
     t8:weather "Sunny" ;
     t8:crashes "2" ;
     t8:km_pista "4.675" ;
@@ -41,8 +41,8 @@ q8:monaco_gp_2023 t8:P31 q8:evento_f1 ;
     t8:country q8:monaco ;
     t8:winner q8:fernando_alonso ;
     t8:second q8:lewis_hamilton ;
-    t8:winner_team "Aston Martin" ;
-    t8:weather "Cloudy" ;
+    t8:winner_team q8:aston_martin ;
+    t8:climate "Cloudy" ;
     t8:crashes "1" ;
     t8:km_pista "3.337" ;
     t8:publico "37000" .
@@ -53,10 +53,10 @@ q8:silverstone_gp_2023 t8:P31 q8:evento_f1 ;
     t8:country q8:united_kingdom ;
     t8:winner q8:lewis_hamilton ;
     t8:second q8:george_russell ;
-    t8:winner_team "Mercedes" ;
+    t8:winner_team q8:mercedes ;
     t8:weather "Rainy" ;
     t8:crashes "3" ;
-    t8:km_pista "5.891" ;
+    t8:distance "5.891" ;
     t8:publico "142000" .
 
 q8:monza_gp_2023 t8:P31 q8:evento_f1 ;
@@ -65,7 +65,7 @@ q8:monza_gp_2023 t8:P31 q8:evento_f1 ;
     t8:country q8:italy ;
     t8:winner q8:max_verstappen ;
     t8:second q8:charles_leclerc ;
-    t8:winner_team "Red Bull Racing" ;
+    t8:winner_team q8:red_bull ;
     t8:weather "Sunny" ;
     t8:crashes "0" ;
     t8:km_pista "5.793" ;
@@ -77,12 +77,48 @@ q8:belgium_gp_2023 t8:P31 q8:evento_f1 ;
     t8:country q8:belgium ;
     t8:winner q8:max_verstappen ;
     t8:second q8:lewis_hamilton ;
-    t8:winner_team "Red Bull Racing" ;
+    t8:winner_team q8:red_bull ;
     t8:weather "Cloudy" ;
     t8:crashes "1" ;
     t8:km_pista "7.004" ;
     t8:publico "98000" .
 
+q8:italy_gp_1978 t8:P31 q8:evento_f1 ;
+    t8:name "Italian Grand Prix" ;
+    t8:year "1978" ;
+    t8:country q8:italy ;
+    t8:winner q8:niki_lauda ;
+    t8:second q8:john_watson ;
+    t8:winner_team q8:brabham ;
+    t8:weather "Sunny" ;
+    t8:crashes "2" ;
+    t8:km_pista "5.793" ;
+    t8:publico "90000" .
+
+q8:monaco_gp_1966 t8:P31 q8:evento_f1 ;
+    t8:name "Monaco Grand Prix" ;
+    t8:year "1966" ;
+    t8:country q8:monaco ;
+    t8:winner q8:jackie_stewart ;
+    t8:second q8:lorenzo_bandini ;
+    t8:winner_team q8:brm ;
+    t8:weather "Sunny" ;
+    t8:crashes "4" ;
+    t8:distance "3.145" ;
+    t8:publico "30000" .
+
+q8:uk_gp_1957 t8:P31 q8:evento_f1 ;
+    t8:name "British Grand Prix" ;
+    t8:year "1957" ;
+    t8:country q8:uk ;
+    t8:winner q8:stirling_moss ;
+    t8:second q8:tony_brooks ;
+    t8:winner_team q8:vanwall ;
+    t8:weather "Rainy" ;
+    t8:crashes "1" ;
+    t8:km_pista "4.711" ;
+    t8:publico "60000" .
+    
 # América
 q8:brazil_gp_2023 t8:P31 q8:evento_f1 ;
     t8:name "Brazilian Grand Prix" ;
@@ -90,11 +126,23 @@ q8:brazil_gp_2023 t8:P31 q8:evento_f1 ;
     t8:country q8:brazil ;
     t8:winner q8:max_verstappen ;
     t8:second q8:sergio_perez ;
-    t8:winner_team "Red Bull Racing" ;
+    t8:winner_team q8:red_bull ;
     t8:weather "Rainy" ;
     t8:crashes "4" ;
     t8:km_pista "4.309" ;
     t8:publico "130000" .
+
+q8:brazil_gp_1991 t8:P31 q8:evento_f1 ;
+    t8:name "Brazilian Grand Prix" ;
+    t8:year "1991" ;
+    t8:country q8:brazil ;
+    t8:winner q8:ayrton_senna ;
+    t8:second q8:riccardo_patrese ;
+    t8:winner_team q8:mclaren ;
+    t8:climate "Rainy" ;
+    t8:crashes "3" ;
+    t8:distance "4.325" ;
+    t8:publico "120000" .
 
 q8:miami_gp_2023 t8:P31 q8:evento_f1 ;
     t8:name "Miami Grand Prix" ;
@@ -102,7 +150,7 @@ q8:miami_gp_2023 t8:P31 q8:evento_f1 ;
     t8:country q8:united_states ;
     t8:winner q8:max_verstappen ;
     t8:second q8:sergio_perez ;
-    t8:winner_team "Red Bull Racing" ;
+    t8:winner_team q8:red_bull ;
     t8:weather "Sunny" ;
     t8:crashes "1" ;
     t8:km_pista "5.412" ;
@@ -114,7 +162,7 @@ q8:mexico_gp_2023 t8:P31 q8:evento_f1 ;
     t8:country q8:mexico ;
     t8:winner q8:max_verstappen ;
     t8:second q8:lewis_hamilton ;
-    t8:winner_team "Red Bull Racing" ;
+    t8:winner_team q8:red_bull ;
     t8:weather "Sunny" ;
     t8:crashes "1" ;
     t8:km_pista "4.304" ;
@@ -126,8 +174,8 @@ q8:argentina_gp_2023 t8:P31 q8:evento_f1 ;
     t8:country q8:argentina ;
     t8:winner q8:carlos_sainz ;
     t8:second q8:fernando_alonso ;
-    t8:winner_team "Ferrari" ;
-    t8:weather "Cloudy" ;
+    t8:winner_team q8:ferrari ;
+    t8:climate "Cloudy" ;
     t8:crashes "2" ;
     t8:km_pista "4.259" ;
     t8:publico "132000" .
@@ -139,10 +187,10 @@ q8:japan_gp_2023 t8:P31 q8:evento_f1 ;
     t8:country q8:japan ;
     t8:winner q8:max_verstappen ;
     t8:second q8:fernando_alonso ;
-    t8:winner_team "Red Bull Racing" ;
+    t8:winner_team q8:red_bull ;
     t8:weather "Sunny" ;
     t8:crashes "2" ;
-    t8:km_pista "5.807" ;
+    t8:distance "5.807" ;
     t8:publico "155000" .
 
 q8:abu_dhabi_gp_2023 t8:P31 q8:evento_f1 ;
@@ -151,8 +199,8 @@ q8:abu_dhabi_gp_2023 t8:P31 q8:evento_f1 ;
     t8:country q8:united_arab_emirates ;
     t8:winner q8:lewis_hamilton ;
     t8:second q8:george_russell ;
-    t8:winner_team "Mercedes" ;
-    t8:weather "Clear" ;
+    t8:winner_team q8:mercedes ;
+    t8:climate "Clear" ;
     t8:crashes "1" ;
     t8:km_pista "5.281" ;
     t8:publico "60000" .
@@ -163,11 +211,24 @@ q8:singapore_gp_2023 t8:P31 q8:evento_f1 ;
     t8:country q8:singapore ;
     t8:winner q8:sergio_perez ;
     t8:second q8:max_verstappen ;
-    t8:winner_team "Red Bull Racing" ;
+    t8:winner_team q8:red_bull ;
     t8:weather "Humid" ;
     t8:crashes "2" ;
-    t8:km_pista "5.063" ;
+    t8:distance "5.063" ;
     t8:publico "84000" .
+
+
+q8:japan_gp_1988 t8:P31 q8:evento_f1 ;
+    t8:name "Japanese Grand Prix" ;
+    t8:year "1988" ;
+    t8:country q8:japan ;
+    t8:winner q8:ayrton_senna ;
+    t8:second q8:alain_prost ;
+    t8:winner_team q8:mclaren ;
+    t8:weather "Cloudy" ;
+    t8:crashes "0" ;
+    t8:km_pista "3.641" ;
+    t8:publico "150000" .
 
 # Oceanía
 q8:australia_gp_2023 t8:P31 q8:evento_f1 ;
@@ -176,8 +237,13 @@ q8:australia_gp_2023 t8:P31 q8:evento_f1 ;
     t8:country q8:australia ;
     t8:winner q8:max_verstappen ;
     t8:second q8:fernando_alonso ;
-    t8:winner_team "Red Bull Racing" ;
-    t8:weather "Sunny" ;
+    t8:winner_team q8:red_bull ;
+    t8:climate "Sunny" ;
     t8:crashes "3" ;
     t8:km_pista "5.278" ;
     t8:publico "128000" .
+
+# EQUIVALENCIAS
+t8:weather wdt:P1628 t8:climate .
+t8:km_pista wdt:P1628 t8:distance .
+

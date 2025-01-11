@@ -108,7 +108,7 @@ q8:ayrton_senna t8:P31 q8:driver ;
     t8:has_world_championships "3" ;
     t8:driver_category q8:main_driver ;
     t8:debut_year "1984" ;
-    t8:retirement_year "1994" ;
+    t8:last_year "1994" ;
     t8:total_teams "4" ;
     t8:suspended "false" .
 
@@ -117,7 +117,7 @@ q8:michael_schumacher t8:P31 q8:driver ;
     t8:has_nationality "German" ;
     t8:drives_for q8:ferrari ;
     t8:participated_in q8:f1_grand_prix_2012 ;
-    t8:has_world_championships "7" ;
+    t8:championships "7" ;
     t8:driver_category q8:main_driver ;
     t8:debut_year "1991" ;
     t8:retirement_year "2012" ;
@@ -131,7 +131,11 @@ q8:niki_lauda t8:P31 q8:driver ;
     t8:has_world_championships "3" ;
     t8:driver_category q8:main_driver ;
     t8:debut_year "1971" ;
-    t8:retirement_year "1985" ;
+    t8:last_year "1985" ;
     t8:total_teams "5" ;
     t8:suspended "false" .
 
+
+# EQUIVALENCIAS
+t8:retirement_year wdt:P1628 t8:last_year .
+t8:has_world_championships wdt:P1628 t8:championships .
