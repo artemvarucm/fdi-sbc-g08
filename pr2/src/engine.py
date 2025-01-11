@@ -1,5 +1,6 @@
 from facts import Facts
 from baseReglas import BaseReglas
+from knowledgeException import KnowledgeException
 
 
 class Engine:
@@ -7,17 +8,19 @@ class Engine:
         self.baseReglas = BaseReglas()
         self.facts = Facts()
         self.modoDifusa = modoDifusa
-
+        errores = False
         for r in base:
             try:
                 if ":-" in r:
                     self.baseReglas.addFromString(r)
                 else:
                     self.newFact(r)
-            except Exception:
-                raise Exception(
-                    f'Error al procesar la línea de la base de conocimiento: "{r}"'
-                )
+            except KnowledgeException as e:
+                errores = True
+                print("[ERROR]:", e)
+
+        errorStr = " excluyendo lineas con errores" if errores else " correctamente"
+        print(f"\n[INFO] Base de conocimiento cargada{errorStr}.\n")
 
     def print(self):
         """
@@ -38,13 +41,28 @@ class Engine:
         Si existe, lanza una excepción
         """
         factArray = factStr.split(" ")
+        if len(factArray) > 2:
+            raise KnowledgeException(
+                f"El formato de este hecho '{factStr}' tiene que ser: <hecho> [<grado de verdad>]"
+            )
+
         fact = factArray[0]
         score = 1
 
         # si no se ha indicado el grado de verdad asumimos que es 1
 
-        if len(factArray) > 1:
-            score = float(factArray[1][1:-1])
+        if len(factArray) == 2:
+            if factArray[1][0] == "[" and factArray[1][-1] == "]":
+                try:
+                    score = float(factArray[1][1:-1])
+                except ValueError:
+                    raise KnowledgeException(
+                        f"El grado de verdad del hecho '{factStr}' debe ser un numero."
+                    )
+            else:
+                raise KnowledgeException(
+                    f"El hecho '{factStr}' debe llevar el grado de verdad entre corchetes: <hecho> [<grado de verdad>]"
+                )
 
         self.facts.addFact(fact, score)
 

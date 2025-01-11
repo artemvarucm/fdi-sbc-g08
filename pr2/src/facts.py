@@ -22,7 +22,7 @@ class Facts:
             raise Exception(f"Hecho {fact} ya añadido.")
         if score > 1 or score < 0:
             raise Exception("El grado de certeza tiene que estar entre 0 y 1")
-        
+
         self.container[fact] = score
 
     def updateFact(self, fact, score):
@@ -33,7 +33,7 @@ class Facts:
             raise Exception(f"Hecho {fact} no existe.")
         if score > 1 or score < 0:
             raise Exception("El grado de certeza tiene que estar entre 0 y 1")
-        
+
         self.container[fact] = score
 
     def addOrUpdateFact(self, fact, score):

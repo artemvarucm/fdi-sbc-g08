@@ -1,4 +1,4 @@
-import re
+from knowledgeException import KnowledgeException
 
 
 class HornClause:
@@ -23,21 +23,51 @@ class HornClause:
         """
 
         descomposicion = clausulaStr.split(" :- ")
-        # El consecuente es el primer elemento del array separado
-        self.consecuente = descomposicion[0]
+        if len(descomposicion) != 2:
+            raise KnowledgeException(
+                f"El formato de la clausula '{clausulaStr}' tiene que ser: <consecuente> :- <precedentes> [<opcional, grado de verdad>]"
+            )
 
-        # El grado de verdad está entre corchetes, lo sacamos con regex
+        # Leemos el consecuente
+        self.consecuente = descomposicion[0].strip()
+        precedentes = descomposicion[1]
+
+        # Leemos el grado de verdad (si está indicado)
         self.score = 1.0  # por defecto es 1
+        if "[" in precedentes or "]" in precedentes:
+            if "[" in precedentes and precedentes[-1] == "]":
+                try:
+                    corchete1 = precedentes.find("[") + 1
+                    self.score = float(precedentes[corchete1:-1])
 
-        scoreStr = re.findall(r"\[(.*)\]", descomposicion[1])
-        if scoreStr:
-            self.score = float(scoreStr[0])
+                    # eliminamos del string de precedentes el grado de certeza para que no interfiera
+                    precedentes = precedentes[: corchete1 - 1]
+                    if self.score > 1 or self.score < 0:
+                        raise KnowledgeException(
+                            "El grado de certeza tiene que estar entre 0 y 1."
+                        )
 
-        if self.score > 1 or self.score < 0:
-            raise Exception("El grado de certeza tiene que estar entre 0 y 1")
+                except ValueError:
+                    raise KnowledgeException(
+                        f"El grado de verdad de la clausula '{clausulaStr}' debe ser un numero."
+                    )
+            else:
+                raise KnowledgeException(
+                    f"La clausula '{clausulaStr}' debe llevar el grado de verdad al final y entre corchetes: <consecuente> :- <precedentes> [<opcional, grado de verdad>]"
+                )
 
-        # Para el regex de los precedentes nos fijamos en los caracteres del abecedario y el guion bajo
-        self.antecedentes = set(re.findall(r"([A-Za-z_]+),?", descomposicion[1]))
+        # Leemos los antecedentes (separados por ,)
+        parts = [part.strip() for part in precedentes.split(",")]
+        if "" in parts:
+            raise KnowledgeException(
+                f"La clausula '{clausulaStr}' no puede llevar un precedente vacío (hay alguna coma que sobra)."
+            )
+        if any([" " in p for p in parts]):
+            raise KnowledgeException(
+                f"La clausula '{clausulaStr}' no puede llevar un precedente con espacios."
+            )
+
+        self.antecedentes = set(parts)
 
     def getConsecuente(self):
         return self.consecuente
