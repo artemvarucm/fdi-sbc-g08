@@ -1,0 +1,50 @@
+load bases/base_coches_f1.ttl
+load bases/base_equipos_formula1.ttl
+load bases/base_eventos_f1.ttl
+load bases/base_pilotos.ttl
+
+# Producto cartesiano de eventos f1
+select ?t, ?q where { 
+    ?t t8:P31 q8:evento_f1 .
+    ?q t8:P31 q8:evento_f1 .
+}
+
+# Cada evento f1 con el nombre y el pais
+select ?t, ?q, ?r where { 
+    ?t t8:P31 q8:evento_f1 .
+    ?t t8:name ?q .
+    ?t t8:country ?r .
+}
+
+# Para cada evento f1, el nombre, la nacionalidad, el coche del ganador y el pais del equipo del coche
+
+select ?evName, ?driName, ?driNationality, ?driCar, ?teamCountry where { 
+    ?t t8:P31 q8:evento_f1 .
+    ?t t8:name ?evName .
+    ?t t8:winner ?dri .
+    ?dri t8:name ?driName .
+    ?dri t8:has_nationality ?driNationality .
+    ?driCar t8:driven_by ?dri .
+    ?driCar t8:team ?team .
+    ?team t8:based_in ?teamCountry .
+}
+
+# Eventos f1 en los que estaba soleado
+
+select ?evName, ?w where { 
+    ?t t8:P31 q8:evento_f1 .
+    ?t t8:name ?evName .
+    ?t t8:weather ?w .
+    ?t t8:weather "Sunny" .
+}
+
+# Muestra el equipo y el piloto del equipo repetidas tantas veces cuantas ha ganado algun evento
+select ?team, ?driName where { 
+    ?team wdt:P31 q8:f1_team .
+    ?driver t8:drives_for ?team .
+    ?driver t8:name ?driName .
+    ?driver t8:driver_category q8:main_driver .
+    ?driver t8:suspended "false" .
+    ?ev t8:P31 q8:evento_f1 .
+    ?ev t8:winner ?driver .
+}
