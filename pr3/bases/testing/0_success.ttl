@@ -5,19 +5,17 @@ Chevrolet wdt:P31 marca_de_coche ;
     caballos "66" ;
     t8:fundador q8:Louis_Chevrolet ;
     t8:fundador q8:William_Crapo_Durant ; t8:fundador q8:Arthur_Chevrolet ; t8:pais wd:Q30 ;
-    t8:propietario q8:General_Motors . q8:Bugatti 
-wdt:P31 
-q8:marca_de_coche ;
-t8:nombre      "Bugatti" ;
+    t8:propietario q8:General_Motors .
+
+q8:Bugatti wdt:P31 marca_de_coche ;
+t8:nombre "Bugatti" ;
 t8:potencia "55" ;
 t8:fundacion "1909" ;
 
-t8:fundador         q8:Ettore_Bugatti       ;
-t8:pais wd:Q142     
-;
+t8:fundador q8:Ettore_Bugatti ;
+t8:pais wd:Q142 ;
 
-t8:propietario q8:Volkswagen_Group 
-.
+t8:propietario q8:Volkswagen_Group .
 
 # EQUIVALENCIAS
 t8:potencia wdt:P1628 caballos .
