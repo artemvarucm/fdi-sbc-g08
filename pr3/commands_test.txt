@@ -48,3 +48,9 @@ select ?team, ?driName where {
     ?ev t8:P31 q8:evento_f1 .
     ?ev t8:winner ?driver .
 }
+
+# Para cada evento el ganador
+select ?q, ?t where {?q t8:P31 q8:evento_f1 . ?q t8:position1 ?t . }
+
+# Para cada evento el siguiente evento
+select ?q, ?t where {?q t8:P31 q8:evento_f1 . ?q t8:next ?t . }

@@ -1,13 +1,13 @@
 ###############
 ### DESCRIPCION
 ###############
-# Contiene información deportiva (titulos ganados, año de debut, numero de equipos en los que ha estado, etc) 
-# sobre los pilotos de formula 1 
+# Contiene información sobre los paises, sus idiomas y vecinos
 
 ###############
 ### EJEMPLOS DE CONSULTAS
 ###############
-# Cuales son los vecinos de un pais
+# Cuales son los vecinos de un pais?
+# En que idiomas habla cada pais o los vecinos de un pais?
 
 ###############
 ### CONTENIDO
@@ -116,6 +116,3 @@ wd:Q40 wdt:P31 q8:pais ;
     t8:vecino wd:Q183 ;
     # Eslovenia
     t8:vecino wd:Q215 .
-
-# EQUIVALENCIAS
-t8:potencia wdt:P1628 t8:caballos .

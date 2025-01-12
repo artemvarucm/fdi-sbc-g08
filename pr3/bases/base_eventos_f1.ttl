@@ -24,215 +24,855 @@ q8:bahrain_gp_2024 t8:P31 q8:evento_f1 ;
     t8:name "Bahrain Grand Prix 2024" ;
     t8:date "02-03-2024" ;
     t8:weather "Clear" ;
-    t8:country q8:bahrain ;
+    t8:gp_type q8:bahrain_gp ;
     t8:winner_team q8:red_bull ;
-    t8:distance_km "5.412" ;
-    t8:spectators "100,000" .
+    t8:spectators "100,000" ;
+    t8:next q8:saudi_arabian_gp_2024 .
+
+q8:bahrain_gp t8:P31 q8:grand_prix_type ;
+    t8:country q8:bahrain ;
+    t8:course_length_km "5.412" .
 
 q8:saudi_arabian_gp_2024 t8:P31 q8:evento_f1 ;
     t8:name "Saudi Arabian Grand Prix 2024" ;
     t8:date "09-03-2024" ;
+    t8:gp_type q8:saudi_arabian_gp ;
     t8:weather "Clear" ;
-    t8:country q8:saudi_arabia ;
     t8:winner_team q8:red_bull ;
+    t8:previous q8:bahrain_gp_2024 ;
+    t8:next q8:australian_gp_2024 .
+
+q8:saudi_arabian_gp t8:P31 q8:grand_prix_type ;
+    t8:country q8:saudi_arabia ;
     t8:distance_km "6.174" .
 
 q8:australian_gp_2024 t8:P31 q8:evento_f1 ;
     t8:name "Australian Grand Prix 2024" ;
     t8:date "24-03-2024" ;
     t8:weather "Sunny" ;
-    t8:country q8:australia ;
+    t8:gp_type q8:australian_gp ;
     t8:winner_team q8:ferrari ;
-    t8:distance_km "5.278" ;
-    t8:spectators "452,055" .
+    t8:spectators "452,055" ;
+    t8:previous q8:saudi_arabian_gp_2024 ;
+    t8:next q8:japanese_gp_2024 .
+
+q8:australian_gp t8:P31 q8:grand_prix_type ;
+    t8:country q8:australia ;
+    t8:distance_km "5.278" .
 
 q8:japanese_gp_2024 t8:P31 q8:evento_f1 ;
     t8:name "Japanese Grand Prix 2024" ;
     t8:date "07-04-2024" ;
     t8:weather "Sunny" ;
-    t8:country q8:japan ;
+    t8:gp_type q8:japanese_gp ;
     t8:winner_team q8:red_bull ;
-    t8:distance_km "5.807" ;
-    t8:spectators "229,000" .
+    t8:spectators "229,000" ;
+    t8:previous q8:australian_gp_2024 ;
+    t8:next q8:chinese_gp_2024 .
+
+q8:japanese_gp t8:P31 q8:grand_prix_type ;
+    t8:country q8:japan ;
+    t8:distance_km "5.807" .
 
 q8:chinese_gp_2024 t8:P31 q8:evento_f1 ;
     t8:name "Chinese Grand Prix 2024" ;
     t8:date "21-04-2024" ;
     t8:weather "Cloudy" ;
-    t8:country q8:china ;
+    t8:gp_type q8:chinese_gp ;
     t8:winner_team q8:red_bull ;
-    t8:distance_km "5.451" ;
-    t8:spectators "200,000" .
+    t8:spectators "200,000" ;
+    t8:previous q8:japanese_gp_2024 ;
+    t8:next q8:miami_gp_2024 .
+
+q8:chinese_gp t8:P31 q8:grand_prix_type ;
+    t8:country q8:china ;
+    t8:distance_km "5.451" .
 
 q8:miami_gp_2024 t8:P31 q8:evento_f1 ;
     t8:name "Miami Grand Prix 2024" ;
     t8:date "05-05-2024" ;
     t8:weather "Partly cloudy" ;
-    t8:country q8:usa ;
+    t8:gp_type q8:miami_gp ;
     t8:winner_team q8:mclaren ;
-    t8:distance_km "5.412" ;
-    t8:spectators "275,000" .
+    t8:spectators "275,000" ;
+    t8:previous q8:chinese_gp_2024 ;
+    t8:next q8:emilia_romagna_gp_2024 .
+
+q8:miami_gp t8:P31 q8:grand_prix_type ;
+    t8:country q8:usa ;
+    t8:course_length_km "5.412" .
 
 q8:emilia_romagna_gp_2024 t8:P31 q8:evento_f1 ;
     t8:name "Emilia Romagna Grand Prix 2024" ;
     t8:date "19-05-2024" ;
     t8:climate "Partly cloudy" ;
-    t8:country q8:italy ;
+    t8:gp_type q8:emilia_romagna_gp ;
     t8:winner_team q8:red_bull ;
-    t8:distance_km "4.909" ;
-    t8:spectators "200,000" .
+    t8:spectators "200,000" ;
+    t8:previous q8:miami_gp_2024 ;
+    t8:next q8:monaco_gp_2024 .
+
+q8:emilia_romagna_gp t8:P31 q8:grand_prix_type ;
+    t8:country q8:italy ;
+    t8:distance_km "4.909" .
 
 q8:monaco_gp_2024 t8:P31 q8:evento_f1 ;
     t8:name "Monaco Grand Prix 2024" ;
     t8:date "26-05-2024" ;
     t8:weather "Sunny" ;
-    t8:country q8:monaco ;
     t8:winner_team q8:ferrari ;
+    t8:gp_type q8:monaco_gp ;
+    t8:previous q8:emilia_romagna_gp_2024 ;
+    t8:next q8:canadian_gp_2024 .
+
+q8:monaco_gp t8:P31 q8:grand_prix_type ;
+    t8:country q8:monaco ;
     t8:distance_km "3.337" .
 
 q8:canadian_gp_2024 t8:P31 q8:evento_f1 ;
     t8:name "Canadian Grand Prix 2024" ;
     t8:date "09-06-2024" ;
     t8:weather "Rainy at start, dry later" ;
-    t8:country q8:canada ;
     t8:winner_team q8:red_bull ;
-    t8:distance_km "4.361" ;
-    t8:spectators "350,000" .
+    t8:spectators "350,000" ;
+    t8:gp_type q8:canadian_gp ;
+    t8:previous q8:monaco_gp_2024 ;
+    t8:next q8:spanish_gp_2024 .
+
+q8:canadian_gp t8:P31 q8:grand_prix_type ;
+    t8:country q8:canada ;
+    t8:distance_km "4.361" .
 
 q8:spanish_gp_2024 t8:P31 q8:evento_f1 ;
     t8:name "Spanish Grand Prix 2024" ;
     t8:date "23-06-2024" ;
     t8:weather "Clear" ;
-    t8:country q8:spain ;
     t8:winner_team q8:red_bull ;
-    t8:distance_km "4.657" ;
-    t8:spectators "297,368" .
+    t8:spectators "297,368" ;
+    t8:gp_type q8:spanish_gp ;
+    t8:previous q8:canadian_gp_2024 ;
+    t8:next q8:austrian_gp_2024 .
+
+q8:spanish_gp t8:P31 q8:grand_prix_type ;
+    t8:country q8:spain ;
+    t8:distance_km "4.657" .
 
 q8:austrian_gp_2024 t8:P31 q8:evento_f1 ;
     t8:name "Austrian Grand Prix 2024" ;
     t8:date "30-06-2024" ;
     t8:weather "Partly cloudy" ;
-    t8:country q8:austria ;
     t8:winner_team q8:mercedes ;
-    t8:distance_km "4.318" ;
-    t8:spectators "302,000" .
+    t8:spectators "302,000" ;
+    t8:gp_type q8:austrian_gp ;
+    t8:previous q8:spanish_gp_2024 ;
+    t8:next q8:british_gp_2024 .
+
+q8:austrian_gp t8:P31 q8:grand_prix_type ;
+    t8:country q8:austria ;
+    t8:distance_km "4.318" .
 
 q8:british_gp_2024 t8:P31 q8:evento_f1 ;
     t8:name "British Grand Prix 2024" ;
     t8:date "07-07-2024" ;
     t8:weather "Intermittent rain" ;
-    t8:country q8:uk ;
     t8:winner_team q8:mercedes ;
-    t8:distance_km "5.891" ;
-    t8:spectators "480,000" .
+    t8:spectators "480,000" ;
+    t8:gp_type q8:british_gp ;
+    t8:previous q8:austrian_gp_2024 ;
+    t8:next q8:hungarian_gp_2024 .
+
+q8:british_gp t8:P31 q8:grand_prix_type ;
+    t8:country q8:uk ;
+    t8:distance_km "5.891" .
 
 q8:hungarian_gp_2024 t8:P31 q8:evento_f1 ;
     t8:name "Hungarian Grand Prix 2024" ;
     t8:date "21-07-2024" ;
-    t8:country q8:hungary ;
     t8:winner_team q8:mclaren ;
     t8:weather "Partly cloudy" ;
-    t8:distance_km "4.381" ;
-    t8:spectators "310,000" .
+    t8:spectators "310,000" ;
+    t8:gp_type q8:hungarian_gp ;
+    t8:previous q8:british_gp_2024 ;
+    t8:next q8:belgian_gp_2024 .
+
+q8:hungarian_gp t8:P31 q8:grand_prix_type ;
+    t8:country q8:hungary ;
+    t8:distance_km "4.381" .
 
 q8:belgian_gp_2024 t8:P31 q8:evento_f1 ;
     t8:name "Belgian Grand Prix 2024" ;
     t8:date "28-07-2024" ;
-    t8:country q8:belgium ;
     t8:winner_team q8:mercedes ;
     t8:weather "Sunny" ;
-    t8:distance_km "7.004" ;
-    t8:spectators "380,000" .
+    t8:spectators "380,000" ;
+    t8:gp_type q8:belgian_gp ;
+    t8:previous q8:hungarian_gp_2024 ;
+    t8:next q8:dutch_gp_2024 .
+
+q8:belgian_gp t8:P31 q8:grand_prix_type ;
+    t8:country q8:belgium ;
+    t8:distance_km "7.004" .
 
 q8:dutch_gp_2024 t8:P31 q8:evento_f1 ;
     t8:name "Dutch Grand Prix 2024" ;
     t8:date "25-08-2024" ;
-    t8:country q8:netherlands ;
     t8:winner_team q8:mclaren ;
     t8:weather "Sunny" ;
-    t8:distance_km "4.259" ;
-    t8:spectators "305,000" .
+    t8:spectators "305,000" ;
+    t8:gp_type q8:dutch_gp ;
+    t8:previous q8:belgian_gp_2024 ;
+    t8:next q8:italian_gp_2024 .
+
+q8:dutch_gp t8:P31 q8:grand_prix_type ;
+    t8:country q8:netherlands ;
+    t8:distance_km "4.259" .
 
 q8:italian_gp_2024 t8:P31 q8:evento_f1 ;
     t8:name "Italian Grand Prix 2024" ;
     t8:date "01-09-2024" ;
-    t8:country q8:italy ;
     t8:winner_team q8:ferrari ;
     t8:weather "Partly cloudy" ;
-    t8:distance_km "5.793" ;
-    t8:spectators "335,000" .
+    t8:spectators "335,000" ;
+    t8:gp_type q8:italian_gp ;
+    t8:previous q8:dutch_gp_2024 ;
+    t8:next q8:azerbaijan_gp_2024 .
+
+q8:italian_gp t8:P31 q8:grand_prix_type ;
+    t8:country q8:italy ;
+    t8:distance_km "5.793" .
 
 q8:azerbaijan_gp_2024 t8:P31 q8:evento_f1 ;
     t8:name "Azerbaijan Grand Prix 2024" ;
     t8:date "15-09-2024" ;
-    t8:country q8:azerbaijan ;
     t8:winner_team q8:mclaren ;
     t8:weather "Sunny" ;
+    t8:gp_type q8:azerbaijan_gp ;
+    t8:previous q8:italian_gp_2024 ;
+    t8:next q8:singapore_gp_2024 .
+
+q8:azerbaijan_gp t8:P31 q8:grand_prix_type ;
+    t8:country q8:azerbaijan ;
     t8:distance_km "6.003" .
 
 q8:singapore_gp_2024 t8:P31 q8:evento_f1 ;
     t8:name "Singapore Grand Prix 2024" ;
     t8:date "22-09-2024" ;
-    t8:country q8:singapore ;
     t8:winner_team q8:mclaren ;
     t8:climate "Clear" ;
-    t8:course_length_km "4.940" ;
-    t8:spectators "269,072" .
+    t8:spectators "269,072" ;
+    t8:gp_type q8:singapore_gp ;
+    t8:previous q8:azerbaijan_gp_2024 ;
+    t8:next q8:united_states_gp_2024 .
+
+q8:singapore_gp t8:P31 q8:grand_prix_type ;
+    t8:country q8:singapore ;
+    t8:course_length_km "4.940" .
 
 q8:united_states_gp_2024 t8:P31 q8:evento_f1 ;
     t8:name "United States Grand Prix 2024" ;
     t8:date "20-10-2024" ;
-    t8:country q8:usa ;
     t8:winner_team q8:ferrari ;
     t8:climate "Sunny" ;
+    t8:gp_type q8:united_states_gp ;
+    t8:previous q8:singapore_gp_2024 ;
+    t8:next q8:mexican_gp_2024 .
+
+q8:united_states_gp t8:P31 q8:grand_prix_type ;
+    t8:country q8:usa ;
     t8:course_length_km "5.513" .
 
 q8:mexican_gp_2024 t8:P31 q8:evento_f1 ;
     t8:name "Mexican Grand Prix 2024" ;
     t8:date "27-10-2024" ;
-    t8:country q8:mexico ;
     t8:winner_team q8:ferrari ;
     t8:weather "Partly cloudy" ;
-    t8:course_length_km "4.304" ;
-    t8:spectators "404,958" .
+    t8:spectators "404,958" ;
+    t8:gp_type q8:mexican_gp ;
+    t8:previous q8:united_states_gp_2024 ;
+    t8:next q8:brazilian_gp_2024 .
+
+q8:mexican_gp t8:P31 q8:grand_prix_type ;
+    t8:country q8:mexico ;
+    t8:distance_km "4.304" .
 
 q8:brazilian_gp_2024 t8:P31 q8:evento_f1 ;
     t8:name "Brazilian Grand Prix 2024" ;
     t8:date "03-11-2024" ;
-    t8:country q8:brazil ;
     t8:winner_team q8:red_bull ;
     t8:weather "Rainy" ;
-    t8:course_length_km "4.309" ;
-    t8:spectators "291,717" .
+    t8:spectators "291,717" ;
+    t8:gp_type q8:brazilian_gp ;
+    t8:previous q8:mexican_gp_2024 ;
+    t8:next q8:las_vegas_gp_2024 .
+
+q8:brazilian_gp t8:P31 q8:grand_prix_type ;
+    t8:country q8:brazil ;
+    t8:course_length_km "4.309" .
 
 q8:las_vegas_gp_2024 t8:P31 q8:evento_f1 ;
     t8:name "Las Vegas Grand Prix 2024" ;
     t8:date "23-11-2024" ;
-    t8:country q8:usa ;
     t8:winner_team q8:mercedes ;
     t8:climate "Clear" ;
-    t8:course_length_km "6.201" ;
-    t8:spectators "306,000" .
+    t8:spectators "306,000" ;
+    t8:gp_type q8:las_vegas_gp ;
+    t8:previous q8:brazilian_gp_2024 ;
+    t8:next q8:qatar_gp_2024 .
+
+q8:las_vegas_gp t8:P31 q8:grand_prix_type ;
+    t8:country q8:usa ;
+    t8:course_length_km "6.201" .
 
 q8:qatar_gp_2024 t8:P31 q8:evento_f1 ;
     t8:name "Qatar Grand Prix 2024" ;
     t8:date "01-12-2024" ;
-    t8:country q8:qatar ;
     t8:winner_team q8:red_bull ;
     t8:weather "Clear" ;
-    t8:course_length_km "5.419" ;
-    t8:spectators "154,973" .
+    t8:spectators "154,973" ;
+    t8:gp_type q8:qatar_gp ;
+    t8:previous q8:las_vegas_gp_2024 ;
+    t8:next q8:abu_dhabi_gp_2024 .
+
+q8:qatar_gp t8:P31 q8:grand_prix_type ;
+    t8:country q8:qatar ;
+    t8:distance_km "5.419" .
 
 q8:abu_dhabi_gp_2024 t8:P31 q8:evento_f1 ;
     t8:name "Abu Dhabi Grand Prix 2024" ;
     t8:date "08-12-2024" ;
-    t8:country q8:uae ;
     t8:winner_team q8:mclaren ;
     t8:climate "Clear" ;
-    t8:distance_km "5.281" ;
-    t8:spectators "190,000" .
+    t8:spectators "190,000" ;
+    t8:gp_type q8:abu_dhabi_gp ;
+    t8:previous q8:qatar_gp_2024 .
+
+q8:abu_dhabi_gp t8:P31 q8:grand_prix_type ;
+    t8:country q8:uae ;
+    t8:distance_km "5.281" .
 
 # EQUIVALENCIAS
 t8:weather wdt:P1628 t8:climate .
 t8:course_length_km wdt:P1628 t8:distance_km .
 
+# Rankings, podio
+
+q8:bahrain_gp_2024 t8:position1 q8:max_verstappen ;
+    t8:position2 q8:sergio_pérez ;
+    t8:position3 q8:carlos_sainz_jr ;
+    t8:position4 q8:charles_leclerc ;
+    t8:position5 q8:george_russell ;
+    t8:position6 q8:lando_norris ;
+    t8:position7 q8:lewis_hamilton ;
+    t8:position8 q8:oscar_piastri ;
+    t8:position9 q8:fernando_alonso ;
+    t8:position10 q8:lance_stroll ;
+    t8:position11 q8:yuki_tsunoda ;
+    t8:position12 q8:kevin_magnussen ;
+    t8:position13 q8:daniel_ricciardo ;
+    t8:position14 q8:alexander_albon ;
+    t8:position15 q8:zhou_guanyu ;
+    t8:position16 q8:valtteri_bottas ;
+    t8:position17 q8:pierre_gasly ;
+    t8:position18 q8:esteban_ocón ;
+    t8:position19 q8:logan_sargeant ;
+    t8:position20 q8:nico_hülkenberg .
+
+q8:saudi_arabian_gp_2024 t8:position1 q8:max_verstappen ;
+    t8:position2 q8:sergio_pérez ;
+    t8:position3 q8:charles_leclerc ;
+    t8:position4 q8:oscar_piastri ;
+    t8:position5 q8:fernando_alonso ;
+    t8:position6 q8:george_russell ;
+    t8:position7 q8:oliver_bearman ;
+    t8:position8 q8:lando_norris ;
+    t8:position9 q8:lewis_hamilton ;
+    t8:position10 q8:nico_hülkenberg ;
+    t8:position11 q8:kevin_magnussen ;
+    t8:position12 q8:alexander_albon ;
+    t8:position13 q8:esteban_ocón ;
+    t8:position14 q8:pierre_gasly ;
+    t8:position15 q8:yuki_tsunoda ;
+    t8:position16 q8:valtteri_bottas ;
+    t8:position17 q8:guanyu_zhou ;
+    t8:position18 q8:logan_sargeant ;
+    t8:position19 q8:daniel_ricciardo ;
+    t8:position20 q8:lance_stroll .
+
+
+q8:australian_gp_2024 t8:position1 q8:carlos_sainz_jr ;
+    t8:position2 q8:charles_leclerc ;
+    t8:position3 q8:lando_norris ;
+    t8:position4 q8:oscar_piastri ;
+    t8:position5 q8:sergio_pérez ;
+    t8:position6 q8:fernando_alonso ;
+    t8:position7 q8:george_russell ;
+    t8:position8 q8:oliver_bearman ;
+    t8:position9 q8:nico_hülkenberg ;
+    t8:position10 q8:kevin_magnussen ;
+    t8:position11 q8:alexander_albon ;
+    t8:position12 q8:valtteri_bottas ;
+    t8:position13 q8:guanyu_zhou ;
+    t8:position14 q8:pierre_gasly ;
+    t8:position15 q8:esteban_ocón ;
+    t8:position16 q8:yuki_tsunoda ;
+    t8:position17 q8:logan_sargeant ;
+    t8:position18 q8:daniel_ricciardo ;
+    t8:position19 q8:max_verstappen ;
+    t8:position20 q8:lewis_hamilton .
+
+
+q8:japanese_gp_2024 t8:position1 q8:max_verstappen ;
+    t8:position2 q8:sergio_pérez ;
+    t8:position3 q8:carlos_sainz_jr ;
+    t8:position4 q8:charles_leclerc ;
+    t8:position5 q8:lando_norris ;
+    t8:position6 q8:fernando_alonso ;
+    t8:position7 q8:george_russell ;
+    t8:position8 q8:oscar_piastri ;
+    t8:position9 q8:lewis_hamilton ;
+    t8:position10 q8:yuki_tsunoda ;
+    t8:position11 q8:oliver_bearman ;
+    t8:position12 q8:nico_hülkenberg ;
+    t8:position13 q8:kevin_magnussen ;
+    t8:position14 q8:alexander_albon ;
+    t8:position15 q8:valtteri_bottas ;
+    t8:position16 q8:guanyu_zhou ;
+    t8:position17 q8:pierre_gasly ;
+    t8:position18 q8:esteban_ocón ;
+    t8:position19 q8:daniel_ricciardo ;
+    t8:position20 q8:logan_sargeant .
+
+
+q8:chinese_gp_2024 t8:position1 q8:max_verstappen ;
+    t8:position2 q8:lando_norris ;
+    t8:position3 q8:sergio_pérez ;
+    t8:position4 q8:charles_leclerc ;
+    t8:position5 q8:carlos_sainz_jr ;
+    t8:position6 q8:george_russell ;
+    t8:position7 q8:fernando_alonso ;
+    t8:position8 q8:oscar_piastri ;
+    t8:position9 q8:lewis_hamilton ;
+    t8:position10 q8:nico_hülkenberg ;
+    t8:position11 q8:kevin_magnussen ;
+    t8:position12 q8:yuki_tsunoda ;
+    t8:position13 q8:valtteri_bottas ;
+    t8:position14 q8:guanyu_zhou ;
+    t8:position15 q8:pierre_gasly ;
+    t8:position16 q8:esteban_ocón ;
+    t8:position17 q8:alexander_albon ;
+    t8:position18 q8:logan_sargeant ;
+    t8:position19 q8:daniel_ricciardo ;
+    t8:position20 q8:oliver_bearman .
+
+
+q8:miami_gp_2024 t8:position1 q8:lando_norris ;
+    t8:position2 q8:max_verstappen ;
+    t8:position3 q8:charles_leclerc ;
+    t8:position4 q8:carlos_sainz_jr ;
+    t8:position5 q8:sergio_pérez ;
+    t8:position6 q8:lewis_hamilton ;
+    t8:position7 q8:george_russell ;
+    t8:position8 q8:fernando_alonso ;
+    t8:position9 q8:oscar_piastri ;
+    t8:position10 q8:kevin_magnussen ;
+    t8:position11 q8:nico_hülkenberg ;
+    t8:position12 q8:yuki_tsunoda ;
+    t8:position13 q8:valtteri_bottas ;
+    t8:position14 q8:guanyu_zhou ;
+    t8:position15 q8:pierre_gasly ;
+    t8:position16 q8:esteban_ocón ;
+    t8:position17 q8:alexander_albon ;
+    t8:position18 q8:daniel_ricciardo ;
+    t8:position19 q8:logan_sargeant ;
+    t8:position20 q8:oliver_bearman .
+
+q8:emilia_romagna_gp_2024 t8:position1 q8:max_verstappen ;
+    t8:position2 q8:lando_norris ;
+    t8:position3 q8:charles_leclerc ;
+    t8:position4 q8:oscar_piastri ;
+    t8:position5 q8:carlos_sainz_jr ;
+    t8:position6 q8:lewis_hamilton ;
+    t8:position7 q8:george_russell ;
+    t8:position8 q8:sergio_pérez ;
+    t8:position9 q8:lance_stroll ;
+    t8:position10 q8:yuki_tsunoda ;
+    t8:position11 q8:nico_hülkenberg ;
+    t8:position12 q8:kevin_magnussen ;
+    t8:position13 q8:daniel_ricciardo ;
+    t8:position14 q8:esteban_ocón ;
+    t8:position15 q8:pierre_gasly ;
+    t8:position16 q8:valtteri_bottas ;
+    t8:position17 q8:guanyu_zhou ;
+    t8:position18 q8:alexander_albon ;
+    t8:position19 q8:logan_sargeant ;
+    t8:position20 q8:fernando_alonso .
+
+
+q8:monaco_gp_2024 t8:position1 q8:charles_leclerc ;
+    t8:position2 q8:oscar_piastri ;
+    t8:position3 q8:carlos_sainz_jr ;
+    t8:position4 q8:lando_norris ;
+    t8:position5 q8:george_russell ;
+    t8:position6 q8:lewis_hamilton ;
+    t8:position7 q8:max_verstappen ;
+    t8:position8 q8:pierre_gasly ;
+    t8:position9 q8:sergio_pérez ;
+    t8:position10 q8:esteban_ocón ;
+    t8:position11 q8:fernando_alonso ;
+    t8:position12 q8:nico_hülkenberg ;
+    t8:position13 q8:kevin_magnussen ;
+    t8:position14 q8:valtteri_bottas ;
+    t8:position15 q8:yuki_tsunoda ;
+    t8:position16 q8:guanyu_zhou ;
+    t8:position17 q8:alexander_albon ;
+    t8:position18 q8:daniel_ricciardo ;
+    t8:position19 q8:logan_sargeant ;
+    t8:position20 q8:oliver_bearman .
+
+
+q8:canadian_gp_2024 t8:position1 q8:max_verstappen ;
+    t8:position2 q8:lando_norris ;
+    t8:position3 q8:george_russell ;
+    t8:position4 q8:lewis_hamilton ;
+    t8:position5 q8:charles_leclerc ;
+    t8:position6 q8:oscar_piastri ;
+    t8:position7 q8:sergio_pérez ;
+    t8:position8 q8:fernando_alonso ;
+    t8:position9 q8:carlos_sainz_jr ;
+    t8:position10 q8:pierre_gasly ;
+    t8:position11 q8:esteban_ocón ;
+    t8:position12 q8:kevin_magnussen ;
+    t8:position13 q8:yuki_tsunoda ;
+    t8:position14 q8:valtteri_bottas ;
+    t8:position15 q8:guanyu_zhou ;
+    t8:position16 q8:nico_hülkenberg ;
+    t8:position17 q8:alexander_albon ;
+    t8:position18 q8:daniel_ricciardo ;
+    t8:position19 q8:logan_sargeant ;
+    t8:position20 q8:oliver_bearman .
+
+
+q8:spanish_gp_2024 t8:position1 q8:max_verstappen ;
+    t8:position2 q8:lando_norris ;
+    t8:position3 q8:lewis_hamilton ;
+    t8:position4 q8:charles_leclerc ;
+    t8:position5 q8:george_russell ;
+    t8:position6 q8:carlos_sainz_jr ;
+    t8:position7 q8:oscar_piastri ;
+    t8:position8 q8:sergio_pérez ;
+    t8:position9 q8:fernando_alonso ;
+    t8:position10 q8:pierre_gasly ;
+    t8:position11 q8:esteban_ocón ;
+    t8:position12 q8:kevin_magnussen ;
+    t8:position13 q8:yuki_tsunoda ;
+    t8:position14 q8:valtteri_bottas ;
+    t8:position15 q8:guanyu_zhou ;
+    t8:position16 q8:nico_hülkenberg ;
+    t8:position17 q8:alexander_albon ;
+    t8:position18 q8:daniel_ricciardo ;
+    t8:position19 q8:logan_sargeant ;
+    t8:position20 q8:oliver_bearman .
+
+
+q8:austrian_gp_2024 t8:position1 q8:george_russell ;
+    t8:position2 q8:oscar_piastri ;
+    t8:position3 q8:carlos_sainz_jr ;
+    t8:position4 q8:lewis_hamilton ;
+    t8:position5 q8:lando_norris ;
+    t8:position6 q8:max_verstappen ;
+    t8:position7 q8:charles_leclerc ;
+    t8:position8 q8:sergio_pérez ;
+    t8:position9 q8:fernando_alonso ;
+    t8:position10 q8:pierre_gasly ;
+    t8:position11 q8:esteban_ocón ;
+    t8:position12 q8:kevin_magnussen ;
+    t8:position13 q8:yuki_tsunoda ;
+    t8:position14 q8:valtteri_bottas ;
+    t8:position15 q8:guanyu_zhou ;
+    t8:position16 q8:nico_hülkenberg ;
+    t8:position17 q8:alexander_albon ;
+    t8:position18 q8:daniel_ricciardo ;
+    t8:position19 q8:logan_sargeant ;
+    t8:position20 q8:oliver_bearman .
+
+
+q8:british_gp_2024 t8:position1 q8:lewis_hamilton ;
+    t8:position2 q8:george_russell ;
+    t8:position3 q8:lando_norris ;
+    t8:position4 q8:max_verstappen ;
+    t8:position5 q8:oscar_piastri ;
+    t8:position6 q8:charles_leclerc ;
+    t8:position7 q8:carlos_sainz_jr ;
+    t8:position8 q8:sergio_pérez ;
+    t8:position9 q8:fernando_alonso ;
+    t8:position10 q8:pierre_gasly ;
+    t8:position11 q8:esteban_ocón ;
+    t8:position12 q8:kevin_magnussen ;
+    t8:position13 q8:yuki_tsunoda ;
+    t8:position14 q8:valtteri_bottas ;
+    t8:position15 q8:guanyu_zhou ;
+    t8:position16 q8:nico_hülkenberg ;
+    t8:position17 q8:alexander_albon ;
+    t8:position18 q8:daniel_ricciardo ;
+    t8:position19 q8:logan_sargeant ;
+    t8:position20 q8:oliver_bearman .
+
+
+q8:hungarian_gp_2024 t8:position1 q8:oscar_piastri ;
+    t8:position2 q8:lando_norris ;
+    t8:position3 q8:lewis_hamilton ;
+    t8:position4 q8:charles_leclerc ;
+    t8:position5 q8:max_verstappen ;
+    t8:position6 q8:george_russell ;
+    t8:position7 q8:carlos_sainz_jr ;
+    t8:position8 q8:sergio_pérez ;
+    t8:position9 q8:fernando_alonso ;
+    t8:position10 q8:pierre_gasly ;
+    t8:position11 q8:esteban_ocón ;
+    t8:position12 q8:kevin_magnussen ;
+    t8:position13 q8:yuki_tsunoda ;
+    t8:position14 q8:valtteri_bottas ;
+    t8:position15 q8:guanyu_zhou ;
+    t8:position16 q8:nico_hülkenberg ;
+    t8:position17 q8:alexander_albon ;
+    t8:position18 q8:daniel_ricciardo ;
+    t8:position19 q8:logan_sargeant ;
+    t8:position20 q8:oliver_bearman .
+
+
+q8:belgian_gp_2024 t8:position1 q8:max_verstappen ;
+    t8:position2 q8:lando_norris ;
+    t8:position3 q8:lewis_hamilton ;
+    t8:position4 q8:charles_leclerc ;
+    t8:position5 q8:george_russell ;
+    t8:position6 q8:carlos_sainz_jr ;
+    t8:position7 q8:oscar_piastri ;
+    t8:position8 q8:sergio_pérez ;
+    t8:position9 q8:fernando_alonso ;
+    t8:position10 q8:pierre_gasly ;
+    t8:position11 q8:esteban_ocón ;
+    t8:position12 q8:kevin_magnussen ;
+    t8:position13 q8:yuki_tsunoda ;
+    t8:position14 q8:valtteri_bottas ;
+    t8:position15 q8:guanyu_zhou ;
+    t8:position16 q8:nico_hülkenberg ;
+    t8:position17 q8:alexander_albon ;
+    t8:position18 q8:daniel_ricciardo ;
+    t8:position19 q8:logan_sargeant ;
+    t8:position20 q8:oliver_bearman .
+
+
+
+q8:dutch_gp_2024 t8:position1 q8:max_verstappen ;
+    t8:position2 q8:lando_norris ;
+    t8:position3 q8:lewis_hamilton ;
+    t8:position4 q8:george_russell ;
+    t8:position5 q8:fernando_alonso ;
+    t8:position6 q8:charles_leclerc ;
+    t8:position7 q8:carlos_sainz_jr ;
+    t8:position8 q8:oscar_piastri ;
+    t8:position9 q8:sergio_pérez ;
+    t8:position10 q8:pierre_gasly ;
+    t8:position11 q8:esteban_ocón ;
+    t8:position12 q8:kevin_magnussen ;
+    t8:position13 q8:yuki_tsunoda ;
+    t8:position14 q8:valtteri_bottas ;
+    t8:position15 q8:guanyu_zhou ;
+    t8:position16 q8:nico_hülkenberg ;
+    t8:position17 q8:alexander_albon ;
+    t8:position18 q8:daniel_ricciardo ;
+    t8:position19 q8:logan_sargeant ;
+    t8:position20 q8:oliver_bearman .
+
+
+q8:italian_gp_2024 t8:position1 q8:max_verstappen ;
+    t8:position2 q8:lando_norris ;
+    t8:position3 q8:lewis_hamilton ;
+    t8:position4 q8:charles_leclerc ;
+    t8:position5 q8:george_russell ;
+    t8:position6 q8:carlos_sainz_jr ;
+    t8:position7 q8:oscar_piastri ;
+    t8:position8 q8:sergio_pérez ;
+    t8:position9 q8:fernando_alonso ;
+    t8:position10 q8:pierre_gasly ;
+    t8:position11 q8:esteban_ocón ;
+    t8:position12 q8:kevin_magnussen ;
+    t8:position13 q8:yuki_tsunoda ;
+    t8:position14 q8:valtteri_bottas ;
+    t8:position15 q8:guanyu_zhou ;
+    t8:position16 q8:nico_hülkenberg ;
+    t8:position17 q8:alexander_albon ;
+    t8:position18 q8:daniel_ricciardo ;
+    t8:position19 q8:logan_sargeant ;
+    t8:position20 q8:oliver_bearman .
+
+
+q8:azerbaijan_gp_2024 t8:position1 q8:oscar_piastri ;
+    t8:position2 q8:charles_leclerc ;
+    t8:position3 q8:george_russell ;
+    t8:position4 q8:lando_norris ;
+    t8:position5 q8:max_verstappen ;
+    t8:position6 q8:lewis_hamilton ;
+    t8:position7 q8:carlos_sainz_jr ;
+    t8:position8 q8:sergio_pérez ;
+    t8:position9 q8:fernando_alonso ;
+    t8:position10 q8:pierre_gasly ;
+    t8:position11 q8:esteban_ocón ;
+    t8:position12 q8:kevin_magnussen ;
+    t8:position13 q8:yuki_tsunoda ;
+    t8:position14 q8:valtteri_bottas ;
+    t8:position15 q8:guanyu_zhou ;
+    t8:position16 q8:nico_hülkenberg ;
+    t8:position17 q8:alexander_albon ;
+    t8:position18 q8:daniel_ricciardo ;
+    t8:position19 q8:logan_sargeant ;
+    t8:position20 q8:oliver_bearman .
+
+
+q8:singapore_gp_2024 t8:position1 q8:lando_norris ;
+    t8:position2 q8:max_verstappen ;
+    t8:position3 q8:oscar_piastri ;
+    t8:position4 q8:charles_leclerc ;
+    t8:position5 q8:carlos_sainz_jr ;
+    t8:position6 q8:lewis_hamilton ;
+    t8:position7 q8:george_russell ;
+    t8:position8 q8:sergio_pérez ;
+    t8:position9 q8:fernando_alonso ;
+    t8:position10 q8:pierre_gasly ;
+    t8:position11 q8:esteban_ocón ;
+    t8:position12 q8:kevin_magnussen ;
+    t8:position13 q8:yuki_tsunoda ;
+    t8:position14 q8:valtteri_bottas ;
+    t8:position15 q8:guanyu_zhou ;
+    t8:position16 q8:nico_hülkenberg ;
+    t8:position17 q8:alexander_albon ;
+    t8:position18 q8:daniel_ricciardo ;
+    t8:position19 q8:logan_sargeant ;
+    t8:position20 q8:oliver_bearman .
+
+
+q8:united_states_gp_2024 t8:position1 q8:max_verstappen ;
+    t8:position2 q8:lando_norris ;
+    t8:position3 q8:charles_leclerc ;
+    t8:position4 q8:carlos_sainz_jr ;
+    t8:position5 q8:lewis_hamilton ;
+    t8:position6 q8:george_russell ;
+    t8:position7 q8:oscar_piastri ;
+    t8:position8 q8:sergio_pérez ;
+    t8:position9 q8:fernando_alonso ;
+    t8:position10 q8:pierre_gasly ;
+    t8:position11 q8:esteban_ocón ;
+    t8:position12 q8:kevin_magnussen ;
+    t8:position13 q8:yuki_tsunoda ;
+    t8:position14 q8:valtteri_bottas ;
+    t8:position15 q8:guanyu_zhou ;
+    t8:position16 q8:nico_hülkenberg ;
+    t8:position17 q8:alexander_albon ;
+    t8:position18 q8:daniel_ricciardo ;
+    t8:position19 q8:logan_sargeant ;
+    t8:position20 q8:oliver_bearman .
+
+q8:mexican_gp_2024 t8:position1 q8:max_verstappen ;
+    t8:position2 q8:lando_norris ;
+    t8:position3 q8:lewis_hamilton ;
+    t8:position4 q8:charles_leclerc ;
+    t8:position5 q8:george_russell ;
+    t8:position6 q8:carlos_sainz_jr ;
+    t8:position7 q8:oscar_piastri ;
+    t8:position8 q8:sergio_pérez ;
+    t8:position9 q8:fernando_alonso ;
+    t8:position10 q8:pierre_gasly ;
+    t8:position11 q8:esteban_ocón ;
+    t8:position12 q8:kevin_magnussen ;
+    t8:position13 q8:yuki_tsunoda ;
+    t8:position14 q8:valtteri_bottas ;
+    t8:position15 q8:guanyu_zhou ;
+    t8:position16 q8:nico_hülkenberg ;
+    t8:position17 q8:alexander_albon ;
+    t8:position18 q8:daniel_ricciardo ;
+    t8:position19 q8:logan_sargeant ;
+    t8:position20 q8:oliver_bearman .
+
+q8:brazilian_gp_2024 t8:position1 q8:max_verstappen ;
+    t8:position2 q8:lando_norris ;
+    t8:position3 q8:charles_leclerc ;
+    t8:position4 q8:lewis_hamilton ;
+    t8:position5 q8:george_russell ;
+    t8:position6 q8:carlos_sainz_jr ;
+    t8:position7 q8:oscar_piastri ;
+    t8:position8 q8:sergio_pérez ;
+    t8:position9 q8:fernando_alonso ;
+    t8:position10 q8:pierre_gasly ;
+    t8:position11 q8:esteban_ocón ;
+    t8:position12 q8:kevin_magnussen ;
+    t8:position13 q8:yuki_tsunoda ;
+    t8:position14 q8:valtteri_bottas ;
+    t8:position15 q8:guanyu_zhou ;
+    t8:position16 q8:nico_hülkenberg ;
+    t8:position17 q8:alexander_albon ;
+    t8:position18 q8:daniel_ricciardo ;
+    t8:position19 q8:logan_sargeant ;
+    t8:position20 q8:oliver_bearman .
+
+q8:las_vegas_gp_2024 t8:position1 q8:charles_leclerc ;
+    t8:position2 q8:max_verstappen ;
+    t8:position3 q8:lando_norris ;
+    t8:position4 q8:lewis_hamilton ;
+    t8:position5 q8:george_russell ;
+    t8:position6 q8:carlos_sainz_jr ;
+    t8:position7 q8:oscar_piastri ;
+    t8:position8 q8:sergio_pérez ;
+    t8:position9 q8:fernando_alonso ;
+    t8:position10 q8:pierre_gasly ;
+    t8:position11 q8:esteban_ocón ;
+    t8:position12 q8:kevin_magnussen ;
+    t8:position13 q8:yuki_tsunoda ;
+    t8:position14 q8:valtteri_bottas ;
+    t8:position15 q8:guanyu_zhou ;
+    t8:position16 q8:nico_hülkenberg ;
+    t8:position17 q8:alexander_albon ;
+    t8:position18 q8:daniel_ricciardo ;
+    t8:position19 q8:logan_sargeant ;
+    t8:position20 q8:oliver_bearman .
+
+q8:qatar_gp_2024 t8:position1 q8:max_verstappen ;
+    t8:position2 q8:charles_leclerc ;
+    t8:position3 q8:oscar_piastri ;
+    t8:position4 q8:george_russell ;
+    t8:position5 q8:pierre_gasly ;
+    t8:position6 q8:carlos_sainz_jr ;
+    t8:position7 q8:lando_norris ;
+    t8:position8 q8:guanyu_zhou ;
+    t8:position9 q8:fernando_alonso ;
+    t8:position10 q8:lewis_hamilton ;
+    t8:position11 q8:sergio_pérez ;
+    t8:position12 q8:kevin_magnussen ;
+    t8:position13 q8:yuki_tsunoda ;
+    t8:position14 q8:valtteri_bottas ;
+    t8:position15 q8:nico_hülkenberg ;
+    t8:position16 q8:esteban_ocón ;
+    t8:position17 q8:alexander_albon ;
+    t8:position18 q8:daniel_ricciardo ;
+    t8:position19 q8:logan_sargeant ;
+    t8:position20 q8:oliver_bearman .
+
+q8:abu_dhabi_gp_2024 t8:position1 q8:lando_norris ;
+    t8:position2 q8:charles_leclerc ;
+    t8:position3 q8:carlos_sainz_jr ;
+    t8:position4 q8:max_verstappen ;
+    t8:position5 q8:george_russell ;
+    t8:position6 q8:lewis_hamilton ;
+    t8:position7 q8:pierre_gasly ;
+    t8:position8 q8:oscar_piastri ;
+    t8:position9 q8:fernando_alonso ;
+    t8:position10 q8:sergio_pérez ;
+    t8:position11 q8:kevin_magnussen ;
+    t8:position12 q8:yuki_tsunoda ;
+    t8:position13 q8:valtteri_bottas ;
+    t8:position14 q8:nico_hülkenberg ;
+    t8:position15 q8:esteban_ocón ;
+    t8:position16 q8:guanyu_zhou ;
+    t8:position17 q8:alexander_albon ;
+    t8:position18 q8:daniel_ricciardo ;
+    t8:position19 q8:logan_sargeant ;
+    t8:position20 q8:oliver_bearman .
