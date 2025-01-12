@@ -1,58 +1,41 @@
 # Consultas de bases de datos nuevas
 
-load bases/base_coches_f1.ttl
-load bases/base_equipos_formula1.ttl
-load bases/base_eventos_f1.ttl
-load bases/base_pilotos.ttl
+# Consultas base de paises
+load bases/base_paises.ttl
 
-# Producto cartesiano de eventos f1
-select ?t, ?q where { 
-    ?t t8:P31 q8:evento_f1 .
-    ?q t8:P31 q8:evento_f1 .
+select ?p, ?q where { 
+    ?p0 t8:vecino ?q0 . 
+    ?p0 t8:nombre ?p . 
+    ?q0 t8:nombre ?q . 
 }
 
-# Cada evento f1 con el nombre y el pais
-select ?t, ?q, ?r where { 
-    ?t t8:P31 q8:evento_f1 .
-    ?t t8:name ?q .
-    ?t t8:country ?r .
+draw vecinos.png
+
+# Lista de paises de Europa del Sur
+select ?p where { 
+    ?p0 t8:subregion q8:Europa_del_Sur . 
+    ?p0 t8:nombre ?p .
 }
 
-# Para cada evento f1, el nombre, la nacionalidad, el coche del ganador y el pais del equipo del coche
-
-select ?evName, ?driName, ?driNationality, ?driCar, ?teamCountry where { 
-    ?t t8:P31 q8:evento_f1 .
-    ?t t8:name ?evName .
-    ?t t8:winner ?dri .
-    ?dri t8:name ?driName .
-    ?dri t8:has_nationality ?driNationality .
-    ?driCar t8:driven_by ?dri .
-    ?driCar t8:team ?team .
-    ?team t8:based_in ?teamCountry .
+# Lista de paises de Europa del Oeste
+select ?p where { 
+    ?p0 t8:subregion q8:Europa_del_Oeste . 
+    ?p0 t8:nombre ?p .
 }
 
-# Eventos f1 en los que estaba soleado
-
-select ?evName, ?w where { 
-    ?t t8:P31 q8:evento_f1 .
-    ?t t8:name ?evName .
-    ?t t8:weather ?w .
-    ?t t8:weather "Sunny" .
+# Para cada capital, el pais y su atraccion popular
+select ?c, ?pn, ?a where { 
+    ?c wdt:P31 q8:capital . 
+    ?c t8:pais ?p . 
+    ?c t8:atraccion_popular ?a . 
+    ?p t8:nombre ?pn .
 }
 
-# Muestra el equipo y el piloto del equipo repetidas tantas veces cuantas ha ganado algun evento
-select ?team, ?driName where { 
-    ?team wdt:P31 q8:f1_team .
-    ?driver t8:drives_for ?team .
-    ?driver t8:name ?driName .
-    ?driver t8:driver_category q8:main_driver .
-    ?driver t8:suspended "false" .
-    ?ev t8:P31 q8:evento_f1 .
-    ?ev t8:winner ?driver .
+# Las capitales vecinas de Roma
+select ?qn, ?c where {
+    q8:Roma t8:pais ?p .
+    ?p t8:vecino ?q .
+    ?q t8:nombre ?qn .
+    ?c wdt:P31 q8:capital .
+    ?c t8:pais ?q .
 }
-
-# Para cada evento el ganador
-select ?q, ?t where {?q t8:P31 q8:evento_f1 . ?q t8:position1 ?t . }
-
-# Para cada evento el siguiente evento
-select ?q, ?t where {?q t8:P31 q8:evento_f1 . ?q t8:next ?t . }

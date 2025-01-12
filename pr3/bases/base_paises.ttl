@@ -1,43 +1,193 @@
 ###############
 ### DESCRIPCION
 ###############
-# Contiene información sobre los paises, sus idiomas y vecinos
+# Contiene información sobre los paises, sus idiomas,
+# moneda, fecha de entrada en la UE, el rey...
+# Solo se tienen en cuenta paises y vecinos que están
+# en Europa del Oeste y Europa del Sur, según esta interpretación
+# https://en.wikipedia.org/wiki/EuroVoc
+
+# Además, para cada país está la información sobre la capital y las atracciones populares
+# Algunos paises tienen el año de fundación
 
 ###############
 ### EJEMPLOS DE CONSULTAS
 ###############
-# Cuales son los vecinos de un pais?
-# En que idiomas habla cada pais o los vecinos de un pais?
+
+# Cuáles son los vecinos de un país?
+# En qué idiomas habla cada país o los vecinos de un país?
+# Quién es el rey de Gran Bretaña? (t8:rey)
+# Cuándo se celebra el día de independencia de Francia?
+# Para cada capital, el pais y su atraccion popular
+# Qué clima hace en cada país?
 
 ###############
 ### CONTENIDO
 ###############
 
+q8:Roma wdt:P31 q8:capital ;
+t8:poblacion "2,860,009" ;
+t8:atraccion_popular q8:Coliseo ;
+t8:año_fundada "753 a. C." ;
+t8:pais wd:Q38 .
+
+q8:Londres wdt:P31 q8:capital ;
+t8:poblacion "8,982,965" ;
+t8:atraccion_popular q8:Big_Ben ;
+t8:año_fundada "43 d. C." ;
+t8:pais wd:Q145 .
+
+q8:Dublín wdt:P31 q8:capital ;
+t8:poblacion "1,173,179" ;
+t8:atraccion_popular q8:Trinity_College ;
+t8:pais wd:Q27 .
+
+q8:París wdt:P31 q8:capital ;
+t8:poblacion "2,165,421" ;
+t8:atraccion_popular q8:Torre_Eiffel ;
+t8:año_fundada "52 a. C." ;
+t8:pais wd:Q142 .
+
+q8:Madrid wdt:P31 q8:capital ;
+t8:poblacion "3,223,334" ;
+t8:atraccion_popular q8:Palacio_Real_de_Madrid ;
+t8:pais wd:Q29 .
+
+q8:Lisboa wdt:P31 q8:capital ;
+t8:poblacion "505,526" ;
+t8:atraccion_popular q8:Monasterio_de_San_Vicente_de_Fora ;
+t8:pais wd:Q45 .
+
+q8:Berna wdt:P31 q8:capital ;
+t8:poblacion "134,000" ;
+t8:atraccion_popular q8:Zytglogge ;
+t8:año_fundada "1191" ;
+t8:pais wd:Q39 .
+
+q8:Viena wdt:P31 q8:capital ;
+t8:poblacion "1,897,000" ;
+t8:atraccion_popular q8:Palacio_de_Schönbrunn ;
+t8:pais wd:Q40 .
+
+q8:Berlín wdt:P31 q8:capital ;
+t8:poblacion "3,769,495" ;
+t8:atraccion_popular q8:Puerta_de_Brandenburgo ;
+t8:año_fundada "1244" ;
+t8:pais wd:Q183 .
+
+q8:Andorra_la_Vella wdt:P31 q8:capital ;
+t8:poblacion "22,256" ;
+t8:atraccion_popular q8:Casa_de_la_Vila ;
+t8:año_fundada "1278" ;
+t8:pais wd:Q228 .
+
+q8:Bruselas wdt:P31 q8:capital ;
+t8:poblacion "1,212,000" ;
+t8:atraccion_popular q8:Atomium ;
+t8:pais wd:Q31 .
+
+q8:Luxemburgo wdt:P31 q8:capital ;
+t8:poblacion "125,000" ;
+t8:atraccion_popular q8:Palacio_Granducal ;
+t8:pais wd:Q32 .
+
+q8:Ámsterdam wdt:P31 q8:capital ;
+t8:poblacion "872,680" ;
+t8:atraccion_popular q8:Museo_Van_Gogh ;
+t8:pais wd:Q55 .
+
+q8:Mónaco wdt:P31 q8:capital ;
+t8:poblacion "38,682" ;
+t8:atraccion_popular q8:Palacio_Príncipal_de_Mónaco ;
+t8:pais wd:Q235 .
+
+q8:Vaduz wdt:P31 q8:capital ;
+t8:poblacion "5,700" ;
+t8:atraccion_popular q8:Castillo_de_Vaduz ;
+t8:pais wd:Q347 .
+
+q8:San_Marino wdt:P31 q8:capital ;
+t8:poblacion "4,000" ;
+t8:atraccion_popular q8:Basílica_de_San_Marino ;
+t8:pais wd:Q238 .
+
+q8:Ankara wdt:P31 q8:capital ;
+t8:poblacion "5,446,000" ;
+t8:atraccion_popular q8:Mausoleo_de_Atatürk ;
+t8:pais wd:Q43 .
+
+q8:Valletta wdt:P31 q8:capital ;
+t8:poblacion "6,000" ;
+t8:atraccion_popular q8:Fort_Saint_Elmo ;
+t8:pais wd:Q233 .
+
+q8:Atenas wdt:P31 q8:capital ;
+t8:poblacion "3,168,000" ;
+t8:atraccion_popular q8:Partenón ;
+t8:pais wd:Q41 .
+
+q8:Nicosia wdt:P31 q8:capital ;
+t8:poblacion "200,000" ;
+t8:atraccion_popular q8:Puerta_de_Famagusta ;
+t8:pais wd:Q229 .
+
+q8:Ciudad_del_Vaticano wdt:P31 q8:capital ;
+t8:poblacion "800" ;
+t8:atraccion_popular q8:Basilica_de_San_Pedro ;
+t8:pais wd:Q237 .
+
 wd:Q38 wdt:P31 q8:pais ;
     t8:nombre "Italia" ;
-    t8:capital q8:Roma ;
     t8:idioma q8:Italiano ;
+    t8:subregion q8:Europa_del_Sur ;
+    t8:clima "Mediterráneo" ;
+    t8:moneda q8:Euro ;
+    t8:entrada_UE "1957" ;
+    # Vecinos
     # Francia
     t8:vecino wd:Q142 ;
     # Suiza
     t8:vecino wd:Q39 ;
     # Austria
-    t8:vecino wd:Q40 ;   
-    # Eslovenia
-    t8:vecino wd:Q215 .
+    t8:vecino wd:Q40 ;
+    # Santa Sede
+    t8:vecino wd:Q237 ;
+    # San Marino
+    t8:vecino wd:Q238 .
 
-wd:Q145 wdt:P31 q8:pais ;  
+wd:Q145 wdt:P31 q8:pais ;
     t8:nombre "Reino Unido" ;
-    t8:capital q8:Londres ;
-    t8:idioma q8:Ingles ;
+    t8:idioma q8:Inglés ;
+    t8:subregion q8:Europa_del_Oeste ;
+    t8:clima "Templado marítimo" ;
+    t8:moneda q8:Libra_Esterlina ;
+    t8:rey q8:Carlos_III ;
+    # Vecinos
     # Irlanda
     t8:vecino wd:Q27 .
 
+wd:Q27 wdt:P31 q8:pais ;
+    t8:nombre "Irlanda" ;
+    t8:dia_independencia "6 de diciembre" ;
+    t8:idioma q8:Inglés ;
+    t8:subregion q8:Europa_del_Oeste ;
+    t8:clima "Oceánico" ;
+    t8:moneda q8:Euro ;
+    t8:entrada_UE "1973" ;
+    # Vecinos
+    # Reino Unido
+    t8:vecino wd:Q145 .
+
 wd:Q142 wdt:P31 q8:pais ;
     t8:nombre "Francia" ;
-    t8:capital q8:Paris ;
-    t8:idioma q8:Frances ;
-    # Belgica
+    t8:idioma q8:Francés ;
+    t8:dia_independencia "14 de julio" ;
+    t8:subregion q8:Europa_del_Oeste ;
+    t8:clima "Templado oceánico, mediterráneo en la costa sur" ;
+    t8:moneda q8:Euro ;
+    t8:entrada_UE "1957" ;
+    # Vecinos
+    # Bélgica
     t8:vecino wd:Q31 ;  
     # Luxemburgo
     t8:vecino wd:Q32 ;  
@@ -49,39 +199,21 @@ wd:Q142 wdt:P31 q8:pais ;
     t8:vecino wd:Q38 ;   
     # España
     t8:vecino wd:Q29 ;   
-    # Monaco
+    # Mónaco
     t8:vecino wd:Q235 ;  
     # Andorra
-    t8:vecino wd:Q228 .   
-
-wd:Q30 wdt:P31 q8:pais ;
-    t8:nombre "Estados Unidos" ;
-    t8:capital q8:Washington_D_C ;
-    t8:idioma q8:Ingles ;
-    # Canada
-    t8:vecino wd:Q16 ;  
-    # Mexico
-    t8:vecino wd:Q96 .
-
-wd:Q16 wdt:P31 q8:pais ;
-    t8:nombre "Canada" ;
-    t8:capital q8:Ottawa ;
-    t8:idioma q8:Ingles ; 
-    t8:idioma q8:Frances ;
-    # Estados Unidos
-    t8:vecino wd:Q30 .
-
-wd:Q96 wdt:P31 q8:pais ;
-    t8:nombre "Mexico" ;
-    t8:capital q8:Ciudad_de_Mexico ;
-    t8:idioma q8:Espanol ;
-    # Estados Unidos
-    t8:vecino wd:Q30 .
+    t8:vecino wd:Q228 .
 
 wd:Q29 wdt:P31 q8:pais ;
     t8:nombre "España" ;
-    t8:capital q8:Madrid ;
-    t8:idioma q8:Espanol ;
+    t8:idioma q8:Español ;
+    t8:dia_independencia "12 de octubre" ;
+    t8:subregion q8:Europa_del_Sur ;
+    t8:clima "Mediterráneo con zonas oceánicas y semiáridas" ;
+    t8:moneda q8:Euro ;
+    t8:entrada_UE "1986" ;
+    t8:rey q8:Felipe_VI ;
+    # Vecinos
     # Francia
     t8:vecino wd:Q142 ;
     # Andorra
@@ -89,30 +221,212 @@ wd:Q29 wdt:P31 q8:pais ;
     # Portugal
     t8:vecino wd:Q45 .
 
+wd:Q45 wdt:P31 q8:pais ;
+    t8:nombre "Portugal" ;
+    t8:dia_independencia "1 de diciembre" ;
+    t8:idioma q8:Portugues ;
+    t8:subregion q8:Europa_del_Sur ;
+    t8:clima "Mediterráneo oceánico" ;
+    t8:moneda q8:Euro ;
+    t8:entrada_UE "1986" ;
+    # Vecinos
+    # España
+    t8:vecino wd:Q29 .
+
 wd:Q39 wdt:P31 q8:pais ;
     t8:nombre "Suiza" ;
-    t8:capital q8:Berna ;
-    t8:idioma q8:Aleman ;
-    t8:idioma q8:Frances ;
+    t8:idioma q8:Alemán ;
+    t8:idioma q8:Francés ;
     t8:idioma q8:Italiano ;
+    t8:subregion q8:Europa_del_Oeste ;
+    t8:clima "Alpino y templado" ;
+    t8:moneda q8:Franco_Suizo ;    
     # Italia
     t8:vecino wd:Q38 ;  
     # Francia
     t8:vecino wd:Q142 ;  
     # Alemania
     t8:vecino wd:Q183 ;  
+    # Liechtenstein
+    t8:vecino wd:Q347 ;
     # Austria
     t8:vecino wd:Q40 .
 
 wd:Q40 wdt:P31 q8:pais ;
     t8:nombre "Austria" ;
-    t8:capital q8:Viena ;
-    t8:idioma q8:Aleman ;
+    t8:idioma q8:Alemán ;
+    t8:subregion q8:Europa_del_Oeste ;
+    t8:clima "Templado continental" ;
+    t8:moneda q8:Euro ;
+    t8:entrada_UE "1995" ;
     # Italia
     t8:vecino wd:Q38 ;
     # Suiza
     t8:vecino wd:Q39 ;
     # Alemania
     t8:vecino wd:Q183 ;
-    # Eslovenia
-    t8:vecino wd:Q215 .
+    # Liechtenstein
+    t8:vecino wd:Q347 .
+
+wd:Q183 wdt:P31 q8:pais ;
+    t8:nombre "Alemania" ;
+    t8:moneda q8:Euro ;
+    t8:entrada_UE "1957" ;
+    # cuando se juntaron east y west germany en el 1990
+    t8:dia_independencia "3 de octubre" ;
+    t8:idioma q8:Alemán ;
+    t8:subregion q8:Europa_del_Oeste ;
+    t8:clima "Templado oceánico y continental" ;
+    # Austria
+    t8:vecino wd:Q40 ;  
+    # Suiza
+    t8:vecino wd:Q39 ;  
+    # Francia
+    t8:vecino wd:Q142 ;  
+    # Bélgica
+    t8:vecino wd:Q31 ;  
+    # Luxemburgo
+    t8:vecino wd:Q32 ;  
+    # Países Bajos
+    t8:vecino wd:Q55 .
+
+wd:Q228 wdt:P31 q8:pais ;  
+    t8:nombre "Andorra" ;
+    t8:idioma q8:Catalan ;
+    t8:subregion q8:Europa_del_Oeste ;
+    t8:clima "Mediterráneo montañoso" ;
+    t8:moneda q8:Euro ;
+    t8:entrada_UE "1993" ;
+    # Francia
+    t8:vecino wd:Q142 ;  
+    # España
+    t8:vecino wd:Q29 .
+
+wd:Q31 wdt:P31 q8:pais ;  
+    t8:nombre "Bélgica" ;
+    t8:idioma q8:Neerlandes ;
+    t8:idioma q8:Francés ;
+    t8:idioma q8:Alemán ;
+    t8:subregion q8:Europa_del_Oeste ;
+    t8:clima "Templado marítimo" ;
+    t8:moneda q8:Euro ;
+    t8:entrada_UE "1958" ;
+    # Francia
+    t8:vecino wd:Q142 ;  
+    # Luxemburgo
+    t8:vecino wd:Q32 ;  
+    # Alemania
+    t8:vecino wd:Q183 ; 
+    # Países Bajos
+    t8:vecino wd:Q55 .  
+
+wd:Q32 wdt:P31 q8:pais ;  
+    t8:nombre "Luxemburgo" ;
+    t8:idioma q8:Luxemburgués ;
+    t8:dia_independencia "23 de junio" ;
+    t8:subregion q8:Europa_del_Oeste ;
+    t8:clima "Templado marítimo" ;
+    t8:moneda q8:Euro ;
+    t8:entrada_UE "1958" ;
+    # Francia
+    t8:vecino wd:Q142 ;  
+    # Bélgica
+    t8:vecino wd:Q31 ;  
+    # Alemania
+    t8:vecino wd:Q183 .
+
+wd:Q55 wdt:P31 q8:pais ;  
+    t8:nombre "Países Bajos" ;
+    t8:idioma q8:Nederlandes ;
+    t8:subregion q8:Europa_del_Oeste ;
+    t8:clima "Templado marítimo" ;
+    t8:moneda q8:Euro ;
+    t8:entrada_UE "1958" ;
+    # Alemania
+    t8:vecino wd:Q183 ;  
+    # Bélgica
+    t8:vecino wd:Q31 .
+
+wd:Q235 wdt:P31 q8:pais ;  
+    t8:nombre "Mónaco" ;
+    t8:idioma q8:Francés ;
+    t8:subregion q8:Europa_del_Oeste ;
+    t8:clima "Mediterráneo" ;
+    t8:moneda q8:Euro ;
+    t8:entrada_UE "1993" ;
+    # Francia
+    t8:vecino wd:Q142 .
+
+wd:Q347 wdt:P31 q8:pais ;  
+    t8:nombre "Liechtenstein" ;
+    t8:idioma q8:Alemán ;
+    t8:subregion q8:Europa_del_Oeste ;
+    t8:clima "Alpino" ;
+    t8:moneda q8:Franco_suizo ;
+    # Suiza
+    t8:vecino wd:Q39 ;  
+    # Austria
+    t8:vecino wd:Q40 .
+
+wd:Q238 wdt:P31 q8:pais ;  
+    t8:nombre "San Marino" ;
+    t8:idioma q8:Italiano ;
+    t8:subregion q8:Europa_del_Sur ;
+    t8:clima "Mediterráneo" ;
+    t8:moneda q8:Euro ;
+    t8:entrada_UE "1993" ;
+    # Italia
+    t8:vecino wd:Q38 .
+
+wd:Q43 wdt:P31 q8:pais ;  
+    t8:nombre "Turquía" ;
+    t8:dia_independencia "29 de octubre" ;
+    t8:idioma q8:Turco ;
+    t8:subregion q8:Europa_del_Sur ;
+    t8:clima "Mediterráneo y continental" ;
+    t8:moneda q8:Lira_Turca ;
+    # Vecinos
+    # Grecia
+    t8:vecino wd:Q41 .
+
+wd:Q233 wdt:P31 q8:pais ;  
+    t8:nombre "Malta" ;
+    t8:dia_independencia "21 de septiembre" ;
+    t8:idioma q8:Maltés ;
+    t8:idioma q8:Inglés ;
+    t8:subregion q8:Europa_del_Sur ;
+    t8:clima "Mediterráneo" ;
+    t8:moneda q8:Euro ;
+    t8:entrada_UE "2004" .
+
+wd:Q41 wdt:P31 q8:pais ;  
+    t8:nombre "Grecia" ;
+    t8:dia_independencia "25 de marzo" ;
+    t8:idioma q8:Griego ;
+    t8:subregion q8:Europa_del_Sur ;
+    t8:clima "Mediterráneo" ;
+    t8:moneda q8:Euro ;
+    t8:entrada_UE "1981" ;
+    # Vecinos
+    # Turquía
+    t8:vecino wd:Q43 .
+
+wd:Q229 wdt:P31 q8:pais ;  
+    t8:nombre "Chipre" ;
+    t8:dia_independencia "1 de octubre" ;
+    t8:idioma q8:Griego ;
+    t8:idioma q8:Turco ;
+    t8:subregion q8:Europa_del_Sur ;
+    t8:clima "Mediterráneo" ;
+    t8:moneda q8:Euro ;
+    t8:entrada_UE "2004" .
+
+wd:Q237 wdt:P31 q8:pais ;  
+    t8:nombre "Santa Sede" ;
+    t8:idioma q8:Latín ;
+    t8:idioma q8:Italiano ;
+    t8:subregion q8:Europa_del_Sur ;
+    t8:clima "Mediterráneo" ;
+    # Vecinos
+    # Italia
+    t8:vecino wd:Q38 .

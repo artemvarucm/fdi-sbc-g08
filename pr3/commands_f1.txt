@@ -1,0 +1,86 @@
+# Consulta bases de formula 1
+
+load bases/base_coches_f1.ttl
+load bases/base_equipos_formula1.ttl
+load bases/base_eventos_f1.ttl
+load bases/base_pilotos.ttl
+
+# Producto cartesiano de eventos f1
+select ?t, ?q where { 
+    ?t t8:P31 q8:evento_f1 .
+    ?q t8:P31 q8:evento_f1 .
+}
+
+# Cada evento f1 con el nombre y el pais
+select ?t, ?q, ?r where { 
+    ?t t8:P31 q8:evento_f1 .
+    ?t t8:name ?q .
+    ?t t8:gp_type ?type .
+    ?type t8:country ?r .
+}
+
+# Para cada evento f1, el nombre, la nacionalidad, el coche del ganador y el pais del equipo del coche
+
+select ?evName, ?driName, ?driNationality, ?driCar, ?teamCountry where { 
+    ?t t8:P31 q8:evento_f1 .
+    ?t t8:name ?evName .
+    ?t t8:position1 ?dri .
+    ?dri t8:name ?driName .
+    ?dri t8:has_nationality ?driNationality .
+    ?driCar t8:driven_by ?dri .
+    ?dri t8:drives_for ?team .
+    ?team t8:based_in ?teamCountry .
+}
+
+# Eventos f1 en los que estaba soleado
+
+select ?evName, ?w where { 
+    ?t t8:P31 q8:evento_f1 .
+    ?t t8:name ?evName .
+    ?t t8:weather ?w .
+    ?t t8:weather "Sunny" .
+}
+
+# Para cada evento el ganador
+select ?q, ?t where {
+    ?q t8:P31 q8:evento_f1 . 
+    ?q t8:position1 ?t . 
+}
+
+# Para cada evento el siguiente evento
+select ?q, ?t where {
+    ?q t8:P31 q8:evento_f1 . 
+    ?q t8:next ?t . 
+}
+
+# Para cada conductor, el coche que conduce
+select ?dn, ?team, ?driCar where { 
+    ?d t8:P31 q8:driver .
+    ?driCar t8:driven_by ?d .
+    ?d t8:drives_for ?team .
+    ?d t8:name ?dn .
+}
+
+# Para cada coche, el conductor
+select ?driCar, ?dn, ?team where { 
+    ?driCar t8:P31 q8:car .
+    ?driCar t8:driven_by ?d .
+    ?d t8:name ?dn .
+    ?d t8:drives_for ?team .
+}
+
+# Para cada evento top 5 pilotos
+select ?q, ?pos_1, ?pos_2, ?pos_3, ?pos_4, ?pos_5 where {
+    ?q t8:P31 q8:evento_f1 . 
+    ?q t8:position1 ?p1 .
+    ?p1 t8:name ?pos_1 .
+    ?q t8:position2 ?p2 .
+    ?p2 t8:name ?pos_2 .
+    ?q t8:position3 ?p3 .
+    ?p3 t8:name ?pos_3 .
+    ?q t8:position4 ?p4 .
+    ?p4 t8:name ?pos_4 .
+    ?q t8:position5 ?p5 .
+    ?p5 t8:name ?pos_5 .
+
+}
