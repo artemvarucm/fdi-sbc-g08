@@ -1,0 +1,355 @@
+# BASE DE CONOCIMIENTO DE DUEÑOS DE COCHES DEPORTIVOS, LAS MARCAS DE ESTOS COCHES Y LOS PAISES CON LOS VECINOS
+
+q8:Juan_Perez wdt:P31 q8:persona ;
+    t8:nombre "Juan Perez" ;
+    t8:posee q8:huracan ;
+    t8:area_trabajo q8:cosmos .
+
+q8:Maria_Gomez wdt:P31 q8:persona ;
+    t8:nombre "Maria Gomez" ;
+    t8:posee q8:ferrari_f8 ;
+    t8:area_trabajo q8:diseño .
+
+q8:Carlos_Martinez wdt:P31 q8:persona ;
+    t8:nombre "Carlos Martinez" ;
+    t8:posee q8:maserati_alfieri ;
+    t8:area_trabajo q8:musica .
+
+q8:Ana_Lopez wdt:P31 q8:persona ;
+    t8:nombre "Ana Lopez" ;
+    t8:posee q8:mclaren_720s ;
+    t8:area_trabajo q8:negocio .
+
+q8:David_Garcia wdt:P31 q8:persona ;
+    t8:nombre "David Garcia" ;
+    t8:posee q8:bugatti_chiron ;
+    t8:area_trabajo q8:aeroespacial .
+
+q8:Sofia_Rodriguez wdt:P31 q8:persona ;
+    t8:nombre "Sofia Rodriguez" ;
+    t8:posee q8:chevrolet_corvette ;
+    t8:area_trabajo q8:medicina .
+
+q8:Antonio_Fernandez wdt:P31 q8:persona ;
+    t8:nombre "Antonio Fernandez" ;
+    t8:posee q8:aventador ;
+    t8:area_trabajo q8:negocio .
+
+q8:Tomas_Sanchez wdt:P31 q8:persona ;
+    t8:nombre "Tomas Sanchez" ;
+    t8:posee q8:maserati_granturismo ;
+    t8:area_trabajo q8:politica .
+
+q8:Lucia_Morales wdt:P31 q8:persona ;
+    t8:nombre "Lucia Morales" ;
+    t8:posee q8:ferrari_488 ;
+    t8:area_trabajo q8:negocio .
+
+q8:Oscar_Molina wdt:P31 q8:persona ;
+    t8:nombre "oscar Molina" ;
+    t8:posee q8:chevrolet_camaro ;
+    t8:area_trabajo q8:restaurante .
+
+q8:Laura_Suarez wdt:P31 q8:persona ;
+    t8:nombre "Laura Suarez" ;
+    t8:posee q8:bugatti_veyron ;
+    t8:area_trabajo q8:show .
+
+q8:Ricardo_Vazquez wdt:P31 q8:persona ;
+    t8:nombre "Ricardo Vazquez" ;
+    t8:posee q8:mclaren_p1 ;
+    t8:area_trabajo q8:aeroespacial .
+
+q8:Julia_Martin wdt:P31 q8:persona ;
+    t8:nombre "Julia Martin" ;
+    t8:posee q8:chevrolet_camaro ;
+    t8:area_trabajo q8:show .
+
+# Lamborghini
+q8:huracan wdt:P31 q8:coche_deportivo ;
+    t8:nombre "Lamborghini Huracan" ;
+    t8:marca q8:Lamborghini ;
+    t8:año "2014" ;
+    t8:motor q8:v10 ;
+    t8:potencia "610" ;
+    t8:velocidad_maxima "325" ;
+    t8:cambio_velocidades q8:cambio_automatico ;
+    t8:salon q8:piel ;
+    t8:pais wd:Q38 .
+
+q8:aventador wdt:P31 q8:coche_deportivo ;
+    t8:nombre "Lamborghini Aventador" ;
+    t8:marca q8:Lamborghini ;
+    t8:año "2011" ;
+    t8:motor q8:v12 ;
+    t8:potencia "700" ;
+    t8:velocidad_maxima "350" ;
+    t8:cambio_velocidades q8:cambio_automatico ;
+    t8:salon q8:piel ;
+    t8:pais wd:Q38 .
+
+# Ferrari
+q8:ferrari_488 wdt:P31 q8:coche_deportivo ;
+    t8:nombre "Ferrari 488 GTB" ;
+    t8:marca q8:Ferrari ;
+    t8:año "2015" ;
+    t8:motor q8:v8 ;
+    t8:caballos "670" ;
+    t8:velocidad_maxima "330" ;
+    t8:cambio_velocidades q8:doble_embrague ;
+    t8:salon q8:cuero ;
+    t8:pais wd:Q38 .
+
+q8:ferrari_f8 wdt:P31 q8:coche_deportivo ;
+    t8:nombre "Ferrari F8 Tributo" ;
+    t8:marca q8:Ferrari ;
+    t8:año "2019" ;
+    t8:motor q8:v8 ;
+    t8:potencia "710" ;
+    t8:velocidad_maxima "340" ;
+    t8:cambio_velocidades q8:doble_embrague ;
+    t8:salon q8:cuero ;
+    t8:pais wd:Q38 .
+
+# Maseratti
+q8:maserati_alfieri wdt:P31 q8:coche_deportivo ;
+    t8:nombre "Maserati Alfieri" ;
+    t8:marca q8:Maseratti ;
+    t8:año "2021" ;
+    t8:motor q8:v6 ;
+    t8:potencia "550" ;
+    t8:velocidad_maxima "300" ;
+    t8:cambio_velocidades q8:cambio_automatico ;
+    t8:salon q8:cuero ;
+    t8:pais wd:Q38 .
+
+q8:maserati_granturismo wdt:P31 q8:coche_deportivo ;
+    t8:nombre "Maserati GranTurismo" ;
+    t8:marca q8:Maseratti ;
+    t8:año "2007" ;
+    t8:motor q8:v8 ;
+    t8:caballos "460" ;
+    t8:velocidad_maxima "300" ;
+    t8:cambio_velocidades q8:cambio_automatico ;
+    t8:salon q8:cuero ;
+    t8:pais wd:Q38 .
+
+# McLaren
+q8:mclaren_720s wdt:P31 q8:coche_deportivo ;
+    t8:nombre "McLaren 720S" ;
+    t8:marca q8:McLaren ;
+    t8:año "2017" ;
+    t8:motor q8:v8 ;
+    t8:potencia "720" ;
+    t8:velocidad_maxima "341" ;
+    t8:cambio_velocidades q8:cambio_automatico ;
+    t8:salon q8:cuero ;
+    t8:pais wd:Q145 .
+
+q8:mclaren_p1 wdt:P31 q8:coche_deportivo ;
+    t8:nombre "McLaren P1" ;
+    t8:marca q8:McLaren ;
+    t8:año "2013" ;
+    t8:motor q8:v8_hybrid ;
+    t8:potencia "903" ;
+    t8:velocidad_maxima "350" ;
+    t8:cambio_velocidades q8:cambio_automatico ;
+    t8:salon q8:cuero ;
+    t8:pais wd:Q145 .
+
+# Bugatti
+q8:bugatti_chiron wdt:P31 q8:coche_deportivo ;
+    t8:nombre "Bugatti Chiron" ;
+    t8:marca q8:Bugatti ;
+    t8:año "2016" ;
+    t8:motor q8:w16 ;
+    t8:caballos "1500" ;
+    t8:velocidad_maxima "420" ;
+    t8:cambio_velocidades q8:cambio_automatico ;
+    t8:salon q8:cuero ;
+    t8:pais wd:Q142 .
+
+q8:bugatti_veyron wdt:P31 q8:coche_deportivo ;
+    t8:nombre "Bugatti Veyron" ;
+    t8:marca q8:Bugatti ;
+    t8:año "2005" ;
+    t8:motor q8:w16 ;
+    t8:potencia "1001" ;
+    t8:velocidad_maxima "408" ;
+    t8:cambio_velocidades q8:cambio_automatico ;
+    t8:salon q8:cuero ;
+    t8:pais wd:Q142 .
+
+# Chevrolet
+q8:chevrolet_corvette wdt:P31 q8:coche_deportivo ;
+    t8:nombre "Chevrolet Corvette" ;
+    t8:marca q8:Chevrolet ;
+    t8:año "2020" ;
+    t8:motor q8:v8 ;
+    t8:potencia "495" ;
+    t8:velocidad_maxima "312" ;
+    t8:cambio_velocidades q8:cambio_manual ;
+    t8:salon q8:cuero ;
+    t8:pais wd:Q30 .
+
+q8:chevrolet_camaro wdt:P31 q8:coche_deportivo ;
+    t8:nombre "Chevrolet Camaro ZL1" ;
+    t8:marca q8:Chevrolet ;
+    t8:año "2017" ;
+    t8:motor q8:v8 ;
+    t8:potencia "650" ;
+    t8:velocidad_maxima "320" ;
+    t8:cambio_velocidades q8:cambio_manual ;
+    t8:salon q8:cuero ;
+    t8:pais wd:Q30 .
+
+q8:Lamborghini wdt:P31 q8:marca_de_coche ;
+    t8:nombre "Lamborghini" ;
+    t8:fundacion "1963" ;
+    t8:fundador q8:Ferruccio_Lamborghini ;
+    t8:pais wd:Q38 ;
+    t8:propietario q8:Volkswagen_Group .
+
+q8:Ferrari wdt:P31 q8:marca_de_coche ;
+    t8:nombre "Ferrari" ;
+    t8:fundacion "1939" ;
+    t8:fundador q8:Enzo_Ferrari ;
+    t8:pais wd:Q38 ;
+    t8:propietario q8:Exor_NV .
+
+q8:Maseratti wdt:P31 q8:marca_de_coche ;
+    t8:nombre "Maserati" ;
+    t8:fundacion "1914" ;
+    t8:fundador q8:Alfieri_Maserati ;
+    t8:pais wd:Q38 ;
+    t8:propietario q8:Stellantis .
+
+q8:McLaren wdt:P31 q8:marca_de_coche ;
+    t8:nombre "McLaren" ;
+    t8:fundacion "1963" ;
+    t8:fundador q8:Bruce_McLaren ;
+    t8:pais wd:Q145 ;
+    t8:propietario q8:McLaren_Group .
+
+q8:Bugatti wdt:P31 q8:marca_de_coche ;
+    t8:nombre "Bugatti" ;
+    t8:fundacion "1909" ;
+    t8:fundador q8:Ettore_Bugatti ;
+    t8:pais wd:Q142 ;
+    t8:propietario q8:Volkswagen_Group .
+
+q8:Chevrolet wdt:P31 q8:marca_de_coche ;
+    t8:nombre "Chevrolet" ;
+    t8:fundacion "1911" ;
+    t8:fundador q8:Louis_Chevrolet ;
+    t8:fundador q8:William_Crapo_Durant ;
+    t8:fundador q8:Arthur_Chevrolet ;
+    t8:pais wd:Q30 ;
+    t8:propietario q8:General_Motors .
+
+wd:Q38 wdt:P31 wd:Q6256 ;
+    t8:nombre "Italia" ;
+    t8:capital q8:Roma ;
+    t8:idioma q8:Italiano ;
+    # Francia
+    t8:vecino wd:Q142 ;
+    # Suiza
+    t8:vecino wd:Q39 ;
+    # Austria
+    t8:vecino wd:Q40 ;   
+    # Eslovenia
+    t8:vecino wd:Q215 .
+
+wd:Q145 wdt:P31 wd:Q6256 ;  
+    t8:nombre "Reino Unido" ;
+    t8:capital q8:Londres ;
+    t8:idioma q8:Ingles ;
+    # Irlanda
+    t8:vecino wd:Q27 .
+
+wd:Q142 wdt:P31 wd:Q6256 ;
+    t8:nombre "Francia" ;
+    t8:capital q8:Paris ;
+    t8:idioma q8:Frances ;
+    # Belgica
+    t8:vecino wd:Q31 ;  
+    # Luxemburgo
+    t8:vecino wd:Q32 ;  
+    # Alemania
+    t8:vecino wd:Q183 ;  
+    # Suiza
+    t8:vecino wd:Q39 ;   
+    # Italia
+    t8:vecino wd:Q38 ;   
+    # España
+    t8:vecino wd:Q29 ;   
+    # Monaco
+    t8:vecino wd:Q235 ;  
+    # Andorra
+    t8:vecino wd:Q228 .   
+
+wd:Q30 wdt:P31 wd:Q6256 ;
+    t8:nombre "Estados Unidos" ;
+    t8:capital q8:Washington_D_C ;
+    t8:idioma q8:Ingles ;
+    # Canada
+    t8:vecino wd:Q16 ;  
+    # Mexico
+    t8:vecino wd:Q96 .
+
+wd:Q16 wdt:P31 wd:Q6256 ;
+    t8:nombre "Canada" ;
+    t8:capital q8:Ottawa ;
+    t8:idioma q8:Ingles ; 
+    t8:idioma q8:Frances ;
+    # Estados Unidos
+    t8:vecino wd:Q30 .
+
+wd:Q96 wdt:P31 wd:Q6256 ;
+    t8:nombre "Mexico" ;
+    t8:capital q8:Ciudad_de_Mexico ;
+    t8:idioma q8:Espanol ;
+    # Estados Unidos
+    t8:vecino wd:Q30 .
+
+wd:Q29 wdt:P31 wd:Q6256 ;
+    t8:nombre "España" ;
+    t8:capital q8:Madrid ;
+    t8:idioma q8:Espanol ;
+    # Francia
+    t8:vecino wd:Q142 ;
+    # Andorra
+    t8:vecino wd:Q228 ;
+    # Portugal
+    t8:vecino wd:Q45 .
+
+wd:Q39 wdt:P31 wd:Q6256 ;
+    t8:nombre "Suiza" ;
+    t8:capital q8:Berna ;
+    t8:idioma q8:Aleman ;
+    t8:idioma q8:Frances ;
+    t8:idioma q8:Italiano ;
+    # Italia
+    t8:vecino wd:Q38 ;  
+    # Francia
+    t8:vecino wd:Q142 ;  
+    # Alemania
+    t8:vecino wd:Q183 ;  
+    # Austria
+    t8:vecino wd:Q40 .
+
+wd:Q40 wdt:P31 wd:Q6256 ;
+    t8:nombre "Austria" ;
+    t8:capital q8:Viena ;
+    t8:idioma q8:Aleman ;
+    # Italia
+    t8:vecino wd:Q38 ;  
+    # Suiza
+    t8:vecino wd:Q39 ;  
+    # Alemania
+    t8:vecino wd:Q183 ;  
+    # Eslovenia
+    t8:vecino wd:Q215 .
+
+# EQUIVALENCIAS
+t8:potencia wdt:P1628 t8:caballos .

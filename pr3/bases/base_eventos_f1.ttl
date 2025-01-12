@@ -14,8 +14,10 @@
 ### EJEMPLOS DE CONSULTAS
 ###############
 # ¿Qué equipos han ganado algún evento?
+# ¿Que competición fue despues de q8:bahrain_gp_2024?
 # Posiciones de los conductores para cada evento de 2024
-
+# Posiciones de Sergio Pérez para cada evento
+# 
 ###############
 ### CONTENIDO
 ###############

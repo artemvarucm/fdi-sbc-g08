@@ -1,22 +1,58 @@
-select ?t, ?e where { 
-    ?t t8:pais wd:Q38 .
-    ?t wdt:P31 ?e .
+# Consultas de bases de datos nuevas
+
+load bases/base_coches_f1.ttl
+load bases/base_equipos_formula1.ttl
+load bases/base_eventos_f1.ttl
+load bases/base_pilotos.ttl
+
+# Producto cartesiano de eventos f1
+select ?t, ?q where { 
+    ?t t8:P31 q8:evento_f1 .
+    ?q t8:P31 q8:evento_f1 .
 }
-select ?t where { 
-    ?t wdt:P31 q8:marca_de_coche .
-    ?t t8:pais wd:Q38 .
+
+# Cada evento f1 con el nombre y el pais
+select ?t, ?q, ?r where { 
+    ?t t8:P31 q8:evento_f1 .
+    ?t t8:name ?q .
+    ?t t8:country ?r .
 }
-select ?t, ?f where { 
-    ?t wdt:P31 q8:marca_de_coche .
-    ?t t8:fundador ?f .
+
+# Para cada evento f1, el nombre, la nacionalidad, el coche del ganador y el pais del equipo del coche
+
+select ?evName, ?driName, ?driNationality, ?driCar, ?teamCountry where { 
+    ?t t8:P31 q8:evento_f1 .
+    ?t t8:name ?evName .
+    ?t t8:winner ?dri .
+    ?dri t8:name ?driName .
+    ?dri t8:has_nationality ?driNationality .
+    ?driCar t8:driven_by ?dri .
+    ?driCar t8:team ?team .
+    ?team t8:based_in ?teamCountry .
 }
-select ?t, ?f where { 
-    ?t wdt:P31 ?f .
+
+# Eventos f1 en los que estaba soleado
+
+select ?evName, ?w where { 
+    ?t t8:P31 q8:evento_f1 .
+    ?t t8:name ?evName .
+    ?t t8:weather ?w .
+    ?t t8:weather "Sunny" .
 }
-select ?t where { 
-    q8:huracan t8:caballos ?t . 
+
+# Muestra el equipo y el piloto del equipo repetidas tantas veces cuantas ha ganado algun evento
+select ?team, ?driName where { 
+    ?team wdt:P31 q8:f1_team .
+    ?driver t8:drives_for ?team .
+    ?driver t8:name ?driName .
+    ?driver t8:driver_category q8:main_driver .
+    ?driver t8:suspended "false" .
+    ?ev t8:P31 q8:evento_f1 .
+    ?ev t8:winner ?driver .
 }
-select ?p, ?q where { ?p0 t8:vecino ?q0 . ?p0 t8:nombre ?p . ?q0 t8:nombre ?q . }
-#draw "t.png"
-#load base_conocimiento.ttl
-#save "t.ttl"
+
+# Para cada evento el ganador
+select ?q, ?t where {?q t8:P31 q8:evento_f1 . ?q t8:position1 ?t . }
+
+# Para cada evento el siguiente evento
+select ?q, ?t where {?q t8:P31 q8:evento_f1 . ?q t8:next ?t . }

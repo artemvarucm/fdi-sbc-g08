@@ -1,0 +1,24 @@
+# Consultas con la base de datos antigua
+
+load bases/testing/base_conocimiento_OLD.ttl
+select ?t, ?e where { 
+    ?t t8:pais wd:Q38 .
+    ?t wdt:P31 ?e .
+}
+select ?t where { 
+    ?t wdt:P31 q8:marca_de_coche .
+    ?t t8:pais wd:Q38 .
+}
+select ?t, ?f where { 
+    ?t wdt:P31 q8:marca_de_coche .
+    ?t t8:fundador ?f .
+}
+select ?t, ?f where { 
+    ?t wdt:P31 ?f .
+}
+select ?t where { 
+    q8:huracan t8:caballos ?t . 
+}
+select ?p, ?q where { ?p0 t8:vecino ?q0 . ?p0 t8:nombre ?p . ?q0 t8:nombre ?q . }
+draw vecinos.png
+#save t.ttl
