@@ -1,0 +1,121 @@
+###############
+### DESCRIPCION
+###############
+# Contiene información deportiva (titulos ganados, año de debut, numero de equipos en los que ha estado, etc) 
+# sobre los pilotos de formula 1 
+
+###############
+### EJEMPLOS DE CONSULTAS
+###############
+# Cuales son los vecinos de un pais
+
+###############
+### CONTENIDO
+###############
+
+wd:Q38 wdt:P31 q8:pais ;
+    t8:nombre "Italia" ;
+    t8:capital q8:Roma ;
+    t8:idioma q8:Italiano ;
+    # Francia
+    t8:vecino wd:Q142 ;
+    # Suiza
+    t8:vecino wd:Q39 ;
+    # Austria
+    t8:vecino wd:Q40 ;   
+    # Eslovenia
+    t8:vecino wd:Q215 .
+
+wd:Q145 wdt:P31 q8:pais ;  
+    t8:nombre "Reino Unido" ;
+    t8:capital q8:Londres ;
+    t8:idioma q8:Ingles ;
+    # Irlanda
+    t8:vecino wd:Q27 .
+
+wd:Q142 wdt:P31 q8:pais ;
+    t8:nombre "Francia" ;
+    t8:capital q8:Paris ;
+    t8:idioma q8:Frances ;
+    # Belgica
+    t8:vecino wd:Q31 ;  
+    # Luxemburgo
+    t8:vecino wd:Q32 ;  
+    # Alemania
+    t8:vecino wd:Q183 ;  
+    # Suiza
+    t8:vecino wd:Q39 ;   
+    # Italia
+    t8:vecino wd:Q38 ;   
+    # España
+    t8:vecino wd:Q29 ;   
+    # Monaco
+    t8:vecino wd:Q235 ;  
+    # Andorra
+    t8:vecino wd:Q228 .   
+
+wd:Q30 wdt:P31 q8:pais ;
+    t8:nombre "Estados Unidos" ;
+    t8:capital q8:Washington_D_C ;
+    t8:idioma q8:Ingles ;
+    # Canada
+    t8:vecino wd:Q16 ;  
+    # Mexico
+    t8:vecino wd:Q96 .
+
+wd:Q16 wdt:P31 q8:pais ;
+    t8:nombre "Canada" ;
+    t8:capital q8:Ottawa ;
+    t8:idioma q8:Ingles ; 
+    t8:idioma q8:Frances ;
+    # Estados Unidos
+    t8:vecino wd:Q30 .
+
+wd:Q96 wdt:P31 q8:pais ;
+    t8:nombre "Mexico" ;
+    t8:capital q8:Ciudad_de_Mexico ;
+    t8:idioma q8:Espanol ;
+    # Estados Unidos
+    t8:vecino wd:Q30 .
+
+wd:Q29 wdt:P31 q8:pais ;
+    t8:nombre "España" ;
+    t8:capital q8:Madrid ;
+    t8:idioma q8:Espanol ;
+    # Francia
+    t8:vecino wd:Q142 ;
+    # Andorra
+    t8:vecino wd:Q228 ;
+    # Portugal
+    t8:vecino wd:Q45 .
+
+wd:Q39 wdt:P31 q8:pais ;
+    t8:nombre "Suiza" ;
+    t8:capital q8:Berna ;
+    t8:idioma q8:Aleman ;
+    t8:idioma q8:Frances ;
+    t8:idioma q8:Italiano ;
+    # Italia
+    t8:vecino wd:Q38 ;  
+    # Francia
+    t8:vecino wd:Q142 ;  
+    # Alemania
+    t8:vecino wd:Q183 ;  
+    # Austria
+    t8:vecino wd:Q40 .
+
+wd:Q40 wdt:P31 q8:pais ;
+    t8:nombre "Austria" ;
+    t8:capital q8:Viena ;
+    t8:idioma q8:Aleman ;
+    # Italia
+    t8:vecino wd:Q38 ;
+    # Suiza
+    t8:vecino wd:Q39 ;
+    # Alemania
+    t8:vecino wd:Q183 ;
+    # Eslovenia
+    t8:vecino wd:Q215 .
+
+# EQUIVALENCIAS
+t8:potencia wdt:P1628 t8:caballos .
