@@ -212,7 +212,7 @@ q8:kevin_magnussen t8:P31 q8:driver ;
     t8:suspended "false" .
 
 q8:nico_hulkenberg t8:P31 q8:driver ;
-    t8:name "Nico Hülkenberg" ;
+    t8:name "Nico Hulkenberg" ;
     t8:has_nationality "German" ;
     t8:drives_for q8:haas ;
     t8:driver_category q8:secondary_driver ;
