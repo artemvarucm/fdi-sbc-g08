@@ -295,5 +295,53 @@ q8:kimmi_raikkonen wdt:P31 q8:driver ;
     t8:total_teams "5" ;
     t8:suspended "false" .
 
+q8:jacques_villeneuve wdt:P31 q8:driver ;
+    t8:name "Jacques Villeneuve" ;
+    t8:has_nationality "Canadian" ;
+    t8:drives_for q8:bar_honda ;
+    t8:has_world_championships "1" ;
+    t8:driver_category q8:main_driver ;
+    t8:second_driver q8:ricardo_zonta ;
+    t8:debut_year "1996" ;
+    t8:retirement_year "2006" ;
+    t8:total_teams "4" ;
+    t8:suspended "false" .
+
+q8:juan_fangio wdt:P31 q8:driver ;
+    t8:name "Juan Manuel Fangio" ;
+    t8:has_nationality "Argentine" ;
+    t8:drives_for q8:mercedes ;
+    t8:has_world_championships "5" ;
+    t8:driver_category q8:main_driver ;
+    t8:second_driver q8:stirling_moss ;
+    t8:debut_year "1950" ;
+    t8:retirement_year "1958" ;
+    t8:total_teams "4" ;
+    t8:suspended "false" .
+
+q8:mario_andretti wdt:P31 q8:driver ;
+    t8:name "Mario Andretti" ;
+    t8:has_nationality "American" ;
+    t8:drives_for q8:lotus ;
+    t8:has_world_championships "1" ;
+    t8:driver_category q8:main_driver ;
+    t8:second_driver q8:ronnie_peterson ;
+    t8:debut_year "1968" ;
+    t8:retirement_year "1982" ;
+    t8:total_teams "6" ;
+    t8:suspended "false" .
+
+q8:nelson_piquet wdt:P31 q8:driver ;
+    t8:name "Nelson Piquet" ;
+    t8:has_nationality "Brazilian" ;
+    t8:drives_for q8:brabham ;
+    t8:has_world_championships "3" ;
+    t8:driver_category q8:main_driver ;
+    t8:second_driver q8:riccardo_patrese ;
+    t8:debut_year "1978" ;
+    t8:retirement_year "1991" ;
+    t8:total_teams "5" ;
+    t8:suspended "false" .
+
 # EQUIVALENCIAS
 t8:retirement_year wdt:P1628 t8:last_year .
