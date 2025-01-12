@@ -82,5 +82,46 @@ select ?q, ?pos_1, ?pos_2, ?pos_3, ?pos_4, ?pos_5 where {
     ?p4 t8:name ?pos_4 .
     ?q t8:position5 ?p5 .
     ?p5 t8:name ?pos_5 .
+}
 
+select ?q, ?pos_6, ?pos_7, ?pos_8, ?pos_9, ?pos_10 where {
+    ?q wdt:P31 q8:evento_f1 . 
+    ?q t8:position6 ?p6 .
+    ?p6 t8:name ?pos_6 .
+    ?q t8:position7 ?p7 .
+    ?p7 t8:name ?pos_7 .
+    ?q t8:position8 ?p8 .
+    ?p8 t8:name ?pos_8 .
+    ?q t8:position9 ?p9 .
+    ?p9 t8:name ?pos_9 .
+    ?q t8:position10 ?p10 .
+    ?p10 t8:name ?pos_10 .
+}
+
+select ?q, ?pos_11, ?pos_12, ?pos_13, ?pos_14, ?pos_15 where {
+    ?q wdt:P31 q8:evento_f1 . 
+    ?q t8:position11 ?p11 .
+    ?p11 t8:name ?pos_11 .
+    ?q t8:position12 ?p12 .
+    ?p12 t8:name ?pos_12 .
+    ?q t8:position13 ?p13 .
+    ?p13 t8:name ?pos_13 .
+    ?q t8:position14 ?p14 .
+    ?p14 t8:name ?pos_14 .
+    ?q t8:position15 ?p15 .
+    ?p15 t8:name ?pos_15 .
+}
+
+select ?q, ?pos_16, ?pos_17, ?pos_18, ?pos_19, ?pos_20 where {
+    ?q wdt:P31 q8:evento_f1 . 
+    ?q t8:position16 ?p16 .
+    ?p16 t8:name ?pos_16 .
+    ?q t8:position17 ?p17 .
+    ?p17 t8:name ?pos_17 .
+    ?q t8:position18 ?p18 .
+    ?p18 t8:name ?pos_18 .
+    ?q t8:position19 ?p19 .
+    ?p19 t8:name ?pos_19 .
+    ?q t8:position20 ?p20 .
+    ?p20 t8:name ?pos_20 .
 }
