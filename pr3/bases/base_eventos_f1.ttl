@@ -22,7 +22,7 @@
 ### CONTENIDO
 ###############
 
-q8:bahrain_gp_2024 t8:P31 q8:evento_f1 ;
+q8:bahrain_gp_2024 wdt:P31 q8:evento_f1 ;
     t8:name "Bahrain Grand Prix 2024" ;
     t8:date "02-03-2024" ;
     t8:weather "Clear" ;
@@ -31,11 +31,11 @@ q8:bahrain_gp_2024 t8:P31 q8:evento_f1 ;
     t8:spectators "100,000" ;
     t8:next q8:saudi_arabian_gp_2024 .
 
-q8:bahrain_gp t8:P31 q8:grand_prix_type ;
+q8:bahrain_gp wdt:P31 q8:grand_prix_type ;
     t8:country q8:bahrain ;
     t8:course_length_km "5.412" .
 
-q8:saudi_arabian_gp_2024 t8:P31 q8:evento_f1 ;
+q8:saudi_arabian_gp_2024 wdt:P31 q8:evento_f1 ;
     t8:name "Saudi Arabian Grand Prix 2024" ;
     t8:date "09-03-2024" ;
     t8:gp_type q8:saudi_arabian_gp ;
@@ -44,11 +44,11 @@ q8:saudi_arabian_gp_2024 t8:P31 q8:evento_f1 ;
     t8:previous q8:bahrain_gp_2024 ;
     t8:next q8:australian_gp_2024 .
 
-q8:saudi_arabian_gp t8:P31 q8:grand_prix_type ;
+q8:saudi_arabian_gp wdt:P31 q8:grand_prix_type ;
     t8:country q8:saudi_arabia ;
     t8:distance_km "6.174" .
 
-q8:australian_gp_2024 t8:P31 q8:evento_f1 ;
+q8:australian_gp_2024 wdt:P31 q8:evento_f1 ;
     t8:name "Australian Grand Prix 2024" ;
     t8:date "24-03-2024" ;
     t8:weather "Sunny" ;
@@ -58,11 +58,11 @@ q8:australian_gp_2024 t8:P31 q8:evento_f1 ;
     t8:previous q8:saudi_arabian_gp_2024 ;
     t8:next q8:japanese_gp_2024 .
 
-q8:australian_gp t8:P31 q8:grand_prix_type ;
+q8:australian_gp wdt:P31 q8:grand_prix_type ;
     t8:country q8:australia ;
     t8:distance_km "5.278" .
 
-q8:japanese_gp_2024 t8:P31 q8:evento_f1 ;
+q8:japanese_gp_2024 wdt:P31 q8:evento_f1 ;
     t8:name "Japanese Grand Prix 2024" ;
     t8:date "07-04-2024" ;
     t8:weather "Sunny" ;
@@ -72,11 +72,11 @@ q8:japanese_gp_2024 t8:P31 q8:evento_f1 ;
     t8:previous q8:australian_gp_2024 ;
     t8:next q8:chinese_gp_2024 .
 
-q8:japanese_gp t8:P31 q8:grand_prix_type ;
+q8:japanese_gp wdt:P31 q8:grand_prix_type ;
     t8:country q8:japan ;
     t8:distance_km "5.807" .
 
-q8:chinese_gp_2024 t8:P31 q8:evento_f1 ;
+q8:chinese_gp_2024 wdt:P31 q8:evento_f1 ;
     t8:name "Chinese Grand Prix 2024" ;
     t8:date "21-04-2024" ;
     t8:weather "Cloudy" ;
@@ -86,11 +86,11 @@ q8:chinese_gp_2024 t8:P31 q8:evento_f1 ;
     t8:previous q8:japanese_gp_2024 ;
     t8:next q8:miami_gp_2024 .
 
-q8:chinese_gp t8:P31 q8:grand_prix_type ;
+q8:chinese_gp wdt:P31 q8:grand_prix_type ;
     t8:country q8:china ;
     t8:distance_km "5.451" .
 
-q8:miami_gp_2024 t8:P31 q8:evento_f1 ;
+q8:miami_gp_2024 wdt:P31 q8:evento_f1 ;
     t8:name "Miami Grand Prix 2024" ;
     t8:date "05-05-2024" ;
     t8:weather "Partly cloudy" ;
@@ -100,11 +100,11 @@ q8:miami_gp_2024 t8:P31 q8:evento_f1 ;
     t8:previous q8:chinese_gp_2024 ;
     t8:next q8:emilia_romagna_gp_2024 .
 
-q8:miami_gp t8:P31 q8:grand_prix_type ;
+q8:miami_gp wdt:P31 q8:grand_prix_type ;
     t8:country q8:usa ;
     t8:course_length_km "5.412" .
 
-q8:emilia_romagna_gp_2024 t8:P31 q8:evento_f1 ;
+q8:emilia_romagna_gp_2024 wdt:P31 q8:evento_f1 ;
     t8:name "Emilia Romagna Grand Prix 2024" ;
     t8:date "19-05-2024" ;
     t8:climate "Partly cloudy" ;
@@ -114,11 +114,11 @@ q8:emilia_romagna_gp_2024 t8:P31 q8:evento_f1 ;
     t8:previous q8:miami_gp_2024 ;
     t8:next q8:monaco_gp_2024 .
 
-q8:emilia_romagna_gp t8:P31 q8:grand_prix_type ;
+q8:emilia_romagna_gp wdt:P31 q8:grand_prix_type ;
     t8:country q8:italy ;
     t8:distance_km "4.909" .
 
-q8:monaco_gp_2024 t8:P31 q8:evento_f1 ;
+q8:monaco_gp_2024 wdt:P31 q8:evento_f1 ;
     t8:name "Monaco Grand Prix 2024" ;
     t8:date "26-05-2024" ;
     t8:weather "Sunny" ;
@@ -127,11 +127,11 @@ q8:monaco_gp_2024 t8:P31 q8:evento_f1 ;
     t8:previous q8:emilia_romagna_gp_2024 ;
     t8:next q8:canadian_gp_2024 .
 
-q8:monaco_gp t8:P31 q8:grand_prix_type ;
+q8:monaco_gp wdt:P31 q8:grand_prix_type ;
     t8:country q8:monaco ;
     t8:distance_km "3.337" .
 
-q8:canadian_gp_2024 t8:P31 q8:evento_f1 ;
+q8:canadian_gp_2024 wdt:P31 q8:evento_f1 ;
     t8:name "Canadian Grand Prix 2024" ;
     t8:date "09-06-2024" ;
     t8:weather "Rainy at start, dry later" ;
@@ -141,11 +141,11 @@ q8:canadian_gp_2024 t8:P31 q8:evento_f1 ;
     t8:previous q8:monaco_gp_2024 ;
     t8:next q8:spanish_gp_2024 .
 
-q8:canadian_gp t8:P31 q8:grand_prix_type ;
+q8:canadian_gp wdt:P31 q8:grand_prix_type ;
     t8:country q8:canada ;
     t8:distance_km "4.361" .
 
-q8:spanish_gp_2024 t8:P31 q8:evento_f1 ;
+q8:spanish_gp_2024 wdt:P31 q8:evento_f1 ;
     t8:name "Spanish Grand Prix 2024" ;
     t8:date "23-06-2024" ;
     t8:weather "Clear" ;
@@ -155,11 +155,11 @@ q8:spanish_gp_2024 t8:P31 q8:evento_f1 ;
     t8:previous q8:canadian_gp_2024 ;
     t8:next q8:austrian_gp_2024 .
 
-q8:spanish_gp t8:P31 q8:grand_prix_type ;
+q8:spanish_gp wdt:P31 q8:grand_prix_type ;
     t8:country q8:spain ;
     t8:distance_km "4.657" .
 
-q8:austrian_gp_2024 t8:P31 q8:evento_f1 ;
+q8:austrian_gp_2024 wdt:P31 q8:evento_f1 ;
     t8:name "Austrian Grand Prix 2024" ;
     t8:date "30-06-2024" ;
     t8:weather "Partly cloudy" ;
@@ -169,11 +169,11 @@ q8:austrian_gp_2024 t8:P31 q8:evento_f1 ;
     t8:previous q8:spanish_gp_2024 ;
     t8:next q8:british_gp_2024 .
 
-q8:austrian_gp t8:P31 q8:grand_prix_type ;
+q8:austrian_gp wdt:P31 q8:grand_prix_type ;
     t8:country q8:austria ;
     t8:distance_km "4.318" .
 
-q8:british_gp_2024 t8:P31 q8:evento_f1 ;
+q8:british_gp_2024 wdt:P31 q8:evento_f1 ;
     t8:name "British Grand Prix 2024" ;
     t8:date "07-07-2024" ;
     t8:weather "Intermittent rain" ;
@@ -183,11 +183,11 @@ q8:british_gp_2024 t8:P31 q8:evento_f1 ;
     t8:previous q8:austrian_gp_2024 ;
     t8:next q8:hungarian_gp_2024 .
 
-q8:british_gp t8:P31 q8:grand_prix_type ;
+q8:british_gp wdt:P31 q8:grand_prix_type ;
     t8:country q8:uk ;
     t8:distance_km "5.891" .
 
-q8:hungarian_gp_2024 t8:P31 q8:evento_f1 ;
+q8:hungarian_gp_2024 wdt:P31 q8:evento_f1 ;
     t8:name "Hungarian Grand Prix 2024" ;
     t8:date "21-07-2024" ;
     t8:winner_team q8:mclaren ;
@@ -197,11 +197,11 @@ q8:hungarian_gp_2024 t8:P31 q8:evento_f1 ;
     t8:previous q8:british_gp_2024 ;
     t8:next q8:belgian_gp_2024 .
 
-q8:hungarian_gp t8:P31 q8:grand_prix_type ;
+q8:hungarian_gp wdt:P31 q8:grand_prix_type ;
     t8:country q8:hungary ;
     t8:distance_km "4.381" .
 
-q8:belgian_gp_2024 t8:P31 q8:evento_f1 ;
+q8:belgian_gp_2024 wdt:P31 q8:evento_f1 ;
     t8:name "Belgian Grand Prix 2024" ;
     t8:date "28-07-2024" ;
     t8:winner_team q8:mercedes ;
@@ -211,11 +211,11 @@ q8:belgian_gp_2024 t8:P31 q8:evento_f1 ;
     t8:previous q8:hungarian_gp_2024 ;
     t8:next q8:dutch_gp_2024 .
 
-q8:belgian_gp t8:P31 q8:grand_prix_type ;
+q8:belgian_gp wdt:P31 q8:grand_prix_type ;
     t8:country q8:belgium ;
     t8:distance_km "7.004" .
 
-q8:dutch_gp_2024 t8:P31 q8:evento_f1 ;
+q8:dutch_gp_2024 wdt:P31 q8:evento_f1 ;
     t8:name "Dutch Grand Prix 2024" ;
     t8:date "25-08-2024" ;
     t8:winner_team q8:mclaren ;
@@ -225,11 +225,11 @@ q8:dutch_gp_2024 t8:P31 q8:evento_f1 ;
     t8:previous q8:belgian_gp_2024 ;
     t8:next q8:italian_gp_2024 .
 
-q8:dutch_gp t8:P31 q8:grand_prix_type ;
+q8:dutch_gp wdt:P31 q8:grand_prix_type ;
     t8:country q8:netherlands ;
     t8:distance_km "4.259" .
 
-q8:italian_gp_2024 t8:P31 q8:evento_f1 ;
+q8:italian_gp_2024 wdt:P31 q8:evento_f1 ;
     t8:name "Italian Grand Prix 2024" ;
     t8:date "01-09-2024" ;
     t8:winner_team q8:ferrari ;
@@ -239,11 +239,11 @@ q8:italian_gp_2024 t8:P31 q8:evento_f1 ;
     t8:previous q8:dutch_gp_2024 ;
     t8:next q8:azerbaijan_gp_2024 .
 
-q8:italian_gp t8:P31 q8:grand_prix_type ;
+q8:italian_gp wdt:P31 q8:grand_prix_type ;
     t8:country q8:italy ;
     t8:distance_km "5.793" .
 
-q8:azerbaijan_gp_2024 t8:P31 q8:evento_f1 ;
+q8:azerbaijan_gp_2024 wdt:P31 q8:evento_f1 ;
     t8:name "Azerbaijan Grand Prix 2024" ;
     t8:date "15-09-2024" ;
     t8:winner_team q8:mclaren ;
@@ -252,11 +252,11 @@ q8:azerbaijan_gp_2024 t8:P31 q8:evento_f1 ;
     t8:previous q8:italian_gp_2024 ;
     t8:next q8:singapore_gp_2024 .
 
-q8:azerbaijan_gp t8:P31 q8:grand_prix_type ;
+q8:azerbaijan_gp wdt:P31 q8:grand_prix_type ;
     t8:country q8:azerbaijan ;
     t8:distance_km "6.003" .
 
-q8:singapore_gp_2024 t8:P31 q8:evento_f1 ;
+q8:singapore_gp_2024 wdt:P31 q8:evento_f1 ;
     t8:name "Singapore Grand Prix 2024" ;
     t8:date "22-09-2024" ;
     t8:winner_team q8:mclaren ;
@@ -266,11 +266,11 @@ q8:singapore_gp_2024 t8:P31 q8:evento_f1 ;
     t8:previous q8:azerbaijan_gp_2024 ;
     t8:next q8:united_states_gp_2024 .
 
-q8:singapore_gp t8:P31 q8:grand_prix_type ;
+q8:singapore_gp wdt:P31 q8:grand_prix_type ;
     t8:country q8:singapore ;
     t8:course_length_km "4.940" .
 
-q8:united_states_gp_2024 t8:P31 q8:evento_f1 ;
+q8:united_states_gp_2024 wdt:P31 q8:evento_f1 ;
     t8:name "United States Grand Prix 2024" ;
     t8:date "20-10-2024" ;
     t8:winner_team q8:ferrari ;
@@ -279,11 +279,11 @@ q8:united_states_gp_2024 t8:P31 q8:evento_f1 ;
     t8:previous q8:singapore_gp_2024 ;
     t8:next q8:mexican_gp_2024 .
 
-q8:united_states_gp t8:P31 q8:grand_prix_type ;
+q8:united_states_gp wdt:P31 q8:grand_prix_type ;
     t8:country q8:usa ;
     t8:course_length_km "5.513" .
 
-q8:mexican_gp_2024 t8:P31 q8:evento_f1 ;
+q8:mexican_gp_2024 wdt:P31 q8:evento_f1 ;
     t8:name "Mexican Grand Prix 2024" ;
     t8:date "27-10-2024" ;
     t8:winner_team q8:ferrari ;
@@ -293,11 +293,11 @@ q8:mexican_gp_2024 t8:P31 q8:evento_f1 ;
     t8:previous q8:united_states_gp_2024 ;
     t8:next q8:brazilian_gp_2024 .
 
-q8:mexican_gp t8:P31 q8:grand_prix_type ;
+q8:mexican_gp wdt:P31 q8:grand_prix_type ;
     t8:country q8:mexico ;
     t8:distance_km "4.304" .
 
-q8:brazilian_gp_2024 t8:P31 q8:evento_f1 ;
+q8:brazilian_gp_2024 wdt:P31 q8:evento_f1 ;
     t8:name "Brazilian Grand Prix 2024" ;
     t8:date "03-11-2024" ;
     t8:winner_team q8:red_bull ;
@@ -307,11 +307,11 @@ q8:brazilian_gp_2024 t8:P31 q8:evento_f1 ;
     t8:previous q8:mexican_gp_2024 ;
     t8:next q8:las_vegas_gp_2024 .
 
-q8:brazilian_gp t8:P31 q8:grand_prix_type ;
+q8:brazilian_gp wdt:P31 q8:grand_prix_type ;
     t8:country q8:brazil ;
     t8:course_length_km "4.309" .
 
-q8:las_vegas_gp_2024 t8:P31 q8:evento_f1 ;
+q8:las_vegas_gp_2024 wdt:P31 q8:evento_f1 ;
     t8:name "Las Vegas Grand Prix 2024" ;
     t8:date "23-11-2024" ;
     t8:winner_team q8:mercedes ;
@@ -321,11 +321,11 @@ q8:las_vegas_gp_2024 t8:P31 q8:evento_f1 ;
     t8:previous q8:brazilian_gp_2024 ;
     t8:next q8:qatar_gp_2024 .
 
-q8:las_vegas_gp t8:P31 q8:grand_prix_type ;
+q8:las_vegas_gp wdt:P31 q8:grand_prix_type ;
     t8:country q8:usa ;
     t8:course_length_km "6.201" .
 
-q8:qatar_gp_2024 t8:P31 q8:evento_f1 ;
+q8:qatar_gp_2024 wdt:P31 q8:evento_f1 ;
     t8:name "Qatar Grand Prix 2024" ;
     t8:date "01-12-2024" ;
     t8:winner_team q8:red_bull ;
@@ -335,11 +335,11 @@ q8:qatar_gp_2024 t8:P31 q8:evento_f1 ;
     t8:previous q8:las_vegas_gp_2024 ;
     t8:next q8:abu_dhabi_gp_2024 .
 
-q8:qatar_gp t8:P31 q8:grand_prix_type ;
+q8:qatar_gp wdt:P31 q8:grand_prix_type ;
     t8:country q8:qatar ;
     t8:distance_km "5.419" .
 
-q8:abu_dhabi_gp_2024 t8:P31 q8:evento_f1 ;
+q8:abu_dhabi_gp_2024 wdt:P31 q8:evento_f1 ;
     t8:name "Abu Dhabi Grand Prix 2024" ;
     t8:date "08-12-2024" ;
     t8:winner_team q8:mclaren ;
@@ -348,7 +348,7 @@ q8:abu_dhabi_gp_2024 t8:P31 q8:evento_f1 ;
     t8:gp_type q8:abu_dhabi_gp ;
     t8:previous q8:qatar_gp_2024 .
 
-q8:abu_dhabi_gp t8:P31 q8:grand_prix_type ;
+q8:abu_dhabi_gp wdt:P31 q8:grand_prix_type ;
     t8:country q8:uae ;
     t8:distance_km "5.281" .
 
