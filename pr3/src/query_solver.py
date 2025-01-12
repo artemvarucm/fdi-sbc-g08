@@ -108,12 +108,8 @@ class QuerySolver:
 
         columnsOutsideWhere = set(selectColumns).difference(set(dfResponse.columns))
         if columnsOutsideWhere:
-            end = ""
-            if len(columnsOutsideWhere) > 1:
-                end = "s"
-
             raise QueryException(
-                f"[ERROR] La{end} columna{end} {columnsOutsideWhere} no están en el where."
+                f"[ERROR] Las columnas {columnsOutsideWhere} no están en el where."
             )
 
         return dfResponse[selectColumns]
