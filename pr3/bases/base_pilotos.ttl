@@ -59,7 +59,7 @@ q8:lance_stroll wdt:P31 q8:driver ;
     t8:total_teams "2" ;
     t8:suspended "false" .
 
-q8:charles_leclerc wdt:P31 q8:driver ;
+q8:charles_leclerc wdt:P31 q8:driver ; 
     t8:name "Charles Leclerc" ;
     t8:has_nationality "Monégasque" ;
     t8:drives_for q8:ferrari ;
@@ -89,7 +89,7 @@ q8:max_verstappen wdt:P31 q8:driver ;
     t8:suspended "false" .
 
 q8:sergio_perez wdt:P31 q8:driver ;
-    t8:name "Sergio Pérez" ;
+    t8:name "Sergio Perez" ;
     t8:has_nationality "Mexican" ;
     t8:drives_for q8:red_bull ;
     t8:driver_category q8:secondary_driver ;
@@ -220,7 +220,7 @@ q8:nico_hulkenberg t8:P31 q8:driver ;
     t8:total_teams "6" ;
     t8:suspended "false" .
 
-q8:carlos_sainz t8:P31 q8:driver ;
+q8:carlos_sainz_jr t8:P31 q8:driver ;
     t8:name "Carlos Sainz" ;
     t8:has_nationality "Spanish" ;
     t8:drives_for q8:ferrari ;
