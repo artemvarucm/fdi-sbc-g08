@@ -285,3 +285,87 @@ q8:alfa_romeo_alfaromeo_c43 wdt:P31 q8:car ;
     t8:sound "100" ;
     t8:cost "12000000" ;
     t8:driven_by q8:valtteri_bottas .
+
+    q8:ferrari_sf21 wdt:P31 q8:car ;
+    t8:year "2021" ;
+    t8:team q8:ferrari ;
+    t8:horse_power "1000" ;
+    t8:electric_components "true" ;
+    t8:speed "330" ;
+    t8:height "1.2" ;
+    t8:length "5.6" ;
+    t8:width "2.0" ;
+    t8:engine q8:v6_hybrid ;
+    t8:weight "752" ;
+    t8:material q8:carbon_fiber ;
+    t8:sound "80" ;
+    t8:cost "12000000" ;
+    t8:driven_by q8:carlos_sainz_jr .
+
+    q8:ferrari_sf90 wdt:P31 q8:car ;
+    t8:year "2019" ;
+    t8:team q8:ferrari ;
+    t8:horse_power "1000" ;
+    t8:electric_components "true" ;
+    t8:speed "340" ;
+    t8:height "1.2" ;
+    t8:length "5.6" ;
+    t8:width "2.0" ;
+    t8:engine q8:v6_hybrid ;
+    t8:weight "743" ;
+    t8:material q8:carbon_fiber ;
+    t8:sound "85" ;
+    t8:cost "14000000" ;
+    t8:driven_by q8:charles_leclerc .
+
+
+q8:mclaren_mcl36 wdt:P31 q8:car ;
+    t8:year "2022" ;
+    t8:team q8:mclaren ;
+    t8:horse_power "1020" ;
+    t8:electric_components "true" ;
+    t8:speed "330" ;
+    t8:height "1.2" ;
+    t8:length "5.5" ;
+    t8:width "2.0" ;
+    t8:engine q8:v6_hybrid ;
+    t8:weight "798" ;
+    t8:material q8:carbon_fiber ;
+    t8:sound "87" ;
+    t8:cost "15000000" ;
+    t8:driven_by q8:lando_norris .
+
+
+q8:mercedes_w13 wdt:P31 q8:car ;
+    t8:year "2022" ;
+    t8:team q8:mercedes ;
+    t8:horse_power "1030" ;
+    t8:electric_components "true" ;
+    t8:speed "335" ;
+    t8:height "1.2" ;
+    t8:length "5.6" ;
+    t8:width "2.0" ;
+    t8:engine q8:v6_hybrid ;
+    t8:weight "798" ;
+    t8:material q8:carbon_fiber ;
+    t8:sound "86" ;
+    t8:cost "16000000" ;
+    t8:driven_by q8:george_russell .
+
+q8:mclaren_mcl60 wdt:P31 q8:car ;
+    t8:year "2023" ;
+    t8:team q8:mclaren ;
+    t8:horse_power "1010" ;
+    t8:electric_components "true" ;
+    t8:speed "330" ;
+    t8:height "1.2" ;
+    t8:length "5.5" ;
+    t8:width "2.0" ;
+    t8:engine q8:v6_hybrid ;
+    t8:weight "798" ;
+    t8:material q8:carbon_fiber ;
+    t8:sound "85" ;
+    t8:cost "15000000" ;
+    t8:driven_by q8:oscar_piastri .
+
+

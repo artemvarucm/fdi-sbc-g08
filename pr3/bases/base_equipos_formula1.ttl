@@ -25,7 +25,7 @@ q8:ferrari wdt:P31 q8:f1_team ;
     t8:name "Scuderia Ferrari" ;
     t8:based_in q8:italy ;
     t8:last_won_year "2007" ;
-    t8:last_won_pilot q8:kimi_raikkonen ;
+    t8:last_won_pilot q8:kimmi_raikkonen ;
     t8:total_championships "16" ;
     t8:debut_year "1950" ;
     t8:last_year_budget "450 million USD" .

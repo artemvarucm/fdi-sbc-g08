@@ -283,5 +283,17 @@ q8:jack_doohan wdt:P31 q8:driver ;
     t8:total_teams "1" ;
     t8:suspended "false" .
 
+q8:kimmi_raikkonen wdt:P31 q8:driver ;
+    t8:name "Kimi Räikkönen" ;
+    t8:has_nationality "Finnish" ;
+    t8:drives_for q8:alfa_romeo ;
+    t8:has_world_championships "1" ;
+    t8:driver_category q8:main_driver ;
+    t8:second_driver q8:antonio_giovinazzi ;
+    t8:debut_year "2001" ;
+    t8:retirement_year "2021" ;
+    t8:total_teams "5" ;
+    t8:suspended "false" .
+
 # EQUIVALENCIAS
 t8:retirement_year wdt:P1628 t8:last_year .
