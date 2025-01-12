@@ -125,3 +125,10 @@ select ?q, ?pos_16, ?pos_17, ?pos_18, ?pos_19, ?pos_20 where {
     ?q t8:position20 ?p20 .
     ?p20 t8:name ?pos_20 .
 }
+
+# Para cada equipo f1 nombre del ultimo piloto que ha ganado la f1
+select ?e, ?q, ?name where {
+    ?e wdt:P31 q8:f1_team .
+    ?e t8:last_won_pilot ?q .
+    ?q t8:name ?name .
+}
