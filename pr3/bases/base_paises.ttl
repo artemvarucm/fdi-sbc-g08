@@ -1,7 +1,7 @@
 ###############
 ### DESCRIPCION
 ###############
-# Contiene información sobre los paises, sus idiomas,
+# Contiene información sobre los paises (y sus capitales), sus idiomas,
 # moneda, fecha de entrada en la UE, el rey...
 # Solo se tienen en cuenta paises y vecinos que están
 # en Europa del Oeste y Europa del Sur, según esta interpretación
@@ -26,115 +26,115 @@
 ###############
 
 q8:Roma wdt:P31 q8:capital ;
-t8:poblacion "2,860,009" ;
-t8:atraccion_popular q8:Coliseo ;
-t8:año_fundada "753 a. C." ;
-t8:pais wd:Q38 .
+    t8:poblacion "2,860,009" ;
+    t8:atraccion_popular q8:Coliseo ;
+    t8:año_fundada "753 a. C." ;
+    t8:pais wd:Q38 .
 
 q8:Londres wdt:P31 q8:capital ;
-t8:poblacion "8,982,965" ;
-t8:atraccion_popular q8:Big_Ben ;
-t8:año_fundada "43 d. C." ;
-t8:pais wd:Q145 .
+    t8:poblacion "8,982,965" ;
+    t8:atraccion_popular q8:Big_Ben ;
+    t8:año_fundada "43 d. C." ;
+    t8:pais wd:Q145 .
 
 q8:Dublín wdt:P31 q8:capital ;
-t8:poblacion "1,173,179" ;
-t8:atraccion_popular q8:Trinity_College ;
-t8:pais wd:Q27 .
+    t8:poblacion "1,173,179" ;
+    t8:atraccion_popular q8:Trinity_College ;
+    t8:pais wd:Q27 .
 
 q8:París wdt:P31 q8:capital ;
-t8:poblacion "2,165,421" ;
-t8:atraccion_popular q8:Torre_Eiffel ;
-t8:año_fundada "52 a. C." ;
-t8:pais wd:Q142 .
+    t8:poblacion "2,165,421" ;
+    t8:atraccion_popular q8:Torre_Eiffel ;
+    t8:año_fundada "52 a. C." ;
+    t8:pais wd:Q142 .
 
 q8:Madrid wdt:P31 q8:capital ;
-t8:poblacion "3,223,334" ;
-t8:atraccion_popular q8:Palacio_Real_de_Madrid ;
-t8:pais wd:Q29 .
+    t8:poblacion "3,223,334" ;
+    t8:atraccion_popular q8:Palacio_Real_de_Madrid ;
+    t8:pais wd:Q29 .
 
 q8:Lisboa wdt:P31 q8:capital ;
-t8:poblacion "505,526" ;
-t8:atraccion_popular q8:Monasterio_de_San_Vicente_de_Fora ;
-t8:pais wd:Q45 .
+    t8:poblacion "505,526" ;
+    t8:atraccion_popular q8:Monasterio_de_San_Vicente_de_Fora ;
+    t8:pais wd:Q45 .
 
 q8:Berna wdt:P31 q8:capital ;
-t8:poblacion "134,000" ;
-t8:atraccion_popular q8:Zytglogge ;
-t8:año_fundada "1191" ;
-t8:pais wd:Q39 .
+    t8:poblacion "134,000" ;
+    t8:atraccion_popular q8:Zytglogge ;
+    t8:año_fundada "1191" ;
+    t8:pais wd:Q39 .
 
 q8:Viena wdt:P31 q8:capital ;
-t8:poblacion "1,897,000" ;
-t8:atraccion_popular q8:Palacio_de_Schönbrunn ;
-t8:pais wd:Q40 .
+    t8:poblacion "1,897,000" ;
+    t8:atraccion_popular q8:Palacio_de_Schönbrunn ;
+    t8:pais wd:Q40 .
 
 q8:Berlín wdt:P31 q8:capital ;
-t8:poblacion "3,769,495" ;
-t8:atraccion_popular q8:Puerta_de_Brandenburgo ;
-t8:año_fundada "1244" ;
-t8:pais wd:Q183 .
+    t8:poblacion "3,769,495" ;
+    t8:atraccion_popular q8:Puerta_de_Brandenburgo ;
+    t8:año_fundada "1244" ;
+    t8:pais wd:Q183 .
 
 q8:Andorra_la_Vella wdt:P31 q8:capital ;
-t8:poblacion "22,256" ;
-t8:atraccion_popular q8:Casa_de_la_Vila ;
-t8:año_fundada "1278" ;
-t8:pais wd:Q228 .
+    t8:poblacion "22,256" ;
+    t8:atraccion_popular q8:Casa_de_la_Vila ;
+    t8:año_fundada "1278" ;
+    t8:pais wd:Q228 .
 
 q8:Bruselas wdt:P31 q8:capital ;
-t8:poblacion "1,212,000" ;
-t8:atraccion_popular q8:Atomium ;
-t8:pais wd:Q31 .
+    t8:poblacion "1,212,000" ;
+    t8:atraccion_popular q8:Atomium ;
+    t8:pais wd:Q31 .
 
 q8:Luxemburgo wdt:P31 q8:capital ;
-t8:poblacion "125,000" ;
-t8:atraccion_popular q8:Palacio_Granducal ;
-t8:pais wd:Q32 .
+    t8:poblacion "125,000" ;
+    t8:atraccion_popular q8:Palacio_Granducal ;
+    t8:pais wd:Q32 .
 
 q8:Ámsterdam wdt:P31 q8:capital ;
-t8:poblacion "872,680" ;
-t8:atraccion_popular q8:Museo_Van_Gogh ;
-t8:pais wd:Q55 .
+    t8:poblacion "872,680" ;
+    t8:atraccion_popular q8:Museo_Van_Gogh ;
+    t8:pais wd:Q55 .
 
 q8:Mónaco wdt:P31 q8:capital ;
-t8:poblacion "38,682" ;
-t8:atraccion_popular q8:Palacio_Príncipal_de_Mónaco ;
-t8:pais wd:Q235 .
+    t8:poblacion "38,682" ;
+    t8:atraccion_popular q8:Palacio_Príncipal_de_Mónaco ;
+    t8:pais wd:Q235 .
 
 q8:Vaduz wdt:P31 q8:capital ;
-t8:poblacion "5,700" ;
-t8:atraccion_popular q8:Castillo_de_Vaduz ;
-t8:pais wd:Q347 .
+    t8:poblacion "5,700" ;
+    t8:atraccion_popular q8:Castillo_de_Vaduz ;
+    t8:pais wd:Q347 .
 
 q8:San_Marino wdt:P31 q8:capital ;
-t8:poblacion "4,000" ;
-t8:atraccion_popular q8:Basílica_de_San_Marino ;
-t8:pais wd:Q238 .
+    t8:poblacion "4,000" ;
+    t8:atraccion_popular q8:Basílica_de_San_Marino ;
+    t8:pais wd:Q238 .
 
 q8:Ankara wdt:P31 q8:capital ;
-t8:poblacion "5,446,000" ;
-t8:atraccion_popular q8:Mausoleo_de_Atatürk ;
-t8:pais wd:Q43 .
+    t8:poblacion "5,446,000" ;
+    t8:atraccion_popular q8:Mausoleo_de_Atatürk ;
+    t8:pais wd:Q43 .
 
 q8:Valletta wdt:P31 q8:capital ;
-t8:poblacion "6,000" ;
-t8:atraccion_popular q8:Fort_Saint_Elmo ;
-t8:pais wd:Q233 .
+    t8:poblacion "6,000" ;
+    t8:atraccion_popular q8:Fort_Saint_Elmo ;
+    t8:pais wd:Q233 .
 
 q8:Atenas wdt:P31 q8:capital ;
-t8:poblacion "3,168,000" ;
-t8:atraccion_popular q8:Partenón ;
-t8:pais wd:Q41 .
+    t8:poblacion "3,168,000" ;
+    t8:atraccion_popular q8:Partenón ;
+    t8:pais wd:Q41 .
 
 q8:Nicosia wdt:P31 q8:capital ;
-t8:poblacion "200,000" ;
-t8:atraccion_popular q8:Puerta_de_Famagusta ;
-t8:pais wd:Q229 .
+    t8:poblacion "200,000" ;
+    t8:atraccion_popular q8:Puerta_de_Famagusta ;
+    t8:pais wd:Q229 .
 
 q8:Ciudad_del_Vaticano wdt:P31 q8:capital ;
-t8:poblacion "800" ;
-t8:atraccion_popular q8:Basilica_de_San_Pedro ;
-t8:pais wd:Q237 .
+    t8:poblacion "800" ;
+    t8:atraccion_popular q8:Basilica_de_San_Pedro ;
+    t8:pais wd:Q237 .
 
 wd:Q38 wdt:P31 q8:pais ;
     t8:nombre "Italia" ;
