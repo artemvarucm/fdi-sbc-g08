@@ -130,7 +130,7 @@ q8:niki_lauda wdt:P31 q8:driver ;
     t8:total_teams "5" ;
     t8:suspended "false" .
 
-q8:oscar_piastri t8:P31 q8:driver ;
+q8:oscar_piastri wdt:P31 q8:driver ;
     t8:name "Oscar Piastri" ;
     t8:has_nationality "Australian" ;
     t8:drives_for q8:mclaren ;
@@ -139,7 +139,7 @@ q8:oscar_piastri t8:P31 q8:driver ;
     t8:total_teams "1" ;
     t8:suspended "false" .
 
-q8:lando_norris t8:P31 q8:driver ;
+q8:lando_norris wdt:P31 q8:driver ;
     t8:name "Lando Norris" ;
     t8:has_nationality "British" ;
     t8:drives_for q8:mclaren ;
@@ -148,7 +148,7 @@ q8:lando_norris t8:P31 q8:driver ;
     t8:total_teams "1" ;
     t8:suspended "false" .
 
-q8:pierre_gasly t8:P31 q8:driver ;
+q8:pierre_gasly wdt:P31 q8:driver ;
     t8:name "Pierre Gasly" ;
     t8:has_nationality "French" ;
     t8:drives_for q8:alpine ;
@@ -157,7 +157,7 @@ q8:pierre_gasly t8:P31 q8:driver ;
     t8:total_teams "2" ;
     t8:suspended "false" .
 
-q8:esteban_ocon t8:P31 q8:driver ;
+q8:esteban_ocon wdt:P31 q8:driver ;
     t8:name "Esteban Ocon" ;
     t8:has_nationality "French" ;
     t8:drives_for q8:alpine ;
@@ -166,7 +166,7 @@ q8:esteban_ocon t8:P31 q8:driver ;
     t8:total_teams "3" ;
     t8:suspended "false" .
 
-q8:valtteri_bottas t8:P31 q8:driver ;
+q8:valtteri_bottas wdt:P31 q8:driver ;
     t8:name "Valtteri Bottas" ;
     t8:has_nationality "Finnish" ;
     t8:drives_for q8:alfa_romeo ;
@@ -175,7 +175,7 @@ q8:valtteri_bottas t8:P31 q8:driver ;
     t8:total_teams "3" ;
     t8:suspended "false" .
 
-q8:zhou_guanyu t8:P31 q8:driver ;
+q8:zhou_guanyu wdt:P31 q8:driver ;
     t8:name "Zhou Guanyu" ;
     t8:has_nationality "Chinese" ;
     t8:drives_for q8:alfa_romeo ;
@@ -184,7 +184,7 @@ q8:zhou_guanyu t8:P31 q8:driver ;
     t8:total_teams "1" ;
     t8:suspended "false" .
 
-q8:yuki_tsunoda t8:P31 q8:driver ;
+q8:yuki_tsunoda wdt:P31 q8:driver ;
     t8:name "Yuki Tsunoda" ;
     t8:has_nationality "Japanese" ;
     t8:drives_for q8:alphatauri ;
@@ -193,7 +193,7 @@ q8:yuki_tsunoda t8:P31 q8:driver ;
     t8:total_teams "1" ;
     t8:suspended "false" .
 
-q8:daniel_ricciardo t8:P31 q8:driver ;
+q8:daniel_ricciardo wdt:P31 q8:driver ;
     t8:name "Daniel Ricciardo" ;
     t8:has_nationality "Australian" ;
     t8:drives_for q8:alphatauri ;
@@ -202,7 +202,7 @@ q8:daniel_ricciardo t8:P31 q8:driver ;
     t8:total_teams "5" ;
     t8:suspended "false" .
 
-q8:kevin_magnussen t8:P31 q8:driver ;
+q8:kevin_magnussen wdt:P31 q8:driver ;
     t8:name "Kevin Magnussen" ;
     t8:has_nationality "Danish" ;
     t8:drives_for q8:haas ;
@@ -211,7 +211,7 @@ q8:kevin_magnussen t8:P31 q8:driver ;
     t8:total_teams "3" ;
     t8:suspended "false" .
 
-q8:nico_hulkenberg t8:P31 q8:driver ;
+q8:nico_hulkenberg wdt:P31 q8:driver ;
     t8:name "Nico Hulkenberg" ;
     t8:has_nationality "German" ;
     t8:drives_for q8:haas ;
@@ -220,7 +220,7 @@ q8:nico_hulkenberg t8:P31 q8:driver ;
     t8:total_teams "6" ;
     t8:suspended "false" .
 
-q8:carlos_sainz_jr t8:P31 q8:driver ;
+q8:carlos_sainz_jr wdt:P31 q8:driver ;
     t8:name "Carlos Sainz" ;
     t8:has_nationality "Spanish" ;
     t8:drives_for q8:ferrari ;
@@ -229,7 +229,7 @@ q8:carlos_sainz_jr t8:P31 q8:driver ;
     t8:total_teams "3" ;
     t8:suspended "false" .
 
-q8:alexander_albon t8:P31 q8:driver ;
+q8:alexander_albon wdt:P31 q8:driver ;
     t8:name "Alexander Albon" ;
     t8:has_nationality "Thai-British" ;
     t8:drives_for q8:williams ;
@@ -238,7 +238,7 @@ q8:alexander_albon t8:P31 q8:driver ;
     t8:total_teams "3" ;
     t8:suspended "false" .
 
-q8:logan_sargeant t8:P31 q8:driver ;
+q8:logan_sargeant wdt:P31 q8:driver ;
     t8:name "Logan Sargeant" ;
     t8:has_nationality "American" ;
     t8:drives_for q8:williams ;
@@ -247,7 +247,7 @@ q8:logan_sargeant t8:P31 q8:driver ;
     t8:total_teams "1" ;
     t8:suspended "false" .
 
-q8:oliver_bearman t8:P31 q8:driver ;
+q8:oliver_bearman wdt:P31 q8:driver ;
     t8:name "Oliver Bearman" ;
     t8:has_nationality "British" ;
     t8:drives_for q8:haas ;
@@ -256,7 +256,7 @@ q8:oliver_bearman t8:P31 q8:driver ;
     t8:total_teams "1" ;
     t8:suspended "false" .
 
-q8:franco_colapinto t8:P31 q8:driver ;
+q8:franco_colapinto wdt:P31 q8:driver ;
     t8:name "Franco Colapinto" ;
     t8:has_nationality "Argentinian" ;
     t8:drives_for q8:alphatauri ;
@@ -265,7 +265,7 @@ q8:franco_colapinto t8:P31 q8:driver ;
     t8:total_teams "1" ;
     t8:suspended "false" .
 
-q8:liam_lawson t8:P31 q8:driver ;
+q8:liam_lawson wdt:P31 q8:driver ;
     t8:name "Liam Lawson" ;
     t8:has_nationality "New Zealander" ;
     t8:drives_for q8:alphatauri ;
@@ -274,7 +274,7 @@ q8:liam_lawson t8:P31 q8:driver ;
     t8:total_teams "1" ;
     t8:suspended "false" .
 
-q8:jack_doohan t8:P31 q8:driver ;
+q8:jack_doohan wdt:P31 q8:driver ;
     t8:name "Jack Doohan" ;
     t8:has_nationality "Australian" ;
     t8:drives_for q8:alpine ;
